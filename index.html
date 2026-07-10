@@ -244,6 +244,14 @@ body.hasplayer{padding-bottom:70px}
 .vprod.wine .vkick,.vprod.wine .vstats b,.vprod.wine .vbuy b,.vprod.wine .vinfo-lbl b,.vprod.wine .vtracks li b{color:#A62D3E}
 .vprod.wine .vplay:hover{background:#A62D3E;border-color:#A62D3E}
 .vprod.wine .vbuy:hover{border-color:#A62D3E;color:#A62D3E}
+/* destacado (nuevo lanzamiento): info izquierda, disco derecha */
+.vprod.feat{display:grid;grid-template-columns:1fr minmax(280px,440px);gap:clamp(30px,6vw,90px);align-items:center;text-align:left}
+.vprod.feat .vdiscwrap{order:2;width:100%;max-width:440px;justify-self:end}
+.vprod.feat .vmeta{order:1;margin-top:0}
+.vprod.feat .vstats,.vprod.feat .vact{justify-content:flex-start}
+.vprod.feat .vinfo{margin-left:0;max-width:430px}
+.vprod.feat h3{font-size:clamp(48px,7vw,86px)}
+@media(max-width:860px){.vprod.feat{grid-template-columns:1fr}.vprod.feat .vdiscwrap{order:1;max-width:330px;justify-self:center}}
 /* MINIMAL SET en azul */
 .vprod.blue .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
 .vprod.blue .vdisc::before{border-color:rgba(46,111,176,.45)}
@@ -277,16 +285,14 @@ body.hasplayer{padding-bottom:70px}
   </nav>
 </div></header>
 
-<!-- HERO — TULUM, el nuevo lanzamiento -->
+<!-- HERO -->
 <section class="hero">
-  <span class="newchip">NUEVO LANZAMIENTO</span>
-  <button class="herowax" id="heroDisc" aria-label="Play TULUM"><span class="sheen"></span><span class="lbltxt"><b>TULUM</b>IN SYNC<br>MMXV</span></button>
   <div class="hero-top"><span>MORELIA, MX</span><span class="a">NEW RELEASE — TULUM</span><span>EST. MMXXVI</span></div>
   <h1 class="hero-word">AMR</h1>
   <div class="hero-bottom">
-    <p class="hero-claim"><b>TULUM — el nuevo lanzamiento.</b> Un set continuo de 1h51 cortado a vinilo azul: 16 tracks en un solo take, transiciones en tempo, in sync de principio a fin. Dale play al disco.</p>
+    <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <button class="btn solid" id="heroPlay">▸ Play TULUM</button>
+      <a class="btn solid" href="#newrelease">▸ Nuevo lanzamiento — TULUM</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -294,6 +300,15 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- MARQUEE -->
 <div class="mq"><div id="mqtrack"></div></div>
+
+<!-- NUEVO LANZAMIENTO — TULUM -->
+<section class="sec" id="newrelease">
+  <div class="sh">
+    <div><span class="hk" style="color:#2E6FB0">NUEVO LANZAMIENTO — MMXXVI</span><h2>TULUM.</h2></div>
+    <p>El set continuo de 1h51 inspirado en la estructura de la noche más famosa de Tulum: 16 tracks en un solo take, transiciones en tempo, in sync de principio a fin.</p>
+  </div>
+  <div id="featgrid"></div>
+</section>
 
 <!-- MONUMENTS — las cinco rolas -->
 <section class="sec" id="records">
@@ -327,7 +342,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Two records. Press play.</h2></div>
-    <p>Los dos discos completos en vinilo rojo vino: el EP y el set de noventa minutos. Dale play al disco — suena aquí mismo y gira. Cuando una edición se acaba, la placa se retira.</p>
+    <p>La colección: el EP en ámbar y el set de noventa minutos en rojo vino. Dale play al disco — suena aquí mismo y gira. Cuando una edición se acaba, la placa se retira.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -421,8 +436,9 @@ var vgrid = document.getElementById('vgrid');
 VINYLS.forEach(function(p,j){
   var gi = VOFF + j;   // índice global en T
   var tl = (p.titles||[]).map(function(t,k){ return '<li id="v'+j+'-tk'+k+'"><b>'+(k+1<10?'0':'')+(k+1)+'</b> '+t+'</li>'; }).join('');
+  var isFeat = (p.id === 'amr-tulum');
   var el = document.createElement('div');
-  el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-tulum' ? ' blue' : ''));
+  el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (isFeat ? ' blue feat' : ''));
   el.id = 'vprod-'+j;
   el.innerHTML =
     '<div class="vdiscwrap">'+
@@ -442,7 +458,7 @@ VINYLS.forEach(function(p,j){
       '</div>'+
       '<div class="vinfo"><span class="vinfo-lbl">LAS CANCIONES <b>·</b> '+p.tracks+' CORTES</span><ol class="vtracks">'+tl+'</ol></div>'+
     '</div>';
-  vgrid.appendChild(el);
+  (isFeat ? document.getElementById('featgrid') : vgrid).appendChild(el);
   function toggle(){ (cur===gi && !audio.paused) ? pause() : playTrack(gi); }
   document.getElementById('vdisc-'+j).addEventListener('click', toggle);
   document.getElementById('vplay-'+j).addEventListener('click', toggle);
