@@ -438,7 +438,7 @@ VINYLS.forEach(function(p,j){
       if(cur===gi){ try{ audio.currentTime = target; }catch(e){} if(audio.paused) audio.play(); }
       else {
         playTrack(gi);
-        var seek = function(){ try{ audio.currentTime = target; }catch(e){} audio.removeEventListener('canplay', seek); };
+        var seek = function(){ try{ audio.currentTime = target; }catch(e){} audio.play(); audio.removeEventListener('canplay', seek); };
         audio.addEventListener('canplay', seek);
       }
     });
