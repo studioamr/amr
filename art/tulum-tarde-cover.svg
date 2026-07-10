@@ -1,0 +1,42 @@
+<svg viewBox="0 0 1600 1600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="42%" r="80%">
+      <stop offset="0%" stop-color="#F0ECE5"/>
+      <stop offset="60%" stop-color="#E9E3DA"/>
+      <stop offset="100%" stop-color="#DDD6CB"/>
+    </radialGradient>
+    <radialGradient id="sunglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2E6FB0" stop-opacity="0.55"/>
+      <stop offset="42%" stop-color="#2E6FB0" stop-opacity="0.24"/>
+      <stop offset="100%" stop-color="#2E6FB0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="1600" fill="url(#bg)"/>
+
+  <g transform="translate(140,150) scale(5.45)">
+    <!-- resplandor del sol -->
+    <circle cx="120" cy="118" r="66" fill="url(#sunglow)"/>
+    <!-- sol -->
+    <circle cx="120" cy="118" r="34" fill="#2E6FB0"/>
+
+    <!-- rayos -->
+    <g stroke="#2E6FB0" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+      <path d="M120 44 L120 60"/>
+      <path d="M70 68 L80 78"/>
+      <path d="M170 68 L160 78"/>
+      <path d="M58 118 L74 118"/>
+      <path d="M182 118 L166 118"/>
+    </g>
+
+    <!-- horizonte / agua -->
+    <g fill="#141210">
+      <rect x="48" y="140" width="144" height="8" rx="4"/>
+      <rect x="62" y="160" width="116" height="7" rx="3.5" opacity="0.75"/>
+      <rect x="78" y="179" width="84" height="6" rx="3" opacity="0.5"/>
+      <rect x="94" y="196" width="52" height="5" rx="2.5" opacity="0.3"/>
+      <circle cx="58" cy="120" r="2.4"/>
+      <circle cx="184" cy="106" r="2.2"/>
+    </g>
+  </g>
+</svg>
