@@ -83,45 +83,57 @@ def _run():
     print('portada THE SET lista')
 
 def make_cover(peaks, n_tracks, secs):
-    """Portada NOCTURNA (otro branding): waveform real del set en ámbar sobre negro."""
+    """Portada del SET: un vinilo real sobre papel hueso (coherente con el hero, no el bloque negro)."""
     from PIL import Image
-    BONE='#EAE6DF'; INK='#141210'; AMBER='#A62D3E'; NIGHT='#0e0b08'; MUT='#8a7f72'
-    W=1400
+    BONE='#EAE6DF'; BONE2='#e0dad1'; INK='#141210'; WINE='#A62D3E'; WINE_LT='#C24C5C'; MUT='#6E675E'
+    W=1400; cx=cy=W/2; R=560
+    mm=f'{secs//60}:{secs%60:02d}'
     s=[f'<svg viewBox="0 0 {W} {W}" xmlns="http://www.w3.org/2000/svg">']
     s.append('<defs>')
-    s.append('<radialGradient id="bg" cx="50%" cy="34%" r="80%">'
-             f'<stop offset="0%" stop-color="#1d1014"/><stop offset="60%" stop-color="{NIGHT}"/>'
-             '<stop offset="100%" stop-color="#070505"/></radialGradient>')
-    s.append('<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">'
-             f'<stop offset="0%" stop-color="#C24C5C"/><stop offset="100%" stop-color="{AMBER}"/></linearGradient>')
+    s.append('<radialGradient id="disc" cx="42%" cy="38%" r="72%">'
+             '<stop offset="0%" stop-color="#211c17"/><stop offset="55%" stop-color="#17130e"/>'
+             '<stop offset="100%" stop-color="#0c0a07"/></radialGradient>')
+    s.append('<linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">'
+             '<stop offset="0%" stop-color="#fff" stop-opacity="0.10"/><stop offset="40%" stop-color="#fff" stop-opacity="0"/>'
+             '<stop offset="60%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#fff" stop-opacity="0.05"/></linearGradient>')
+    s.append('<radialGradient id="lbl" cx="46%" cy="40%" r="60%">'
+             f'<stop offset="0%" stop-color="{WINE_LT}"/><stop offset="100%" stop-color="{WINE}"/></radialGradient>')
     s.append('</defs>')
-    s.append(f'<rect width="{W}" height="{W}" fill="url(#bg)"/>')
-    # marco fino
-    s.append(f'<rect x="40" y="40" width="{W-80}" height="{W-80}" fill="none" stroke="{AMBER}" stroke-opacity="0.35" stroke-width="2"/>')
-    # etiqueta arriba
-    s.append(f'<text x="{W/2}" y="150" font-family="Courier New, monospace" font-size="26" letter-spacing="10" '
-             f'fill="{MUT}" text-anchor="middle">AMR — CONTINUOUS MIX</text>')
-    # waveform central (barras espejadas)
-    cy=W/2; n=len(peaks); span=W-260; x0=130; bw=span/n
-    for i,p in enumerate(peaks):
-        h=max(3, p*360)
-        x=x0+i*bw
-        s.append(f'<rect x="{x:.1f}" y="{cy-h/2:.1f}" width="{max(1.2,bw*0.62):.2f}" height="{h:.1f}" rx="1" fill="url(#bar)"/>')
-    # línea base
-    s.append(f'<line x1="{x0}" y1="{cy}" x2="{x0+span}" y2="{cy}" stroke="{AMBER}" stroke-opacity="0.25" stroke-width="1"/>')
-    # título
-    s.append(f'<text x="{W/2}" y="{W-360}" font-family="Georgia, serif" font-weight="bold" font-size="210" '
-             f'letter-spacing="6" fill="{BONE}" text-anchor="middle">THE SET</text>')
-    s.append(f'<line x1="{W/2-190}" y1="{W-300}" x2="{W/2+190}" y2="{W-300}" stroke="{AMBER}" stroke-width="3"/>')
-    # datos abajo
-    mm=f'{secs//60}:{secs%60:02d}'
-    s.append(f'<text x="{W/2}" y="{W-250}" font-family="Courier New, monospace" font-size="27" letter-spacing="7" '
-             f'fill="{MUT}" text-anchor="middle">{n_tracks} TRACKS<tspan fill="{AMBER}">  ·  </tspan>{mm}<tspan fill="{AMBER}">  ·  </tspan>ONE TAKE</text>')
-    # firma AMR grande abajo
-    s.append(f'<text x="{W/2}" y="{W-120}" font-family="Georgia, serif" font-weight="bold" font-size="120" '
-             f'letter-spacing="20" fill="{AMBER}" text-anchor="middle">AMR</text>')
-    s.append(f'<text x="{W/2}" y="{W-70}" font-family="Courier New, monospace" font-size="20" letter-spacing="8" '
-             f'fill="{MUT}" text-anchor="middle">MORELIA · MMXXVI</text>')
+    # papel hueso
+    s.append(f'<rect width="{W}" height="{W}" fill="{BONE}"/>')
+    s.append(f'<rect x="46" y="46" width="{W-92}" height="{W-92}" fill="none" stroke="{INK}" stroke-opacity="0.14" stroke-width="2"/>')
+    # etiquetas mono arriba
+    s.append(f'<text x="120" y="118" font-family="Courier New, monospace" font-size="24" letter-spacing="8" fill="{MUT}">AMR</text>')
+    s.append(f'<text x="{W-120}" y="118" font-family="Courier New, monospace" font-size="24" letter-spacing="8" fill="{WINE}" text-anchor="end">MMXXVI</text>')
+    # sombra + disco
+    s.append(f'<ellipse cx="{cx}" cy="{cy+R*0.9}" rx="{R*0.8}" ry="26" fill="{INK}" opacity="0.06"/>')
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="url(#disc)"/>')
+    # surcos concéntricos
+    r=200
+    i=0
+    while r <= R-8:
+        op=0.5*(0.5 if i%2 else 1.0)
+        s.append(f'<circle cx="{cx}" cy="{cy}" r="{r:.1f}" fill="none" stroke="#3a332b" stroke-width="1.2" opacity="{op:.2f}"/>')
+        r+=6.5; i+=1
+    # un surco resaltado en vino = el "hilo" del mix
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="{R*0.74:.0f}" fill="none" stroke="{WINE}" stroke-width="2.5" opacity="0.55"/>')
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="{R}" fill="url(#sheen)"/>')
+    # etiqueta central vino
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="212" fill="none" stroke="#0c0a07" stroke-width="6"/>')
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="205" fill="url(#lbl)"/>')
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="205" fill="none" stroke="#7d1f2e" stroke-width="2"/>')
+    s.append(f'<path id="atop" d="M {cx-160} {cy} A 160 160 0 0 1 {cx+160} {cy}" fill="none"/>')
+    s.append('<text font-family="Courier New, monospace" font-size="23" letter-spacing="8" '
+             f'fill="{BONE}" opacity="0.9"><textPath href="#atop" startOffset="50%" text-anchor="middle">CONTINUOUS MIX</textPath></text>')
+    s.append(f'<text x="{cx}" y="{cy-6}" font-family="Georgia, serif" font-weight="bold" font-size="82" '
+             f'letter-spacing="3" fill="{BONE}" text-anchor="middle">THE SET</text>')
+    s.append(f'<text x="{cx}" y="{cy+44}" font-family="Courier New, monospace" font-size="22" letter-spacing="4" '
+             f'fill="{BONE}" opacity="0.85" text-anchor="middle">{n_tracks} TRACKS · {mm}</text>')
+    s.append(f'<path id="abot" d="M {cx-160} {cy} A 160 160 0 0 0 {cx+160} {cy}" fill="none"/>')
+    s.append('<text font-family="Courier New, monospace" font-size="21" letter-spacing="6" '
+             f'fill="{BONE}" opacity="0.7"><textPath href="#abot" startOffset="50%" text-anchor="middle">AMR — MORELIA</textPath></text>')
+    # hoyo
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="17" fill="{BONE}"/>')
     s.append('</svg>')
     svg=''.join(s)
     os.makedirs(os.path.join(HERE,'art'), exist_ok=True)

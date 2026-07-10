@@ -166,31 +166,31 @@ footer b{color:var(--amber);font-weight:400}
 body.hasplayer{padding-bottom:70px}
 
 /* ---- THE SET (branding nocturno) ---- */
-.setwrap{background:var(--night);color:var(--bone);border-top:1px solid rgba(201,111,43,.25);position:relative;overflow:hidden}
-.setwrap::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(201,111,43,.22),transparent 70%);pointer-events:none}
+.setwrap{background:var(--bone2);color:var(--ink);border-top:1px solid rgba(166,45,62,.3);border-bottom:1px solid rgba(20,18,16,.12);position:relative;overflow:hidden}
+.setwrap::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(166,45,62,.13),transparent 70%);pointer-events:none}
 .setin{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px);display:grid;grid-template-columns:minmax(0,420px) 1fr;gap:clamp(30px,5vw,72px);align-items:center}
-.setcover{position:relative;aspect-ratio:1;border:1px solid rgba(234,230,223,.14);background:#0e0b08}
+.setcover{position:relative;aspect-ratio:1;border:1px solid rgba(20,18,16,.12);background:var(--bone)}
 .setcover img{width:100%;height:100%;object-fit:cover;display:block}
-.setcover .spin{position:absolute;right:-38px;top:50%;transform:translateY(-50%);width:64%;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#171412 0 1.6px,#241f19 1.6px 3.6px);box-shadow:0 10px 40px rgba(0,0,0,.5);z-index:-1;opacity:0;transition:opacity .5s,transform .5s}
+.setcover .spin{position:absolute;right:-38px;top:50%;transform:translateY(-50%);width:64%;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#171412 0 1.6px,#241f19 1.6px 3.6px);box-shadow:0 10px 40px rgba(20,18,16,.3);z-index:-1;opacity:0;transition:opacity .5s,transform .5s}
 .setwrap.playing .setcover .spin{opacity:1;animation:spin 2.4s linear infinite}
 .sethk{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;color:var(--amber);text-transform:uppercase}
 .setwrap h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,128px);line-height:.9;margin:14px 0 0}
-.setsub{color:rgba(234,230,223,.62);line-height:1.6;max-width:52ch;margin:18px 0 0}
-.setsub b{color:var(--bone);font-weight:500}
-.setstats{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(234,230,223,.5)}
+.setsub{color:var(--mut);line-height:1.6;max-width:52ch;margin:18px 0 0}
+.setsub b{color:var(--ink);font-weight:500}
+.setstats{display:flex;gap:26px;flex-wrap:wrap;margin:26px 0 8px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
 .setstats b{color:var(--amber);font-weight:400}
 .setwave{width:100%;height:56px;margin:20px 0 4px;cursor:pointer}
 .setact{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:22px}
-.setplay{display:inline-flex;gap:12px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--bone);background:var(--bone);color:var(--night);padding:16px 30px;cursor:pointer;transition:.35s}
-.setplay:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
-.setbuy{display:inline-flex;gap:10px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(234,230,223,.4);color:var(--bone);padding:16px 28px;cursor:pointer;background:none;transition:.35s}
+.setplay{display:inline-flex;gap:12px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);background:var(--ink);color:var(--bone);padding:16px 30px;cursor:pointer;transition:.35s}
+.setplay:hover{background:var(--amber);border-color:var(--amber);color:var(--bone)}
+.setbuy{display:inline-flex;gap:10px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);color:var(--ink);padding:16px 28px;cursor:pointer;background:none;transition:.35s}
 .setbuy:hover{border-color:var(--amber);color:var(--amber)}
 .setbuy b{color:var(--amber);font-weight:400}
-.settracks{margin:30px 0 0;border-top:1px solid rgba(234,230,223,.12);columns:2;column-gap:40px}
+.settracks{margin:30px 0 0;border-top:1px solid rgba(20,18,16,.14);columns:2;column-gap:40px}
 @media(max-width:640px){.settracks{columns:1}}
-.settracks .tk{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(234,230,223,.08);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:rgba(234,230,223,.6);break-inside:avoid}
+.settracks .tk{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid rgba(20,18,16,.08);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:var(--mut);break-inside:avoid}
 .settracks .tk b{color:var(--amber);font-weight:400;min-width:26px}
-.settracks .tk.on{color:var(--bone)}
+.settracks .tk.on{color:var(--ink)}
 @media(max-width:860px){.setin{grid-template-columns:1fr}.setcover{max-width:360px}}
 
 /* ---- reveal ---- */
@@ -372,7 +372,7 @@ document.getElementById('mqtrack').innerHTML = mq + mq;
     var W=sc.width,H=sc.height,pk=S.peaks; sx.clearRect(0,0,W,H);
     var prog=(cur===idx&&audio.duration)?audio.currentTime/audio.duration:0, n=pk.length, bw=W/n;
     for(var i=0;i<n;i++){ var h=Math.max(2*devicePixelRatio,pk[i]*H*0.92);
-      sx.fillStyle=(i/n<prog)?'#A62D3E':'rgba(234,230,223,0.22)';
+      sx.fillStyle=(i/n<prog)?'#A62D3E':'rgba(20,18,16,0.18)';
       sx.fillRect(i*bw,(H-h)/2,Math.max(1,bw*0.62),h); }
     var ci = (cur===idx&&audio.duration)? Math.floor(prog*S.tracks) : -1;
     for(var k=0;k<S.tracks;k++){ var el=document.getElementById('stk-'+k); if(el) el.classList.toggle('on', k===ci); }

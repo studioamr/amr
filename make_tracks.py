@@ -440,15 +440,15 @@ def track_ghost():
 
 # ---------- render ----------
 TRACKS = [
-    dict(id='amr-001-plinth',   n=1, title='PLINTH',   key='A MINOR',  bpm=118, edition=12, fn=track_plinth,
+    dict(id='amr-001-plinth',   n=1, title='TINTO',   key='A MINOR',  bpm=118, edition=12, fn=track_plinth,
          desc='The original. Sub bass on A1, dust on the needle, chords that answer two bars late.'),
-    dict(id='amr-002-monolith', n=2, title='MONOLITH', key='F MINOR',  bpm=112, edition=8,  fn=track_monolith,
+    dict(id='amr-002-monolith', n=2, title='BARRICA', key='F MINOR',  bpm=112, edition=8,  fn=track_monolith,
          desc='Slower, heavier, darker. One chord every two bars, struck like stone.'),
-    dict(id='amr-003-vessel',   n=3, title='VESSEL',   key='C MINOR',  bpm=122, edition=12, fn=track_vessel,
+    dict(id='amr-003-vessel',   n=3, title='COSECHA',   key='C MINOR',  bpm=122, edition=12, fn=track_vessel,
          desc='The melodic one. An arpeggio poured in circles until the vessel overflows.'),
-    dict(id='amr-004-strata',   n=4, title='STRATA',   key='D MINOR',  bpm=116, edition=10, fn=track_strata,
+    dict(id='amr-004-strata',   n=4, title='RESERVA',   key='D MINOR',  bpm=116, edition=10, fn=track_strata,
          desc='Dub techno in geological layers. The chord echoes until it becomes sediment.'),
-    dict(id='amr-005-ghost',    n=5, title='GHOST',    key='E MINOR',  bpm=0,   edition=8,  fn=track_ghost,
+    dict(id='amr-005-ghost',    n=5, title='POSO',    key='E MINOR',  bpm=0,   edition=8,  fn=track_ghost,
          desc='No drums. The 41 Hz drone breathing under everything, finally alone.'),
 ]
 
