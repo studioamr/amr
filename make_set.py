@@ -85,15 +85,15 @@ def _run():
 def make_cover(peaks, n_tracks, secs):
     """Portada NOCTURNA (otro branding): waveform real del set en ámbar sobre negro."""
     from PIL import Image
-    BONE='#EAE6DF'; INK='#141210'; AMBER='#C96F2B'; NIGHT='#0e0b08'; MUT='#8a7f72'
+    BONE='#EAE6DF'; INK='#141210'; AMBER='#A62D3E'; NIGHT='#0e0b08'; MUT='#8a7f72'
     W=1400
     s=[f'<svg viewBox="0 0 {W} {W}" xmlns="http://www.w3.org/2000/svg">']
     s.append('<defs>')
     s.append('<radialGradient id="bg" cx="50%" cy="34%" r="80%">'
-             f'<stop offset="0%" stop-color="#20180f"/><stop offset="60%" stop-color="{NIGHT}"/>'
+             f'<stop offset="0%" stop-color="#1d1014"/><stop offset="60%" stop-color="{NIGHT}"/>'
              '<stop offset="100%" stop-color="#070505"/></radialGradient>')
     s.append('<linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">'
-             f'<stop offset="0%" stop-color="#e6a35c"/><stop offset="100%" stop-color="{AMBER}"/></linearGradient>')
+             f'<stop offset="0%" stop-color="#C24C5C"/><stop offset="100%" stop-color="{AMBER}"/></linearGradient>')
     s.append('</defs>')
     s.append(f'<rect width="{W}" height="{W}" fill="url(#bg)"/>')
     # marco fino

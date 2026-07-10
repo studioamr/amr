@@ -3,7 +3,7 @@
 # Rasteriza con qlmanage. Fuentes del sistema (Georgia / Courier New) para nitidez garantizada.
 import os, math, subprocess
 
-BONE='#EAE6DF'; BONE2='#e0dad1'; INK='#141210'; AMBER='#C96F2B'; MUT='#6E675E'; NIGHT='#16130f'
+BONE='#EAE6DF'; BONE2='#e0dad1'; INK='#141210'; AMBER='#A62D3E'; MUT='#6E675E'; NIGHT='#16130f'
 HERE=os.path.dirname(os.path.abspath(__file__))
 
 def grooves(cx, cy, r0, r1, step, color, op):
@@ -30,7 +30,7 @@ def avatar():
              '<stop offset="62%" stop-color="#ffffff" stop-opacity="0"/>'
              '<stop offset="100%" stop-color="#ffffff" stop-opacity="0.05"/></linearGradient>')
     s.append('<radialGradient id="lblg" cx="50%" cy="50%" r="50%">'
-             f'<stop offset="0%" stop-color="#d98a4a"/><stop offset="100%" stop-color="{AMBER}"/></radialGradient>')
+             f'<stop offset="0%" stop-color="#C24C5C"/><stop offset="100%" stop-color="{AMBER}"/></radialGradient>')
     s.append('</defs>')
     # fondo hueso (por si el recorte deja un aro)
     s.append(f'<rect width="{W}" height="{W}" fill="{BONE}"/>')
@@ -44,7 +44,7 @@ def avatar():
     s.append(f'<circle cx="{cx}" cy="{cy}" r="200" fill="none" stroke="#0c0a07" stroke-width="6"/>')
     # etiqueta ámbar
     s.append(f'<circle cx="{cx}" cy="{cy}" r="192" fill="url(#lblg)"/>')
-    s.append(f'<circle cx="{cx}" cy="{cy}" r="192" fill="none" stroke="#a85a22" stroke-width="2"/>')
+    s.append(f'<circle cx="{cx}" cy="{cy}" r="192" fill="none" stroke="#7d1f2e" stroke-width="2"/>')
     # arco superior mono
     s.append(f'<path id="arcTop" d="M {cx-150} {cy} A 150 150 0 0 1 {cx+150} {cy}" fill="none"/>')
     s.append('<text font-family="Courier New, monospace" font-size="27" font-weight="bold" letter-spacing="7" '
@@ -113,7 +113,7 @@ def banner():
     s=[f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg">']
     s.append('<defs>')
     s.append('<radialGradient id="orb" cx="42%" cy="40%" r="62%">'
-             f'<stop offset="0%" stop-color="#e0954f"/><stop offset="100%" stop-color="{AMBER}"/></radialGradient>')
+             f'<stop offset="0%" stop-color="#C24C5C"/><stop offset="100%" stop-color="{AMBER}"/></radialGradient>')
     # halo difuso via degradado (nítido a cualquier resolución, sin filtro)
     s.append('<radialGradient id="halosoft" cx="50%" cy="50%" r="50%">'
              f'<stop offset="0%" stop-color="{AMBER}" stop-opacity="0.45"/>'
