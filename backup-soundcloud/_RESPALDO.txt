@@ -1,0 +1,6 @@
+RESPALDO SOUNDCLOUD — maxsteel2002 (amr)
+Descargado: 10 jul 2026
+29 rolas (todo tu catálogo individual de SoundCloud).
+El "set" y el álbum "MONUMENTS" son colecciones de estas mismas rolas.
+Copias extra en: ../session-src/ y ../set-src/
+Calidad: stream de SoundCloud (m4a ~128k). Tus másters WAV están en ../masters/
