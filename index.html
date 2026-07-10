@@ -1,0 +1,390 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMR — Five records, cut like monuments</title>
+<meta name="description" content="AMR presses deep house in numbered vinyl editions. Five records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
+<meta name="theme-color" content="#EAE6DF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AMR">
+<meta property="og:title" content="AMR — MONUMENTS EP">
+<meta property="og:description" content="Five records cut like monuments. Numbered vinyl, editions of a few.">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23141210"/><circle cx="16" cy="16" r="5.5" fill="%23C96F2B"/><circle cx="16" cy="16" r="1.8" fill="%23EAE6DF"/></svg>'>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+:root{--bone:#EAE6DF;--bone2:#e0dad1;--ink:#141210;--amber:#C96F2B;--mut:#6E675E;--night:#16130f}
+*{box-sizing:border-box}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Instrument Serif',serif;font-weight:400}
+.mono{font-family:'IBM Plex Mono',monospace}
+
+/* ---- intro: drop the needle ---- */
+body.lock{overflow:hidden}
+#intro{position:fixed;inset:0;z-index:60;background:var(--bone);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity .9s,visibility .9s}
+#intro.out{opacity:0;visibility:hidden}
+#intro .iword{font-family:'Instrument Serif',serif;font-size:clamp(90px,24vw,300px);line-height:.85;letter-spacing:.04em}
+#intro .isub{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
+#intro .isub b{color:var(--amber);font-weight:400}
+#intro .ibtn{margin-top:8px}
+#intro .iskip{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);background:none;border:none;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+#intro .iskip:hover{color:var(--amber)}
+
+/* ---- top ---- */
+.top{position:sticky;top:0;z-index:30;background:rgba(234,230,223,.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(20,18,16,.12)}
+.top .in{max-width:1300px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:15px clamp(20px,4vw,48px)}
+.wm{font-family:'Instrument Serif',serif;font-size:24px;letter-spacing:.14em}
+.wm i{font-style:normal;color:var(--amber)}
+.top nav{display:flex;gap:28px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.top nav a:hover{color:var(--amber)}
+@media(max-width:720px){.top nav a:not(:last-child){display:none}}
+
+/* ---- hero ---- */
+.hero{position:relative;max-width:1300px;margin:0 auto;padding:clamp(30px,5vw,60px) clamp(20px,4vw,48px) 0;min-height:62vh;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-top{display:flex;justify-content:space-between;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:clamp(30px,7vh,90px)}
+.hero-top .a{color:var(--amber)}
+.hero-word{position:relative;z-index:2;font-family:'Instrument Serif',serif;font-size:clamp(110px,26vw,380px);line-height:.8;letter-spacing:.03em;margin:0}
+.hero-bottom{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:30px;border-top:1px solid rgba(20,18,16,.18);margin-top:26px;padding:26px 0 44px;flex-wrap:wrap}
+.hero-claim{max-width:40ch;line-height:1.55;color:var(--mut);margin:0}
+.hero-claim b{color:var(--ink);font-weight:500}
+.btn{display:inline-flex;gap:10px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:16px 28px;transition:.35s;white-space:nowrap;background:none;color:inherit;cursor:pointer}
+.btn:hover{background:var(--ink);color:var(--bone)}
+.btn.solid{background:var(--ink);color:var(--bone)}
+.btn.solid:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* ---- marquee ---- */
+.mq{border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);overflow:hidden;white-space:nowrap}
+.mq div{display:inline-block;padding:16px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;animation:mq 32s linear infinite}
+.mq span{padding:0 28px}.mq b{color:var(--amber);font-weight:400}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---- sections ---- */
+.sec{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px}
+.hk{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--amber);text-transform:uppercase}
+.sh h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(38px,5.5vw,72px);margin:10px 0 0}
+.sh p{color:var(--mut);max-width:38ch;margin:0;font-size:15px;line-height:1.6}
+
+/* ---- records grid ---- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:rgba(20,18,16,.14);border:1px solid rgba(20,18,16,.14)}
+.card{background:var(--bone);color:var(--ink);padding:26px;position:relative;transition:background .45s;cursor:pointer;text-align:left;border:none;font-family:inherit;display:block;width:100%;overflow:hidden}
+.card:hover{background:var(--bone2)}
+.card .num{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--mut);display:flex;justify-content:space-between}
+.card .num b{color:var(--amber);font-weight:400}
+.sleeve{position:relative;aspect-ratio:1;margin:16px 0 18px}
+.vinyl{position:absolute;inset:4% 4% 4% auto;aspect-ratio:1;height:92%;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#171412 0 1.6px,#221e1a 1.6px 3.4px);transition:transform .7s cubic-bezier(.22,.8,.3,1);display:grid;place-items:center;box-shadow:0 2px 14px rgba(20,18,16,.25)}
+.vinyl::after{content:"";position:absolute;width:34%;height:34%;border-radius:50%;background:var(--amber)}
+.vinyl::before{content:"";position:absolute;width:7%;height:7%;border-radius:50%;background:var(--bone);z-index:2}
+.vinyl .lbl{position:absolute;z-index:1;width:34%;height:34%;border-radius:50%;display:grid;place-items:center;font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.08em;color:var(--night);text-align:center;line-height:1.6}
+.card.playing .vinyl,.card:hover .vinyl{transform:translateX(34%)}
+.card.playing .vinyl{animation:spin 1.9s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+.cover{position:relative;z-index:2;width:100%;height:100%;background:var(--bone2);border:1px solid rgba(20,18,16,.1);display:grid;place-items:center;transition:transform .5s}
+.card:hover .cover,.card.playing .cover{transform:translateX(-7%)}
+.cover img{width:86%;height:86%;object-fit:contain}
+.pchip{position:absolute;z-index:3;left:12px;bottom:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:var(--bone);border:1px solid var(--ink);padding:6px 10px;opacity:0;transition:.3s}
+.card:hover .pchip,.card.playing .pchip{opacity:1}
+.card.playing .pchip{background:var(--ink);color:var(--bone)}
+.card h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:36px;margin:0 0 10px;line-height:1}
+.card .desc{color:var(--mut);font-size:14px;line-height:1.55;margin:0 0 16px;min-height:3.2em}
+.card .row{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);border-top:1px solid rgba(20,18,16,.12);padding-top:14px}
+.card .row b{color:var(--ink);font-weight:400}
+.card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
+.card:hover::after,.card.playing::after{width:100%}
+
+/* ---- the sound (editorial) ---- */
+.edit{background:var(--bone2)}
+.edit .row2{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
+.edit h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.5vw,60px);margin:14px 0 20px}
+.edit p{color:var(--mut);line-height:1.7;max-width:46ch}
+.edit p b{color:var(--ink);font-weight:500}
+.speclist{margin:26px 0 0;padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.speclist li{display:flex;gap:16px;padding:11px 0;border-top:1px solid rgba(20,18,16,.14);color:var(--mut)}
+.speclist li:last-child{border-bottom:1px solid rgba(20,18,16,.14)}
+.speclist b{color:var(--amber);font-weight:400;min-width:110px}
+.speclist i{font-style:normal;color:var(--ink)}
+.bigdisc{position:relative;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#171412 0 2px,#232019 2px 4.4px);display:grid;place-items:center;box-shadow:0 10px 40px rgba(20,18,16,.3)}
+.bigdisc::after{content:"";width:33%;height:33%;border-radius:50%;background:var(--amber)}
+.bigdisc::before{content:"";position:absolute;width:5.5%;height:5.5%;border-radius:50%;background:var(--bone2);z-index:2}
+.bigdisc.spin{animation:spin 3.5s linear infinite}
+@media(max-width:860px){.edit .row2{grid-template-columns:1fr}}
+
+/* ---- about ---- */
+.about{text-align:center}
+.about .lede{font-family:'Instrument Serif',serif;font-size:clamp(26px,3.6vw,44px);line-height:1.25;max-width:26ch;margin:0 auto 24px}
+.about .lede i{color:var(--amber);font-style:normal}
+.about p{color:var(--mut);max-width:60ch;margin:0 auto;line-height:1.7}
+
+/* ---- cta ---- */
+.cta{background:var(--bone);text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(20,18,16,.16)}
+.cta .in{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:clamp(90px,13vw,170px) clamp(20px,4vw,48px)}
+.cta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(46px,8.5vw,120px);line-height:.98;margin:18px 0 28px}
+.cta h2 i{font-style:normal;color:var(--amber)}
+.cta-rule{display:flex;align-items:center;justify-content:center;gap:22px;margin:0 0 34px}
+.cta-rule span{height:1px;width:clamp(40px,10vw,96px);background:rgba(20,18,16,.28)}
+.cta .price{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin:0}
+.cta p.sub{color:var(--mut);max-width:52ch;margin:0 auto 40px;line-height:1.65}
+.cta-fine{margin:30px 0 0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+
+/* ---- footer ---- */
+footer{border-top:1px solid rgba(20,18,16,.14)}
+footer .in{max-width:1300px;margin:0 auto;padding:34px clamp(20px,4vw,48px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+footer b{color:var(--amber);font-weight:400}
+
+/* ---- player bar ---- */
+#player{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(20,18,16,.97);color:var(--bone);transform:translateY(110%);transition:transform .5s cubic-bezier(.22,.8,.3,1)}
+#player.on{transform:translateY(0)}
+#player .in{max-width:1300px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px clamp(16px,3vw,40px)}
+#player .mdisc{width:42px;height:42px;border-radius:50%;flex:none;background:repeating-radial-gradient(circle at 50% 50%,#2a2521 0 1.2px,#3a332c 1.2px 2.6px);position:relative;display:grid;place-items:center}
+#player .mdisc::after{content:"";width:36%;height:36%;border-radius:50%;background:var(--amber)}
+#player.playing .mdisc{animation:spin 1.9s linear infinite}
+#player .meta{min-width:0;flex:0 0 auto;width:200px}
+#player .meta .t1{font-family:'Instrument Serif',serif;font-size:19px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#player .meta .t2{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;color:rgba(234,230,223,.55);text-transform:uppercase;margin-top:3px}
+#player .meta .t2 b{color:var(--amber);font-weight:400}
+#wave{flex:1;height:44px;cursor:pointer;min-width:60px}
+#player .time{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:rgba(234,230,223,.6);flex:none;width:96px;text-align:right}
+#player .ctl{display:flex;gap:8px;flex:none}
+#player .ctl button{background:none;border:1px solid rgba(234,230,223,.3);color:var(--bone);width:38px;height:38px;display:grid;place-items:center;cursor:pointer;transition:.3s;font-size:12px}
+#player .ctl button:hover{border-color:var(--amber);color:var(--amber)}
+#player .ctl button.play{background:var(--bone);color:var(--night);border-color:var(--bone)}
+#player .ctl button.play:hover{background:var(--amber);border-color:var(--amber);color:var(--night)}
+@media(max-width:760px){#player .meta{width:120px}#player .time{display:none}}
+body.hasplayer{padding-bottom:70px}
+
+/* ---- reveal ---- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{transition:none;opacity:1;transform:none}.mq div{animation:none}}
+</style></head><body class="lock">
+
+<!-- INTRO -->
+<div id="intro">
+  <div class="isub">MONUMENTS — FIVE RECORDS <b>·</b> MMXXVI</div>
+  <div class="iword">AMR</div>
+  <button class="btn solid ibtn" id="dropBtn">Drop the needle ↓</button>
+  <button class="iskip" id="skipBtn">just browse</button>
+</div>
+
+<!-- TOP -->
+<header class="top"><div class="in">
+  <a href="#" class="wm">AMR<i>.</i></a>
+  <nav>
+    <a href="#records">Records</a>
+    <a href="#sound">The sound</a>
+    <a href="#about">About</a>
+    <a href="#own">Own one</a>
+  </nav>
+</div></header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">FIVE RECORDS — ONE SOUND</span><span>EST. MMXXVI</span></div>
+  <h1 class="hero-word">AMR</h1>
+  <div class="hero-bottom">
+    <p class="hero-claim"><b>Most music is content — scrolled past, forgotten.</b> These five records are cut like monuments: sub bass you stand next to, dust pressed into the groove, chords that answer two bars late.</p>
+    <div class="hero-cta">
+      <button class="btn solid" onclick="playTrack(0)">▸ Listen — AMR-001</button>
+      <a class="btn" href="#own">Own a record</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq"><div id="mqtrack"></div></div>
+
+<!-- RECORDS -->
+<section class="sec" id="records">
+  <div class="sh">
+    <div><span class="hk">THE RECORDS — MONUMENTS EP</span><h2>Five rooms of the same night.</h2></div>
+    <p>Numbered 12&Prime; vinyl, editions of a few. When an edition sells out, the master is retired. Press play — the sleeve slides, the record spins.</p>
+  </div>
+  <div class="grid" id="recordGrid"></div>
+</section>
+
+<!-- THE SOUND -->
+<div class="edit" id="sound"><div class="row2">
+  <div>
+    <span class="hk">THE SOUND</span>
+    <h2>Sub grave, dust, and patience.</h2>
+    <p>This sound was born on a <b>PLINTH</b> — the sculptural DJ booths cast as one object. Music built for monuments has rules: the sub sits at <b>41–65 Hz</b> where you feel it in your chest, the needle dust stays in the mix because <b>the surface is part of the song</b>, and every chord waits two bars before it answers.</p>
+    <p>No presets. No samples. Every kick, pad and grain of dust on these records was synthesized from raw sine waves and noise — then cut to the groove.</p>
+    <ul class="speclist">
+      <li><b>FORMAT</b><i>12&Prime; VINYL — 45 RPM</i></li>
+      <li><b>SUB RANGE</b><i>41.2 — 65.4 HZ</i></li>
+      <li><b>TEMPO</b><i>112 — 122 BPM · ONE BEATLESS</i></li>
+      <li><b>SURFACE</b><i>DUST PRESSED IN, NOT REMOVED</i></li>
+      <li><b>SYNTHESIS</b><i>PURE — NO SAMPLES, NO PRESETS</i></li>
+      <li><b>TOTAL PRESSING</b><i>50 RECORDS, EVER</i></li>
+    </ul>
+  </div>
+  <div class="bigdisc" id="bigdisc"></div>
+</div></div>
+
+<!-- ABOUT -->
+<section class="sec about" id="about">
+  <span class="hk">WHO IS AMR</span>
+  <p class="lede">AMR are the initials of <i>André Macouzet Ruiz</i> — a builder from Morelia who treats every release like architecture.</p>
+  <p>The same hands behind the PLINTH monoliths cut these five records. The rule is the one pinned to the studio wall: <em>most DJ booths are furniture — this is a monument. Most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="own"><div class="in">
+  <span class="hk">THE PRESSING</span>
+  <h2>Fifty records<br>will <i>ever</i> exist.</h2>
+  <div class="cta-rule"><span></span><p class="price">EDITIONS OF 8 — 12 · NUMBERED BY HAND</p><span></span></div>
+  <p class="sub">Claim a number from any edition. Each record ships with its blueprint sleeve, a download code for the digital master, and the number inked on the label.</p>
+  <a class="btn solid" id="claimBtn" href="#">Claim your number</a>
+  <p class="cta-fine">TEST PRESSINGS PLAY ON THIS PAGE — THE VINYL IS THE ARTIFACT</p>
+</div></section>
+
+<footer><div class="in">
+  <span>AMR<b>.</b> — MONUMENTS EP</span>
+  <span>CUT IN MORELIA, MX</span>
+  <span>SOUND BORN ON A <b>PLINTH</b></span>
+</div></footer>
+
+<!-- PLAYER -->
+<div id="player">
+  <div class="in">
+    <div class="mdisc"></div>
+    <div class="meta"><div class="t1" id="pTitle">—</div><div class="t2" id="pCat">AMR-000 <b>·</b> — BPM</div></div>
+    <canvas id="wave"></canvas>
+    <div class="time" id="pTime">0:00 / 0:00</div>
+    <div class="ctl">
+      <button id="prevBtn" aria-label="Previous">◂◂</button>
+      <button class="play" id="playBtn" aria-label="Play/Pause">▸</button>
+      <button id="nextBtn" aria-label="Next">▸▸</button>
+    </div>
+  </div>
+</div>
+
+<script src="tracks.js"></script>
+<script>
+var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
+
+var T = window.AMR_TRACKS || [];
+var cur = -1, audio = new Audio(); audio.preload = 'metadata';
+
+function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+('0'+s%60).slice(-2); }
+function cat(t){ return 'AMR-00'+t.n; }
+
+/* ---- grid ---- */
+var grid = document.getElementById('recordGrid');
+T.forEach(function(t,i){
+  var b = document.createElement('button');
+  b.className = 'card'; b.id = 'card-'+i;
+  b.innerHTML =
+    '<span class="num"><span>'+cat(t)+' — 12&Prime; · 45 RPM</span><b>EDITION OF '+t.edition+'</b></span>'+
+    '<div class="sleeve"><div class="vinyl"><span class="lbl">'+cat(t)+'</span></div>'+
+    '<div class="cover"><img src="'+t.art+'" alt="'+t.title+' blueprint sleeve"></div>'+
+    '<span class="pchip" id="chip-'+i+'">▸ PLAY</span></div>'+
+    '<h3>'+t.title+'</h3><p class="desc">'+t.desc+'</p>'+
+    '<div class="row"><b>'+(t.bpm? t.bpm+' BPM':'BEATLESS')+'</b><span>'+t.key+'</span><b>'+fmt(t.dur)+'</b></div>';
+  b.addEventListener('click', function(){ (cur===i && !audio.paused) ? pause() : playTrack(i); });
+  grid.appendChild(b);
+});
+
+/* ---- marquee ---- */
+var mq = T.map(function(t){ return '<span>'+cat(t)+' '+t.title+' <b>·</b> EDITION OF '+t.edition+'</span>'; }).join('')
+       + '<span>CUT LIKE MONUMENTS <b>·</b> 50 RECORDS EVER</span>';
+document.getElementById('mqtrack').innerHTML = mq + mq;
+
+/* ---- player ---- */
+var player = document.getElementById('player'), playBtn = document.getElementById('playBtn');
+var waveC = document.getElementById('wave'), wctx = waveC.getContext('2d');
+
+function playTrack(i){
+  var t = T[i];
+  if(cur !== i){
+    cur = i; audio.src = t.file;
+    document.getElementById('pTitle').textContent = t.title;
+    document.getElementById('pCat').innerHTML = cat(t)+' <b>·</b> '+(t.bpm? t.bpm+' BPM':'BEATLESS')+' · '+t.key;
+  }
+  audio.play();
+  document.body.classList.add('hasplayer');
+  player.classList.add('on');
+  syncCards();
+}
+function pause(){ audio.pause(); }
+function syncCards(){
+  T.forEach(function(_,i){
+    var c = document.getElementById('card-'+i), chip = document.getElementById('chip-'+i);
+    var on = (i===cur && !audio.paused);
+    c.classList.toggle('playing', on);
+    chip.innerHTML = on ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
+  });
+  player.classList.toggle('playing', !audio.paused);
+  playBtn.innerHTML = audio.paused ? '▸' : '&#9646;&#9646;';
+  document.getElementById('bigdisc').classList.toggle('spin', !audio.paused);
+}
+playBtn.addEventListener('click', function(){ if(cur<0){ playTrack(0); return; } audio.paused ? audio.play() : audio.pause(); });
+document.getElementById('nextBtn').addEventListener('click', function(){ playTrack((cur+1+T.length)%T.length); });
+document.getElementById('prevBtn').addEventListener('click', function(){ playTrack((cur-1+T.length)%T.length); });
+audio.addEventListener('play', syncCards);
+audio.addEventListener('pause', syncCards);
+audio.addEventListener('ended', function(){ if(cur < T.length-1) playTrack(cur+1); else syncCards(); });
+
+/* ---- waveform ---- */
+function sizeWave(){
+  var r = waveC.getBoundingClientRect();
+  waveC.width = r.width * devicePixelRatio; waveC.height = r.height * devicePixelRatio;
+}
+addEventListener('resize', function(){ sizeWave(); drawWave(); });
+function drawWave(){
+  if(cur<0){ wctx.clearRect(0,0,waveC.width,waveC.height); return; }
+  var pk = T[cur].peaks, W = waveC.width, H = waveC.height;
+  var prog = (audio.duration? audio.currentTime/audio.duration : 0);
+  wctx.clearRect(0,0,W,H);
+  var n = pk.length, bw = W/n;
+  for(var i=0;i<n;i++){
+    var h = Math.max(2*devicePixelRatio, pk[i]*H*0.92);
+    wctx.fillStyle = (i/n < prog) ? '#C96F2B' : 'rgba(234,230,223,0.28)';
+    wctx.fillRect(i*bw, (H-h)/2, Math.max(1, bw*0.6), h);
+  }
+}
+(function loop(){ drawWave(); requestAnimationFrame(loop); })();
+sizeWave();
+waveC.addEventListener('click', function(e){
+  if(cur<0 || !audio.duration) return;
+  var r = waveC.getBoundingClientRect();
+  audio.currentTime = (e.clientX - r.left)/r.width * audio.duration;
+});
+audio.addEventListener('timeupdate', function(){
+  document.getElementById('pTime').textContent = fmt(audio.currentTime)+' / '+fmt(audio.duration||T[cur].dur);
+});
+
+/* ---- intro ---- */
+function closeIntro(andPlay){
+  var iv = document.getElementById('intro');
+  iv.classList.add('out'); document.body.classList.remove('lock');
+  if(andPlay) playTrack(0);
+}
+document.getElementById('dropBtn').addEventListener('click', function(){ closeIntro(true); });
+document.getElementById('skipBtn').addEventListener('click', function(){ closeIntro(false); });
+
+/* ---- claim ---- */
+document.getElementById('claimBtn').addEventListener('click', function(e){
+  e.preventDefault();
+  var body = "Hi AMR — I want to claim a record.\n\nRecord: AMR-00_ (PLINTH / MONOLITH / VESSEL / STRATA / GHOST)\nName:\n";
+  if(CONFIG.wa){ window.open('https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(body),'_blank'); }
+  else { location.href = 'mailto:'+CONFIG.email+'?subject='+encodeURIComponent('AMR — Claim a record')+'&body='+encodeURIComponent(body); }
+});
+
+/* ---- reveal ---- */
+addEventListener('DOMContentLoaded', function(){
+  var targets = [].slice.call(document.querySelectorAll('.mq, .sh, .card, .edit .row2 > *, .about > *, .cta .in'));
+  targets.forEach(function(el){
+    el.classList.add('reveal');
+    var sibs = [].filter.call(el.parentElement.children, function(n){ return n.classList.contains('card'); });
+    var idx = sibs.indexOf(el);
+    if(idx > -1) el.style.transitionDelay = (idx % 3) * 0.1 + 's';
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(function(el){ io.observe(el); });
+});
+</script>
+</body></html>
