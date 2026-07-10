@@ -286,6 +286,33 @@ body.hasplayer{padding-bottom:70px}
 .nr .vgo.on{background:#2E6FB0}
 @media(max-width:860px){.nrin{grid-template-columns:1fr}.nrdisc{max-width:330px;justify-self:center;order:-1}}
 @media(prefers-reduced-motion:reduce){.nr::before,.nr::after,.nrrings span,.nrlive i{animation:none}}
+/* variante ámbar (MONUMENTS): disco a la izquierda, texto a la derecha */
+.nr.amber{background:#201205;border-top-color:rgba(201,111,43,.4)}
+.nr.amber::before{background:radial-gradient(circle,rgba(201,111,43,.42),transparent 65%);right:auto;left:-12%}
+.nr.amber::after{background:radial-gradient(circle,rgba(224,149,79,.18),transparent 65%);left:auto;right:-18%}
+.nr.amber .nrin{grid-template-columns:minmax(280px,460px) 1.15fr}
+.nr.amber .nrdisc{justify-self:start}
+.nr.amber .nrlive{color:#e0954f}
+.nr.amber .nrlive i{background:#e0954f;animation-name:livedotA}
+@keyframes livedotA{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(224,149,79,.55)}50%{opacity:.65;box-shadow:0 0 0 10px rgba(224,149,79,0)}}
+.nr.amber .nrtitle{text-shadow:0 0 70px rgba(201,111,43,.55);font-size:clamp(56px,9.5vw,140px)}
+.nr.amber .vstats b,.nr.amber .vbuy b,.nr.amber .vinfo-lbl b,.nr.amber .vtracks li b{color:#e0954f}
+.nr.amber .vplay{color:#201205}
+.nr.amber .vplay:hover{background:#e0954f;border-color:#e0954f;color:#201205}
+.nr.amber .vbuy:hover{border-color:#e0954f;color:#e0954f}
+.nr.amber .vtracks li.on,.nr.amber .vtracks li:hover{color:var(--bone)}
+.nr.amber .nrrings span{border-color:rgba(224,149,79,.4)}
+.nr.amber .vlabel{background:radial-gradient(circle at 42% 38%,#e0954f,#C96F2B);box-shadow:0 0 0 5px #8a4a1a}
+.nr.amber .vdisc{box-shadow:0 26px 90px rgba(0,0,0,.6),0 0 90px rgba(201,111,43,.3),inset 0 0 70px rgba(0,0,0,.4)}
+.nr.amber .vdisc::before{border-color:rgba(224,149,79,.4)}
+.nr.amber .vgo.on{background:#C96F2B}
+@media(max-width:860px){.nr.amber .nrin{grid-template-columns:1fr}.nr.amber .nrdisc{justify-self:center}}
+/* cards azules (cortes de TULUM en LO MEJOR) */
+.card.bluecard .num b{color:#2E6FB0}
+.card.bluecard .vinyl::after{background:#2E6FB0}
+.card.bluecard::after{background:#2E6FB0}
+.card.bluecard .pchip{border-color:#2E6FB0;color:#2E6FB0}
+.card.bluecard.playing .pchip{background:#2E6FB0;color:var(--bone)}
 /* MINIMAL SET en azul */
 .vprod.blue .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
 .vprod.blue .vdisc::before{border-color:rgba(46,111,176,.45)}
@@ -348,11 +375,24 @@ body.hasplayer{padding-bottom:70px}
   </div>
 </section>
 
-<!-- MONUMENTS — las cinco rolas -->
+<!-- MONUMENTS — el lanzamiento debut (noche ámbar) -->
+<section class="nr amber" id="monuments">
+  <div class="nrin">
+    <div class="nrdisc" id="nrDisc2"></div>
+    <div class="nrleft">
+      <span class="nrlive"><i></i>EL LANZAMIENTO DEBUT — MMXXVI</span>
+      <h2 class="nrtitle">MONUMENTS</h2>
+      <p class="nrsub">Donde empezó todo. Cinco cortes sintetizados <b>de ondas puras</b> — sin samples, sin presets — cortados a vinilo ámbar. Sub que se siente en el pecho, polvo prensado en el surco, acordes que contestan tarde.</p>
+      <div id="nrMeta2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LO MEJOR — MONUMENTS × TULUM -->
 <section class="sec" id="records">
   <div class="sh">
-    <div><span class="hk">EL LANZAMIENTO — MONUMENTS EP</span><h2>Five sides, one record each.</h2></div>
-    <p>El lanzamiento debut de AMR: cinco cortes en vinilo ámbar, edición de pocos. Dale play a cada uno — la funda se desliza y el disco gira.</p>
+    <div><span class="hk">LO MEJOR — MONUMENTS × TULUM</span><h2>Nuestras mejores canciones.</h2></div>
+    <p>Los cortes favoritos de los dos discos, lado a lado: los de MONUMENTS en ámbar, los de TULUM en azul. Dale play a cualquiera.</p>
   </div>
   <div class="grid" id="recordGrid"></div>
 </section>
@@ -469,6 +509,42 @@ ROLAS.forEach(function(t,i){
   grid.appendChild(b);
 });
 
+/* ---- cortes de TULUM en LO MEJOR (dibujos azules) ---- */
+var TPICKS = [
+  {sec:4,  art:'art/tulum-metronomo.svg',  desc:'El roller funky del set — bajo sincopado y claps a contratiempo.'},
+  {sec:5,  art:'art/tulum-tarde.svg',      desc:'La subida eufórica: el arpegio que abre el cielo de la tarde.'},
+  {sec:9,  art:'art/tulum-sincronia.svg',  desc:'El pico emocional — el momento del baile en sincronía perfecta.'},
+  {sec:13, art:'art/tulum-pianoviejo.svg', desc:'El himno de piano de la recta final. Manos arriba.'}
+];
+if(window.AMR_TUL){
+  TPICKS.forEach(function(tp,k){
+    var S = window.AMR_TUL, name = S.titles[tp.sec];
+    var end = (tp.sec+1 < S.offsets.length) ? S.offsets[tp.sec+1] : S.dur;
+    var dur = end - S.offsets[tp.sec];
+    var b = document.createElement('button');
+    b.className = 'card bluecard'; b.id = 'card-t'+k;
+    b.innerHTML =
+      '<span class="num"><span>TULUM — CUT '+(tp.sec+1<10?'0':'')+(tp.sec+1)+'/16</span><b>BLUE VINYL</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">TULUM</span></div>'+
+      '<div class="cover"><img src="'+tp.art+'" alt="'+name+' blueprint"></div>'+
+      '<span class="pchip" id="chip-t'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+tp.desc+'</p>'+
+      '<div class="row"><b>121 BPM</b><span>FROM TULUM</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){
+      var gi = window.__tulIdx, target = S.offsets[tp.sec];
+      var inSec = (cur===gi && audio.currentTime >= target && audio.currentTime < end);
+      if(inSec && !audio.paused){ pause(); return; }
+      if(cur===gi){ try{ audio.currentTime = target; }catch(e){} audio.play(); }
+      else {
+        playTrack(gi);
+        var sk = function(){ try{ audio.currentTime = target; }catch(e){} audio.play(); audio.removeEventListener('canplay', sk); };
+        audio.addEventListener('canplay', sk);
+      }
+    });
+    grid.appendChild(b);
+  });
+}
+
 /* ---- los dos vinilos (después de sub grave) ---- */
 var vgrid = document.getElementById('vgrid');
 VINYLS.forEach(function(p,j){
@@ -489,16 +565,20 @@ VINYLS.forEach(function(p,j){
       '<button class="vbuy" id="vbuy-'+j+'">GET THE VINYL <b>·</b> ED. '+p.edition+'</button>'+
     '</div>';
   var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">LAS CANCIONES <b>·</b> '+p.tracks+' CORTES</span><ol class="vtracks">'+tl+'</ol></div>';
+  var isMonFeat = (p.id === 'amr-monuments-side');
   if(isFeat){
     document.getElementById('nrDisc').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta').innerHTML = statsHTML + actHTML + infoHTML;
+  } else if(isMonFeat){
+    document.getElementById('nrDisc2').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta2').innerHTML = statsHTML + actHTML + infoHTML;
   } else {
     var el = document.createElement('div');
     el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : '');
     el.id = 'vprod-'+j;
     el.innerHTML = discHTML +
       '<div class="vmeta">'+
-        '<span class="vkick">'+(p.kicker||'')+' · '+(p.id==='amr-monuments-side'?'AMBER VINYL':'WINE-RED VINYL')+'</span>'+
+        '<span class="vkick">'+(p.kicker||'')+' · WINE-RED VINYL</span>'+
         '<h3>'+p.title+'</h3>'+
         statsHTML + actHTML + infoHTML +
       '</div>';
@@ -562,17 +642,26 @@ function syncCards(){
     var pl = document.getElementById('vplay-'+j); if(pl) pl.innerHTML = on ? '&#9646;&#9646; PLAYING' : '▸ PLAY THE RECORD';
     var go = document.getElementById('vgo-'+j); if(go){ go.innerHTML = on ? '&#9646;&#9646;' : '▸'; go.classList.toggle('on', on); }
     if(p.titles && gi===cur && audio.duration){
-      var ci = Math.floor((audio.currentTime/audio.duration)*p.tracks);
+      var ci = -1;
+      if(p.offsets){ for(var q = p.offsets.length-1; q >= 0; q--){ if(audio.currentTime >= p.offsets[q]){ ci = q; break; } } }
+      else { ci = Math.floor((audio.currentTime/audio.duration)*p.tracks); }
       for(var k=0;k<p.tracks;k++){ var e=document.getElementById('v'+j+'-tk'+k); if(e) e.classList.toggle('on', k===ci); }
     }
   });
   player.classList.toggle('playing', !audio.paused);
   playBtn.innerHTML = audio.paused ? '▸' : '&#9646;&#9646;';
   var bd = document.getElementById('bigdisc'); if(bd) bd.classList.toggle('spin', !audio.paused);
-  var hp = document.getElementById('heroPlay');
-  if(hp && window.__tulIdx != null){
-    var hon = (cur === window.__tulIdx && !audio.paused);
-    hp.innerHTML = hon ? '&#9646;&#9646; Playing — TULUM' : '▸ Play TULUM';
+  // cards de TULUM en LO MEJOR: activas cuando el set va en esa sección
+  if(window.AMR_TUL && window.__tulIdx != null && typeof TPICKS !== 'undefined'){
+    var S2 = window.AMR_TUL;
+    TPICKS.forEach(function(tp,k){
+      var c = document.getElementById('card-t'+k), chip = document.getElementById('chip-t'+k);
+      if(!c) return;
+      var end2 = (tp.sec+1 < S2.offsets.length) ? S2.offsets[tp.sec+1] : S2.dur;
+      var on2 = (cur === window.__tulIdx && !audio.paused && audio.currentTime >= S2.offsets[tp.sec] && audio.currentTime < end2);
+      c.classList.toggle('playing', on2);
+      chip.innerHTML = on2 ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
+    });
   }
 }
 playBtn.addEventListener('click', function(){ if(cur<0){ playTrack(0); return; } audio.paused ? audio.play() : audio.pause(); });
@@ -609,6 +698,7 @@ waveC.addEventListener('click', function(e){
 });
 audio.addEventListener('timeupdate', function(){
   document.getElementById('pTime').textContent = fmt(audio.currentTime)+' / '+fmt(audio.duration||T[cur].dur);
+  syncCards(); // resalta en vivo la sección/canción que va sonando
 });
 
 /* ---- intro ---- */
