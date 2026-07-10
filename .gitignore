@@ -5,3 +5,4 @@ set-src/
 __pycache__/
 brand/_inspect.png
 session-src/
+_minimal_tmp/

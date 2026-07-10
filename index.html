@@ -367,13 +367,13 @@ body.hasplayer{padding-bottom:70px}
 
 <script src="tracks.js"></script>
 <script src="monuments.js"></script>
-<script src="sesion2.js"></script>
+<script src="set.js"></script>
 <script src="minimal.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_S2, window.AMR_MIN].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_MIN].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 var cur = -1, audio = new Audio(); audio.preload = 'metadata';
@@ -408,7 +408,7 @@ VINYLS.forEach(function(p,j){
   var gi = VOFF + j;   // índice global en T
   var tl = (p.titles||[]).map(function(t,k){ return '<li id="v'+j+'-tk'+k+'"><b>'+(k+1<10?'0':'')+(k+1)+'</b> '+t+'</li>'; }).join('');
   var el = document.createElement('div');
-  el.className = 'vprod' + (p.id==='amr-sesion-002' ? ' wine' : (p.id==='amr-minimal' ? ' blue' : ''));
+  el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-minimal' ? ' blue' : ''));
   el.id = 'vprod-'+j;
   el.innerHTML =
     '<div class="vdiscwrap">'+
