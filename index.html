@@ -348,6 +348,22 @@ body.hasplayer{padding-bottom:70px}
 .vprod.blue .vplay:hover{background:#2E6FB0;border-color:#2E6FB0}
 .vprod.blue .vbuy:hover{border-color:#2E6FB0;color:#2E6FB0}
 
+/* ---- events / tocadas ---- */
+.events .sh{margin-bottom:6px}
+.evlist{list-style:none;margin:30px 0 0;padding:0;border-top:1px solid rgba(20,18,16,.16)}
+.ev{display:grid;grid-template-columns:118px 1fr auto auto;gap:26px;align-items:center;padding:22px 8px;border-bottom:1px solid rgba(20,18,16,.14);transition:background .3s}
+.ev:hover{background:rgba(20,18,16,.035)}
+.ev-date{font-family:'IBM Plex Mono',monospace;line-height:1.05}
+.ev-date b{display:block;font-size:19px;letter-spacing:.03em;color:var(--ink)}
+.ev-date i{font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--mut)}
+.ev-main b{font-family:'Instrument Serif',serif;font-size:clamp(21px,3vw,32px);font-weight:400;display:block;line-height:1.05}
+.ev-main span{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+.ev-note{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
+.ev-cta{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);padding:11px 20px;color:var(--ink);background:none;cursor:pointer;transition:.3s;white-space:nowrap}
+.ev-cta:hover{background:var(--ink);color:var(--bone)}
+.ev.soldout{opacity:.48}
+.ev.soldout .ev-cta{border-color:var(--mut);color:var(--mut);pointer-events:none}
+@media(max-width:720px){.ev{grid-template-columns:74px 1fr;gap:8px 16px;padding:18px 4px}.ev-note{grid-column:2;order:3}.ev-cta{grid-column:1/-1;order:4;justify-self:start;margin-top:4px}}
 /* ---- reveal ---- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
 .reveal.in{opacity:1;transform:none}
@@ -364,7 +380,7 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- TOP -->
 <header class="top"><div class="in">
-  <a href="#" class="wm">AMR<i>.</i></a>
+  <a href="#" class="wm">STUDIO AMR<i>.</i></a>
   <nav>
     <a href="#records">Records</a>
     <a href="#sound">The sound</a>
@@ -375,13 +391,13 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-top"><span>MORELIA, MX</span><span class="a">THREE RECORDS — ONE LABEL</span><span>EST. MMXXVI</span></div>
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">THREE RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
   <img class="hero-art" src="art/amr-hero.svg" alt="" aria-hidden="true">
   <h1 class="hero-word"><span>A</span><span>M</span><span>R</span></h1>
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#newrelease">▸ Nuevo lanzamiento — TULUM</a>
+      <a class="btn solid" href="#newrelease">▸ New release — TULUM</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -390,15 +406,24 @@ body.hasplayer{padding-bottom:70px}
 <!-- MARQUEE -->
 <div class="mq"><div id="mqtrack"></div></div>
 
+<!-- EVENTS — próximas tocadas (entre hero y TULUM) -->
+<section class="sec events" id="events">
+  <div class="sh">
+    <div><span class="hk">LIVE — ON TOUR</span><h2>Upcoming shows.</h2></div>
+    <p>Where the records get played out loud. Studio AMR live — long-form, in sync, one take.</p>
+  </div>
+  <ul class="evlist" id="evlist"></ul>
+</section>
+
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
 <!-- NUEVO LANZAMIENTO — TULUM (noche azul) -->
 <section class="nr hpanel" id="newrelease">
   <div class="nrin">
     <div class="nrleft">
-      <span class="nrlive"><i></i>OUT NOW — NUEVO LANZAMIENTO</span>
+      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
       <h2 class="nrtitle">TULUM</h2>
-      <p class="nrsub">El disco que se esperó toda la temporada. Un set continuo de <b>1h51</b> — dieciséis tracks en un solo take, transiciones en tempo, <b>in sync</b> de principio a fin. Cortado a vinilo azul, numerado a mano.</p>
+      <p class="nrsub">The record the whole season waited for. One continuous set — <b>1h51</b>, sixteen tracks in a single take, tempo-locked transitions, <b>in sync</b> from the first bar to the last. Cut to blue vinyl, numbered by hand.</p>
       <div id="nrMeta"></div>
     </div>
     <div class="nrdisc" id="nrDisc"></div>
@@ -410,9 +435,9 @@ body.hasplayer{padding-bottom:70px}
   <div class="nrin">
     <div class="nrdisc" id="nrDisc2"></div>
     <div class="nrleft">
-      <span class="nrlive"><i></i>EL LANZAMIENTO DEBUT — MMXXVI</span>
+      <span class="nrlive"><i></i>THE DEBUT RELEASE — MMXXVI</span>
       <h2 class="nrtitle">MONUMENTS</h2>
-      <p class="nrsub">Donde empezó todo. Cinco cortes sintetizados <b>de ondas puras</b> — sin samples, sin presets — cortados a vinilo ámbar. Sub que se siente en el pecho, polvo prensado en el surco, acordes que contestan tarde.</p>
+      <p class="nrsub">Where it all started. Five cuts synthesized <b>from pure waveforms</b> — no samples, no presets — pressed to amber vinyl. Sub you feel in your chest, dust pressed into the groove, chords that answer late.</p>
       <div id="nrMeta2"></div>
     </div>
   </div>
@@ -422,8 +447,8 @@ body.hasplayer{padding-bottom:70px}
 <!-- LO MEJOR — MONUMENTS × TULUM -->
 <section class="sec" id="records">
   <div class="sh">
-    <div><span class="hk">LO MEJOR — MONUMENTS × TULUM</span><h2>Nuestras mejores canciones.</h2></div>
-    <p>Los cortes favoritos de los dos discos, lado a lado: los de MONUMENTS en ámbar, los de TULUM en azul. Dale play a cualquiera.</p>
+    <div><span class="hk">THE BEST — MONUMENTS × TULUM</span><h2>Our best tracks.</h2></div>
+    <p>The favourite cuts from both records, side by side: the MONUMENTS ones in amber, the TULUM ones in blue. Hit play on any of them.</p>
   </div>
   <div class="grid" id="recordGrid"></div>
 </section>
@@ -451,15 +476,15 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>2024 album</h2></div>
-    <p>La colección: el EP en ámbar y el set de noventa minutos en rojo vino. Dale play al disco — suena aquí mismo y gira. Cuando una edición se acaba, la placa se retira.</p>
+    <p>The collection: the amber EP and the ninety-minute set on wine-red vinyl. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
 
 <!-- ABOUT -->
 <section class="sec about" id="about">
-  <span class="hk">WHO IS AMR</span>
-  <p class="lede">AMR are the initials of <i>André Macouzet Ruiz</i> — a builder from Morelia who treats every release like architecture.</p>
+  <span class="hk">WHO IS STUDIO AMR</span>
+  <p class="lede">Studio AMR is the workshop of <i>André Macouzet Ruiz</i> — AMR, his initials — a builder from Morelia who treats every release like architecture.</p>
   <p>The same hands behind the PLINTH monoliths cut these five records. The rule is the one pinned to the studio wall: <em>most DJ booths are furniture — this is a monument. Most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
 </section>
 
@@ -474,7 +499,7 @@ body.hasplayer{padding-bottom:70px}
 </div></section>
 
 <footer><div class="in">
-  <span>AMR<b>.</b> — MONUMENTS EP</span>
+  <span>STUDIO AMR<b>.</b> — MONUMENTS EP</span>
   <span>CUT IN MORELIA, MX</span>
   <span>SOUND BORN ON A <b>PLINTH</b></span>
 </div></footer>
@@ -563,6 +588,32 @@ var mq = ROLAS.map(function(t,i){ return '<span>AMR-00'+(i+1)+' '+t.title+'</spa
        + '<span>TWO RECORDS <b>·</b> PRESS PLAY <b>·</b> WINE-RED VINYL</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
 
+/* ---- próximas tocadas — EDITA AQUÍ (fecha, lugar, ciudad, nota) ---- */
+var EVENTS = [
+  { m:'AUG', d:'22', y:'2026', venue:'Foro Cenoteca',  city:'Morelia, MX',        note:'Vinyl set · 3 hrs',       cta:'RSVP' },
+  { m:'SEP', d:'12', y:'2026', venue:'Departamento',    city:'Ciudad de México',   note:'TULUM live · in sync',    cta:'Tickets' },
+  { m:'OCT', d:'04', y:'2026', venue:'Bahía Cenoteca',  city:'Tulum, MX',          note:'Sunrise set',             soldout:true },
+  { m:'NOV', d:'15', y:'2026', venue:'Bar Américas',    city:'Guadalajara, MX',    note:'MONUMENTS × TULUM',       cta:'Tickets' }
+];
+(function(){
+  var el = document.getElementById('evlist'); if(!el) return;
+  el.innerHTML = EVENTS.map(function(e,i){
+    return '<li class="ev'+(e.soldout?' soldout':'')+'">'+
+      '<span class="ev-date"><b>'+e.m+' '+e.d+'</b><i>'+e.y+'</i></span>'+
+      '<span class="ev-main"><b>'+e.venue+'</b><span>'+e.city+'</span></span>'+
+      '<span class="ev-note">'+(e.note||'')+'</span>'+
+      '<button class="ev-cta" data-ev="'+i+'">'+(e.soldout?'Sold out':(e.cta||'RSVP'))+'</button>'+
+    '</li>';
+  }).join('');
+  el.addEventListener('click', function(ev){
+    var b = ev.target.closest('.ev-cta'); if(!b) return;
+    var e = EVENTS[+b.getAttribute('data-ev')]; if(!e || e.soldout) return;
+    var body = "Hi Studio AMR — I'd like to reserve for "+e.venue+" ("+e.m+' '+e.d+', '+e.city+").\n\nName:\nHow many:\n";
+    if(CONFIG.wa){ window.open('https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(body),'_blank'); }
+    else { location.href='mailto:'+CONFIG.email+'?subject='+encodeURIComponent('Studio AMR — '+e.venue+' ('+e.m+' '+e.d+')')+'&body='+encodeURIComponent(body); }
+  });
+})();
+
 /* ---- grid LO MEJOR: naranjas (MONUMENTS) preparadas ---- */
 var grid = document.getElementById('recordGrid');
 var cardsO = [], cardsB = [];
@@ -631,7 +682,7 @@ VINYLS.forEach(function(p,j){
       '<button class="vplay" id="vplay-'+j+'">▸ PLAY THE RECORD</button>'+
       '<button class="vbuy" id="vbuy-'+j+'">GET THE VINYL <b>·</b> ED. '+p.edition+'</button>'+
     '</div>';
-  var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">LAS CANCIONES <b>·</b> '+p.tracks+' CORTES</span><ol class="vtracks">'+tl+'</ol></div>';
+  var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUTS</span><ol class="vtracks">'+tl+'</ol></div>';
   var isMonFeat = (p.id === 'amr-monuments-side');
   if(isFeat){
     document.getElementById('nrDisc').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
@@ -655,7 +706,7 @@ VINYLS.forEach(function(p,j){
   document.getElementById('vdisc-'+j).addEventListener('click', toggle);
   document.getElementById('vplay-'+j).addEventListener('click', toggle);
   document.getElementById('vbuy-'+j).addEventListener('click', function(){
-    var body = "Hola AMR — quiero "+p.title+" en vinilo (edicion de "+p.edition+").\n\nNombre:\n";
+    var body = "Hi Studio AMR — I want "+p.title+" on vinyl (edition of "+p.edition+").\n\nName:\n";
     if(CONFIG.wa){ window.open('https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(body),'_blank'); }
     else { location.href='mailto:'+CONFIG.email+'?subject='+encodeURIComponent('AMR — '+p.title+' (vinyl)')+'&body='+encodeURIComponent(body); }
   });
@@ -781,7 +832,7 @@ document.getElementById('skipBtn').addEventListener('click', function(){ closeIn
 /* ---- claim ---- */
 document.getElementById('claimBtn').addEventListener('click', function(e){
   e.preventDefault();
-  var body = "Hi AMR — I want to claim a record.\n\nRecord: AMR-00_ (PLINTH / MONOLITH / VESSEL / STRATA / GHOST)\nName:\n";
+  var body = "Hi Studio AMR — I want to claim a record.\n\nRecord: AMR-00_ (PLINTH / MONOLITH / VESSEL / STRATA / GHOST)\nName:\n";
   if(CONFIG.wa){ window.open('https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(body),'_blank'); }
   else { location.href = 'mailto:'+CONFIG.email+'?subject='+encodeURIComponent('AMR — Claim a record')+'&body='+encodeURIComponent(body); }
 });
