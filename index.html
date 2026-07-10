@@ -582,16 +582,17 @@ ROLAS.forEach(function(t,i){
 
 /* ---- cortes de TULUM en LO MEJOR (dibujos azules) ---- */
 var TPICKS = [
-  {sec:4,  art:'art/tulum-metronomo.svg',  desc:'El roller funky del set — bajo sincopado y claps a contratiempo.'},
-  {sec:5,  art:'art/tulum-tarde.svg',      desc:'La subida eufórica: el arpegio que abre el cielo de la tarde.'},
-  {sec:9,  art:'art/tulum-sincronia.svg',  desc:'El pico emocional — el momento del baile en sincronía perfecta.'},
-  {sec:13, art:'art/tulum-pianoviejo.svg', desc:'El himno de piano de la recta final. Manos arriba.'}
+  {sec:4,  file:'audio/amr-tulum-cut-metronomo.m4a',  art:'art/tulum-metronomo.svg',  desc:'The funky roller of the set — syncopated bass, off-beat claps.'},
+  {sec:5,  file:'audio/amr-tulum-cut-tarde.m4a',      art:'art/tulum-tarde.svg',      desc:'The euphoric lift — the arpeggio that opens the afternoon sky.'},
+  {sec:9,  file:'audio/amr-tulum-cut-sincronia.m4a',  art:'art/tulum-sincronia.svg',  desc:'The emotional peak — dancing in perfect sync.'},
+  {sec:13, file:'audio/amr-tulum-cut-pianoviejo.m4a', art:'art/tulum-pianoviejo.svg', desc:'The piano anthem of the home stretch. Hands up.'}
 ];
 if(window.AMR_TUL){
   TPICKS.forEach(function(tp,k){
     var S = window.AMR_TUL, name = S.titles[tp.sec];
     var end = (tp.sec+1 < S.offsets.length) ? S.offsets[tp.sec+1] : S.dur;
     var dur = end - S.offsets[tp.sec];
+    tp.gi = T.length; T.push({ title:name, file:tp.file, dur:dur, kicker:'TULUM CUT', bpm:121, cut:true, edition:(S.edition||15) });
     var b = document.createElement('button');
     b.className = 'card bluecard'; b.id = 'card-t'+k;
     b.innerHTML =
@@ -601,17 +602,7 @@ if(window.AMR_TUL){
       '<span class="pchip" id="chip-t'+k+'">▸ PLAY</span></div>'+
       '<h3>'+name+'</h3><p class="desc">'+tp.desc+'</p>'+
       '<div class="row"><b>121 BPM</b><span>FROM TULUM</span><b>'+fmt(dur)+'</b></div>';
-    b.addEventListener('click', function(){
-      var gi = window.__tulIdx, target = S.offsets[tp.sec];
-      var inSec = (cur===gi && audio.currentTime >= target && audio.currentTime < end);
-      if(inSec && !audio.paused){ pause(); return; }
-      if(cur===gi){ try{ audio.currentTime = target; }catch(e){} audio.play(); }
-      else {
-        playTrack(gi);
-        var sk = function(){ try{ audio.currentTime = target; }catch(e){} audio.play(); audio.removeEventListener('canplay', sk); };
-        audio.addEventListener('canplay', sk);
-      }
-    });
+    b.addEventListener('click', function(){ (cur===tp.gi && !audio.paused) ? pause() : playTrack(tp.gi); });
     cardsB.push(b);
   });
 }
@@ -692,7 +683,9 @@ function playTrack(i){
   if(cur !== i){
     cur = i; audio.src = t.file;
     document.getElementById('pTitle').textContent = t.title;
-    document.getElementById('pCat').innerHTML = t.kicker
+    document.getElementById('pCat').innerHTML = t.cut
+      ? (t.kicker+' <b>·</b> '+(t.bpm?t.bpm+' BPM · ':'')+fmt(t.dur))
+      : t.kicker
       ? (t.kicker+' <b>·</b> '+t.tracks+' TRACKS · '+fmt(t.dur))
       : ('AMR-00'+t.n+' <b>·</b> '+(t.bpm? t.bpm+' BPM':'BEATLESS')+' · '+t.key);
   }
@@ -727,14 +720,12 @@ function syncCards(){
   player.classList.toggle('playing', !audio.paused);
   playBtn.innerHTML = audio.paused ? '▸' : '&#9646;&#9646;';
   var bd = document.getElementById('bigdisc'); if(bd) bd.classList.toggle('spin', !audio.paused);
-  // cards de TULUM en LO MEJOR: activas cuando el set va en esa sección
-  if(window.AMR_TUL && window.__tulIdx != null && typeof TPICKS !== 'undefined'){
-    var S2 = window.AMR_TUL;
+  // cards de TULUM en LO MEJOR: cada una es su propio corte standalone
+  if(typeof TPICKS !== 'undefined'){
     TPICKS.forEach(function(tp,k){
       var c = document.getElementById('card-t'+k), chip = document.getElementById('chip-t'+k);
       if(!c) return;
-      var end2 = (tp.sec+1 < S2.offsets.length) ? S2.offsets[tp.sec+1] : S2.dur;
-      var on2 = (cur === window.__tulIdx && !audio.paused && audio.currentTime >= S2.offsets[tp.sec] && audio.currentTime < end2);
+      var on2 = (cur === tp.gi && !audio.paused);
       c.classList.toggle('playing', on2);
       chip.innerHTML = on2 ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
     });
