@@ -368,12 +368,12 @@ body.hasplayer{padding-bottom:70px}
 <script src="tracks.js"></script>
 <script src="monuments.js"></script>
 <script src="set.js"></script>
-<script src="minimal.js"></script>
+<script src="tulum.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_MIN].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 var cur = -1, audio = new Audio(); audio.preload = 'metadata';
@@ -408,7 +408,7 @@ VINYLS.forEach(function(p,j){
   var gi = VOFF + j;   // índice global en T
   var tl = (p.titles||[]).map(function(t,k){ return '<li id="v'+j+'-tk'+k+'"><b>'+(k+1<10?'0':'')+(k+1)+'</b> '+t+'</li>'; }).join('');
   var el = document.createElement('div');
-  el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-minimal' ? ' blue' : ''));
+  el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-tulum' ? ' blue' : ''));
   el.id = 'vprod-'+j;
   el.innerHTML =
     '<div class="vdiscwrap">'+
@@ -419,7 +419,7 @@ VINYLS.forEach(function(p,j){
       '<span class="vgo" id="vgo-'+j+'">▸</span>'+
     '</div>'+
     '<div class="vmeta">'+
-      '<span class="vkick">'+(p.kicker||'')+' · '+(p.id==='amr-monuments-side'?'AMBER VINYL':(p.id==='amr-minimal'?'BLUE VINYL':'WINE-RED VINYL'))+'</span>'+
+      '<span class="vkick">'+(p.kicker||'')+' · '+(p.id==='amr-monuments-side'?'AMBER VINYL':(p.id==='amr-tulum'?'BLUE VINYL':'WINE-RED VINYL'))+'</span>'+
       '<h3>'+p.title+'</h3>'+
       '<div class="vstats"><span><b>'+p.tracks+'</b> TRACKS</span><span><b>'+fmt(p.dur)+'</b></span><span>EDITION OF <b>'+p.edition+'</b></span></div>'+
       '<div class="vact">'+
