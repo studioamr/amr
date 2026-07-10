@@ -244,14 +244,48 @@ body.hasplayer{padding-bottom:70px}
 .vprod.wine .vkick,.vprod.wine .vstats b,.vprod.wine .vbuy b,.vprod.wine .vinfo-lbl b,.vprod.wine .vtracks li b{color:#A62D3E}
 .vprod.wine .vplay:hover{background:#A62D3E;border-color:#A62D3E}
 .vprod.wine .vbuy:hover{border-color:#A62D3E;color:#A62D3E}
-/* destacado (nuevo lanzamiento): info izquierda, disco derecha */
-.vprod.feat{display:grid;grid-template-columns:1fr minmax(280px,440px);gap:clamp(30px,6vw,90px);align-items:center;text-align:left}
-.vprod.feat .vdiscwrap{order:2;width:100%;max-width:440px;justify-self:end}
-.vprod.feat .vmeta{order:1;margin-top:0}
-.vprod.feat .vstats,.vprod.feat .vact{justify-content:flex-start}
-.vprod.feat .vinfo{margin-left:0;max-width:430px}
-.vprod.feat h3{font-size:clamp(48px,7vw,86px)}
-@media(max-width:860px){.vprod.feat{grid-template-columns:1fr}.vprod.feat .vdiscwrap{order:1;max-width:330px;justify-self:center}}
+/* ---- NUEVO LANZAMIENTO — noche azul, vivo ---- */
+.nr{position:relative;background:#0b1524;color:var(--bone);overflow:hidden;border-top:1px solid rgba(46,111,176,.35);border-bottom:1px solid rgba(20,18,16,.12)}
+.nr::before{content:"";position:absolute;top:-45%;right:-12%;width:min(950px,90vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(46,111,176,.45),transparent 65%);animation:nrpulse 6s ease-in-out infinite;pointer-events:none}
+.nr::after{content:"";position:absolute;bottom:-55%;left:-18%;width:min(850px,80vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(91,155,213,.2),transparent 65%);animation:nrpulse 8s ease-in-out infinite reverse;pointer-events:none}
+@keyframes nrpulse{0%,100%{opacity:.65;transform:scale(1)}50%{opacity:1;transform:scale(1.07)}}
+.nrin{position:relative;z-index:2;max-width:1300px;margin:0 auto;padding:clamp(70px,10vw,130px) clamp(20px,4vw,48px);display:grid;grid-template-columns:1.15fr minmax(280px,460px);gap:clamp(34px,6vw,90px);align-items:center}
+.nrlive{display:inline-flex;align-items:center;gap:11px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;color:#5B9BD5;text-transform:uppercase}
+.nrlive i{width:9px;height:9px;border-radius:50%;background:#5B9BD5;animation:livedot 1.7s ease-in-out infinite}
+@keyframes livedot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(91,155,213,.55)}50%{opacity:.65;box-shadow:0 0 0 10px rgba(91,155,213,0)}}
+.nrtitle{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(80px,13vw,190px);line-height:.85;margin:18px 0 14px;letter-spacing:.02em;text-shadow:0 0 70px rgba(46,111,176,.55)}
+.nrsub{color:rgba(234,230,223,.62);max-width:56ch;line-height:1.7;margin:0 0 8px}
+.nrsub b{color:var(--bone);font-weight:500}
+.nr .vstats{display:flex;gap:24px;flex-wrap:wrap;margin:22px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(234,230,223,.5)}
+.nr .vstats b{color:#5B9BD5;font-weight:400}
+.nr .vact{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.nr .vplay{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--bone);background:var(--bone);color:#0b1524;padding:16px 28px;cursor:pointer;transition:.35s}
+.nr .vplay:hover{background:#5B9BD5;border-color:#5B9BD5;color:#0b1524}
+.nr .vbuy{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;border:1px solid rgba(234,230,223,.45);background:none;color:var(--bone);padding:16px 26px;cursor:pointer;transition:.35s}
+.nr .vbuy:hover{border-color:#5B9BD5;color:#5B9BD5}
+.nr .vbuy b{color:#5B9BD5;font-weight:400}
+.nr .vinfo{margin:28px 0 0;max-width:460px}
+.nr .vinfo-lbl{display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(234,230,223,.5);padding:11px 0;border-top:1px solid rgba(234,230,223,.14)}
+.nr .vinfo-lbl b{color:#5B9BD5;font-weight:400}
+.nr .vtracks{margin:4px 0 0;padding:0;list-style:none;columns:2;column-gap:30px}
+.nr .vtracks li{display:flex;gap:10px;padding:6px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(234,230,223,.55);break-inside:avoid;cursor:pointer;transition:color .2s}
+.nr .vtracks li b{color:#5B9BD5;font-weight:400;min-width:24px}
+.nr .vtracks li:hover{color:var(--bone)}
+.nr .vtracks li.on{color:var(--bone)}
+.nr .vtracks li.on b::after{content:" ▸"}
+.nrdisc{position:relative;aspect-ratio:1;width:100%;max-width:460px;justify-self:end}
+.nrrings{position:absolute;inset:-14%;pointer-events:none}
+.nrrings span{position:absolute;inset:0;border:1px solid rgba(91,155,213,.4);border-radius:50%;animation:nrring 3.6s linear infinite}
+.nrrings span:nth-child(2){animation-delay:1.2s}
+.nrrings span:nth-child(3){animation-delay:2.4s}
+@keyframes nrring{0%{transform:scale(.84);opacity:0}16%{opacity:.65}100%{transform:scale(1.24);opacity:0}}
+.nr .vdiscwrap{position:relative;width:100%;aspect-ratio:1}
+.nr .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
+.nr .vdisc{box-shadow:0 26px 90px rgba(0,0,0,.6),0 0 90px rgba(46,111,176,.35),inset 0 0 70px rgba(0,0,0,.4)}
+.nr .vdisc::before{border-color:rgba(91,155,213,.4)}
+.nr .vgo.on{background:#2E6FB0}
+@media(max-width:860px){.nrin{grid-template-columns:1fr}.nrdisc{max-width:330px;justify-self:center;order:-1}}
+@media(prefers-reduced-motion:reduce){.nr::before,.nr::after,.nrrings span,.nrlive i{animation:none}}
 /* MINIMAL SET en azul */
 .vprod.blue .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
 .vprod.blue .vdisc::before{border-color:rgba(46,111,176,.45)}
@@ -287,7 +321,7 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-top"><span>MORELIA, MX</span><span class="a">NEW RELEASE — TULUM</span><span>EST. MMXXVI</span></div>
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">THREE RECORDS — ONE LABEL</span><span>EST. MMXXVI</span></div>
   <h1 class="hero-word">AMR</h1>
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
@@ -301,13 +335,17 @@ body.hasplayer{padding-bottom:70px}
 <!-- MARQUEE -->
 <div class="mq"><div id="mqtrack"></div></div>
 
-<!-- NUEVO LANZAMIENTO — TULUM -->
-<section class="sec" id="newrelease">
-  <div class="sh">
-    <div><span class="hk" style="color:#2E6FB0">NUEVO LANZAMIENTO — MMXXVI</span><h2>TULUM.</h2></div>
-    <p>El set continuo de 1h51 inspirado en la estructura de la noche más famosa de Tulum: 16 tracks en un solo take, transiciones en tempo, in sync de principio a fin.</p>
+<!-- NUEVO LANZAMIENTO — TULUM (noche azul) -->
+<section class="nr" id="newrelease">
+  <div class="nrin">
+    <div class="nrleft">
+      <span class="nrlive"><i></i>OUT NOW — NUEVO LANZAMIENTO</span>
+      <h2 class="nrtitle">TULUM</h2>
+      <p class="nrsub">El disco que se esperó toda la temporada. Un set continuo de <b>1h51</b> — dieciséis tracks en un solo take, transiciones en tempo, <b>in sync</b> de principio a fin. Cortado a vinilo azul, numerado a mano.</p>
+      <div id="nrMeta"></div>
+    </div>
+    <div class="nrdisc" id="nrDisc"></div>
   </div>
-  <div id="featgrid"></div>
 </section>
 
 <!-- MONUMENTS — las cinco rolas -->
@@ -437,28 +475,35 @@ VINYLS.forEach(function(p,j){
   var gi = VOFF + j;   // índice global en T
   var tl = (p.titles||[]).map(function(t,k){ return '<li id="v'+j+'-tk'+k+'"><b>'+(k+1<10?'0':'')+(k+1)+'</b> '+t+'</li>'; }).join('');
   var isFeat = (p.id === 'amr-tulum');
-  var el = document.createElement('div');
-  el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (isFeat ? ' blue feat' : ''));
-  el.id = 'vprod-'+j;
-  el.innerHTML =
+  var discHTML =
     '<div class="vdiscwrap">'+
       '<button class="vdisc" id="vdisc-'+j+'" aria-label="Play '+p.title+'">'+
         '<span class="vlabel"><b>'+p.title+'</b><i>'+(p.kicker||'AMR')+'</i></span>'+
         '<span class="vhole"></span>'+
       '</button>'+
       '<span class="vgo" id="vgo-'+j+'">▸</span>'+
-    '</div>'+
-    '<div class="vmeta">'+
-      '<span class="vkick">'+(p.kicker||'')+' · '+(p.id==='amr-monuments-side'?'AMBER VINYL':(p.id==='amr-tulum'?'BLUE VINYL':'WINE-RED VINYL'))+'</span>'+
-      '<h3>'+p.title+'</h3>'+
-      '<div class="vstats"><span><b>'+p.tracks+'</b> TRACKS</span><span><b>'+fmt(p.dur)+'</b></span><span>EDITION OF <b>'+p.edition+'</b></span></div>'+
-      '<div class="vact">'+
-        '<button class="vplay" id="vplay-'+j+'">▸ PLAY THE RECORD</button>'+
-        '<button class="vbuy" id="vbuy-'+j+'">GET THE VINYL <b>·</b> ED. '+p.edition+'</button>'+
-      '</div>'+
-      '<div class="vinfo"><span class="vinfo-lbl">LAS CANCIONES <b>·</b> '+p.tracks+' CORTES</span><ol class="vtracks">'+tl+'</ol></div>'+
     '</div>';
-  (isFeat ? document.getElementById('featgrid') : vgrid).appendChild(el);
+  var statsHTML = '<div class="vstats"><span><b>'+p.tracks+'</b> TRACKS</span><span><b>'+fmt(p.dur)+'</b></span><span>EDITION OF <b>'+p.edition+'</b></span></div>';
+  var actHTML = '<div class="vact">'+
+      '<button class="vplay" id="vplay-'+j+'">▸ PLAY THE RECORD</button>'+
+      '<button class="vbuy" id="vbuy-'+j+'">GET THE VINYL <b>·</b> ED. '+p.edition+'</button>'+
+    '</div>';
+  var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">LAS CANCIONES <b>·</b> '+p.tracks+' CORTES</span><ol class="vtracks">'+tl+'</ol></div>';
+  if(isFeat){
+    document.getElementById('nrDisc').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta').innerHTML = statsHTML + actHTML + infoHTML;
+  } else {
+    var el = document.createElement('div');
+    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : '');
+    el.id = 'vprod-'+j;
+    el.innerHTML = discHTML +
+      '<div class="vmeta">'+
+        '<span class="vkick">'+(p.kicker||'')+' · '+(p.id==='amr-monuments-side'?'AMBER VINYL':'WINE-RED VINYL')+'</span>'+
+        '<h3>'+p.title+'</h3>'+
+        statsHTML + actHTML + infoHTML +
+      '</div>';
+    vgrid.appendChild(el);
+  }
   function toggle(){ (cur===gi && !audio.paused) ? pause() : playTrack(gi); }
   document.getElementById('vdisc-'+j).addEventListener('click', toggle);
   document.getElementById('vplay-'+j).addEventListener('click', toggle);
