@@ -1,0 +1,147 @@
+<svg viewBox="0 0 2480 520" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F1EDE6"/>
+      <stop offset="100%" stop-color="#E4DED3"/>
+    </linearGradient>
+    <radialGradient id="ag" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C96F2B" stop-opacity="0.5"/>
+      <stop offset="46%" stop-color="#C96F2B" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#C96F2B" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2E6FB0" stop-opacity="0.5"/>
+      <stop offset="46%" stop-color="#2E6FB0" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#2E6FB0" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- NARANJAS (MONUMENTS) -->
+    <g id="d_plinth">
+      <ellipse cx="120" cy="212" rx="62" ry="8" fill="#14120F" opacity="0.05"/>
+      <rect x="74" y="150" width="92" height="58" rx="4" fill="#141210"/>
+      <rect x="86" y="138" width="68" height="12" rx="2" fill="#141210"/>
+      <circle cx="64" cy="176" r="2.6" fill="#141210"/>
+      <circle cx="176" cy="160" r="2.2" fill="#141210"/>
+      <circle cx="120" cy="96" r="42" fill="url(#ag)"/>
+      <circle cx="120" cy="96" r="17" fill="#C96F2B"/>
+      <circle cx="120" cy="96" r="6.6" fill="#141210"/>
+      <path d="M94 78 A34 34 0 0 1 146 78" fill="none" stroke="#C96F2B" stroke-width="2" opacity="0.55" stroke-linecap="round"/>
+      <path d="M85 68 A46 46 0 0 1 155 68" fill="none" stroke="#C96F2B" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+      <path d="M77 57 A58 58 0 0 1 163 57" fill="none" stroke="#C96F2B" stroke-width="1.1" opacity="0.26" stroke-linecap="round"/>
+    </g>
+    <g id="d_monolith">
+      <ellipse cx="120" cy="212" rx="52" ry="8" fill="#14120F" opacity="0.05"/>
+      <rect x="92" y="34" width="56" height="174" rx="5" fill="#141210"/>
+      <circle cx="82" cy="80" r="2.4" fill="#141210"/>
+      <circle cx="160" cy="148" r="2.8" fill="#141210"/>
+      <circle cx="78" cy="188" r="2" fill="#141210"/>
+      <ellipse cx="120" cy="121" rx="48" ry="13" fill="url(#ag)"/>
+      <rect x="88" y="119.4" width="64" height="2.4" fill="#C96F2B"/>
+      <path d="M70 96 L84 96" stroke="#C96F2B" stroke-width="1.6" opacity="0.5" stroke-linecap="round"/>
+      <path d="M156 144 L172 144" stroke="#C96F2B" stroke-width="1.6" opacity="0.5" stroke-linecap="round"/>
+      <path d="M64 121 L80 121" stroke="#C96F2B" stroke-width="2" opacity="0.7" stroke-linecap="round"/>
+      <path d="M160 121 L178 121" stroke="#C96F2B" stroke-width="2" opacity="0.7" stroke-linecap="round"/>
+    </g>
+    <g id="d_vessel">
+      <ellipse cx="120" cy="212" rx="50" ry="8" fill="#14120F" opacity="0.05"/>
+      <path d="M96 62 C96 84 78 96 78 132 C78 174 96 204 120 204 C144 204 162 174 162 132 C162 96 144 84 144 62 Z" fill="#141210"/>
+      <circle cx="70" cy="110" r="2.4" fill="#141210"/>
+      <circle cx="172" cy="154" r="2.6" fill="#141210"/>
+      <ellipse cx="120" cy="58" rx="36" ry="13" fill="url(#ag)"/>
+      <ellipse cx="120" cy="58" rx="24" ry="6" fill="none" stroke="#C96F2B" stroke-width="2.4"/>
+      <circle cx="120" cy="132" r="4" fill="#C96F2B"/>
+      <circle cx="120" cy="150" r="2.6" fill="#C96F2B" opacity="0.6"/>
+      <circle cx="120" cy="164" r="1.8" fill="#C96F2B" opacity="0.35"/>
+    </g>
+    <g id="d_strata">
+      <ellipse cx="120" cy="212" rx="66" ry="8" fill="#14120F" opacity="0.05"/>
+      <rect x="58" y="176" width="124" height="30" rx="3" fill="#141210"/>
+      <rect x="66" y="146" width="108" height="24" rx="3" fill="#141210"/>
+      <rect x="82" y="96" width="76" height="20" rx="3" fill="#141210"/>
+      <rect x="92" y="72" width="56" height="16" rx="3" fill="#141210"/>
+      <circle cx="50" cy="160" r="2.4" fill="#141210"/>
+      <circle cx="190" cy="190" r="2.6" fill="#141210"/>
+      <ellipse cx="120" cy="130" rx="62" ry="15" fill="url(#ag)"/>
+      <rect x="74" y="124" width="92" height="12" rx="2.5" fill="#C96F2B"/>
+      <path d="M46 130 L64 130" stroke="#C96F2B" stroke-width="1.8" opacity="0.6" stroke-linecap="round"/>
+      <path d="M176 130 L196 130" stroke="#C96F2B" stroke-width="1.8" opacity="0.6" stroke-linecap="round"/>
+    </g>
+    <g id="d_ghost">
+      <ellipse cx="120" cy="212" rx="56" ry="8" fill="#14120F" opacity="0.04"/>
+      <path d="M76 208 L76 118 A44 44 0 0 1 164 118 L164 208" fill="none" stroke="#141210" stroke-width="7" stroke-dasharray="1 13" stroke-linecap="round"/>
+      <circle cx="66" cy="96" r="2.2" fill="#141210"/>
+      <circle cx="176" cy="170" r="2.4" fill="#141210"/>
+      <circle cx="120" cy="128" r="46" fill="url(#ag)"/>
+      <circle cx="120" cy="128" r="12" fill="#C96F2B" opacity="0.85"/>
+      <circle cx="120" cy="128" r="4.6" fill="#141210"/>
+      <path d="M96 208 L144 208" stroke="#141210" stroke-width="6" opacity="0.85" stroke-linecap="round"/>
+    </g>
+
+    <!-- AZULES (TULUM) -->
+    <g id="d_metronomo">
+      <ellipse cx="120" cy="212" rx="58" ry="8" fill="#14120F" opacity="0.05"/>
+      <path d="M92 204 L108 52 L132 52 L148 204 Z" fill="#141210"/>
+      <circle cx="78" cy="112" r="2.4" fill="#141210"/>
+      <circle cx="168" cy="164" r="2.6" fill="#141210"/>
+      <line x1="120" y1="196" x2="164" y2="76" stroke="#2E6FB0" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="152" cy="108" r="15" fill="url(#bgl)"/>
+      <circle cx="152" cy="108" r="8" fill="#2E6FB0"/>
+      <path d="M70 70 A64 64 0 0 1 96 46" fill="none" stroke="#2E6FB0" stroke-width="1.8" opacity="0.5" stroke-linecap="round"/>
+      <path d="M144 46 A64 64 0 0 1 170 70" fill="none" stroke="#2E6FB0" stroke-width="1.8" opacity="0.5" stroke-linecap="round"/>
+    </g>
+    <g id="d_tarde">
+      <circle cx="120" cy="118" r="66" fill="url(#bgl)"/>
+      <circle cx="120" cy="118" r="34" fill="#2E6FB0"/>
+      <g stroke="#2E6FB0" stroke-width="2.5" stroke-linecap="round" opacity="0.6">
+        <path d="M120 44 L120 60"/><path d="M70 68 L80 78"/><path d="M170 68 L160 78"/><path d="M58 118 L74 118"/><path d="M182 118 L166 118"/>
+      </g>
+      <g fill="#141210">
+        <rect x="48" y="140" width="144" height="8" rx="4"/>
+        <rect x="62" y="160" width="116" height="7" rx="3.5" opacity="0.75"/>
+        <rect x="78" y="179" width="84" height="6" rx="3" opacity="0.5"/>
+        <rect x="94" y="196" width="52" height="5" rx="2.5" opacity="0.3"/>
+      </g>
+    </g>
+    <g id="d_sincronia">
+      <ellipse cx="120" cy="214" rx="66" ry="10" fill="#14120F" opacity="0.05"/>
+      <circle cx="120" cy="128" r="72" fill="url(#bgl)"/>
+      <g fill="#141210">
+        <path d="M84 200 C76 168 78 138 84 116 C88 100 96 96 100 112 C104 130 102 166 98 200 Z"/>
+        <circle cx="91" cy="86" r="14"/>
+        <path d="M142 200 C134 168 136 138 142 116 C146 100 154 96 158 112 C162 130 160 166 156 200 Z"/>
+        <circle cx="149" cy="86" r="14"/>
+      </g>
+      <g fill="none" stroke="#2E6FB0" stroke-linecap="round">
+        <path d="M94 124 C104 115 112 115 120 124 C128 133 136 133 146 124" stroke-width="2.4" opacity="0.55"/>
+        <path d="M92 140 C104 130 112 130 120 140 C128 150 136 150 148 140" stroke-width="3.4"/>
+        <path d="M94 156 C104 147 112 147 120 156 C128 165 136 165 146 156" stroke-width="2.4" opacity="0.55"/>
+      </g>
+    </g>
+    <g id="d_pianoviejo">
+      <ellipse cx="120" cy="206" rx="66" ry="8" fill="#14120F" opacity="0.05"/>
+      <rect x="52" y="96" width="136" height="72" rx="6" fill="#141210"/>
+      <circle cx="44" cy="132" r="2.4" fill="#141210"/>
+      <circle cx="196" cy="150" r="2.6" fill="#141210"/>
+      <rect x="60" y="128" width="15" height="34" rx="2" fill="#EAE6DF"/>
+      <rect x="78" y="128" width="15" height="34" rx="2" fill="#EAE6DF"/>
+      <rect x="96" y="128" width="15" height="34" rx="2" fill="#2E6FB0"/>
+      <rect x="114" y="128" width="15" height="34" rx="2" fill="#EAE6DF"/>
+      <rect x="132" y="128" width="15" height="34" rx="2" fill="#2E6FB0"/>
+      <rect x="150" y="128" width="15" height="34" rx="2" fill="#EAE6DF"/>
+      <rect x="168" y="128" width="14" height="34" rx="2" fill="#EAE6DF"/>
+      <path d="M84 74 C92 60 104 56 112 62 M124 66 C132 52 144 48 152 54" fill="none" stroke="#2E6FB0" stroke-width="2.4" opacity="0.65" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <rect width="2480" height="520" fill="url(#bg)"/>
+
+  <use xlink:href="#d_plinth"     transform="translate(-8.62,95.6) scale(1.22)"/>
+  <use xlink:href="#d_metronomo"  transform="translate(266.93,131.6) scale(1.22)"/>
+  <use xlink:href="#d_monolith"   transform="translate(542.49,95.6) scale(1.22)"/>
+  <use xlink:href="#d_tarde"      transform="translate(818.04,131.6) scale(1.22)"/>
+  <use xlink:href="#d_vessel"     transform="translate(1093.6,95.6) scale(1.22)"/>
+  <use xlink:href="#d_sincronia"  transform="translate(1369.16,131.6) scale(1.22)"/>
+  <use xlink:href="#d_strata"     transform="translate(1644.71,95.6) scale(1.22)"/>
+  <use xlink:href="#d_pianoviejo" transform="translate(1920.27,131.6) scale(1.22)"/>
+  <use xlink:href="#d_ghost"      transform="translate(2195.82,95.6) scale(1.22)"/>
+</svg>
