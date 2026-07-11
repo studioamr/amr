@@ -40,12 +40,15 @@ body.lock{overflow:hidden}
 @media(max-width:720px){.top nav a:not(:last-child){display:none}}
 
 /* ---- hero ---- */
-.hero{position:relative;max-width:1300px;margin:0 auto;padding:clamp(20px,3vw,40px) clamp(20px,4vw,48px) clamp(20px,3vw,40px);min-height:74vh;display:flex;flex-direction:column;justify-content:center}
+.hero{position:relative;max-width:1300px;margin:0 auto;padding:clamp(24px,4vh,44px) clamp(20px,4vw,48px);min-height:min(72vh,640px);display:flex;flex-direction:column;justify-content:center}
 .hero-top{display:flex;justify-content:space-between;z-index:2;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:clamp(16px,3vh,38px)}
 .hero-top .a{color:var(--amber)}
 .hero-word{position:relative;z-index:2;font-family:'Instrument Serif',serif;font-size:clamp(110px,26vw,380px);line-height:.8;letter-spacing:.03em;margin:0}
 .hero-art{position:absolute;z-index:1;top:50%;right:clamp(14px,3vw,40px);transform:translateY(-50%);width:clamp(180px,29vw,390px);height:auto;pointer-events:none;opacity:.96}
-@media(max-width:720px){.hero-art{width:44vw;top:auto;bottom:32%;right:12px;transform:none;opacity:.5}body.lock .hero-art{transform:none;opacity:0}body.hero-in .hero-art{transform:none;opacity:.5}}
+@media(max-width:720px){
+  .hero-top{flex-direction:column;align-items:flex-start;gap:5px;font-size:11px;margin-bottom:clamp(14px,3vh,26px)}
+  .hero-art{display:none}
+}
 /* ---- intro animado del hero ---- */
 .hero-word span{display:inline-block;will-change:transform,opacity,filter;transition:opacity .72s cubic-bezier(.2,.75,.2,1),transform .72s cubic-bezier(.2,.75,.2,1),filter .72s ease}
 .hero-top,.hero-bottom,.hero-art{transition:opacity .9s ease,transform .9s ease}
