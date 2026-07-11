@@ -348,6 +348,23 @@ body.hasplayer{padding-bottom:70px}
 .vprod.blue .vplay:hover{background:#2E6FB0;border-color:#2E6FB0}
 .vprod.blue .vbuy:hover{border-color:#2E6FB0;color:#2E6FB0}
 
+/* ---- shotbox (galería de producto) ---- */
+.shotbox{position:fixed;inset:0;z-index:80;background:rgba(11,9,6,.74);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.shotbox.on{opacity:1;visibility:visible}
+.shot-in{background:var(--bone);max-width:1080px;width:100%;max-height:92vh;overflow:auto;display:grid;grid-template-columns:1.4fr 1fr;position:relative;box-shadow:0 40px 120px rgba(0,0,0,.5)}
+.shot-imgwrap{background:#EAE4DA}
+.shot-img{width:100%;height:100%;object-fit:cover;display:block;min-height:280px}
+.shot-meta{padding:clamp(24px,3vw,46px);display:flex;flex-direction:column;justify-content:center;gap:14px}
+.shot-meta h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,5vw,62px);margin:0;line-height:.92}
+.shot-meta p{color:var(--mut);line-height:1.55;margin:0;max-width:38ch}
+.shot-list{list-style:none;margin:6px 0 0;padding:0;display:grid;gap:0}
+.shot-list li{display:flex;justify-content:space-between;gap:14px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:9px 0;border-top:1px solid rgba(20,18,16,.13)}
+.shot-list b{color:var(--ink);font-weight:400}.shot-list i{font-style:normal;color:var(--mut)}
+.shot-cta{margin-top:12px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.shot-note{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.shot-x{position:absolute;top:14px;right:14px;z-index:3;background:var(--bone);border:1px solid var(--ink);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:13px;display:grid;place-items:center;transition:.3s}
+.shot-x:hover{background:var(--ink);color:var(--bone)}
+@media(max-width:760px){.shot-in{grid-template-columns:1fr;max-height:94vh}}
 /* ---- events / tocadas ---- */
 .events .sh{margin-bottom:6px}
 .evlist{list-style:none;margin:30px 0 0;padding:0;border-top:1px solid rgba(20,18,16,.16)}
@@ -504,6 +521,29 @@ body.hasplayer{padding-bottom:70px}
   <span>SOUND BORN ON A <b>PLINTH</b></span>
 </div></footer>
 
+<!-- SHOTBOX — galería de producto del vinilo -->
+<div id="shotbox" class="shotbox" aria-hidden="true">
+  <div class="shot-in">
+    <button class="shot-x" id="shotX" aria-label="Close">&#10005;</button>
+    <div class="shot-imgwrap"><img class="shot-img" id="shotImg" src="" alt=""></div>
+    <div class="shot-meta">
+      <span class="hk" id="shotKick">THE VINYL</span>
+      <h3 id="shotTitle">—</h3>
+      <p id="shotDesc"></p>
+      <ul class="shot-list">
+        <li><b>12&Prime; RECORD</b><i>coloured vinyl, 45 RPM</i></li>
+        <li><b>PRINTED JACKET</b><i>blueprint sleeve</i></li>
+        <li><b>DIGITAL MASTER</b><i>download code inside</i></li>
+        <li><b>NUMBERED BY HAND</b><i>inked on the label</i></li>
+      </ul>
+      <div class="shot-cta">
+        <button class="btn solid" id="shotBuy">Claim your copy</button>
+        <span class="shot-note" id="shotNote"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- PLAYER -->
 <div id="player">
   <div class="in">
@@ -525,6 +565,38 @@ body.hasplayer{padding-bottom:70px}
 <script src="tulum.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
+
+/* ---- shotbox: galería de producto del vinilo (aparece al querer comprar) ---- */
+(function(){
+  var box = document.getElementById('shotbox'); if(!box) return;
+  var SHOTS = {
+    'amr-monuments-side':{img:'art/shots/shot-monuments.jpg', kick:'THE EP · MONUMENTS', title:'MONUMENTS', desc:'Amber 12″ pressed from pure waveforms — no samples, no presets. Ships in its printed jacket with the digital master and the number inked on the label.'},
+    'amr-set-the-set':{img:'art/shots/shot-sesion.jpg', kick:'THE SET · SESIÓN 001', title:'SESIÓN 001', desc:'The ninety-minute set on wine-red vinyl. One continuous mix, hand-numbered jacket, download code inside.'},
+    'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · TULUM', title:'TULUM', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'}
+  };
+  var current = null;
+  window.openShot = function(p){
+    var s = SHOTS[p.id]; if(!s) return;
+    current = p;
+    var img = document.getElementById('shotImg');
+    img.src = s.img; img.alt = s.title + ' — vinyl and packaging';
+    document.getElementById('shotKick').textContent = s.kick;
+    document.getElementById('shotTitle').textContent = s.title;
+    document.getElementById('shotDesc').textContent = s.desc;
+    document.getElementById('shotNote').textContent = 'EDITION OF ' + (p.edition||50) + ' · NUMBERED BY HAND';
+    box.classList.add('on'); box.setAttribute('aria-hidden','false');
+  };
+  function closeShot(){ box.classList.remove('on'); box.setAttribute('aria-hidden','true'); }
+  document.getElementById('shotX').addEventListener('click', closeShot);
+  box.addEventListener('click', function(e){ if(e.target === box) closeShot(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeShot(); });
+  document.getElementById('shotBuy').addEventListener('click', function(){
+    if(!current) return;
+    var body = "Hi Studio AMR — I want "+current.title+" on vinyl (edition of "+(current.edition||50)+").\n\nName:\nShipping address:\n";
+    if(CONFIG.wa){ window.open('https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(body),'_blank'); }
+    else { location.href='mailto:'+CONFIG.email+'?subject='+encodeURIComponent('Studio AMR — '+current.title+' (vinyl)')+'&body='+encodeURIComponent(body); }
+  });
+})();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
 var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL].filter(Boolean); // discos completos
@@ -705,11 +777,7 @@ VINYLS.forEach(function(p,j){
   function toggle(){ (cur===gi && !audio.paused) ? pause() : playTrack(gi); }
   document.getElementById('vdisc-'+j).addEventListener('click', toggle);
   document.getElementById('vplay-'+j).addEventListener('click', toggle);
-  document.getElementById('vbuy-'+j).addEventListener('click', function(){
-    var body = "Hi Studio AMR — I want "+p.title+" on vinyl (edition of "+p.edition+").\n\nName:\n";
-    if(CONFIG.wa){ window.open('https://wa.me/'+CONFIG.wa+'?text='+encodeURIComponent(body),'_blank'); }
-    else { location.href='mailto:'+CONFIG.email+'?subject='+encodeURIComponent('AMR — '+p.title+' (vinyl)')+'&body='+encodeURIComponent(body); }
-  });
+  document.getElementById('vbuy-'+j).addEventListener('click', function(){ if(window.openShot) openShot(p); });
   // pica una canción del tracklist → salta a ese momento del mix
   (p.titles||[]).forEach(function(t,k){
     var li = document.getElementById('v'+j+'-tk'+k); if(!li) return;
