@@ -143,6 +143,15 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .bigdisc::after{content:"";width:33%;height:33%;border-radius:50%;background:var(--amber)}
 .bigdisc::before{content:"";position:absolute;width:5.5%;height:5.5%;border-radius:50%;background:var(--bone2);z-index:2}
 .bigdisc.spin{animation:spin 3.5s linear infinite}
+.bigdisc.blue::after{background:#2E6FB0}
+.soundrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
+.soundrail::-webkit-scrollbar{display:none}
+.soundrail.dragging{cursor:grabbing;scroll-snap-type:none}
+.soundpanel{flex:0 0 100%;scroll-snap-align:center}
+.soundpanel .row2{padding-bottom:clamp(28px,4vw,50px)}
+.sounddots{display:flex;gap:10px;justify-content:center;padding-bottom:clamp(40px,6vw,72px)}
+.sounddots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--mut);background:none;cursor:pointer;padding:0;transition:.3s}
+.sounddots button.on{background:var(--ink);border-color:var(--ink)}
 @media(max-width:860px){.edit .row2{grid-template-columns:1fr}}
 
 /* ---- about ---- */
@@ -484,23 +493,47 @@ body.hasplayer{padding-bottom:70px}
 <div class="mq blue"><div id="mqtrack2"></div></div>
 
 <!-- THE SOUND -->
-<div class="edit" id="sound"><div class="row2">
-  <div>
-    <span class="hk">THE SOUND</span>
-    <h2>Sub grave, dust, and patience.</h2>
-    <p>This sound was born on a <b>PLINTH</b> — the sculptural DJ booths cast as one object. Music built for monuments has rules: the sub sits at <b>41–65 Hz</b> where you feel it in your chest, the needle dust stays in the mix because <b>the surface is part of the song</b>, and every chord waits two bars before it answers.</p>
-    <p>No presets. No samples. Every kick, pad and grain of dust on these records was synthesized from raw sine waves and noise — then cut to the groove.</p>
-    <ul class="speclist">
-      <li><b>FORMAT</b><i>12&Prime; VINYL — 45 RPM</i></li>
-      <li><b>SUB RANGE</b><i>41.2 — 65.4 HZ</i></li>
-      <li><b>TEMPO</b><i>112 — 122 BPM · ONE BEATLESS</i></li>
-      <li><b>SURFACE</b><i>DUST PRESSED IN, NOT REMOVED</i></li>
-      <li><b>SYNTHESIS</b><i>PURE — NO SAMPLES, NO PRESETS</i></li>
-      <li><b>TOTAL PRESSING</b><i>50 RECORDS, EVER</i></li>
-    </ul>
-  </div>
-  <div class="bigdisc" id="bigdisc"></div>
-</div></div>
+<div class="edit" id="sound">
+<div class="soundrail" id="soundrail">
+  <!-- MONUMENTS sound -->
+  <div class="soundpanel"><div class="row2">
+    <div>
+      <span class="hk">THE SOUND — MONUMENTS</span>
+      <h2>Sub grave, dust, and patience.</h2>
+      <p>This sound was born on a <b>PLINTH</b> — the sculptural DJ booths cast as one object. Music built for monuments has rules: the sub sits at <b>41–65 Hz</b> where you feel it in your chest, the needle dust stays in the mix because <b>the surface is part of the song</b>, and every chord waits two bars before it answers.</p>
+      <p>No presets. No samples. Every kick, pad and grain of dust on these records was synthesized from raw sine waves and noise — then cut to the groove.</p>
+      <ul class="speclist">
+        <li><b>FORMAT</b><i>12&Prime; AMBER VINYL — 45 RPM</i></li>
+        <li><b>SUB RANGE</b><i>41.2 — 65.4 HZ</i></li>
+        <li><b>TEMPO</b><i>112 — 122 BPM · ONE BEATLESS</i></li>
+        <li><b>SURFACE</b><i>DUST PRESSED IN, NOT REMOVED</i></li>
+        <li><b>SYNTHESIS</b><i>PURE — NO SAMPLES, NO PRESETS</i></li>
+        <li><b>TOTAL PRESSING</b><i>50 RECORDS, EVER</i></li>
+      </ul>
+    </div>
+    <div class="bigdisc" id="bigdisc"></div>
+  </div></div>
+  <!-- TULUM sound -->
+  <div class="soundpanel"><div class="row2">
+    <div>
+      <span class="hk">THE SOUND — TULUM</span>
+      <h2>One take, in sync, all night.</h2>
+      <p>TULUM is one continuous take. Sixteen movements locked to <b>121 BPM</b>, every transition beat-aligned across four bars so the pulse never breaks. It builds like a night out — arrival, the roller, the euphoric lift, the peak <b>in sync</b>, the piano at dawn — one arc, no gaps.</p>
+      <p>No stems dropped in, no DJ software. The whole set was synthesized and mixed as a single piece, then cut to <b>blue vinyl</b>.</p>
+      <ul class="speclist">
+        <li><b>FORMAT</b><i>12&Prime; BLUE VINYL — CONTINUOUS</i></li>
+        <li><b>TEMPO</b><i>121 BPM · TEMPO-LOCKED</i></li>
+        <li><b>STRUCTURE</b><i>16 MOVEMENTS · ONE TAKE</i></li>
+        <li><b>TRANSITIONS</b><i>BEAT-ALIGNED · 4 BARS</i></li>
+        <li><b>LENGTH</b><i>1H51 · IN SYNC</i></li>
+        <li><b>TOTAL PRESSING</b><i>15 RECORDS, EVER</i></li>
+      </ul>
+    </div>
+    <div class="bigdisc blue" id="bigdisc2"></div>
+  </div></div>
+</div>
+<div class="sounddots" id="sounddots"><button data-i="0" class="on" aria-label="MONUMENTS sound"></button><button data-i="1" aria-label="TULUM sound"></button></div>
+</div>
 
 <!-- LOS DOS DISCOS (después de sub grave) -->
 <section class="sec" id="vinyls">
@@ -682,6 +715,20 @@ if(window.AMR_TUL){
   var el2 = document.getElementById('mqtrack2'); if(el2) el2.innerHTML = mq2 + mq2;
 }
 
+/* ---- carril horizontal de THE SOUND (arrastrable + dots) ---- */
+(function(){
+  var rail = document.getElementById('soundrail'); if(!rail) return;
+  var dots = document.getElementById('sounddots');
+  var down=false, dragging=false, sx=0, sl=0, pid=null;
+  rail.addEventListener('pointerdown', function(e){ if(e.pointerType!=='mouse' || (e.button&&e.button!==0)) return; down=true; dragging=false; sx=e.clientX; sl=rail.scrollLeft; pid=e.pointerId; });
+  rail.addEventListener('pointermove', function(e){ if(!down) return; var dx=e.clientX-sx; if(!dragging){ if(Math.abs(dx)<6) return; dragging=true; rail.classList.add('dragging'); try{ rail.setPointerCapture(pid); }catch(_){} } rail.scrollLeft=sl-dx; });
+  function end(){ down=false; if(dragging){ dragging=false; rail.classList.remove('dragging'); } }
+  rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
+  function upd(){ var i=Math.round(rail.scrollLeft/Math.max(1,rail.clientWidth)); if(dots) [].forEach.call(dots.children,function(b,k){ b.classList.toggle('on',k===i); }); }
+  rail.addEventListener('scroll', upd, {passive:true});
+  if(dots) [].forEach.call(dots.children, function(b,k){ b.addEventListener('click', function(){ rail.scrollTo({left:k*rail.clientWidth, behavior:'smooth'}); }); });
+})();
+
 /* ---- próximas tocadas — EDITA AQUÍ (fecha, lugar, ciudad, nota) ---- */
 var EVENTS = [
   { m:'AUG', d:'22', y:'2026', venue:'Foro Cenoteca',  city:'Morelia, MX',        note:'Vinyl set · 3 hrs',       cta:'RSVP' },
@@ -862,6 +909,7 @@ function syncCards(){
   player.classList.toggle('playing', !audio.paused);
   playBtn.innerHTML = audio.paused ? '▸' : '&#9646;&#9646;';
   var bd = document.getElementById('bigdisc'); if(bd) bd.classList.toggle('spin', !audio.paused);
+  var bd2 = document.getElementById('bigdisc2'); if(bd2) bd2.classList.toggle('spin', !audio.paused);
   // cards de TULUM en LO MEJOR: cada una es su propio corte standalone
   if(typeof TPICKS !== 'undefined'){
     TPICKS.forEach(function(tp,k){
