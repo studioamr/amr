@@ -751,6 +751,7 @@ var EVENTS = [
 var grid = document.getElementById('recordGrid');
 var cardsO = [], cardsB = [];
 ROLAS.forEach(function(t,i){
+  if(t.title === 'GHOST') return;   // GHOST fuera de "best tracks"
   var b = document.createElement('button');
   b.className = 'card'; b.id = 'card-'+i;
   b.innerHTML =
