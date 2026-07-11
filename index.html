@@ -264,6 +264,12 @@ body.hasplayer{padding-bottom:70px}
 .vprod.wine .vkick,.vprod.wine .vstats b,.vprod.wine .vbuy b,.vprod.wine .vinfo-lbl b,.vprod.wine .vtracks li b{color:#A62D3E}
 .vprod.wine .vplay:hover{background:#A62D3E;border-color:#A62D3E}
 .vprod.wine .vbuy:hover{border-color:#A62D3E;color:#A62D3E}
+.vprod.pink .vlabel{background:radial-gradient(circle at 42% 38%,#F2A6C4,#E5769A);box-shadow:0 0 0 5px #b0446a}
+.vprod.pink .vdisc::before{border-color:rgba(229,118,154,.5)}
+.vprod.pink .vgo.on{background:#E5769A}
+.vprod.pink .vkick,.vprod.pink .vstats b,.vprod.pink .vbuy b,.vprod.pink .vinfo-lbl b,.vprod.pink .vtracks li b{color:#E5769A}
+.vprod.pink .vplay:hover{background:#E5769A;border-color:#E5769A}
+.vprod.pink .vbuy:hover{border-color:#E5769A;color:#E5769A}
 /* ---- carril horizontal libre: deriva sola, arrastrable ---- */
 .dropsrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
 .dropsrail::-webkit-scrollbar{display:none}
@@ -570,6 +576,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="monuments.js"></script>
 <script src="set.js"></script>
 <script src="tulum.js"></script>
+<script src="bloom.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -579,7 +586,8 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
   var SHOTS = {
     'amr-monuments-side':{img:'art/shots/shot-monuments.jpg', kick:'THE EP · MONUMENTS', title:'MONUMENTS', desc:'Amber 12″ pressed from pure waveforms — no samples, no presets. Ships in its printed jacket with the digital master and the number inked on the label.'},
     'amr-set-the-set':{img:'art/shots/shot-sesion.jpg', kick:'THE SET · SESIÓN 001', title:'SESIÓN 001', desc:'The ninety-minute set on wine-red vinyl. One continuous mix, hand-numbered jacket, download code inside.'},
-    'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · TULUM', title:'TULUM', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'}
+    'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · TULUM', title:'TULUM', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
+    'amr-bloom':{img:'art/shots/shot-bloom.jpg', kick:'THE SINGLE · BLOOM', title:'BLOOM', desc:'Pink 12″ — a euphoric anthem synthesized from raw waveforms: soaring arpeggio, lifting chords, a wordless vocal hook. Hand-numbered, printed jacket, digital master inside.'}
   };
   var current = null;
   window.openShot = function(p){
@@ -606,7 +614,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_BLOOM].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -763,12 +771,12 @@ VINYLS.forEach(function(p,j){
       '</button>'+
       '<span class="vgo" id="vgo-'+j+'">▸</span>'+
     '</div>';
-  var statsHTML = '<div class="vstats"><span><b>'+p.tracks+'</b> TRACKS</span><span><b>'+fmt(p.dur)+'</b></span><span>EDITION OF <b>'+p.edition+'</b></span></div>';
+  var statsHTML = '<div class="vstats"><span><b>'+p.tracks+'</b> TRACK'+(p.tracks>1?'S':'')+'</span><span><b>'+fmt(p.dur)+'</b></span><span>EDITION OF <b>'+p.edition+'</b></span></div>';
   var actHTML = '<div class="vact">'+
       '<button class="vplay" id="vplay-'+j+'">▸ PLAY THE RECORD</button>'+
       '<button class="vbuy" id="vbuy-'+j+'">GET THE VINYL <b>·</b> ED. '+p.edition+'</button>'+
     '</div>';
-  var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUTS</span><ol class="vtracks">'+tl+'</ol></div>';
+  var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUT'+(p.tracks>1?'S':'')+'</span><ol class="vtracks">'+tl+'</ol></div>';
   var isMonFeat = (p.id === 'amr-monuments-side');
   if(isFeat){
     document.getElementById('nrDisc').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
@@ -778,11 +786,12 @@ VINYLS.forEach(function(p,j){
     document.getElementById('nrMeta2').innerHTML = statsHTML + actHTML + infoHTML;
   } else {
     var el = document.createElement('div');
-    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : '');
+    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-bloom' ? ' pink' : ''));
     el.id = 'vprod-'+j;
+    var vcol = p.id==='amr-bloom' ? 'PINK VINYL' : 'WINE-RED VINYL';
     el.innerHTML = discHTML +
       '<div class="vmeta">'+
-        '<span class="vkick">'+(p.kicker||'')+' · WINE-RED VINYL</span>'+
+        '<span class="vkick">'+(p.kicker||'')+' · '+vcol+'</span>'+
         '<h3>'+p.title+'</h3>'+
         statsHTML + actHTML + infoHTML +
       '</div>';
@@ -819,7 +828,7 @@ function playTrack(i){
     document.getElementById('pCat').innerHTML = t.cut
       ? (t.kicker+' <b>·</b> '+(t.bpm?t.bpm+' BPM · ':'')+fmt(t.dur))
       : t.kicker
-      ? (t.kicker+' <b>·</b> '+t.tracks+' TRACKS · '+fmt(t.dur))
+      ? (t.kicker+' <b>·</b> '+t.tracks+' TRACK'+(t.tracks>1?'S':'')+' · '+fmt(t.dur))
       : ('AMR-00'+t.n+' <b>·</b> '+(t.bpm? t.bpm+' BPM':'BEATLESS')+' · '+t.key);
   }
   audio.play();

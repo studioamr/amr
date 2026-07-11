@@ -94,11 +94,14 @@ def shot(accent, accent_lt, title, sub, edition, num, mark_svg, tsize=58):
 MONO_MARK = '<rect x="96" y="20" width="48" height="150" rx="5" fill="#141210"/><rect x="90" y="86" width="60" height="4" fill="#C96F2B"/>'
 SUN_MARK  = '<circle cx="120" cy="96" r="46" fill="#2E6FB0" opacity="0.25"/><circle cx="120" cy="96" r="30" fill="#2E6FB0"/><rect x="60" y="150" width="120" height="7" rx="3" fill="#141210"/><rect x="74" y="166" width="92" height="6" rx="3" fill="#141210" opacity="0.6"/>'
 ARCS_MARK = '<circle cx="120" cy="150" r="12" fill="#A62D3E"/>' + "".join(f'<path d="M {120-40-i*16} 150 A {40+i*16} {40+i*16} 0 0 1 {120+40+i*16} 150" fill="none" stroke="#A62D3E" stroke-width="{3-i*0.4:.1f}" opacity="{0.7-i*0.13:.2f}"/>' for i in range(4))
+import math
+BLOOM_MARK = "".join(f'<ellipse cx="{120+34*math.cos(a):.0f}" cy="{96+34*math.sin(a):.0f}" rx="20" ry="10" fill="#E5769A" opacity="0.85" transform="rotate({math.degrees(a):.0f} {120+34*math.cos(a):.0f} {96+34*math.sin(a):.0f})"/>' for a in [i*math.pi/3 for i in range(6)]) + '<circle cx="120" cy="96" r="16" fill="#141210"/>'
 
 SHOTS = [
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
     dict(id='tulum',     accent='#2E6FB0', accent_lt='#5B9BD5', title='TULUM',     sub='IN SYNC · 16 CUTS',  edition=15, num='04', mark=SUN_MARK,  tsize=64),
     dict(id='sesion',    accent='#A62D3E', accent_lt='#c8495e', title='SESIÓN 001',sub='THE SET · 19 CUTS',  edition=25, num='11', mark=ARCS_MARK, tsize=52),
+    dict(id='bloom',     accent='#E5769A', accent_lt='#F2A6C4', title='BLOOM',     sub='THE SINGLE · 1 CUT', edition=30, num='03', mark=BLOOM_MARK, tsize=64),
 ]
 
 os.makedirs('art/shots', exist_ok=True)
