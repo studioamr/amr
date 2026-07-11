@@ -88,6 +88,7 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .mq{border-top:1px solid rgba(20,18,16,.14);border-bottom:1px solid rgba(20,18,16,.14);overflow:hidden;white-space:nowrap}
 .mq div{display:inline-block;padding:16px 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;animation:mq 32s linear infinite}
 .mq span{padding:0 28px}.mq b{color:var(--amber);font-weight:400}
+.mq.blue{border-color:rgba(46,111,176,.30)}.mq.blue b{color:#2E6FB0}.mq.blue div{animation-direction:reverse}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* ---- sections ---- */
@@ -470,6 +471,9 @@ body.hasplayer{padding-bottom:70px}
   <div class="grid" id="recordGrid"></div>
 </section>
 
+<!-- MARQUEE TULUM (azul, scroll infinito) -->
+<div class="mq blue"><div id="mqtrack2"></div></div>
+
 <!-- THE SOUND -->
 <div class="edit" id="sound"><div class="row2">
   <div>
@@ -659,6 +663,13 @@ function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 var mq = ROLAS.map(function(t,i){ return '<span>AMR-00'+(i+1)+' '+t.title+'</span>'; }).join('')
        + '<span>TWO RECORDS <b>·</b> PRESS PLAY <b>·</b> WINE-RED VINYL</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
+
+/* ---- marquee TULUM (azul, scroll infinito) ---- */
+if(window.AMR_TUL){
+  var tn = (window.AMR_TUL.titles||[]).slice(0,8).map(function(n){ return '<span>'+n+'</span>'; }).join('');
+  var mq2 = '<span>TULUM <b>·</b> IN SYNC · MMXV</span>'+tn+'<span>SIXTEEN CUTS <b>·</b> ONE CONTINUOUS TAKE</span><span>BLUE VINYL <b>·</b> NUMBERED BY HAND</span>';
+  var el2 = document.getElementById('mqtrack2'); if(el2) el2.innerHTML = mq2 + mq2;
+}
 
 /* ---- próximas tocadas — EDITA AQUÍ (fecha, lugar, ciudad, nota) ---- */
 var EVENTS = [
