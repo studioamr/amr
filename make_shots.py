@@ -97,7 +97,7 @@ ARCS_MARK = '<circle cx="120" cy="150" r="12" fill="#A62D3E"/>' + "".join(f'<pat
 
 SHOTS = [
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
-    dict(id='tulum',     accent='#2E6FB0', accent_lt='#5B9BD5', title='TULUM',     sub='IN SYNC · 16 CUTS',  edition=15, num='04', mark=SUN_MARK,  tsize=64),
+    dict(id='tulum',     accent='#2E6FB0', accent_lt='#5B9BD5', title='DELIRIO',   sub='IN SYNC · 16 CUTS',  edition=15, num='04', mark=SUN_MARK,  tsize=54),
     dict(id='sesion',    accent='#A62D3E', accent_lt='#c8495e', title='SESIÓN 001',sub='THE SET · 19 CUTS',  edition=25, num='11', mark=ARCS_MARK, tsize=52),
 ]
 
