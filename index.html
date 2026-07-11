@@ -962,6 +962,7 @@ function closeIntro(andPlay){
 }
 document.getElementById('dropBtn').addEventListener('click', function(){ closeIntro(true); });
 document.getElementById('skipBtn').addEventListener('click', function(){ closeIntro(false); });
+if(new URLSearchParams(location.search).get('browse')==='1'){ try{ closeIntro(false); }catch(e){} }
 
 /* ---- claim ---- */
 document.getElementById('claimBtn').addEventListener('click', function(e){
