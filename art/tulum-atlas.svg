@@ -1,0 +1,24 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="gat" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2E6FB0" stop-opacity="0.4"/>
+      <stop offset="55%" stop-color="#2E6FB0" stop-opacity="0.13"/>
+      <stop offset="100%" stop-color="#2E6FB0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="120" cy="212" rx="52" ry="8" fill="#14120f" opacity="0.05"/>
+  <circle cx="120" cy="116" r="66" fill="url(#gat)"/>
+  <!-- globo azul -->
+  <circle cx="120" cy="116" r="50" fill="#2E6FB0"/>
+  <!-- meridianos y paralelos -->
+  <g fill="none" stroke="#141210" stroke-opacity="0.5" stroke-width="2">
+    <ellipse cx="120" cy="116" rx="18" ry="50"/>
+    <ellipse cx="120" cy="116" rx="37" ry="50"/>
+    <line x1="70" y1="116" x2="170" y2="116"/>
+    <line x1="76" y1="92" x2="164" y2="92"/>
+    <line x1="76" y1="140" x2="164" y2="140"/>
+  </g>
+  <circle cx="120" cy="116" r="50" fill="none" stroke="#141210" stroke-width="3"/>
+  <circle cx="66" cy="66" r="2.2" fill="#141210"/>
+  <circle cx="180" cy="152" r="2.4" fill="#141210"/>
+</svg>
