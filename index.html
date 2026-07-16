@@ -275,6 +275,12 @@ body.hasplayer{padding-bottom:70px}
 .vprod.wine .vbuy:hover{border-color:#A62D3E;color:#A62D3E}
 .vprod.tri .vlabel{background:conic-gradient(from 270deg,#C96F2B 0 50%,#2E6FB0 50% 100%);box-shadow:0 0 0 5px #141210}
 .vprod.tri .vdisc::before{border-color:rgba(234,230,223,.25)}
+.vprod.jade .vlabel{background:radial-gradient(circle at 42% 38%,#5BC4A5,#2E9C7C);box-shadow:0 0 0 5px #1B5F4C}
+.vprod.jade .vdisc::before{border-color:rgba(46,156,124,.5)}
+.vprod.jade .vgo.on{background:#2E9C7C}
+.vprod.jade .vkick,.vprod.jade .vstats b,.vprod.jade .vbuy b,.vprod.jade .vinfo-lbl b,.vprod.jade .vtracks li b{color:#2E9C7C}
+.vprod.jade .vplay:hover{background:#2E9C7C;border-color:#2E9C7C}
+.vprod.jade .vbuy:hover{border-color:#2E9C7C;color:#2E9C7C}
 /* ---- carril horizontal libre: deriva sola, arrastrable ---- */
 .dropsrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
 .dropsrail::-webkit-scrollbar{display:none}
@@ -606,6 +612,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="set.js"></script>
 <script src="tulum.js"></script>
 <script src="megaset.js"></script>
+<script src="guerrero.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -616,7 +623,8 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-monuments-side':{img:'art/shots/shot-monuments.jpg', kick:'THE EP · MONUMENTS', title:'MONUMENTS', desc:'Amber 12″ pressed from pure waveforms — no samples, no presets. Ships in its printed jacket with the digital master and the number inked on the label.'},
     'amr-set-the-set':{img:'art/shots/shot-sesion.jpg', kick:'THE SET · SESIÓN 001', title:'SESIÓN 001', desc:'The ninety-minute set on wine-red vinyl. One continuous mix, hand-numbered jacket, download code inside.'},
     'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
-    'amr-megaset':{img:'art/shots/shot-megaset.jpg', kick:'MONUMENTS × DELIRIO · MEGA SET', title:'MEGA SET', desc:'Double 12″ — the best of both albums, beat-mixed like a real DJ set: thirteen cuts locked to 121 BPM, long blends, EQ swaps, one 43-minute arc from LLEGADA to AMANECER.'}
+    'amr-megaset':{img:'art/shots/shot-megaset.jpg', kick:'MONUMENTS × DELIRIO · MEGA SET', title:'MEGA SET', desc:'Double 12″ — the best of both albums, beat-mixed like a real DJ set: thirteen cuts locked to 121 BPM, long blends, EQ swaps, one 43-minute arc from LLEGADA to AMANECER.'},
+    'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'B2B · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — a desert b2b in the Mayan Warrior spirit: two selectors trading turns, seventeen cuts phase-locked to 122 BPM, constant groove, zero ceremony. 53 minutes from dusk grooves to NOV24.'}
   };
   var current = null;
   window.openShot = function(p){
@@ -643,7 +651,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_MEGA].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_MEGA, window.AMR_GUER].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -834,9 +842,9 @@ VINYLS.forEach(function(p,j){
     document.getElementById('nrMeta2').innerHTML = statsHTML + actHTML + infoHTML;
   } else {
     var el = document.createElement('div');
-    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-megaset' ? ' tri' : ''));
+    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-megaset' ? ' tri' : (p.id==='amr-guerrero' ? ' jade' : '')));
     el.id = 'vprod-'+j;
-    var vcol = p.id==='amr-megaset' ? 'DOUBLE VINYL' : 'WINE-RED VINYL';
+    var vcol = p.id==='amr-megaset' ? 'DOUBLE VINYL' : (p.id==='amr-guerrero' ? 'JADE VINYL' : 'WINE-RED VINYL');
     el.innerHTML = discHTML +
       '<div class="vmeta">'+
         '<span class="vkick">'+(p.kicker||'')+' · '+vcol+'</span>'+

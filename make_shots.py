@@ -99,7 +99,10 @@ QUEDATE_MARK = '<circle cx="104" cy="86" r="13" fill="#141210"/><path d="M92 180
 
 TRI_MARK = '<circle cx="90" cy="100" r="40" fill="#141210"/><circle cx="90" cy="100" r="14" fill="#C96F2B"/><circle cx="150" cy="100" r="40" fill="#141210"/><circle cx="150" cy="100" r="14" fill="#2E6FB0"/>'
 
+GUER_MARK = '<path d="M120 40 L150 96 L120 152 L90 96 Z" fill="#141210"/><path d="M120 62 L138 96 L120 130 L102 96 Z" fill="#2E9C7C"/><circle cx="120" cy="96" r="7" fill="#EAE6DF"/><path d="M60 96 L78 96 M162 96 L180 96" stroke="#2E9C7C" stroke-width="3" stroke-linecap="round"/>'
+
 SHOTS = [
+    dict(id='guerrero',  accent='#2E9C7C', accent_lt='#5BC4A5', title='GUERRERO',  sub='B2B · DESERT SET · 53 MIN', edition=12, num='03', mark=GUER_MARK, tsize=54),
     dict(id='megaset',   accent='#C96F2B', accent_lt='#e0954f', title='MEGA SET',  sub='MONUMENTS × DELIRIO · 43 MIN', edition=10, num='02', mark=TRI_MARK, tsize=54),
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
     dict(id='tulum',     accent='#2E6FB0', accent_lt='#5B9BD5', title='DELIRIO',   sub='IN SYNC · 16 CUTS',  edition=15, num='04', mark=SUN_MARK,  tsize=54),
