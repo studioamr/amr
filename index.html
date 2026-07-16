@@ -273,12 +273,8 @@ body.hasplayer{padding-bottom:70px}
 .vprod.wine .vkick,.vprod.wine .vstats b,.vprod.wine .vbuy b,.vprod.wine .vinfo-lbl b,.vprod.wine .vtracks li b{color:#A62D3E}
 .vprod.wine .vplay:hover{background:#A62D3E;border-color:#A62D3E}
 .vprod.wine .vbuy:hover{border-color:#A62D3E;color:#A62D3E}
-.vprod.teal .vlabel{background:radial-gradient(circle at 42% 38%,#55B49C,#2F8C77);box-shadow:0 0 0 5px #1D5C4E}
-.vprod.teal .vdisc::before{border-color:rgba(47,140,119,.5)}
-.vprod.teal .vgo.on{background:#2F8C77}
-.vprod.teal .vkick,.vprod.teal .vstats b,.vprod.teal .vbuy b,.vprod.teal .vinfo-lbl b,.vprod.teal .vtracks li b{color:#2F8C77}
-.vprod.teal .vplay:hover{background:#2F8C77;border-color:#2F8C77}
-.vprod.teal .vbuy:hover{border-color:#2F8C77;color:#2F8C77}
+.vprod.tri .vlabel{background:conic-gradient(from 210deg,#C96F2B 0 33.3%,#A62D3E 33.3% 66.6%,#2E6FB0 66.6% 100%);box-shadow:0 0 0 5px #141210}
+.vprod.tri .vdisc::before{border-color:rgba(234,230,223,.25)}
 /* ---- carril horizontal libre: deriva sola, arrastrable ---- */
 .dropsrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
 .dropsrail::-webkit-scrollbar{display:none}
@@ -539,7 +535,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, and blue.</h2></div>
-    <p>The collection: the amber EP, the ninety-minute session on wine-red, and DELIRIO — one continuous night on blue. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
+    <p>The collection: the amber EP, the ninety-minute session on wine-red, DELIRIO on blue — and the MEGA SET, all three records blended into one continuous 3h37 mix on triple vinyl. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -609,7 +605,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="monuments.js"></script>
 <script src="set.js"></script>
 <script src="tulum.js"></script>
-<script src="quedate.js"></script>
+<script src="megaset.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -620,7 +616,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-monuments-side':{img:'art/shots/shot-monuments.jpg', kick:'THE EP · MONUMENTS', title:'MONUMENTS', desc:'Amber 12″ pressed from pure waveforms — no samples, no presets. Ships in its printed jacket with the digital master and the number inked on the label.'},
     'amr-set-the-set':{img:'art/shots/shot-sesion.jpg', kick:'THE SET · SESIÓN 001', title:'SESIÓN 001', desc:'The ninety-minute set on wine-red vinyl. One continuous mix, hand-numbered jacket, download code inside.'},
     'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
-    'amr-quedate':{img:'art/shots/shot-quedate.jpg', kick:'THE SINGLE · QUÉDATE', title:'QUÉDATE', desc:'Green 12″ — soulful afro house in the Keinemusik / Black Coffee lineage: a tender grand piano, a rolling 3-3-2 bassline, hand percussion that breathes, and a woman singing the hook — qué-da-te. 6:32, synthesized from raw waveforms.'}
+    'amr-megaset':{img:'art/shots/shot-megaset.jpg', kick:'ALL THREE RECORDS · MEGA SET', title:'MEGA SET', desc:'Triple 12″ — the whole catalogue in one continuous 3h37 mix: MONUMENTS into SESIÓN 001 into DELIRIO, forty tracks beat-blended from dusk till dawn. The definitive Studio AMR session.'}
   };
   var current = null;
   window.openShot = function(p){
@@ -647,7 +643,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_QUEDATE].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_MEGA].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -700,7 +696,7 @@ window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
 })();
 var cur = -1, audio = new Audio(); audio.preload = 'metadata';
 
-function fmt(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+':'+('0'+s%60).slice(-2); }
+function fmt(s){ s=Math.max(0,Math.floor(s)); var h=Math.floor(s/3600); if(h) return h+':'+('0'+Math.floor(s%3600/60)).slice(-2)+':'+('0'+s%60).slice(-2); return Math.floor(s/60)+':'+('0'+s%60).slice(-2); }
 function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 
 /* ---- marquee ---- */
@@ -838,9 +834,9 @@ VINYLS.forEach(function(p,j){
     document.getElementById('nrMeta2').innerHTML = statsHTML + actHTML + infoHTML;
   } else {
     var el = document.createElement('div');
-    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-quedate' ? ' teal' : ''));
+    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-megaset' ? ' tri' : ''));
     el.id = 'vprod-'+j;
-    var vcol = p.id==='amr-quedate' ? 'GREEN VINYL' : 'WINE-RED VINYL';
+    var vcol = p.id==='amr-megaset' ? 'TRIPLE VINYL' : 'WINE-RED VINYL';
     el.innerHTML = discHTML +
       '<div class="vmeta">'+
         '<span class="vkick">'+(p.kicker||'')+' · '+vcol+'</span>'+
@@ -858,24 +854,40 @@ VINYLS.forEach(function(p,j){
     var li = document.getElementById('v'+j+'-tk'+k); if(!li) return;
     li.addEventListener('click', function(){
       var target = (p.offsets && p.offsets[k]) || 0;
-      if(cur===gi){ try{ audio.currentTime = target; }catch(e){} if(audio.paused) audio.play(); }
+      if(cur===gi){ absSeek(target); }
       else {
         playTrack(gi);
-        var seek = function(){ try{ audio.currentTime = target; }catch(e){} audio.play(); audio.removeEventListener('canplay', seek); };
+        var seek = function(){ audio.removeEventListener('canplay', seek); absSeek(target); };
         audio.addEventListener('canplay', seek);
       }
     });
   });
 });
 
-/* ---- player ---- */
+/* ---- player (con soporte multi-part para el MEGA SET) ---- */
 var player = document.getElementById('player'), playBtn = document.getElementById('playBtn');
+var curPart = 0;
+function partStarts(t){ var st=[0], a=0; if(t && t.parts){ for(var i=0;i<t.parts.length-1;i++){ a+=t.parts[i].dur; st.push(a); } } return st; }
+function absTime(){ var t=T[cur]; if(!t||!t.parts) return audio.currentTime; return partStarts(t)[curPart]+audio.currentTime; }
+function absDur(){ var t=T[cur]; if(!t) return 0; return t.dur || audio.duration || 0; }
+function absSeek(sec){
+  var t=T[cur]; if(!t) return;
+  if(!t.parts){ try{ audio.currentTime=sec; }catch(e){} if(audio.paused) audio.play(); return; }
+  var st=partStarts(t), k=0;
+  for(var i=st.length-1;i>=0;i--){ if(sec>=st[i]){ k=i; break; } }
+  var local=sec-st[k];
+  if(k!==curPart){
+    curPart=k; audio.src=t.parts[k].file;
+    var on=function(){ try{ audio.currentTime=local; }catch(e){} audio.play(); audio.removeEventListener('canplay',on); };
+    audio.addEventListener('canplay',on);
+  } else { try{ audio.currentTime=local; }catch(e){} if(audio.paused) audio.play(); }
+}
 var waveC = document.getElementById('wave'), wctx = waveC.getContext('2d');
 
 function playTrack(i){
   var t = T[i];
   if(cur !== i){
-    cur = i; audio.src = t.file;
+    cur = i; curPart = 0; audio.src = t.parts ? t.parts[0].file : t.file;
     document.getElementById('pTitle').textContent = t.title;
     document.getElementById('pCat').innerHTML = t.cut
       ? (t.kicker+' <b>·</b> '+(t.bpm?t.bpm+' BPM · ':'')+fmt(t.dur))
@@ -904,10 +916,10 @@ function syncCards(){
     var d = document.getElementById('vdisc-'+j); if(d) d.classList.toggle('spinning', on);
     var pl = document.getElementById('vplay-'+j); if(pl) pl.innerHTML = on ? '&#9646;&#9646; PLAYING' : '▸ PLAY THE RECORD';
     var go = document.getElementById('vgo-'+j); if(go){ go.innerHTML = on ? '&#9646;&#9646;' : '▸'; go.classList.toggle('on', on); }
-    if(p.titles && gi===cur && audio.duration){
-      var ci = -1;
-      if(p.offsets){ for(var q = p.offsets.length-1; q >= 0; q--){ if(audio.currentTime >= p.offsets[q]){ ci = q; break; } } }
-      else { ci = Math.floor((audio.currentTime/audio.duration)*p.tracks); }
+    if(p.titles && gi===cur && (audio.duration || p.parts)){
+      var ci = -1, now = absTime();
+      if(p.offsets){ for(var q = p.offsets.length-1; q >= 0; q--){ if(now >= p.offsets[q]){ ci = q; break; } } }
+      else { ci = Math.floor((now/(absDur()||1))*p.tracks); }
       for(var k=0;k<p.tracks;k++){ var e=document.getElementById('v'+j+'-tk'+k); if(e) e.classList.toggle('on', k===ci); }
     }
   });
@@ -931,7 +943,11 @@ document.getElementById('nextBtn').addEventListener('click', function(){ playTra
 document.getElementById('prevBtn').addEventListener('click', function(){ playTrack((cur-1+T.length)%T.length); });
 audio.addEventListener('play', syncCards);
 audio.addEventListener('pause', syncCards);
-audio.addEventListener('ended', function(){ if(cur < T.length-1) playTrack(cur+1); else syncCards(); });
+audio.addEventListener('ended', function(){
+  var t=T[cur];
+  if(t && t.parts && curPart+1 < t.parts.length){ curPart++; audio.src=t.parts[curPart].file; audio.play(); return; }
+  if(cur < T.length-1) playTrack(cur+1); else syncCards();
+});
 
 /* ---- waveform ---- */
 function sizeWave(){
@@ -942,7 +958,7 @@ addEventListener('resize', function(){ sizeWave(); drawWave(); });
 function drawWave(){
   if(cur<0){ wctx.clearRect(0,0,waveC.width,waveC.height); return; }
   var pk = T[cur].peaks, W = waveC.width, H = waveC.height;
-  var prog = (audio.duration? audio.currentTime/audio.duration : 0);
+  var prog = (absDur()? absTime()/absDur() : 0);
   wctx.clearRect(0,0,W,H);
   var n = pk.length, bw = W/n;
   for(var i=0;i<n;i++){
@@ -954,12 +970,12 @@ function drawWave(){
 (function loop(){ drawWave(); requestAnimationFrame(loop); })();
 sizeWave();
 waveC.addEventListener('click', function(e){
-  if(cur<0 || !audio.duration) return;
+  if(cur<0 || !absDur()) return;
   var r = waveC.getBoundingClientRect();
-  audio.currentTime = (e.clientX - r.left)/r.width * audio.duration;
+  absSeek((e.clientX - r.left)/r.width * absDur());
 });
 audio.addEventListener('timeupdate', function(){
-  document.getElementById('pTime').textContent = fmt(audio.currentTime)+' / '+fmt(audio.duration||T[cur].dur);
+  document.getElementById('pTime').textContent = fmt(absTime())+' / '+fmt(absDur());
   syncCards(); // resalta en vivo la sección/canción que va sonando
 });
 

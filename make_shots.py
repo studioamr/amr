@@ -97,9 +97,11 @@ ARCS_MARK = '<circle cx="120" cy="150" r="12" fill="#A62D3E"/>' + "".join(f'<pat
 
 QUEDATE_MARK = '<circle cx="104" cy="86" r="13" fill="#141210"/><path d="M92 180 C88 152 90 128 96 112 C99 103 110 104 111 114 C112 134 110 158 108 180 Z" fill="#141210"/><path d="M111 122 C124 116 138 112 152 112" fill="none" stroke="#141210" stroke-width="7" stroke-linecap="round"/><circle cx="160" cy="110" r="6.5" fill="#2F8C77"/><path d="M160 110 C170 104 180 100 190 98" fill="none" stroke="#2F8C77" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 8"/>'
 
+TRI_MARK = '<circle cx="70" cy="100" r="34" fill="#141210"/><circle cx="70" cy="100" r="12" fill="#C96F2B"/><circle cx="120" cy="100" r="34" fill="#141210"/><circle cx="120" cy="100" r="12" fill="#A62D3E"/><circle cx="170" cy="100" r="34" fill="#141210"/><circle cx="170" cy="100" r="12" fill="#2E6FB0"/>'
+
 SHOTS = [
+    dict(id='megaset',   accent='#C96F2B', accent_lt='#e0954f', title='MEGA SET',  sub='ALL THREE RECORDS · 3H37', edition=10, num='02', mark=TRI_MARK, tsize=54),
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
-    dict(id='quedate',   accent='#2F8C77', accent_lt='#55B49C', title='QUÉDATE',   sub='THE SINGLE · 6:32', edition=20, num='01', mark=QUEDATE_MARK, tsize=56),
     dict(id='tulum',     accent='#2E6FB0', accent_lt='#5B9BD5', title='DELIRIO',   sub='IN SYNC · 16 CUTS',  edition=15, num='04', mark=SUN_MARK,  tsize=54),
     dict(id='sesion',    accent='#A62D3E', accent_lt='#c8495e', title='SESIÓN 001',sub='THE SET · 19 CUTS',  edition=25, num='11', mark=ARCS_MARK, tsize=52),
 ]
