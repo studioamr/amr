@@ -95,8 +95,11 @@ MONO_MARK = '<rect x="96" y="20" width="48" height="150" rx="5" fill="#141210"/>
 SUN_MARK  = '<circle cx="120" cy="96" r="46" fill="#2E6FB0" opacity="0.25"/><circle cx="120" cy="96" r="30" fill="#2E6FB0"/><rect x="60" y="150" width="120" height="7" rx="3" fill="#141210"/><rect x="74" y="166" width="92" height="6" rx="3" fill="#141210" opacity="0.6"/>'
 ARCS_MARK = '<circle cx="120" cy="150" r="12" fill="#A62D3E"/>' + "".join(f'<path d="M {120-40-i*16} 150 A {40+i*16} {40+i*16} 0 0 1 {120+40+i*16} 150" fill="none" stroke="#A62D3E" stroke-width="{3-i*0.4:.1f}" opacity="{0.7-i*0.13:.2f}"/>' for i in range(4))
 
+PULSE_MARK = '<path d="M40 110 L84 110 L96 78 L112 142 L126 92 L134 110 L200 110" fill="none" stroke="#7A5FD0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="200" cy="110" r="7" fill="#7A5FD0"/>'
+
 SHOTS = [
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
+    dict(id='pulso',     accent='#7A5FD0', accent_lt='#A08BE8', title='PULSO',     sub='THE SINGLE · 7:10', edition=20, num='01', mark=PULSE_MARK, tsize=62),
     dict(id='tulum',     accent='#2E6FB0', accent_lt='#5B9BD5', title='DELIRIO',   sub='IN SYNC · 16 CUTS',  edition=15, num='04', mark=SUN_MARK,  tsize=54),
     dict(id='sesion',    accent='#A62D3E', accent_lt='#c8495e', title='SESIÓN 001',sub='THE SET · 19 CUTS',  edition=25, num='11', mark=ARCS_MARK, tsize=52),
 ]

@@ -273,6 +273,12 @@ body.hasplayer{padding-bottom:70px}
 .vprod.wine .vkick,.vprod.wine .vstats b,.vprod.wine .vbuy b,.vprod.wine .vinfo-lbl b,.vprod.wine .vtracks li b{color:#A62D3E}
 .vprod.wine .vplay:hover{background:#A62D3E;border-color:#A62D3E}
 .vprod.wine .vbuy:hover{border-color:#A62D3E;color:#A62D3E}
+.vprod.violet .vlabel{background:radial-gradient(circle at 42% 38%,#A08BE8,#7A5FD0);box-shadow:0 0 0 5px #4E3D96}
+.vprod.violet .vdisc::before{border-color:rgba(122,95,208,.5)}
+.vprod.violet .vgo.on{background:#7A5FD0}
+.vprod.violet .vkick,.vprod.violet .vstats b,.vprod.violet .vbuy b,.vprod.violet .vinfo-lbl b,.vprod.violet .vtracks li b{color:#7A5FD0}
+.vprod.violet .vplay:hover{background:#7A5FD0;border-color:#7A5FD0}
+.vprod.violet .vbuy:hover{border-color:#7A5FD0;color:#7A5FD0}
 /* ---- carril horizontal libre: deriva sola, arrastrable ---- */
 .dropsrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
 .dropsrail::-webkit-scrollbar{display:none}
@@ -603,6 +609,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="monuments.js"></script>
 <script src="set.js"></script>
 <script src="tulum.js"></script>
+<script src="pulso.js"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -612,7 +619,8 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
   var SHOTS = {
     'amr-monuments-side':{img:'art/shots/shot-monuments.jpg', kick:'THE EP · MONUMENTS', title:'MONUMENTS', desc:'Amber 12″ pressed from pure waveforms — no samples, no presets. Ships in its printed jacket with the digital master and the number inked on the label.'},
     'amr-set-the-set':{img:'art/shots/shot-sesion.jpg', kick:'THE SET · SESIÓN 001', title:'SESIÓN 001', desc:'The ninety-minute set on wine-red vinyl. One continuous mix, hand-numbered jacket, download code inside.'},
-    'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'}
+    'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
+    'amr-pulso':{img:'art/shots/shot-pulso.jpg', kick:'THE SINGLE · PULSO', title:'PULSO', desc:'Violet 12″ — melodic techno in the Afterlife lineage: a rolling 1/16 bass, one hypnotic arpeggio, a machine mantra and a human voice that finally sing together. The first heartbeat of something waking up. 7:10, synthesized from raw waveforms.'}
   };
   var current = null;
   window.openShot = function(p){
@@ -639,7 +647,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_PULSO].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -830,9 +838,9 @@ VINYLS.forEach(function(p,j){
     document.getElementById('nrMeta2').innerHTML = statsHTML + actHTML + infoHTML;
   } else {
     var el = document.createElement('div');
-    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : '');
+    el.className = 'vprod' + (p.id==='amr-set-the-set' ? ' wine' : (p.id==='amr-pulso' ? ' violet' : ''));
     el.id = 'vprod-'+j;
-    var vcol = 'WINE-RED VINYL';
+    var vcol = p.id==='amr-pulso' ? 'VIOLET VINYL' : 'WINE-RED VINYL';
     el.innerHTML = discHTML +
       '<div class="vmeta">'+
         '<span class="vkick">'+(p.kicker||'')+' · '+vcol+'</span>'+
