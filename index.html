@@ -855,6 +855,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="colibri.js?v=202607171010"></script>
 <script src="fiebre.js?v=202607170920"></script>
 <script src="vuelve.js?v=202607171320"></script>
+<script src="waveforms.js?v=202607172000"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -978,22 +979,17 @@ if(window.AMR_TUL){
     {v:window.AMR_FIEBRE,    c:'#D1342F', lc:'#E8635F'},
     {v:window.AMR_VUELVE,    c:'#8FA3B0', lc:'#B8C6CF'}
   ].filter(function(r){ return !!r.v; });
+  function b64bytes(s){ var bin=atob(s), u=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return u; }
+  var WF = window.AMR_WF || {};
   RECS.forEach(function(r){
-    if(r.v.peaks && r.v.peaks.length){ r.pk = r.v.peaks; }
-    else {
-      var p=[], s=7;
-      for(var i=0;i<240;i++){ s=(s*1103515245+12345)%2147483648; p.push(0.2+0.55*Math.abs(Math.sin(i*0.31))+((s/2147483648)-0.5)*0.2); }
-      r.pk = p;
-    }
-    // 3 bandas estilo rekordbox derivadas de la amplitud: azul=bajos, naranja=medios, blanco=agudos
-    var N = r.pk.length; r.lo=[]; r.mi=[]; r.hi=[];
-    for(var k=0;k<N;k++){
-      var s2=0, c=0;
-      for(var j=Math.max(0,k-3); j<=Math.min(N-1,k+3); j++){ s2+=r.pk[j]; c++; }
-      var lo = s2/c;
-      r.lo.push(Math.min(1, lo));
-      r.mi.push(Math.min(1, r.pk[k]*0.8));
-      r.hi.push(Math.min(1, Math.abs(r.pk[k]-lo)*2.4 + r.pk[k]*0.12));
+    var w = WF[r.v.file];
+    if(w){                       // onda REAL analizada del audio (3 bandas, 0-255)
+      r.lo = b64bytes(w.lo); r.mi = b64bytes(w.mi); r.hi = b64bytes(w.hi); r.wfN = r.lo.length;
+    } else {                     // respaldo: envolvente aproximada desde peaks
+      var pk = (r.v.peaks && r.v.peaks.length) ? r.v.peaks : (function(){ var p=[],s=7; for(var i=0;i<240;i++){ s=(s*1103515245+12345)%2147483648; p.push(0.2+0.55*Math.abs(Math.sin(i*0.31))+((s/2147483648)-0.5)*0.2);} return p; })();
+      var N=pk.length; r.lo=new Uint8Array(N); r.mi=new Uint8Array(N); r.hi=new Uint8Array(N); r.wfN=N;
+      for(var k=0;k<N;k++){ var s2=0,c=0; for(var j=Math.max(0,k-3);j<=Math.min(N-1,k+3);j++){s2+=pk[j];c++;} var lo=s2/c;
+        r.lo[k]=Math.min(255,lo*255); r.mi[k]=Math.min(255,pk[k]*0.8*255); r.hi[k]=Math.min(255,(Math.abs(pk[k]-lo)*2.4+pk[k]*0.12)*255); }
     }
   });
   shelf.innerHTML = RECS.map(function(r,i){
@@ -1385,45 +1381,50 @@ if(window.AMR_TUL){
       g.fillText('DECK '+(d.i+1)+' — NO TRACK', 8*dpr, H/2-5*dpr);
       return;
     }
-    var r = d.rec, N = r.pk.length, dur = r.v.dur || (d.au&&d.au.duration) || 1;
+    var r = d.rec, N = r.wfN, dur = r.v.dur || (d.au&&d.au.duration) || 1;
     var t = d.au ? d.au.currentTime : 0, prog = Math.min(1, t/dur);
+    // muestreo interpolado de las 3 bandas reales (0-255) en el tiempo tb
+    function sample(arr, tb){
+      var fp = tb/dur*(N-1); if(fp<0||fp>N-1) return 0;
+      var i0=fp|0, fr=fp-i0, a=arr[i0]/255; return (a+((arr[i0+1]||a*255)/255-a)*fr);
+    }
     /* fila superior: corte + REMAIN */
     var ts = titlesOf(r)[curIdx(d)];
     g.fillStyle='#dfe6f2'; g.fillText(ts, 6*dpr, 2*dpr);
     var tm = 'REMAIN -'+fmt(Math.max(0,dur-t));
     var tw = g.measureText(tm).width;
     g.fillStyle='#8fb4e8'; g.fillText(tm, W-tw-6*dpr, 2*dpr);
-    /* onda grande 3 bandas desplazándose bajo la aguja fija (ventana 8 s) */
-    var wy = 13*dpr, wh = H-42*dpr, cyc = wy+wh/2, win = 8;
-    var bw = Math.max(2, 2.4*dpr), n = Math.floor(W/bw);
+    /* onda grande: 3 bandas reales, relleno reflejado al centro, bajo la aguja fija */
+    var wy = 13*dpr, wh = H-42*dpr, cyc = wy+wh/2;
+    var win = Math.max(12, Math.min(45, dur*0.03));   // ventana visible (s)
+    var bw = Math.max(1.5*dpr, 2*dpr), n = Math.ceil(W/bw);
     for(var b=0;b<n;b++){
-      var tb = t - win/2 + (b/n)*win;
+      var x = b*bw, tb = t - win/2 + (x/W)*win;
       if(tb < 0 || tb > dur) continue;
-      var idx = Math.min(N-1, Math.floor(tb/dur*N));
-      var x = b*bw, cw = Math.max(1, bw*0.72);
-      var hL = Math.max(1.5*dpr, r.lo[idx]*wh*0.96);
-      g.fillStyle='#1e63c8'; g.fillRect(x, cyc-hL/2, cw, hL);
-      var hM = r.mi[idx]*wh*0.6;
-      if(hM>1){ g.fillStyle='#e8862a'; g.fillRect(x, cyc-hM/2, cw, hM); }
-      var hH = r.hi[idx]*wh*0.34;
-      if(hH>1){ g.fillStyle='#eef1f6'; g.fillRect(x, cyc-hH/2, cw, hH); }
+      var lo=sample(r.lo,tb), mi=sample(r.mi,tb), hi=sample(r.hi,tb);
+      var hL = Math.max(1.2*dpr, lo*wh*0.98);
+      g.fillStyle='#1f6ad0'; g.fillRect(x, cyc-hL/2, bw+0.6, hL);          // bajos (azul, cuerpo)
+      var hM = mi*wh*0.74;
+      if(hM>1){ g.fillStyle='#f0902f'; g.fillRect(x, cyc-hM/2, bw+0.6, hM); } // medios (naranja)
+      var hH = hi*wh*0.40;
+      if(hH>1){ g.fillStyle='#f4f6fb'; g.fillRect(x, cyc-hH/2, bw+0.6, hH); } // agudos (blanco)
     }
-    /* beat grid: nuestros sets van al grid desde t=0 */
+    /* beat grid al BPM (los sets van al grid desde t=0) */
     if(r.v.bpm){
       var spb = 60/r.v.bpm, b0 = Math.max(0, Math.ceil((t-win/2)/spb)), b1 = Math.floor((t+win/2)/spb);
       for(var kb=b0; kb<=b1; kb++){
         var xb = ((kb*spb-(t-win/2))/win)*W, bar4 = (kb%4===0);
-        g.fillStyle = bar4 ? 'rgba(229,55,46,.8)' : 'rgba(223,230,242,.4)';
+        g.fillStyle = bar4 ? 'rgba(229,55,46,.7)' : 'rgba(223,230,242,.32)';
         g.fillRect(xb, wy, bar4?Math.max(2,1.4*dpr):1, 4*dpr);
       }
     }
     /* aguja roja fija al centro */
     g.fillStyle='#e5372e'; g.fillRect(W/2-1*dpr, wy-2*dpr, Math.max(2,1.6*dpr), wh+4*dpr);
-    /* tira overview del track completo */
+    /* tira overview del track completo (bajos) */
     var oy = wy+wh+4*dpr, oh = 12*dpr;
-    var n2 = Math.max(60, Math.min(N, Math.floor(W/(2*dpr))));
+    var n2 = Math.max(80, Math.min(N, Math.floor(W/(1.6*dpr))));
     for(var b2=0;b2<n2;b2++){
-      var v2 = r.lo[Math.floor(b2/n2*N)]||0.05, h2 = Math.max(1, v2*oh*0.95);
+      var v2 = (r.lo[Math.floor(b2/n2*N)]/255)||0.02, h2 = Math.max(1, v2*oh*0.95);
       g.fillStyle = (b2/n2 < prog) ? '#3f86e0' : 'rgba(63,134,224,.3)';
       g.fillRect(b2/n2*W, oy+(oh-h2)/2, Math.max(1,1.4*dpr), h2);
     }
