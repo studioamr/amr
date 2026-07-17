@@ -166,22 +166,15 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .jogctl .jc.rev.on{background:#e5372e;border-color:#e5372e;color:#fff}
 .jogctl .jc.quant.on{background:#5bc4a5;border-color:#5bc4a5;color:#08181a}
 .jogwrap{position:relative;flex:0 0 auto;display:grid;place-items:center}
-/* jog CDJ-3000: platina negra brillante + anillo de color central + aguja blanca */
-.jog{width:clamp(116px,10.4vw,168px);aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle at 50% 33%,rgba(255,255,255,.18),rgba(255,255,255,.02) 33%,transparent 46%),radial-gradient(circle at 50% 50%,#141517 0 57%,#090a0b 60% 100%);
-  border:1px solid #000;display:grid;place-items:center;position:relative;cursor:grab;touch-action:none;
-  box-shadow:0 14px 32px rgba(0,0,0,.6),inset 0 0 0 7px #0e0f11,inset 0 0 0 8px #484b52,inset 0 0 0 12px #0b0c0e,inset 0 3px 10px rgba(255,255,255,.07)}
+.jog{width:clamp(112px,10vw,160px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 33%,rgba(255,255,255,.14),rgba(255,255,255,.02) 34%,transparent 46%),radial-gradient(circle at 50% 50%,#141517 0 57%,#0a0b0c 60% 100%);border:1px solid #000;display:grid;place-items:center;position:relative;box-shadow:0 12px 28px rgba(0,0,0,.58),inset 0 0 0 7px #0e0f11,inset 0 0 0 8px #43464c,inset 0 0 0 12px #0b0c0e,inset 0 3px 9px rgba(255,255,255,.06);cursor:grab;touch-action:none}
 .jog.grabbing{cursor:grabbing}
 .jog.grabbing~.jogring{border-color:#ffb03a !important;box-shadow:0 0 14px rgba(255,176,58,.5) !important}
-.jogdisc{position:absolute;width:55%;aspect-ratio:1;border-radius:50%;
-  background:conic-gradient(from -55deg,#13b6cf,#2f7de0,#7a3ff0,#e0407a,#ff6a2b,#ffd24a,#8fd94a,#13b6cf);
-  box-shadow:0 0 0 3px #0a0b0d,0 0 0 4px #3d4046,0 0 14px rgba(0,0,0,.5);opacity:.92}
-.cdj.playing .jogdisc{animation:spin 3.4s linear infinite}
-.joghand{position:absolute;width:55%;aspect-ratio:1;border-radius:50%;pointer-events:none;z-index:2;transform:rotate(var(--jrot,0deg))}
-.joghand::before{content:"";position:absolute;top:-1px;left:50%;width:4px;height:19%;margin-left:-2px;border-radius:2px;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.85)}
+.joghand{position:absolute;inset:22%;border-radius:50%;pointer-events:none;z-index:2;transform:rotate(var(--jrot,0deg))}
+.joghand::before{content:"";position:absolute;top:-2px;left:50%;width:4px;height:20%;margin-left:-2px;border-radius:2px;background:#e5372e;box-shadow:0 0 6px rgba(229,55,46,.75)}
 .jogring{position:absolute;inset:2%;border-radius:50%;border:3px solid rgba(255,255,255,.05);transition:.25s;pointer-events:none}
 .cdj.playing .jogring{border-color:#e5372e;box-shadow:0 0 18px rgba(229,55,46,.55),inset 0 0 14px rgba(229,55,46,.3)}
-.jogart{width:30%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 42% 34%,#26282d,#0b0c0e 74%);display:grid;place-items:center;position:relative;z-index:3;box-shadow:0 0 0 3px #0a0b0d,0 0 0 4px var(--mc,#3a3d44),0 2px 8px rgba(0,0,0,.6);color:#eae6df;font-size:6.5px;font-weight:600;letter-spacing:.03em;text-align:center;overflow:hidden;padding:3px;line-height:1}
+.jogart{width:44%;aspect-ratio:1;border-radius:50%;background:var(--mc,#2c2e33);display:grid;place-items:center;position:relative;z-index:3;box-shadow:0 0 0 4px #0a0b0d,0 0 0 5px #34373e;color:#0d0b0a;font-size:7px;font-weight:600;letter-spacing:.05em;text-align:center;overflow:hidden;padding:4px;line-height:1}
+.cdj.playing .jogart{animation:spin 2.6s linear infinite}
 .tempo{position:relative;width:24px;height:112px;flex:0 0 auto;cursor:ns-resize;touch-action:none;background:linear-gradient(90deg,transparent 42%,rgba(234,230,223,.2) 46% 54%,transparent 58%)}
 .tempo::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:1px;background:rgba(234,230,223,.35)}
 .tcap{position:absolute;left:0;right:0;height:14px;border-radius:2px;background:linear-gradient(180deg,#3d3831,#211d19);border:1px solid rgba(234,230,223,.32);box-shadow:0 2px 5px rgba(0,0,0,.5)}
@@ -205,13 +198,9 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .tsk button:hover:not(:disabled){border-color:#8b857c;color:#fff}
 .tsk button:disabled,.peject:disabled{opacity:.28;cursor:default}
 .peject:hover:not(:disabled){border-color:#d1342f;color:#d1342f}
-/* --- performance pads RGB (chicos, retroiluminados como CDJ real) + loop --- */
+/* --- hot cue pads RGB (chicos, retroiluminados como CDJ real) --- */
 .perf{display:flex;flex-direction:column;gap:4px;margin-top:2px}
-.padmodes{display:flex;gap:2px}
-.padmodes button{flex:1;font-family:inherit;font-size:6px;letter-spacing:.04em;background:#0f1013;border:1px solid #24262b;border-radius:2px;color:#7d818a;cursor:pointer;padding:3px 0;transition:.14s;min-width:0}
-.padmodes button:hover:not(:disabled){color:#fff;border-color:#54575e}
-.padmodes button:disabled{opacity:.26;cursor:default}
-.padmodes button.on{background:#e9e7e2;border-color:#e9e7e2;color:#111;font-weight:600}
+.padhd{font-size:6px;letter-spacing:.2em;color:#5c5f66;text-align:left}
 .padgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
 .pad{aspect-ratio:1.7;border-radius:3px;border:1px solid #202227;background:color-mix(in srgb,var(--pc,#3a3d44) 13%,#0d0e11);cursor:pointer;font-family:inherit;font-size:8px;letter-spacing:.02em;color:color-mix(in srgb,var(--pc,#8b857c) 60%,#6c6f76);display:grid;place-items:center;text-align:center;line-height:1;transition:transform .05s,box-shadow .12s,background .12s;position:relative;box-shadow:inset 0 -2px 5px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05);padding:0;-webkit-tap-highlight-color:transparent}
 .pad:disabled{opacity:.4;cursor:default;background:#0d0e11;color:#4a4d54}
@@ -1028,7 +1017,7 @@ if(window.AMR_TUL){
           '<button class="jc" id="pquant'+i+'" disabled>QUANT</button>'+
           '<button class="jc" id="prange'+i+'" disabled>RANGE</button>'+
         '</div>'+
-        '<div class="jogwrap"><div class="jog" id="jog'+i+'"><div class="jogdisc" id="jdisc'+i+'"></div><div class="joghand" id="joghand'+i+'"></div><div class="jogart" id="jart'+i+'"></div></div><div class="jogring"></div></div>'+
+        '<div class="jogwrap"><div class="jog" id="jog'+i+'"><div class="joghand" id="joghand'+i+'"></div><div class="jogart" id="jart'+i+'"></div></div><div class="jogring"></div></div>'+
         '<div><div class="tempo" id="ptmp'+i+'"><div class="tcap" id="ptcap'+i+'"></div></div><div class="tlab">TEMPO<br><span id="trange'+i+'">&#177;8</span></div></div>'+
       '</div>'+
       '<div class="cdjbtns">'+
@@ -1041,24 +1030,10 @@ if(window.AMR_TUL){
         '<button class="klbtn on" id="pkl'+i+'" disabled>M.TEMPO</button>'+
       '</div>'+
       '<div class="perf" id="perf'+i+'">'+
-        '<div class="padmodes" id="pmode'+i+'">'+
-          '<button data-m="cue" class="on" disabled>HOT CUE</button>'+
-          '<button data-m="loop" disabled>LOOP</button>'+
-          '<button data-m="roll" disabled>ROLL</button>'+
-          '<button data-m="jump" disabled>JUMP</button>'+
-        '</div>'+
+        '<div class="padhd">HOT CUE</div>'+
         '<div class="padgrid" id="pads'+i+'">'+
           '<button class="pad" data-p="0" disabled></button><button class="pad" data-p="1" disabled></button>'+
           '<button class="pad" data-p="2" disabled></button><button class="pad" data-p="3" disabled></button>'+
-          '<button class="pad" data-p="4" disabled></button><button class="pad" data-p="5" disabled></button>'+
-          '<button class="pad" data-p="6" disabled></button><button class="pad" data-p="7" disabled></button>'+
-        '</div>'+
-        '<div class="perfrow mloop">'+
-          '<button class="lin" id="lin'+i+'" disabled>IN</button>'+
-          '<button class="lout" id="lout'+i+'" disabled>OUT</button>'+
-          '<button class="lrl" id="lrl'+i+'" disabled>RELOOP</button>'+
-          '<button class="lhf" id="lhf'+i+'" disabled>&frac12;&times;</button>'+
-          '<button class="ldb" id="ldb'+i+'" disabled>2&times;</button>'+
         '</div>'+
       '</div>'+
       '<div class="tsk">'+
@@ -1307,26 +1282,14 @@ if(window.AMR_TUL){
   /* --- loops / hot cues / beat jump --- */
   function beatSec(d){ return 60 / ((d.rec && d.rec.v.bpm) || 120); }
   function qBeat(d, t){ if(!d.quant) return t; var b = beatSec(d); return Math.round(t / b) * b; }   // pega a la rejilla (si QUANTIZE)
-  function paintLoop(d){
-    var i=d.i, has = d.loopB > d.loopA;
-    document.getElementById('lrl'+i).classList.toggle('on', d.loopOn && has);
-    document.getElementById('lin'+i).classList.toggle('on', has && !d.loopOn);
-    paintPads(d);
-  }
+  function paintLoop(d){ paintPads(d); }
   function paintPads(d){
-    var i=d.i, grid=document.getElementById('pads'+i);
+    var grid=document.getElementById('pads'+d.i);
     [].forEach.call(grid.children, function(b,k){
-      var lit=false, col='#3a3d44', html='';
-      if(d.padMode==='cue'){ col=PADCOL[k]; lit=(d.hc[k]!=null); html=(k+1); }
-      else if(d.padMode==='loop'){ col='#2fd0d8'; lit=(d.loopOn && d.loopBeats===LOOPB[k]); html=LOOPLBL[k]; }
-      else if(d.padMode==='roll'){ col='#b06bff'; lit=(d.rollActive===k); html=LOOPLBL[k]; }
-      else { var n=JUMPB[k]; col=(n<0?'#ffa93a':'#4fa3ff'); html=(n<0?'&#9666;':'+')+Math.abs(n); }
-      b.style.setProperty('--pc', col);
-      b.classList.toggle('lit', lit);
-      b.innerHTML = html;
+      b.style.setProperty('--pc', PADCOL[k]);
+      b.classList.toggle('lit', d.hc[k]!=null);
+      b.innerHTML = (k+1);
     });
-    // marca el modo activo
-    [].forEach.call(document.getElementById('pmode'+i).children, function(m){ m.classList.toggle('on', m.getAttribute('data-m')===d.padMode); });
   }
   function setBeatLoop(d, N){
     if(!d.au) return;
@@ -1389,7 +1352,7 @@ if(window.AMR_TUL){
       return;
     }
     cdj.style.setProperty('--mc', d.rec.c); strip.style.setProperty('--mlc', d.rec.lc);
-    jart.textContent = d.rec.v.title;
+    jart.style.background = d.rec.c; jart.textContent = d.rec.v.title;
     name.textContent = d.rec.v.title;
     var many = titlesOf(d.rec).length>1;
     document.getElementById('pprev'+i).disabled=!many; document.getElementById('pnext'+i).disabled=!many;
@@ -1405,7 +1368,7 @@ if(window.AMR_TUL){
   }
   function load(d, r){
     if(d.au){ d.au.pause(); if(d.node){ try{ d.node.disconnect(); }catch(e){} } }
-    d.rec=r; d.node=null; d.cuePt=0; d.previewing=false; clearLoopState(d); d.hc=[null,null,null,null,null,null,null,null]; d.rollActive=null; d.synced=false; d.tv=0;
+    d.rec=r; d.node=null; d.cuePt=0; d.previewing=false; clearLoopState(d); d.hc=[null,null,null,null]; d.rollActive=null; d.synced=false; d.tv=0;
     if(masterDeck==null) masterDeck=d.i;   // el primer disco cargado es el maestro
     d.au = new Audio(r.v.file); d.au.preload='auto';
     setKeylock(d);                          // MASTER TEMPO (key lock)
@@ -1424,7 +1387,7 @@ if(window.AMR_TUL){
   }
   function eject(d){
     if(d.au){ d.au.pause(); d.au.removeAttribute('src'); try{ d.au.load(); }catch(e){} if(d.node){ try{ d.node.disconnect(); }catch(e){} } }
-    d.rec=null; d.au=null; d.node=null; clearLoopState(d); d.hc=[null,null,null,null,null,null,null,null]; d.rollActive=null; d.synced=false;
+    d.rec=null; d.au=null; d.node=null; clearLoopState(d); d.hc=[null,null,null,null]; d.rollActive=null; d.synced=false;
     if(masterDeck===d.i){ masterDeck=null; for(var k=0;k<4;k++){ if(DECKS[k].rec){ masterDeck=k; break; } } }
     paint(d);
   }
@@ -1463,52 +1426,19 @@ if(window.AMR_TUL){
       try{ d.au.currentTime=off[k]; }catch(e){}
     });
     document.getElementById('pej'+i).addEventListener('click', function(){ eject(d); });
-    /* --- pads RGB: selector de modo + grid --- */
-    document.getElementById('pmode'+i).addEventListener('click', function(e){
-      var b=e.target.closest('button'); if(!b || b.disabled) return;
-      d.padMode = b.getAttribute('data-m'); paintPads(d);
-    });
+    /* --- hot cue pads (clic: fija si vacío, salta si existe · clic derecho: borra) --- */
     var grid = document.getElementById('pads'+i);
     grid.addEventListener('pointerdown', function(e){
       var b=e.target.closest('.pad'); if(!b || b.disabled) return; e.preventDefault();
       var k=+b.getAttribute('data-p'); actx(); wire(d);
-      try{ grid.setPointerCapture(e.pointerId); }catch(_){}
-      if(d.padMode==='cue'){
-        if(d.hc[k]==null){ d.hc[k] = d.au ? d.au.currentTime : 0; }
-        else if(d.au){ try{ d.au.currentTime=d.hc[k]; }catch(_){} if(d.au.paused) d.au.play(); }
-      } else if(d.padMode==='loop'){ setBeatLoop(d, LOOPB[k]); }
-      else if(d.padMode==='roll'){
-        if(!d.au) return; d.rollActive=k;
-        d.loopA=qBeat(d, d.au.currentTime); d.loopB=d.loopA+LOOPB[k]*beatSec(d); d.loopBeats=LOOPB[k]; d.loopOn=true;
-        if(d.au.paused) d.au.play();
-      } else { var n=JUMPB[k]; var dur=d.rec.v.dur||d.au.duration||0;
-        try{ d.au.currentTime = Math.max(0, Math.min(dur, d.au.currentTime + n*beatSec(d))); }catch(_){} }
+      if(d.hc[k]==null){ d.hc[k] = d.au ? d.au.currentTime : 0; }
+      else if(d.au){ try{ d.au.currentTime=d.hc[k]; }catch(_){} if(d.au.paused) d.au.play(); }
       paintPads(d);
     });
-    function padRelease(){ if(d.rollActive!=null){ d.rollActive=null; d.loopOn=false; paintPads(d); } }
-    grid.addEventListener('pointerup', padRelease);
-    grid.addEventListener('pointercancel', padRelease);
     grid.addEventListener('contextmenu', function(e){
       var b=e.target.closest('.pad'); if(!b) return; e.preventDefault();
-      if(d.padMode==='cue'){ d.hc[+b.getAttribute('data-p')]=null; paintPads(d); }
+      d.hc[+b.getAttribute('data-p')]=null; paintPads(d);
     });
-    /* --- loop manual --- */
-    document.getElementById('lin'+i).addEventListener('click', function(){
-      if(!d.au) return; d.loopA = qBeat(d, d.au.currentTime); d.loopBeats=0;
-      if(d.loopB<=d.loopA) d.loopB=d.loopA; d.loopOn=false; paintLoop(d);
-    });
-    document.getElementById('lout'+i).addEventListener('click', function(){
-      if(!d.au || d.loopA==null) return; var e2 = qBeat(d, d.au.currentTime);
-      if(e2 > d.loopA){ d.loopB = e2; d.loopBeats=0; d.loopOn=true; actx(); wire(d); paintLoop(d); }
-    });
-    document.getElementById('lrl'+i).addEventListener('click', function(){
-      if(d.loopB<=d.loopA) return;
-      d.loopOn = !d.loopOn;
-      if(d.loopOn && d.au){ actx(); wire(d); try{ d.au.currentTime=d.loopA; }catch(e){} if(d.au.paused) d.au.play(); }
-      paintLoop(d);
-    });
-    document.getElementById('lhf'+i).addEventListener('click', function(){ scaleLoop(d, 0.5); });
-    document.getElementById('ldb'+i).addEventListener('click', function(){ scaleLoop(d, 2); });
     /* --- controles del jog: VINYL / REV / SLIP / QUANTIZE / RANGE --- */
     document.getElementById('pvinyl'+i).addEventListener('click', function(){ if(!d.rec) return; d.vinyl=!d.vinyl; this.classList.toggle('on',d.vinyl); });
     document.getElementById('prev'+i).addEventListener('click', function(){ if(!d.rec) return; d.reversed=!d.reversed; this.classList.toggle('on',d.reversed); });
@@ -1687,7 +1617,7 @@ if(window.AMR_TUL){
       g.beginPath(); g.moveTo(cx-4*dpr,wy); g.lineTo(cx+4*dpr,wy); g.lineTo(cx,wy+5*dpr); g.closePath(); g.fill();
     }
     /* marcadores de hot cue (líneas de color, 8 slots) */
-    for(var hci=0; hci<8; hci++){ if(d.hc[hci]==null) continue;
+    for(var hci=0; hci<4; hci++){ if(d.hc[hci]==null) continue;
       var hx = ((d.hc[hci]-winA)/win)*W;
       if(hx>=0 && hx<=W){ g.fillStyle=PADCOL[hci]; g.fillRect(hx-dpr, wy, Math.max(1.4,dpr*1.4), wh);
         g.fillStyle='#0d0b0a'; g.fillRect(hx-4*dpr, wy, 8*dpr, 7*dpr);
@@ -1719,7 +1649,7 @@ if(window.AMR_TUL){
       g.fillStyle = d.loopOn ? 'rgba(47,208,216,.28)' : 'rgba(120,130,140,.2)';
       g.fillRect(d.loopA/dur*W, oy, Math.max(1,(d.loopB-d.loopA)/dur*W), oh);
     }
-    for(var hco=0; hco<8; hco++){ if(d.hc[hco]==null) continue;
+    for(var hco=0; hco<4; hco++){ if(d.hc[hco]==null) continue;
       g.fillStyle=PADCOL[hco]; g.fillRect(d.hc[hco]/dur*W, oy, Math.max(1,1.2*dpr), oh); }
     g.fillStyle='#ff9f1a'; g.fillRect((d.cuePt||0)/dur*W, oy, Math.max(1,1.2*dpr), oh);   // cue point
     g.fillStyle='#e5372e'; g.fillRect(prog*(W-2*dpr), oy-1*dpr, Math.max(2,1.4*dpr), oh+2*dpr);
