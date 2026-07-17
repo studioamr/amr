@@ -40,11 +40,11 @@ if __name__ == '__main__':
 
     meta = dict(id='amr-jacaranda', title='JACARANDA', kicker='VIOLET BLOOM · 0→100',
                 tracks=len(titles), dur=round(acc, 1), titles=titles, offsets=offsets,
-                file='audio/amr-marea.m4a', art='art/shots/shot-jacaranda.svg', edition=12,
+                file='audio/amr-jacaranda.m4a', art='art/shots/shot-jacaranda.svg', edition=12,
                 peaks=peaks(m4a), bpm=120, key='E MIN')
     with open(os.path.join(HERE, 'jacaranda.js'), 'w') as f:
         f.write('window.AMR_JACARANDA=' + json.dumps(meta) + ';')
-    print('marea.js escrito', flush=True)
+    print('jacaranda.js escrito', flush=True)
 
     # 3. cortes standalone: la sección pre-master se masteriza individual (mismo chain)
     for i, s in enumerate(SECTIONS):

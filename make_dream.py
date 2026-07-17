@@ -531,7 +531,7 @@ def render_section(sec, idx):
 # ------------------------------------------------------------------ set completo
 def build(only=None):
     total_bars = sum(s['bars'] for s in SECTIONS)
-    print(f'MAREA · {len(SECTIONS)} secciones · {total_bars} compases ≈ {total_bars*2/60:.0f} min')
+    print(f'JACARANDA · {len(SECTIONS)} secciones · {total_bars} compases ≈ {total_bars*2/60:.0f} min')
     secs = []
     for i, s in enumerate(SECTIONS):
         if only and s['name'] != only: continue
@@ -573,7 +573,7 @@ def build(only=None):
     wav_write(raw, out)
     del out
     print('  … masterizando a -8 LUFS', flush=True)
-    final = os.path.join(HERE, 'masters', 'amr-marea.wav')
+    final = os.path.join(HERE, 'masters', 'amr-jacaranda.wav')
     os.makedirs(os.path.join(HERE, 'masters'), exist_ok=True)
     hist = master_file(raw, final, target_i=-8.0, ceiling_db=-1.1)
     I, lra, tp = ffmeter(final)
