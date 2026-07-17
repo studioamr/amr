@@ -211,10 +211,13 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .tsk button:hover:not(:disabled){border-color:#8b857c;color:#fff}
 .tsk button:disabled,.peject:disabled{opacity:.28;cursor:default}
 .peject:hover:not(:disabled){border-color:#d1342f;color:#d1342f}
-/* --- hot cue pads RGB (chicos, retroiluminados como CDJ real) --- */
+/* --- selector de rola por deck --- */
 .perf{display:flex;flex-direction:column;gap:4px;margin-top:2px}
 .padhd{font-size:6px;letter-spacing:.2em;color:#5c5f66;text-align:left}
-.padgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.rolasel{width:100%;font-family:inherit;font-size:8px;letter-spacing:.06em;background:#0f1013;border:1px solid #2a2c31;border-radius:3px;color:#cfccc5;cursor:pointer;padding:6px 6px;transition:.15s;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"6\"><path d=\"M0 0l4 6 4-6z\" fill=\"%238b857c\"/></svg>');background-repeat:no-repeat;background-position:right 7px center}
+.rolasel:hover{border-color:#8b857c;color:#fff}
+.rolasel:focus{outline:none;border-color:var(--mlc,#8b857c)}
+.rolasel option{background:#15161a;color:#eae6df}
 .pad{aspect-ratio:1.7;border-radius:3px;border:1px solid #202227;background:color-mix(in srgb,var(--pc,#3a3d44) 13%,#0d0e11);cursor:pointer;font-family:inherit;font-size:8px;letter-spacing:.02em;color:color-mix(in srgb,var(--pc,#8b857c) 60%,#6c6f76);display:grid;place-items:center;text-align:center;line-height:1;transition:transform .05s,box-shadow .12s,background .12s;position:relative;box-shadow:inset 0 -2px 5px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05);padding:0;-webkit-tap-highlight-color:transparent}
 .pad:disabled{opacity:.4;cursor:default;background:#0d0e11;color:#4a4d54}
 .pad:not(:disabled):active{transform:translateY(1px)}
@@ -1023,6 +1026,7 @@ if(window.AMR_TUL){
   }
 
   /* --- DOM: 2 CDJs, DJM, 2 CDJs --- */
+  function rolaOpts(){ return '<option value="-1">&mdash; PICK A TRACK &mdash;</option>' + RECS.map(function(r,k){ return '<option value="'+k+'">'+r.v.title+(r.v.bpm?' &#183; '+r.v.bpm+' BPM':'')+'</option>'; }).join(''); }
   function cdjHTML(i){
     return '<div class="unit cdj" data-d="'+i+'" id="pcdj'+i+'">'+
       '<canvas class="cdjscr" id="cscr'+i+'"></canvas>'+
@@ -1048,11 +1052,8 @@ if(window.AMR_TUL){
         '<button class="klbtn on" id="pkl'+i+'" disabled>M.TEMPO</button>'+
       '</div>'+
       '<div class="perf" id="perf'+i+'">'+
-        '<div class="padhd">HOT CUE</div>'+
-        '<div class="padgrid" id="pads'+i+'">'+
-          '<button class="pad" data-p="0" disabled></button><button class="pad" data-p="1" disabled></button>'+
-          '<button class="pad" data-p="2" disabled></button><button class="pad" data-p="3" disabled></button>'+
-        '</div>'+
+        '<div class="padhd">TRACK SELECT</div>'+
+        '<select class="rolasel" id="rola'+i+'">'+rolaOpts()+'</select>'+
       '</div>'+
       '<div class="tsk">'+
         '<button id="pprev'+i+'" disabled>&#9666;&#9666;</button>'+
@@ -1306,13 +1307,9 @@ if(window.AMR_TUL){
   function beatSec(d){ return 60 / ((d.rec && d.rec.v.bpm) || 120); }
   function qBeat(d, t){ if(!d.quant) return t; var b = beatSec(d); return Math.round(t / b) * b; }   // pega a la rejilla (si QUANTIZE)
   function paintLoop(d){ paintPads(d); }
-  function paintPads(d){
-    var grid=document.getElementById('pads'+d.i);
-    [].forEach.call(grid.children, function(b,k){
-      b.style.setProperty('--pc', PADCOL[k]);
-      b.classList.toggle('lit', d.hc[k]!=null);
-      b.innerHTML = (k+1);
-    });
+  function paintPads(d){   // sincroniza el selector de rola con lo cargado
+    var sel=document.getElementById('rola'+d.i); if(!sel) return;
+    sel.value = String(d.rec ? RECS.indexOf(d.rec) : -1);
   }
   function setBeatLoop(d, N){
     if(!d.au) return;
@@ -1367,7 +1364,7 @@ if(window.AMR_TUL){
       name.textContent='';
       ['pplay','pcue','pprev','pnext','pej','psync','pmst','pkl','pvinyl','prev','pslip','pquant','prange'].forEach(function(p){ document.getElementById(p+i).disabled=true; });
       [].forEach.call(perfBtns, function(b){ b.disabled=true; b.classList.remove('on','set'); });
-      [].forEach.call(document.getElementById('pads'+i).children, function(b){ b.classList.remove('lit'); b.innerHTML=''; b.style.removeProperty('--pc'); });
+      document.getElementById('rola'+i).value='-1';
       document.getElementById('pplay'+i).innerHTML='&#9656;';
       document.getElementById('pplay'+i).classList.remove('on');
       document.getElementById('pcue'+i).classList.remove('set');
@@ -1451,18 +1448,11 @@ if(window.AMR_TUL){
       try{ d.au.currentTime=off[k]; }catch(e){}
     });
     document.getElementById('pej'+i).addEventListener('click', function(){ eject(d); });
-    /* --- hot cue pads (clic: fija si vacío, salta si existe · clic derecho: borra) --- */
-    var grid = document.getElementById('pads'+i);
-    grid.addEventListener('pointerdown', function(e){
-      var b=e.target.closest('.pad'); if(!b || b.disabled) return; e.preventDefault();
-      var k=+b.getAttribute('data-p'); actx(); wire(d);
-      if(d.hc[k]==null){ d.hc[k] = d.au ? d.au.currentTime : 0; }
-      else if(d.au){ try{ d.au.currentTime=d.hc[k]; }catch(_){} if(d.au.paused) d.au.play(); }
-      paintPads(d);
-    });
-    grid.addEventListener('contextmenu', function(e){
-      var b=e.target.closest('.pad'); if(!b) return; e.preventDefault();
-      d.hc[+b.getAttribute('data-p')]=null; paintPads(d);
+    /* --- selector de rola: escoge qué disco carga en este deck --- */
+    document.getElementById('rola'+i).addEventListener('change', function(){
+      var k=+this.value; if(k<0){ if(d.rec) eject(d); return; }
+      if(aiOn) aiStop();
+      load(d, RECS[k]);
     });
     /* --- controles del jog: VINYL / REV / SLIP / QUANTIZE / RANGE --- */
     document.getElementById('pvinyl'+i).addEventListener('click', function(){ if(!d.rec) return; d.vinyl=!d.vinyl; this.classList.toggle('on',d.vinyl); });
