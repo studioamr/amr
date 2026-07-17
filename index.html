@@ -128,25 +128,13 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
 .card:hover::after,.card.playing::after{width:100%}
 
-/* ---- the mixer — cabina PRO estilo club (4 canales) en entornos plinth ---- */
-.mixsec{position:relative;color:var(--bone);overflow:hidden;transition:background .8s}
-.mixsec.env-amber{background:linear-gradient(180deg,#16110c,#211710 55%,#120d09);--sc:#7a5530;--scd:#4a3320}
-.mixsec.env-blue{background:linear-gradient(180deg,#090e1a,#111b30 55%,#070b14);--sc:#33507e;--scd:#1f3252}
-.mixsec.env-jade{background:linear-gradient(180deg,#091411,#0f231d 55%,#071009);--sc:#2a6353;--scd:#1a4237}
-.mixsec.env-violet{background:linear-gradient(180deg,#0f0b1c,#181236 55%,#0b0816);--sc:#4a3f7e;--scd:#2f2854}
+/* ---- the setup — réplica CDJ-3000 × DJM-900NXS2 (fondo estudio limpio) ---- */
+.mixsec{position:relative;color:var(--bone);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b1d21,#0c0d0f 70%)}
 .mixsec .mixin{position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(16px,3vw,40px)}
 .mixsec .hk{color:rgba(234,230,223,.55)}
 .mixsec h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.5vw,60px);margin:14px 0 16px}
 .mixsec .mixlede{color:rgba(234,230,223,.62);line-height:1.7;max-width:64ch;margin:0 0 22px}
 .mixsec .mixlede b{color:var(--bone);font-weight:500}
-.sculpts{position:absolute;inset:0;z-index:1;pointer-events:none}
-.sculpts svg{position:absolute;bottom:-2%;color:var(--sc);opacity:.5;transition:color .8s}
-.sculpts .sc-l{left:-3%;width:clamp(220px,26vw,420px)}
-.sculpts .sc-r{right:-4%;width:clamp(240px,28vw,460px)}
-.envchips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;font-family:'IBM Plex Mono',monospace}
-.envchips button{font-family:inherit;font-size:9px;letter-spacing:.16em;background:none;border:1px solid rgba(234,230,223,.22);border-radius:99px;color:rgba(234,230,223,.6);cursor:pointer;padding:6px 14px;transition:.2s}
-.envchips button:hover{border-color:rgba(234,230,223,.5);color:var(--bone)}
-.envchips button.on{background:var(--bone);border-color:var(--bone);color:#141210}
 .pmxshelf{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 14px;scrollbar-width:none;margin-bottom:14px;font-family:'IBM Plex Mono',monospace}
 .pmxshelf::-webkit-scrollbar{display:none}
 .shrec{flex:0 0 auto;width:82px;background:none;border:none;cursor:pointer;text-align:center;font-family:inherit;color:rgba(234,230,223,.72);padding:4px 0;transition:transform .22s}
@@ -160,10 +148,12 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .shrec.deny .sdisc{animation:mxshake .3s}
 @keyframes mxshake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 /* --- la cabina: CDJ · CDJ · DJM · CDJ · CDJ --- */
-.booth{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr minmax(400px,1.42fr) 1fr 1fr;gap:8px;align-items:stretch;font-family:'IBM Plex Mono',monospace}
-.unit{background:linear-gradient(180deg,#1c1d21,#101114 38%,#0b0c0e);border:1px solid #2b2d33;border-radius:6px;box-shadow:0 26px 60px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.05);padding:9px 8px 10px;position:relative;min-width:0}
-.unit::before,.unit::after{content:"";position:absolute;top:5px;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#3d4046,#191a1d 70%);box-shadow:inset 0 0 1px #000}
+.booth{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr minmax(400px,1.42fr) 1fr 1fr;gap:8px;align-items:stretch;margin-bottom:14px;font-family:'IBM Plex Mono',monospace}
+.unit{background:linear-gradient(180deg,#292b2f 0,#16171a 14%,#0c0d0f 55%,#08090b);border:1px solid #000;border-radius:7px;box-shadow:0 30px 62px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.14),inset 0 -14px 26px rgba(0,0,0,.4);padding:9px 8px 14px;position:relative;min-width:0}
+.unit::before,.unit::after{content:"";position:absolute;top:5px;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#54575e,#191a1d 70%);box-shadow:inset 0 0 1px #000}
 .unit::before{left:6px}.unit::after{right:6px}
+.unit .feet{position:absolute;left:8%;right:8%;bottom:-7px;height:9px;display:flex;justify-content:space-between;pointer-events:none}
+.unit .feet i{width:14px;height:9px;border-radius:0 0 4px 4px;background:linear-gradient(180deg,#e9e7e2,#b9b6ad);box-shadow:0 3px 5px rgba(0,0,0,.4)}
 /* --- CDJ --- */
 .cdj{display:flex;flex-direction:column;gap:7px}
 .cdjscr{width:100%;height:106px;background:#060a14;border:1px solid #272a31;border-radius:3px;cursor:crosshair;display:block}
@@ -176,16 +166,22 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .jogctl .jc.rev.on{background:#e5372e;border-color:#e5372e;color:#fff}
 .jogctl .jc.quant.on{background:#5bc4a5;border-color:#5bc4a5;color:#08181a}
 .jogwrap{position:relative;flex:0 0 auto;display:grid;place-items:center}
-.jog{width:clamp(108px,9.8vw,158px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 44%,#26282d 0 38%,#15161a 40%),repeating-conic-gradient(#141518 0 5deg,#1c1e22 5deg 10deg);border:1px solid #2e3138;display:grid;place-items:center;position:relative;box-shadow:0 10px 26px rgba(0,0,0,.55),inset 0 0 0 6px #0c0d10,inset 0 0 0 7px #303339;cursor:grab;touch-action:none}
+/* jog CDJ-3000: platina negra brillante + anillo de color central + aguja blanca */
+.jog{width:clamp(116px,10.4vw,168px);aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle at 50% 33%,rgba(255,255,255,.18),rgba(255,255,255,.02) 33%,transparent 46%),radial-gradient(circle at 50% 50%,#141517 0 57%,#090a0b 60% 100%);
+  border:1px solid #000;display:grid;place-items:center;position:relative;cursor:grab;touch-action:none;
+  box-shadow:0 14px 32px rgba(0,0,0,.6),inset 0 0 0 7px #0e0f11,inset 0 0 0 8px #484b52,inset 0 0 0 12px #0b0c0e,inset 0 3px 10px rgba(255,255,255,.07)}
 .jog.grabbing{cursor:grabbing}
 .jog.grabbing~.jogring{border-color:#ffb03a !important;box-shadow:0 0 14px rgba(255,176,58,.5) !important}
-.joghand{position:absolute;inset:9%;border-radius:50%;pointer-events:none;transform:rotate(var(--jrot,0deg))}
-.joghand::before{content:"";position:absolute;top:-2px;left:50%;width:5px;height:15%;margin-left:-2.5px;border-radius:3px;background:var(--mc,#e5372e);box-shadow:0 0 7px var(--mc,#e5372e)}
-.jog::before{content:"";position:absolute;inset:9%;border-radius:50%;background:radial-gradient(circle at 40% 32%,#23252b,#0d0e11 72%);border:1px solid #33363d}
-.jogring{position:absolute;inset:3%;border-radius:50%;border:3px solid rgba(255,255,255,.05);transition:.25s;pointer-events:none}
-.cdj.playing .jogring{border-color:#e5372e;box-shadow:0 0 16px rgba(229,55,46,.5),inset 0 0 12px rgba(229,55,46,.28)}
-.jogart{width:46%;aspect-ratio:1;border-radius:50%;background:var(--mc,#2c2e33);display:grid;place-items:center;position:relative;z-index:2;box-shadow:0 0 0 4px #0a0b0d,0 0 0 5px #34373e;color:#0d0b0a;font-size:8px;font-weight:600;letter-spacing:.06em;text-align:center;overflow:hidden;padding:4px}
-.cdj.playing .jogart{animation:spin 2.4s linear infinite}
+.jogdisc{position:absolute;width:55%;aspect-ratio:1;border-radius:50%;
+  background:conic-gradient(from -55deg,#13b6cf,#2f7de0,#7a3ff0,#e0407a,#ff6a2b,#ffd24a,#8fd94a,#13b6cf);
+  box-shadow:0 0 0 3px #0a0b0d,0 0 0 4px #3d4046,0 0 14px rgba(0,0,0,.5);opacity:.92}
+.cdj.playing .jogdisc{animation:spin 3.4s linear infinite}
+.joghand{position:absolute;width:55%;aspect-ratio:1;border-radius:50%;pointer-events:none;z-index:2;transform:rotate(var(--jrot,0deg))}
+.joghand::before{content:"";position:absolute;top:-1px;left:50%;width:4px;height:19%;margin-left:-2px;border-radius:2px;background:#fff;box-shadow:0 0 6px rgba(255,255,255,.85)}
+.jogring{position:absolute;inset:2%;border-radius:50%;border:3px solid rgba(255,255,255,.05);transition:.25s;pointer-events:none}
+.cdj.playing .jogring{border-color:#e5372e;box-shadow:0 0 18px rgba(229,55,46,.55),inset 0 0 14px rgba(229,55,46,.3)}
+.jogart{width:30%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 42% 34%,#26282d,#0b0c0e 74%);display:grid;place-items:center;position:relative;z-index:3;box-shadow:0 0 0 3px #0a0b0d,0 0 0 4px var(--mc,#3a3d44),0 2px 8px rgba(0,0,0,.6);color:#eae6df;font-size:6.5px;font-weight:600;letter-spacing:.03em;text-align:center;overflow:hidden;padding:3px;line-height:1}
 .tempo{position:relative;width:24px;height:112px;flex:0 0 auto;cursor:ns-resize;touch-action:none;background:linear-gradient(90deg,transparent 42%,rgba(234,230,223,.2) 46% 54%,transparent 58%)}
 .tempo::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:1px;background:rgba(234,230,223,.35)}
 .tcap{position:absolute;left:0;right:0;height:14px;border-radius:2px;background:linear-gradient(180deg,#3d3831,#211d19);border:1px solid rgba(234,230,223,.32);box-shadow:0 2px 5px rgba(0,0,0,.5)}
@@ -234,8 +230,8 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .djmgrid{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:0;flex:1}
 .strip{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 3px 6px;border-right:1px solid #232529;min-width:0}
 .stname{font-size:7px;letter-spacing:.08em;color:var(--mlc,#8b857c);text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-height:10px}
-.knob{width:29px;height:29px;border-radius:50%;background:radial-gradient(circle at 38% 30%,#2c2e34,#101114 74%);border:1px solid #3b3e45;box-shadow:0 2px 5px rgba(0,0,0,.5),inset 0 1px 1px rgba(255,255,255,.06);position:relative;cursor:ns-resize;touch-action:none}
-.knob::after{content:"";position:absolute;left:50%;top:50%;width:2px;height:10px;margin:-13px 0 0 -1px;background:#e8e5df;transform-origin:1px 13px;transform:rotate(var(--rot,0deg));border-radius:1px}
+.knob{width:29px;height:29px;border-radius:50%;background:radial-gradient(circle at 40% 28%,#f2f1ee,#c3c2bd 42%,#7f8188 72%,#42444a);border:1px solid #26282c;box-shadow:0 2px 6px rgba(0,0,0,.55),inset 0 1px 1px rgba(255,255,255,.5),inset 0 -2px 3px rgba(0,0,0,.3);position:relative;cursor:ns-resize;touch-action:none}
+.knob::after{content:"";position:absolute;left:50%;top:50%;width:2px;height:10px;margin:-13px 0 0 -1px;background:#1a1b1e;transform-origin:1px 13px;transform:rotate(var(--rot,0deg));border-radius:1px}
 .klab{font-size:7px;letter-spacing:.12em;color:#9a968e;margin-top:-3px}
 .cuebtn{width:82%;padding:4px 0;background:#17181b;border:1px solid #3a3d44;border-radius:2px;color:#c9c5bd;font-size:8px;letter-spacing:.16em;cursor:pointer;font-family:inherit;transition:.18s}
 .cuebtn.set{background:#ff9f1a;border-color:#ff9f1a;color:#141210;box-shadow:0 0 10px rgba(255,159,26,.45)}
@@ -283,8 +279,6 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .xfhandle::after{content:"";position:absolute;top:4px;bottom:4px;left:50%;width:1px;background:#e8e5df}
 .djmlogo{font-size:8px;letter-spacing:.3em;color:#6e7178;text-align:center}
 /* pedestal plinth */
-.plinthbase{position:relative;z-index:1;width:86%;margin:0 auto;height:34px;background:linear-gradient(180deg,#2a2620,#171310);border:1px solid rgba(234,230,223,.14);border-top:none;box-shadow:0 26px 50px rgba(0,0,0,.5)}
-.plinthbase::after{content:"";position:absolute;left:6%;right:6%;top:100%;height:22px;background:linear-gradient(180deg,#211d18,#100d0a);border:1px solid rgba(234,230,223,.1);border-top:none}
 @media(max-width:1150px){.booth{grid-template-columns:1fr 1fr}.djm{grid-column:1/-1;order:3}.cdj[data-d="0"]{order:1}.cdj[data-d="1"]{order:2}.cdj[data-d="2"]{order:4}.cdj[data-d="3"]{order:5}}
 @media(max-width:560px){.booth{grid-template-columns:1fr}.djmgrid{grid-template-columns:1fr 1fr}.fxcol{grid-column:1/-1}}
 
@@ -761,39 +755,13 @@ body.hasplayer{padding-bottom:70px}
 <div class="mq blue"><div id="mqtrack2"></div></div>
 
 <!-- THE MIXER — cabina PRO (CDJ·CDJ·DJM·CDJ·CDJ) en entornos plinth -->
-<div class="mixsec env-amber" id="sound">
-<div class="sculpts" aria-hidden="true">
-  <svg class="sc-l" viewBox="0 0 400 520" fill="currentColor">
-    <rect x="40" y="470" width="200" height="50"/>
-    <rect x="60" y="440" width="160" height="30" opacity=".85"/>
-    <rect x="80" y="300" width="120" height="140" opacity=".7"/>
-    <circle cx="140" cy="240" r="62" opacity=".9"/>
-    <rect x="270" y="480" width="100" height="40"/>
-    <rect x="282" y="170" width="76" height="310" opacity=".6"/>
-    <rect x="270" y="150" width="100" height="22" opacity=".85"/>
-    <rect x="278" y="128" width="84" height="14" opacity=".7"/>
-  </svg>
-  <svg class="sc-r" viewBox="0 0 400 520" fill="currentColor">
-    <rect x="30" y="475" width="130" height="45"/>
-    <polygon points="65,120 125,120 112,460 78,460" opacity=".8"/>
-    <polygon points="79,86 111,86 125,120 65,120" opacity=".9"/>
-    <rect x="200" y="480" width="170" height="40"/>
-    <path d="M225 480 L225 300 A60 60 0 0 1 345 300 L345 480 L310 480 L310 305 A25 25 0 0 0 260 305 L260 480 Z" opacity=".7"/>
-  </svg>
-</div>
+<div class="mixsec" id="sound">
 <div class="mixin">
-  <span class="hk">THE MIXER — PRO BOOTH · FOUR CHANNELS</span>
+  <span class="hk">THE SETUP — CDJ-3000 × 4 · DJM-900NXS2</span>
   <h2>Mix the catalogue yourself.</h2>
-  <p class="mixlede">The club-standard booth, modelled knob for knob: <b>two players each side, the four-channel mixer in the middle</b>. Every player has its own screen, jog and tempo fader; every channel runs trim, full-kill three-band EQ, a colour filter, LED metering and a proper fader — with <b>beat FX</b> and a crossfader in the centre. Pick a record below to load a deck. Drag knobs and faders; double-click resets. The booth stands on the plinth — change the room behind it.</p>
-  <div class="envchips" id="envChips">
-    <button data-env="amber" class="on">HALL · AMBER</button>
-    <button data-env="blue">NIGHT · BLUE</button>
-    <button data-env="jade">DESERT · JADE</button>
-    <button data-env="violet">BLOOM · VIOLET</button>
-  </div>
+  <p class="mixlede">The club-standard booth, replicated knob for knob: <b>two players each side, the four-channel mixer in the middle</b>. Every player has its screen, jog and tempo fader; every channel runs trim, full-kill three-band EQ, a colour filter, LED metering and a proper fader — with beat FX and a crossfader in the centre. Pick a record below to load a deck; drag knobs and faders, double-click resets.</p>
   <div class="pmxshelf" id="mxShelf"></div>
   <div class="booth" id="mxBooth"></div>
-  <div class="plinthbase"></div>
 </div>
 </div>
 
@@ -1039,14 +1007,6 @@ if(window.AMR_TUL){
       '<span class="sdisc"></span><i>'+r.v.title+'</i><em>'+(r.v.bpm?r.v.bpm+' BPM':(r.v.kicker||'AMR'))+'</em></button>';
   }).join('');
 
-  /* --- entornos plinth --- */
-  var mixsec = document.getElementById('sound');
-  document.getElementById('envChips').addEventListener('click', function(e){
-    var b = e.target.closest('button'); if(!b) return;
-    mixsec.className = 'mixsec env-'+b.getAttribute('data-env');
-    [].forEach.call(this.children, function(c){ c.classList.toggle('on', c===b); });
-  });
-
   /* --- registro de perillas --- */
   var KV = {}, KDEF = {}, KAPPLY = {};
   function knobHTML(name, label, def){ KV[name]=def; KDEF[name]=def; return '<div class="knob" data-kn="'+name+'" id="kn_'+name+'"></div><span class="klab">'+label+'</span>'; }
@@ -1069,7 +1029,7 @@ if(window.AMR_TUL){
           '<button class="jc" id="pquant'+i+'" disabled>QUANT</button>'+
           '<button class="jc" id="prange'+i+'" disabled>RANGE</button>'+
         '</div>'+
-        '<div class="jogwrap"><div class="jog" id="jog'+i+'"><div class="joghand" id="joghand'+i+'"></div><div class="jogart" id="jart'+i+'"></div></div><div class="jogring"></div></div>'+
+        '<div class="jogwrap"><div class="jog" id="jog'+i+'"><div class="jogdisc" id="jdisc'+i+'"></div><div class="joghand" id="joghand'+i+'"></div><div class="jogart" id="jart'+i+'"></div></div><div class="jogring"></div></div>'+
         '<div><div class="tempo" id="ptmp'+i+'"><div class="tcap" id="ptcap'+i+'"></div></div><div class="tlab">TEMPO<br><span id="trange'+i+'">&#177;8</span></div></div>'+
       '</div>'+
       '<div class="cdjbtns">'+
@@ -1108,6 +1068,7 @@ if(window.AMR_TUL){
         '<button class="peject" id="pej'+i+'" disabled>EJECT</button>'+
       '</div>'+
       '<div class="cdjfoot">AMR &#183; CDJ &#183; DECK '+(i+1)+'</div>'+
+      '<div class="feet"><i></i><i></i><i></i></div>'+
     '</div>';
   }
   function stripHTML(i){
@@ -1149,6 +1110,7 @@ if(window.AMR_TUL){
     '<div class="djmgrid">'+stripHTML(0)+stripHTML(1)+stripHTML(2)+stripHTML(3)+fxHTML+'</div>'+
     '<div class="xfrow"><span>A</span><div class="xftrack" id="xfTrack"><div class="xfhandle" id="xfHandle"></div></div><span>B</span></div>'+
     '<div class="djmlogo">STUDIO AMR &#183; AMR-900 &#183; 4CH</div>'+
+    '<div class="feet"><i></i><i></i><i></i><i></i></div>'+
   '</div>';
   booth.innerHTML = cdjHTML(0)+cdjHTML(1)+djmHTML+cdjHTML(2)+cdjHTML(3);
   function segs(id,n,amb,red){ var e=document.getElementById(id), h=''; for(var k=0;k<n;k++) h+='<i class="'+(k>=red?'r':k>=amb?'a':'')+'"></i>'; e.innerHTML=h; return e; }
@@ -1428,7 +1390,7 @@ if(window.AMR_TUL){
       return;
     }
     cdj.style.setProperty('--mc', d.rec.c); strip.style.setProperty('--mlc', d.rec.lc);
-    jart.style.background = d.rec.c; jart.textContent = d.rec.v.title;
+    jart.textContent = d.rec.v.title;
     name.textContent = d.rec.v.title;
     var many = titlesOf(d.rec).length>1;
     document.getElementById('pprev'+i).disabled=!many; document.getElementById('pnext'+i).disabled=!many;
