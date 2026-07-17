@@ -329,6 +329,16 @@ body.hasplayer{padding-bottom:70px}
 @keyframes nrring{0%{transform:scale(.84);opacity:0}16%{opacity:.65}100%{transform:scale(1.24);opacity:0}}
 .nr .vdiscwrap{position:relative;width:100%;aspect-ratio:1}
 .nr .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
+.nr.jade{background:linear-gradient(160deg,#07130f 0%,#0c2119 55%,#0a1a14 100%)}
+.nr.jade .nrlive i{background:#5BC4A5;box-shadow:0 0 0 4px rgba(91,196,165,.25)}
+.nr.jade .nrsub b{color:#5BC4A5}
+.nr.jade .vlabel{background:radial-gradient(circle at 42% 38%,#5BC4A5,#2E9C7C);box-shadow:0 0 0 5px #1B5F4C}
+.nr.jade .vdisc::before{border-color:rgba(91,196,165,.4)}
+.nr.jade .nrrings span{border-color:rgba(91,196,165,.16)}
+.nr.jade .vstats b,.nr.jade .vinfo-lbl b,.nr.jade .vtracks li b{color:#5BC4A5}
+.nr.jade .vtracks li.on{color:#EAE6DF}
+.nr.jade .vbuy:hover{border-color:#5BC4A5;color:#5BC4A5}
+.nr.jade .vgo.on{background:#2E9C7C}
 .nr .vdisc{box-shadow:0 26px 90px rgba(0,0,0,.6),0 0 90px rgba(46,111,176,.35),inset 0 0 70px rgba(0,0,0,.4)}
 .nr .vdisc::before{border-color:rgba(91,155,213,.4)}
 .nr .vgo.on{background:#2E6FB0}
@@ -455,11 +465,24 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
+<!-- NUEVO LANZAMIENTO — GUERRERO (noche jade) -->
+<section class="nr jade hpanel" id="guerrero">
+  <div class="nrin">
+    <div class="nrleft">
+      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
+      <h2 class="nrtitle">GUERRERO</h2>
+      <p class="nrsub">Written for the desert. Twelve new cuts at <b>123 BPM</b> where the bassline is the lead — saw, sub and acid squelch through a filter that opens all night. Soft kicks, hand percussion, semitone tension. <b>Zero ceremony</b>, constant groove. Cut to jade vinyl, numbered by hand.</p>
+      <div id="nrMeta3"></div>
+    </div>
+    <div class="nrdisc" id="nrDisc3"></div>
+  </div>
+</section>
+
 <!-- NUEVO LANZAMIENTO — DELIRIO (noche azul) -->
 <section class="nr hpanel" id="newrelease">
   <div class="nrin">
     <div class="nrleft">
-      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
+      <span class="nrlive"><i></i>THE NIGHT SET — MMXXVI</span>
       <h2 class="nrtitle">DELIRIO</h2>
       <p class="nrsub">One night that won't let go. A continuous set — <b>1h51</b>, sixteen movements in a single take, tempo-locked transitions, <b>in sync</b> from the first bar to the last. Cut to blue vinyl, numbered by hand.</p>
       <div id="nrMeta"></div>
@@ -607,12 +630,12 @@ body.hasplayer{padding-bottom:70px}
   </div>
 </div>
 
-<script src="tracks.js"></script>
-<script src="monuments.js"></script>
-<script src="set.js"></script>
-<script src="tulum.js"></script>
-<script src="megaset.js"></script>
-<script src="guerrero.js"></script>
+<script src="tracks.js?v=202607161826"></script>
+<script src="monuments.js?v=202607161826"></script>
+<script src="set.js?v=202607161826"></script>
+<script src="tulum.js?v=202607161826"></script>
+<script src="megaset.js?v=202607161826"></script>
+<script src="guerrero.js?v=202607161826"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -834,7 +857,11 @@ VINYLS.forEach(function(p,j){
     '</div>';
   var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUT'+(p.tracks>1?'S':'')+'</span><ol class="vtracks">'+tl+'</ol></div>';
   var isMonFeat = (p.id === 'amr-monuments-side');
-  if(isFeat){
+  var isGuerFeat = (p.id === 'amr-guerrero');
+  if(isGuerFeat){
+    document.getElementById('nrDisc3').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta3').innerHTML = statsHTML + actHTML + infoHTML;
+  } else if(isFeat){
     document.getElementById('nrDisc').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isMonFeat){
