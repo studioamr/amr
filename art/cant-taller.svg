@@ -1,0 +1,16 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs><radialGradient id="gta" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#C4756B" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#C4756B" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#C4756B" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="130" r="52" fill="url(#gta)"/>
+
+  <rect x="88" y="140" width="64" height="36" rx="5" fill="#C4756B"/>
+  <path d="M120 128 L120 96" stroke="#141210" stroke-width="8" stroke-linecap="round"/>
+  <rect x="96" y="70" width="48" height="26" rx="7" fill="#141210"/>
+  <path d="M76 120 L66 110 M164 120 L174 110" stroke="#E2A796" stroke-width="4" stroke-linecap="round"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="62" cy="88" r="2.2" fill="#141210"/><circle cx="182" cy="150" r="2.4" fill="#141210"/>
+
+</svg>

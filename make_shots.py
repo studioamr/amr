@@ -103,7 +103,10 @@ GUER_MARK = '<path d="M120 40 L150 96 L120 152 L90 96 Z" fill="#141210"/><path d
 
 JACA_MARK = '<path d="M120 168 L120 108 M120 130 L100 112 M120 124 L140 106" fill="none" stroke="#141210" stroke-width="7" stroke-linecap="round"/><circle cx="120" cy="78" r="38" fill="#6E5BAE"/><circle cx="104" cy="68" r="6.5" fill="#9D8BD6"/><circle cx="134" cy="62" r="5" fill="#9D8BD6"/><circle cx="138" cy="90" r="5.5" fill="#9D8BD6"/><ellipse cx="84" cy="140" rx="4" ry="7" fill="#9D8BD6" transform="rotate(-30 84 140)"/><ellipse cx="160" cy="132" rx="4" ry="7" fill="#6E5BAE" transform="rotate(24 160 132)"/>'
 
+CANT_MARK = '<path d="M84 160 L84 88 L96 68 L108 88 L108 160 Z" fill="#141210"/><path d="M132 160 L132 88 L144 68 L156 88 L156 160 Z" fill="#141210"/><path d="M108 160 L108 118 A12 18 0 0 1 132 118 L132 160 Z" fill="#C4756B"/><circle cx="96" cy="94" r="3.5" fill="#E2A796"/><circle cx="144" cy="94" r="3.5" fill="#E2A796"/><rect x="64" y="158" width="112" height="6" rx="3" fill="#141210"/>'
+
 SHOTS = [
+    dict(id='cantera',   accent='#C4756B', accent_lt='#E2A796', title='CANTERA',   sub='ROSA CANTERA · 0→100 · 42 MIN', edition=12, num='01', mark=CANT_MARK, tsize=54),
     dict(id='jacaranda', accent='#6E5BAE', accent_lt='#9D8BD6', title='JACARANDA', sub='VIOLET BLOOM · 0→100 · 41 MIN', edition=12, num='01', mark=JACA_MARK, tsize=48),
     dict(id='guerrero',  accent='#2E9C7C', accent_lt='#5BC4A5', title='GUERRERO',  sub='DESERT SET · 0→100 · 57 MIN', edition=12, num='03', mark=GUER_MARK, tsize=54),
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
