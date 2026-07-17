@@ -371,6 +371,11 @@ body.hasplayer{padding-bottom:70px}
 .card.bluecard::after{background:#2E6FB0}
 .card.bluecard .pchip{border-color:#2E6FB0;color:#2E6FB0}
 .card.bluecard.playing .pchip{background:#2E6FB0;color:var(--bone)}
+.card.jadecard .num b{color:#2E9C7C}
+.card.jadecard .vinyl::after{background:#2E9C7C}
+.card.jadecard::after{background:#2E9C7C}
+.card.jadecard .pchip{border-color:#2E9C7C;color:#2E9C7C}
+.card.jadecard.playing .pchip{background:#2E9C7C;color:var(--bone)}
 /* MINIMAL SET en azul */
 .vprod.blue .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
 .vprod.blue .vdisc::before{border-color:rgba(46,111,176,.45)}
@@ -508,8 +513,8 @@ body.hasplayer{padding-bottom:70px}
 <!-- LO MEJOR — MONUMENTS × DELIRIO -->
 <section class="sec" id="records">
   <div class="sh">
-    <div><span class="hk">THE BEST — MONUMENTS × DELIRIO</span><h2>Our best tracks.</h2></div>
-    <p>The favourite cuts from both records, side by side: the MONUMENTS ones in amber, the DELIRIO ones in blue. Hit play on any of them.</p>
+    <div><span class="hk">THE BEST — MONUMENTS × DELIRIO × GUERRERO</span><h2>Our best tracks.</h2></div>
+    <p>The favourite cuts from every record, side by side: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade. Hit play on any of them.</p>
   </div>
   <div class="grid" id="recordGrid"></div>
 </section>
@@ -630,12 +635,12 @@ body.hasplayer{padding-bottom:70px}
   </div>
 </div>
 
-<script src="tracks.js?v=202607161826"></script>
-<script src="monuments.js?v=202607161826"></script>
-<script src="set.js?v=202607161826"></script>
-<script src="tulum.js?v=202607161826"></script>
-<script src="megaset.js?v=202607161826"></script>
-<script src="guerrero.js?v=202607161826"></script>
+<script src="tracks.js?v=202607161934"></script>
+<script src="monuments.js?v=202607161934"></script>
+<script src="set.js?v=202607161934"></script>
+<script src="tulum.js?v=202607161934"></script>
+<script src="megaset.js?v=202607161934"></script>
+<script src="guerrero.js?v=202607161934"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -830,10 +835,40 @@ if(window.AMR_TUL){
     cardsB.push(b);
   });
 }
-/* mixeadas: naranja, azul, naranja, azul… */
-for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length); mi++){
+/* ---- cortes de GUERRERO en LO MEJOR (dibujos jade) ---- */
+var GPICKS = [
+  {sec:1,  file:'audio/amr-guer-cut-mezcal.m4a',  art:'art/guer-mezcal.svg',  desc:'The bounce that opens the night — bassline with a swing of its own.'},
+  {sec:2,  file:'audio/amr-guer-cut-cactus.m4a',  art:'art/guer-cactus.svg',  desc:'Acid squelch in the dark — the filter creeping open, semitone tension.'},
+  {sec:3,  file:'audio/amr-guer-cut-coyote.m4a',  art:'art/guer-coyote.svg',  desc:'Funk sincopado y cowbell — the playful one, gated voices in the desert.'},
+  {sec:4,  file:'audio/amr-guer-cut-neon.m4a',    art:'art/guer-neon.svg',    desc:'Minimoog lead mirroring the bass. Lights on over the dust.'},
+  {sec:7,  file:'audio/amr-guer-cut-voltaje.m4a', art:'art/guer-voltaje.svg', desc:'The most electric cut — filter wide open, bitcrush on the low end.'},
+  {sec:9,  file:'audio/amr-guer-cut-fuego.m4a',   art:'art/guer-fuego.svg',   desc:'The peak of the set. Everything at once, nothing held back.'}
+];
+var cardsJ = [];
+if(window.AMR_GUER){
+  GPICKS.forEach(function(gp,k){
+    var S = window.AMR_GUER, name = S.titles[gp.sec];
+    var end = (gp.sec+1 < S.offsets.length) ? S.offsets[gp.sec+1] : S.dur;
+    var dur = end - S.offsets[gp.sec];
+    gp.gi = T.length; T.push({ title:name, file:gp.file, dur:dur, kicker:'GUERRERO CUT', bpm:123, cut:true, edition:(S.edition||12) });
+    var b = document.createElement('button');
+    b.className = 'card jadecard'; b.id = 'card-g'+k;
+    b.innerHTML =
+      '<span class="num"><span>GUERRERO — CUT '+(gp.sec+1<10?'0':'')+(gp.sec+1)+'/12</span><b>JADE VINYL</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">GUERRERO</span></div>'+
+      '<div class="cover"><img src="'+gp.art+'" alt="'+name+' blueprint"></div>'+
+      '<span class="pchip" id="chip-g'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+gp.desc+'</p>'+
+      '<div class="row"><b>123 BPM</b><span>FROM GUERRERO</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===gp.gi && !audio.paused) ? pause() : playTrack(gp.gi); });
+    cardsJ.push(b);
+  });
+}
+/* mixeadas: naranja, azul, jade, naranja, azul, jade… */
+for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
+  if(cardsJ[mi]) grid.appendChild(cardsJ[mi]);
 }
 
 /* ---- los dos vinilos (después de sub grave) ---- */
@@ -970,6 +1005,15 @@ function syncCards(){
       var on2 = (cur === tp.gi && !audio.paused);
       c.classList.toggle('playing', on2);
       chip.innerHTML = on2 ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
+    });
+  }
+  if(typeof GPICKS !== 'undefined'){
+    GPICKS.forEach(function(gp,k){
+      var c = document.getElementById('card-g'+k), chip = document.getElementById('chip-g'+k);
+      if(!c) return;
+      var on3 = (cur === gp.gi && !audio.paused);
+      c.classList.toggle('playing', on3);
+      chip.innerHTML = on3 ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
     });
   }
 }

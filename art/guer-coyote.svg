@@ -1,0 +1,22 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs><radialGradient id="gcy" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#2E9C7C" stop-opacity="0.45"/>
+    <stop offset="55%" stop-color="#2E9C7C" stop-opacity="0.15"/>
+    <stop offset="100%" stop-color="#2E9C7C" stop-opacity="0"/>
+  </radialGradient></defs>
+  <ellipse cx="120" cy="216" rx="50" ry="7" fill="#14120f" opacity="0.05"/>
+  <!-- luna jade -->
+  <circle cx="120" cy="50" r="40" fill="url(#gcy)"/>
+  <path d="M126 26 A24 24 0 1 0 126 74 A31 31 0 0 1 126 26 Z" fill="#2E9C7C"/>
+  <!-- la huella del coyote -->
+  <g fill="#141210">
+    <ellipse cx="84" cy="130" rx="13" ry="18" transform="rotate(-24 84 130)"/>
+    <ellipse cx="106" cy="112" rx="13" ry="19" transform="rotate(-8 106 112)"/>
+    <ellipse cx="134" cy="112" rx="13" ry="19" transform="rotate(8 134 112)"/>
+    <ellipse cx="156" cy="130" rx="13" ry="18" transform="rotate(24 156 130)"/>
+    <path d="M120 144 C142 144 158 160 158 178 C158 196 141 208 120 208 C99 208 82 196 82 178 C82 160 98 144 120 144 Z"/>
+  </g>
+  <path d="M120 160 C130 160 138 168 138 177 C138 187 130 194 120 194 C110 194 102 187 102 177 C102 168 110 160 120 160 Z" fill="#2E9C7C"/>
+  <circle cx="52" cy="96" r="2.2" fill="#141210"/>
+  <circle cx="190" cy="160" r="2.4" fill="#141210"/>
+</svg>
