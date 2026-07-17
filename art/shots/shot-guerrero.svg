@@ -55,7 +55,7 @@
     <!-- marca / dibujo -->
     <g transform="translate(440.0 420) scale(1.0)"><path d="M120 40 L150 96 L120 152 L90 96 Z" fill="#141210"/><path d="M120 62 L138 96 L120 130 L102 96 Z" fill="#2E9C7C"/><circle cx="120" cy="96" r="7" fill="#EAE6DF"/><path d="M60 96 L78 96 M162 96 L180 96" stroke="#2E9C7C" stroke-width="3" stroke-linecap="round"/></g>
     <text x="560.0" y="824" font-family="Georgia,serif" font-weight="bold" font-size="54" letter-spacing="1" fill="#141210" text-anchor="middle">GUERRERO</text>
-    <text x="560.0" y="862" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="4" fill="#2E9C7C" text-anchor="middle">B2B · DESERT SET · 53 MIN</text>
+    <text x="560.0" y="862" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="4" fill="#2E9C7C" text-anchor="middle">DESERT SET · 0→100 · 57 MIN</text>
     <text x="560.0" y="888" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="3" fill="#6E675E" text-anchor="middle">EDITION OF 12 · NUMBERED BY HAND</text>
   </g>
 
