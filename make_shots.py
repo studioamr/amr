@@ -103,11 +103,14 @@ GUER_MARK = '<path d="M120 40 L150 96 L120 152 L90 96 Z" fill="#141210"/><path d
 
 JACA_MARK = '<path d="M120 168 L120 108 M120 130 L100 112 M120 124 L140 106" fill="none" stroke="#141210" stroke-width="7" stroke-linecap="round"/><circle cx="120" cy="78" r="38" fill="#6E5BAE"/><circle cx="104" cy="68" r="6.5" fill="#9D8BD6"/><circle cx="134" cy="62" r="5" fill="#9D8BD6"/><circle cx="138" cy="90" r="5.5" fill="#9D8BD6"/><ellipse cx="84" cy="140" rx="4" ry="7" fill="#9D8BD6" transform="rotate(-30 84 140)"/><ellipse cx="160" cy="132" rx="4" ry="7" fill="#6E5BAE" transform="rotate(24 160 132)"/>'
 
+COLI_MARK = '<ellipse cx="128" cy="96" rx="30" ry="19" fill="#12B3AE" transform="rotate(-18 128 96)"/><path d="M106 84 L54 66" stroke="#141210" stroke-width="6" stroke-linecap="round"/><circle cx="142" cy="82" r="5" fill="#141210"/><path d="M134 116 C148 138 164 146 174 140 M138 110 C156 122 174 122 184 112" fill="none" stroke="#FF7A6B" stroke-width="6" stroke-linecap="round"/><path d="M122 80 C98 62 88 44 92 32 C110 40 126 58 134 78 Z" fill="#6FE0D8"/>'
+
 HECH_MARK = '<path d="M104 44 L136 44 L136 78 C158 90 168 110 168 130 C168 154 148 166 120 166 C92 166 72 154 72 130 C72 110 82 90 104 78 Z" fill="none" stroke="#141210" stroke-width="7"/><path d="M78 126 C80 148 98 158 120 158 C142 158 160 148 162 126 Z" fill="#B93A6E"/><path d="M120 104 C115 97 105 97 105 106 C105 113 120 121 120 121 C120 121 135 113 135 106 C135 97 125 97 120 104 Z" fill="#E77BA8"/><rect x="100" y="32" width="40" height="12" rx="4" fill="#141210"/><circle cx="90" cy="116" r="3.5" fill="#E77BA8"/><circle cx="150" cy="112" r="3" fill="#E77BA8"/>'
 
 ELLA_MARK = '<path d="M64 148 A56 56 0 0 1 120 92 A26 26 0 0 1 146 118 A14 14 0 0 1 132 132 A7 7 0 0 1 125 125" fill="none" stroke="#C4756B" stroke-width="9" stroke-linecap="round"/><path d="M84 148 A38 38 0 0 1 112 112" fill="none" stroke="#E2A796" stroke-width="4" stroke-linecap="round"/><ellipse cx="96" cy="166" rx="12" ry="6" fill="#141210" transform="rotate(-18 96 166)"/><ellipse cx="146" cy="162" rx="11" ry="5.5" fill="#141210" transform="rotate(16 146 162)"/><rect x="56" y="150" width="128" height="6" rx="3" fill="#141210"/>'
 
 SHOTS = [
+    dict(id='colibri',   accent='#12B3AE', accent_lt='#6FE0D8', title='COLIBRÍ',   sub='TROPICAL SOLAR · 0→100 · 29 MIN', edition=15, num='01', mark=COLI_MARK, tsize=54),
     dict(id='hechizo',   accent='#B93A6E', accent_lt='#E77BA8', title='HECHIZO',   sub='HECHIZO DE ELLA · 0→100 · 38 MIN', edition=12, num='01', mark=HECH_MARK, tsize=56),
     dict(id='jacaranda', accent='#6E5BAE', accent_lt='#9D8BD6', title='JACARANDA', sub='VIOLET BLOOM · 0→100 · 41 MIN', edition=12, num='01', mark=JACA_MARK, tsize=48),
     dict(id='guerrero',  accent='#2E9C7C', accent_lt='#5BC4A5', title='GUERRERO',  sub='DESERT SET · 0→100 · 57 MIN', edition=12, num='03', mark=GUER_MARK, tsize=54),

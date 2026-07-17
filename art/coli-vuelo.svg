@@ -1,0 +1,18 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs><radialGradient id="gvu" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#12B3AE" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#12B3AE" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#12B3AE" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="118" r="52" fill="url(#gvu)"/>
+
+  <ellipse cx="122" cy="118" rx="24" ry="15" fill="#12B3AE" transform="rotate(-18 122 118)"/>
+  <path d="M104 110 L64 96" stroke="#141210" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="132" cy="108" r="4" fill="#141210"/>
+  <path d="M128 132 C138 148 150 154 158 150 M132 128 C146 138 160 138 168 130" fill="none" stroke="#FF7A6B" stroke-width="5" stroke-linecap="round"/>
+  <path d="M118 106 C100 92 92 78 96 68 C108 74 120 86 126 100 Z" fill="#6FE0D8"/>
+  <path d="M138 128 L150 150 M144 124 L160 142" stroke="#12B3AE" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
+  <rect x="46" y="182" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="60" cy="150" r="2.2" fill="#141210"/><circle cx="184" cy="90" r="2.4" fill="#141210"/>
+
+</svg>
