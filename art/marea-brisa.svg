@@ -4,12 +4,13 @@
     <stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.14"/>
     <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/>
   </radialGradient></defs>
-  <circle cx="120" cy="150" r="52" fill="url(#gbr)"/>
+  <circle cx="120" cy="130" r="52" fill="url(#gbr)"/>
 
-  <path d="M52 110 C92 96 138 124 186 106" fill="none" stroke="#141210" stroke-width="5" stroke-linecap="round"/>
-  <path d="M60 142 C100 128 140 156 182 140" fill="none" stroke="#6E5BAE" stroke-width="5" stroke-linecap="round"/>
-  <path d="M72 172 C106 160 138 182 170 170" fill="none" stroke="#9D8BD6" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="186" cy="106" r="5" fill="#6E5BAE"/>
-  <circle cx="64" cy="76" r="2.2" fill="#141210"/><circle cx="172" cy="206" r="2.2" fill="#141210"/>
+  <path d="M52 118 A80 80 0 0 1 148 100 A15 15 0 0 1 146 128" fill="none" stroke="#6E5BAE" stroke-width="9" stroke-linecap="round"/>
+  <path d="M62 152 A70 70 0 0 1 150 140" fill="none" stroke="#9D8BD6" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="166" cy="104" r="3.5" fill="#6E5BAE"/>
+  <circle cx="170" cy="140" r="2.6" fill="#9D8BD6"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="64" cy="88" r="2.2" fill="#141210"/><circle cx="180" cy="164" r="2.4" fill="#141210"/>
 
 </svg>

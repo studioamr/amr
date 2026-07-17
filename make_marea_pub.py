@@ -8,7 +8,7 @@ from make_dream import SECTIONS, TMP, SPB, XF_BARS
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, 'masters', 'amr-marea.wav')
-CUTS = ['BRISA', 'CORAL', 'LUCIERNAGA', 'CENOTE', 'MAREJADA', 'ESTELA']
+CUTS = ['BRISA', 'CORAL', 'LUCIERNAGA', 'CENOTE', 'MAREJADA', 'SERPIENTE']
 
 def sh(cmd): subprocess.run(cmd, check=True)
 

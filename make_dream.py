@@ -220,7 +220,7 @@ SECTIONS = [
  dict(name='MAREJADA', root=45, sc=NAT, energy=0.97, shape='peak', bars=160, bass='roll',
       chords=[[45,52,60,64],[48,55,64,67],[41,48,57,60],[43,50,58,62]],
       motif=[(0,4,2,1),(2,4,2,1),(4,5,2,2),(7,4,2,2),(10,2,2,2),(16,4,2,1),(18,4,2,1),(20,7,2,3),(24,5,2,2),(28,4,2,4)]),
- dict(name='ESTELA', root=43, sc=NAT, energy=0.78, shape='wave', bars=128, bass='roll',
+ dict(name='SERPIENTE', root=43, sc=NAT, energy=0.78, shape='wave', bars=128, bass='roll',
       chords=[[43,50,58,62],[40,47,55,59],[38,45,53,57],[40,47,55,59]],
       motif=[(0,4,1,3),(6,5,1,2),(10,4,1,2),(16,2,1,3),(22,4,1,2),(26,5,1,5)]),
  dict(name='HORIZONTE', root=40, sc=NAT, energy=0.52, shape='outro', bars=88, bass='round',

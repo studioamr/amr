@@ -4,14 +4,15 @@
     <stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.14"/>
     <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/>
   </radialGradient></defs>
-  <circle cx="120" cy="140" r="52" fill="url(#gco)"/>
+  <circle cx="120" cy="146" r="52" fill="url(#gco)"/>
 
-  <ellipse cx="120" cy="206" rx="44" ry="7" fill="#141210" opacity="0.05"/>
-  <path d="M120 204 L120 96 M120 150 C102 144 92 128 90 110 M120 162 C140 156 150 140 152 120 M120 118 C110 110 106 100 106 88 M152 120 C158 110 158 100 154 92" fill="none" stroke="#141210" stroke-width="7" stroke-linecap="round"/>
-  <circle cx="120" cy="92" r="7" fill="#6E5BAE"/>
-  <circle cx="90" cy="106" r="6" fill="#6E5BAE"/>
-  <circle cx="106" cy="84" r="5" fill="#9D8BD6"/>
-  <circle cx="154" cy="88" r="6" fill="#9D8BD6"/>
-  <circle cx="66" cy="150" r="2.2" fill="#141210"/><circle cx="178" cy="168" r="2.4" fill="#141210"/>
+  <path d="M78 176 A42 42 0 0 1 162 176" fill="none" stroke="#6E5BAE" stroke-width="9" stroke-linecap="round"/>
+  <path d="M96 176 A24 24 0 0 1 144 176" fill="none" stroke="#9D8BD6" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 134 L120 116 M90 146 L79 135 M150 146 L161 135" stroke="#141210" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="110" r="5" fill="#6E5BAE"/>
+  <circle cx="75" cy="130" r="4" fill="#9D8BD6"/>
+  <circle cx="165" cy="130" r="4" fill="#9D8BD6"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="60" cy="96" r="2.2" fill="#141210"/><circle cx="184" cy="100" r="2.4" fill="#141210"/>
 
 </svg>

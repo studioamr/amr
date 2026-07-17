@@ -19,67 +19,6 @@ def wrap(gid, inner, gy=150):
 
 ART = {}
 
-ART['orilla'] = wrap('gor', f'''
-  <path d="M120 96 A34 34 0 0 1 154 130 L86 130 A34 34 0 0 1 120 96 Z" fill="{A}"/>
-  <rect x="46" y="128" width="148" height="5" rx="2.5" fill="{INK}"/>
-  <path d="M62 160 C74 152 86 168 98 160 C110 152 122 168 134 160" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
-  <path d="M96 184 C108 176 120 192 132 184 C144 176 156 192 168 184" fill="none" stroke="{INK}" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="70" cy="84" r="2.2" fill="{INK}"/><circle cx="176" cy="102" r="2.4" fill="{INK}"/>
-''', gy=130)
-
-ART['brisa'] = wrap('gbr', f'''
-  <path d="M52 110 C92 96 138 124 186 106" fill="none" stroke="{INK}" stroke-width="5" stroke-linecap="round"/>
-  <path d="M60 142 C100 128 140 156 182 140" fill="none" stroke="{A}" stroke-width="5" stroke-linecap="round"/>
-  <path d="M72 172 C106 160 138 182 170 170" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="186" cy="106" r="5" fill="{A}"/>
-  <circle cx="64" cy="76" r="2.2" fill="{INK}"/><circle cx="172" cy="206" r="2.2" fill="{INK}"/>
-''')
-
-ART['sal'] = wrap('gsa', f'''
-  <path d="M120 78 L146 122 L120 166 L94 122 Z" fill="{INK}"/>
-  <path d="M120 96 L134 122 L120 148 L106 122 Z" fill="{A}"/>
-  <path d="M74 150 L88 172 L74 194 L60 172 Z" fill="{A}"/>
-  <path d="M166 146 L182 170 L166 194 L150 170 Z" fill="{INK}"/>
-  <circle cx="120" cy="122" r="4" fill="#EAE6DF"/>
-  <circle cx="78" cy="86" r="2.2" fill="{INK}"/><circle cx="184" cy="110" r="2.2" fill="{INK}"/>
-''')
-
-ART['coral'] = wrap('gco', f'''
-  <ellipse cx="120" cy="206" rx="44" ry="7" fill="{INK}" opacity="0.05"/>
-  <path d="M120 204 L120 96 M120 150 C102 144 92 128 90 110 M120 162 C140 156 150 140 152 120 M120 118 C110 110 106 100 106 88 M152 120 C158 110 158 100 154 92" fill="none" stroke="{INK}" stroke-width="7" stroke-linecap="round"/>
-  <circle cx="120" cy="92" r="7" fill="{A}"/>
-  <circle cx="90" cy="106" r="6" fill="{A}"/>
-  <circle cx="106" cy="84" r="5" fill="{AL}"/>
-  <circle cx="154" cy="88" r="6" fill="{AL}"/>
-  <circle cx="66" cy="150" r="2.2" fill="{INK}"/><circle cx="178" cy="168" r="2.4" fill="{INK}"/>
-''', gy=140)
-
-ART['laguna'] = wrap('gla', f'''
-  <ellipse cx="120" cy="146" rx="74" ry="30" fill="none" stroke="{INK}" stroke-width="4"/>
-  <ellipse cx="120" cy="146" rx="50" ry="19" fill="none" stroke="{A}" stroke-width="4"/>
-  <ellipse cx="120" cy="146" rx="26" ry="9" fill="none" stroke="{AL}" stroke-width="3.5"/>
-  <circle cx="120" cy="146" r="5" fill="{INK}"/>
-  <circle cx="72" cy="82" r="2.2" fill="{INK}"/><circle cx="170" cy="88" r="2.4" fill="{INK}"/>
-''', gy=146)
-
-ART['luciernaga'] = wrap('glu', f'''
-  <path d="M96 208 C96 168 106 138 124 112" fill="none" stroke="{INK}" stroke-width="6" stroke-linecap="round"/>
-  <path d="M96 176 C86 168 80 158 78 146" fill="none" stroke="{INK}" stroke-width="5" stroke-linecap="round"/>
-  <circle cx="140" cy="86" r="10" fill="{A}"/><circle cx="140" cy="86" r="17" fill="{A}" opacity="0.25"/>
-  <circle cx="86" cy="112" r="6" fill="{AL}"/><circle cx="86" cy="112" r="11" fill="{AL}" opacity="0.25"/>
-  <circle cx="168" cy="140" r="5" fill="{A}"/><circle cx="168" cy="140" r="9" fill="{A}" opacity="0.25"/>
-  <circle cx="64" cy="196" r="2.2" fill="{INK}"/>
-''', gy=120)
-
-ART['cenote'] = wrap('gce', f'''
-  <circle cx="120" cy="140" r="58" fill="{INK}"/>
-  <circle cx="120" cy="140" r="42" fill="{A}"/>
-  <circle cx="120" cy="140" r="26" fill="{INK}"/>
-  <path d="M120 46 L120 128" stroke="#EAE6DF" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
-  <circle cx="120" cy="140" r="7" fill="#EAE6DF"/>
-  <circle cx="60" cy="88" r="2.2" fill="{INK}"/><circle cx="184" cy="102" r="2.4" fill="{INK}"/>
-''', gy=140)
-
 ART['marejada'] = wrap('gma', f'''
   <path d="M60 176 A66 66 0 0 1 126 110 A30 30 0 0 1 156 140 A16 16 0 0 1 140 156 A8 8 0 0 1 132 148" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round"/>
   <path d="M84 176 A44 44 0 0 1 118 134" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
@@ -87,20 +26,52 @@ ART['marejada'] = wrap('gma', f'''
   <circle cx="76" cy="92" r="2.2" fill="{INK}"/><circle cx="182" cy="108" r="2.4" fill="{INK}"/>
 ''', gy=134)
 
-ART['estela'] = wrap('ges', f'''
-  <path d="M120 82 L134 108 L106 108 Z" fill="{INK}"/>
-  <path d="M112 124 L74 196 M128 124 L166 196" fill="none" stroke="{A}" stroke-width="5" stroke-linecap="round"/>
-  <path d="M120 128 L120 178" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12"/>
-  <circle cx="66" cy="96" r="2.2" fill="{INK}"/><circle cx="176" cy="86" r="2.4" fill="{INK}"/>
+ART['serpiente'] = wrap('gse', f'''
+  <path d="M48 152 A24 24 0 0 1 96 152 A24 24 0 0 0 144 152 A16 16 0 0 1 162 140" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round"/>
+  <path d="M60 152 A12 12 0 0 1 84 152" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="167" cy="133" r="9.5" fill="{INK}"/>
+  <circle cx="170" cy="130" r="2.2" fill="#EAE6DF"/>
+  <path d="M175 127 L185 120" stroke="{AL}" stroke-width="3" stroke-linecap="round"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="{INK}"/>
+  <circle cx="66" cy="100" r="2.2" fill="{INK}"/><circle cx="182" cy="164" r="2.4" fill="{INK}"/>
 ''', gy=140)
 
-ART['horizonte'] = wrap('gho', f'''
-  <path d="M86 132 A34 34 0 0 1 154 132 Z" fill="{A}"/>
-  <rect x="46" y="130" width="148" height="5" rx="2.5" fill="{INK}"/>
-  <path d="M78 158 L102 158 M116 158 L142 158 M156 158 L166 158" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
-  <path d="M92 180 L112 180 M126 180 L148 180" stroke="{INK}" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="70" cy="86" r="2.2" fill="{INK}"/><circle cx="174" cy="98" r="2.4" fill="{INK}"/>
-''', gy=132)
+ART['brisa'] = wrap('gbr', f'''
+  <path d="M52 118 A80 80 0 0 1 148 100 A15 15 0 0 1 146 128" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round"/>
+  <path d="M62 152 A70 70 0 0 1 150 140" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="166" cy="104" r="3.5" fill="{A}"/>
+  <circle cx="170" cy="140" r="2.6" fill="{AL}"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="{INK}"/>
+  <circle cx="64" cy="88" r="2.2" fill="{INK}"/><circle cx="180" cy="164" r="2.4" fill="{INK}"/>
+''', gy=130)
+
+ART['coral'] = wrap('gco', f'''
+  <path d="M78 176 A42 42 0 0 1 162 176" fill="none" stroke="{A}" stroke-width="9" stroke-linecap="round"/>
+  <path d="M96 176 A24 24 0 0 1 144 176" fill="none" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
+  <path d="M120 134 L120 116 M90 146 L79 135 M150 146 L161 135" stroke="{INK}" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="120" cy="110" r="5" fill="{A}"/>
+  <circle cx="75" cy="130" r="4" fill="{AL}"/>
+  <circle cx="165" cy="130" r="4" fill="{AL}"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="{INK}"/>
+  <circle cx="60" cy="96" r="2.2" fill="{INK}"/><circle cx="184" cy="100" r="2.4" fill="{INK}"/>
+''', gy=146)
+
+ART['luciernaga'] = wrap('glu', f'''
+  <path d="M60 162 A52 52 0 0 1 124 100 A18 18 0 0 1 146 122" fill="none" stroke="{A}" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13"/>
+  <circle cx="150" cy="126" r="8" fill="{A}"/><circle cx="150" cy="126" r="15" fill="{A}" opacity="0.25"/>
+  <circle cx="84" cy="108" r="4" fill="{AL}"/><circle cx="84" cy="108" r="8" fill="{AL}" opacity="0.25"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="{INK}"/>
+  <circle cx="180" cy="96" r="2.2" fill="{INK}"/><circle cx="64" cy="188" r="0" fill="{INK}"/>
+''', gy=126)
+
+ART['cenote'] = wrap('gce', f'''
+  <circle cx="120" cy="128" r="42" fill="none" stroke="{A}" stroke-width="9"/>
+  <circle cx="120" cy="128" r="24" fill="none" stroke="{INK}" stroke-width="5"/>
+  <path d="M120 54 L120 100" stroke="{AL}" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="120" cy="128" r="5" fill="{INK}"/>
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="{INK}"/>
+  <circle cx="62" cy="92" r="2.2" fill="{INK}"/><circle cx="180" cy="102" r="2.4" fill="{INK}"/>
+''', gy=128)
 
 os.makedirs('art', exist_ok=True)
 for name, svg in ART.items():
