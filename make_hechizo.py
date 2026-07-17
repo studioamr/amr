@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ELLA — deep tech dedicado a una mujer (~42 min, 125 BPM). Motor v4.
+"""HECHIZO — deep tech: el embrujo de ella (~42 min, 125 BPM). Motor v4.
 
 Motor v2, construido sobre la investigación:
   · Léger: UN solo kick para todo el set; célula melódica como origen; estructura no lineal
@@ -217,34 +217,34 @@ def deg(root, scale, d, oct_=0):
 # cada sección = un "track": raíz midi, escala, acordes (semitonos midi), motivo gancho
 # motivo = (step16 dentro de 2 compases, grado, octava, largo en 16avos)
 SECTIONS = [
- dict(name='MIRADA', root=45, sc=NAT, energy=0.42, shape='rise', bars=88, bass='round',
+ dict(name='PERFUME', root=45, sc=NAT, energy=0.42, shape='rise', bars=88, bass='round',
       chords=[[45,52,60,64,67],[41,48,57,60]],
       motif=[(0,4,1,4),(8,2,1,3),(14,0,1,2),(16,4,1,4),(24,5,1,6)]),
- dict(name='NOMBRE', root=45, sc=DOR, energy=0.58, shape='wave', bars=120, bass='roll',
+ dict(name='OJOS', root=45, sc=DOR, energy=0.58, shape='wave', bars=120, bass='roll',
       chords=[[45,52,60,62],[50,57,65,69],[45,52,60,62],[43,50,58,62]],
       motif=[(0,0,2,2),(4,2,2,2),(8,4,2,3),(16,2,2,2),(20,0,2,2),(24,4,2,5)]),
- dict(name='RISA', root=40, sc=NAT, energy=0.68, shape='wave', bars=128, bass='roll',
+ dict(name='VOZ', root=40, sc=NAT, energy=0.68, shape='wave', bars=128, bass='roll',
       chords=[[40,47,55,59],[45,52,60,64],[36,43,52,55],[43,50,58,62]],
       motif=[(0,4,2,1),(2,4,2,1),(4,5,2,2),(8,4,2,2),(12,2,2,3),(16,4,2,1),(18,5,2,2),(22,7,1,4),(28,4,2,4)]),
- dict(name='BAILE', root=40, sc=DOR, energy=0.88, shape='peak', bars=136, bass='roll',
+ dict(name='EMBRUJO', root=40, sc=DOR, energy=0.88, shape='peak', bars=136, bass='roll',
       chords=[[40,47,55,62],[45,52,60,66]],
       motif=[(0,0,2,1),(2,2,2,1),(4,4,2,2),(7,6,1,2),(10,4,2,2),(16,0,2,1),(18,2,2,1),(20,4,2,2),(24,3,2,4),(30,2,2,2)]),
- dict(name='CALLES', root=38, sc=NAT, energy=0.55, shape='valley', bars=112, bass='round',
+ dict(name='LUNAR', root=38, sc=NAT, energy=0.55, shape='valley', bars=112, bass='round',
       chords=[[38,45,53,57,60],[34,41,50,53]],
       motif=[(0,4,1,4),(8,3,1,4),(16,2,1,4),(24,0,1,8)]),
  dict(name='PIEL', root=43, sc=DOR, energy=0.72, shape='wave', bars=128, bass='roll',
       chords=[[43,50,58,62],[48,55,64,67],[43,50,58,62],[41,48,57,60]],
       motif=[(0,4,2,2),(3,5,2,1),(4,4,2,2),(8,2,2,2),(12,0,2,3),(16,4,2,2),(20,7,1,3),(26,4,2,4)]),
- dict(name='SILENCIO', root=45, sc=NAT, energy=0.48, shape='deep', bars=104, bass='round',
+ dict(name='TRANCE', root=45, sc=NAT, energy=0.48, shape='deep', bars=104, bass='round',
       chords=[[45,52,60,63,67],[40,47,55,60]],
       motif=[(0,2,1,6),(8,0,1,4),(16,3,1,6),(24,2,1,8)]),
- dict(name='CAMPANAS', root=45, sc=NAT, energy=0.97, shape='peak', bars=152, bass='roll',
+ dict(name='CONJURO', root=45, sc=NAT, energy=0.97, shape='peak', bars=152, bass='roll',
       chords=[[45,52,60,64],[48,55,64,67],[41,48,57,60],[43,50,58,62]],
       motif=[(0,4,2,1),(2,4,2,1),(4,7,2,3),(8,5,2,2),(12,4,2,2),(16,2,2,1),(18,4,2,1),(20,7,2,3),(24,9,1,3),(28,7,2,4)]),
- dict(name='AMANECER', root=43, sc=NAT, energy=0.74, shape='wave', bars=120, bass='roll',
+ dict(name='MAGIA', root=43, sc=NAT, energy=0.74, shape='wave', bars=120, bass='roll',
       chords=[[43,50,58,62],[40,47,55,59],[38,45,53,57],[40,47,55,59]],
       motif=[(0,4,1,3),(6,5,1,2),(10,4,1,2),(16,2,1,3),(22,4,1,2),(26,5,1,5)]),
- dict(name='SIEMPRE', root=45, sc=NAT, energy=0.50, shape='outro', bars=88, bass='round',
+ dict(name='AMULETO', root=45, sc=NAT, energy=0.50, shape='outro', bars=88, bass='round',
       chords=[[45,52,60,64,69],[41,48,57,64]],
       motif=[(0,4,1,6),(12,2,1,4),(16,0,1,8)]),
 ]
@@ -490,13 +490,13 @@ def render_section(sec, idx):
                         for m in chord[1:4]:
                             add(keysb, pos, rhodes(midi_f(m), 0.55, rng), 0.30)
             # --- campanas: el gancho del pico y acentos de asombro en CATEDRAL
-            if sec['name'] in ('CAMPANAS', 'SILENCIO') and bar % 4 == 0 and b['pads'] > 0.3:
+            if sec['name'] in ('CONJURO', 'TRANCE') and bar % 4 == 0 and b['pads'] > 0.3:
                 bell_deg = [0, 4, 2, 4][(gb // 4) % 4]
-                m = deg(root, sc, bell_deg, 1 if sec['name'] == 'SILENCIO' else 2)
-                add(keysb, base, campana(midi_f(m), 3.2, rng), 0.55 if sec['name'] == 'CAMPANAS' else 0.35)
+                m = deg(root, sc, bell_deg, 1 if sec['name'] == 'TRANCE' else 2)
+                add(keysb, base, campana(midi_f(m), 3.2, rng), 0.55 if sec['name'] == 'CONJURO' else 0.35)
             # --- cincel: el taller trabajando — la firma de piedra del disco
             if b['perc'] > 0.3 and (bi + idx) % 2 == 0:
-                for s2 in ((3, 7, 11) if sec['name'] != 'BAILE' else (1, 3, 7, 9, 11, 15)):
+                for s2 in ((3, 7, 11) if sec['name'] != 'EMBRUJO' else (1, 3, 7, 9, 11, 15)):
                     if rng.uniform() < 0.6:
                         pos2 = base + int(sw(s2, 'hats') + rng.normal(0, 0.004) * SR)
                         add(drumb, pos2, hit_cincel(rng), b['perc'] * 0.42)
@@ -578,7 +578,7 @@ def render_section(sec, idx):
 # ------------------------------------------------------------------ set completo
 def build(only=None):
     total_bars = sum(s['bars'] for s in SECTIONS)
-    print(f'ELLA · {len(SECTIONS)} secciones · {total_bars} compases ≈ {total_bars*2/60:.0f} min')
+    print(f'HECHIZO · {len(SECTIONS)} secciones · {total_bars} compases ≈ {total_bars*2/60:.0f} min')
     secs = []
     for i, s in enumerate(SECTIONS):
         if only and s['name'] != only: continue
@@ -620,7 +620,7 @@ def build(only=None):
     wav_write(raw, out)
     del out
     print('  … masterizando a -8 LUFS', flush=True)
-    final = os.path.join(HERE, 'masters', 'amr-ella.wav')
+    final = os.path.join(HERE, 'masters', 'amr-hechizo.wav')
     os.makedirs(os.path.join(HERE, 'masters'), exist_ok=True)
     hist = master_file(raw, final, target_i=-8.0, ceiling_db=-1.1)
     I, lra, tp = ffmeter(final)

@@ -11,7 +11,7 @@
       <stop offset="60%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#fff" stop-opacity="0.06"/>
     </linearGradient>
     <radialGradient id="lblg" cx="46%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#E2A796"/><stop offset="100%" stop-color="#C4756B"/>
+      <stop offset="0%" stop-color="#E77BA8"/><stop offset="100%" stop-color="#B93A6E"/>
     </radialGradient>
     <linearGradient id="jacket" x1="0" y1="0" x2="0.3" y2="1">
       <stop offset="0%" stop-color="#F6F2EB"/><stop offset="100%" stop-color="#E7E0D4"/>
@@ -36,7 +36,7 @@
     <circle cx="1080" cy="600" r="108" fill="url(#lblg)"/>
     <circle cx="1080" cy="600" r="108" fill="none" stroke="#000" stroke-opacity="0.25" stroke-width="1.5"/>
     <text x="1080" y="584" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="3" fill="#EAE6DF" text-anchor="middle" opacity="0.9">STUDIO AMR</text>
-    <text x="1080" y="612" font-family="Georgia,serif" font-weight="bold" font-size="26" fill="#EAE6DF" text-anchor="middle">ELLA</text>
+    <text x="1080" y="612" font-family="Georgia,serif" font-weight="bold" font-size="26" fill="#EAE6DF" text-anchor="middle">HECHIZO</text>
     <text x="1080" y="634" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2" fill="#EAE6DF" text-anchor="middle" opacity="0.8">45 RPM</text>
     <circle cx="1080" cy="600" r="7" fill="#EAE6DF"/>
   </g>
@@ -51,11 +51,11 @@
     <!-- borde interior tipo apertura de funda a la derecha -->
     <line x1="868" y1="318" x2="868" y2="902" stroke="#141210" stroke-opacity="0.10" stroke-width="3"/>
     <text x="288" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#6E675E">STUDIO AMR</text>
-    <text x="832" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#C4756B" text-anchor="end">MMXXVI</text>
+    <text x="832" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#B93A6E" text-anchor="end">MMXXVI</text>
     <!-- marca / dibujo -->
-    <g transform="translate(440.0 420) scale(1.0)"><path d="M64 148 A56 56 0 0 1 120 92 A26 26 0 0 1 146 118 A14 14 0 0 1 132 132 A7 7 0 0 1 125 125" fill="none" stroke="#C4756B" stroke-width="9" stroke-linecap="round"/><path d="M84 148 A38 38 0 0 1 112 112" fill="none" stroke="#E2A796" stroke-width="4" stroke-linecap="round"/><ellipse cx="96" cy="166" rx="12" ry="6" fill="#141210" transform="rotate(-18 96 166)"/><ellipse cx="146" cy="162" rx="11" ry="5.5" fill="#141210" transform="rotate(16 146 162)"/><rect x="56" y="150" width="128" height="6" rx="3" fill="#141210"/></g>
-    <text x="560.0" y="824" font-family="Georgia,serif" font-weight="bold" font-size="62" letter-spacing="1" fill="#141210" text-anchor="middle">ELLA</text>
-    <text x="560.0" y="862" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="4" fill="#C4756B" text-anchor="middle">PARA ELLA · 0→100 · 38 MIN</text>
+    <g transform="translate(440.0 420) scale(1.0)"><path d="M104 44 L136 44 L136 78 C158 90 168 110 168 130 C168 154 148 166 120 166 C92 166 72 154 72 130 C72 110 82 90 104 78 Z" fill="none" stroke="#141210" stroke-width="7"/><path d="M78 126 C80 148 98 158 120 158 C142 158 160 148 162 126 Z" fill="#B93A6E"/><path d="M120 104 C115 97 105 97 105 106 C105 113 120 121 120 121 C120 121 135 113 135 106 C135 97 125 97 120 104 Z" fill="#E77BA8"/><rect x="100" y="32" width="40" height="12" rx="4" fill="#141210"/><circle cx="90" cy="116" r="3.5" fill="#E77BA8"/><circle cx="150" cy="112" r="3" fill="#E77BA8"/></g>
+    <text x="560.0" y="824" font-family="Georgia,serif" font-weight="bold" font-size="56" letter-spacing="1" fill="#141210" text-anchor="middle">HECHIZO</text>
+    <text x="560.0" y="862" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="4" fill="#B93A6E" text-anchor="middle">HECHIZO DE ELLA · 0→100 · 38 MIN</text>
     <text x="560.0" y="888" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="3" fill="#6E675E" text-anchor="middle">EDITION OF 12 · NUMBERED BY HAND</text>
   </g>
 
