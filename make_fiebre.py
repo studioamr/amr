@@ -65,6 +65,29 @@ def revcym(rng):
     pad = np.zeros(n, np.float32); pad[-len(h):] = h[::-1] if len(h) <= n else h[:n][::-1]
     return pad * np.linspace(0.1, 1.0, n).astype(np.float32) * 0.45
 
+def hit_clap(rng):
+    """clap de club: 4 flams de ruido muy juntos + cola corta, banda media-alta."""
+    n = int(0.24 * SR)
+    t = np.arange(n) / SR
+    x = np.zeros(n, np.float32)
+    for d in (0.0, 0.007, 0.013, 0.019):                 # los flams del clap
+        o = int(d * SR)
+        burst = (rng.standard_normal(n).astype(np.float32) * np.exp(-t / 0.006))
+        if o < n:
+            x[o:] += burst[:n - o] * rng.uniform(0.85, 1.0)
+    tail = rng.standard_normal(n).astype(np.float32) * np.exp(-t / 0.055)   # cuerpo/cola del clap
+    x = bp(x + tail * 0.4, 1100, 6200, 2)
+    return x * 0.55
+
+def hit_hat_fine(rng, open_=False):
+    """hat cristalino: agudo, corto, limpio — el 'tss' fino del banger."""
+    dec = (0.26 if open_ else 0.026) * rng.uniform(0.9, 1.1)
+    n = int(dec * 6 * SR)
+    t = np.arange(n) / SR
+    x = rng.standard_normal(n).astype(np.float32) * np.exp(-t / dec)
+    x = hp(x, rng.uniform(8800, 9600), 2)
+    return x * (0.42 if open_ else 0.5) * rng.uniform(0.85, 1.0)
+
 def build():
     rng = np.random.default_rng(77)
     total = sum(b for _, b in SONG) * SPB + 4 * SPB
@@ -121,26 +144,34 @@ def build():
                     for k, d in enumerate([0, 2, 3, 4]):
                         add(bassb, base + sw16(12 + k, 'bass'),
                             bass_note(midi_f(deg(ROOT, SC, d, 0) - 12), S16 / SR * 1.5, rng, 'roll', fc * 1.2), 0.75)
-            # DRUMS (densidad por sección + fills cada 8)
-            if e > 0.4:
-                for s, kind, v in [(3, 0, .8), (7, 1, 1.0), (11, 0, .7), (14, 1, .9)]:
-                    if rng.uniform() < 0.85:
-                        add(drumb, base + sw16(s, 'conga') + rng.normal(0, .005) * SR, hit_conga(rng, open_=bool(kind)), e * v * 0.5)
-                for s in ((3, 7, 11) if not in_drop else (1, 3, 7, 9, 11, 15)):
-                    if rng.uniform() < 0.6:
-                        add(drumb, base + sw16(s, 'hats') + rng.normal(0, .004) * SR, hit_cincel(rng), e * 0.38)
-            if e >= 0.6:
-                sk = range(16) if in_drop else range(0, 16, 2)
-                for s in sk:
-                    acc = 1.0 if s % 4 == 2 else 0.6
-                    add(drumb, base + sw16(s, 'shaker') + rng.normal(0, .003) * SR, hit_shaker(rng), 0.18 * acc)
+            # DRUMS — limpio y fino: CLAP en el backbeat + hats cristalinos + shaker sutil
+            if e >= 0.55:
+                # CLAP en 2 y 4 (el corazón del groove de club)
+                for s in (4, 12):
+                    add(drumb, base + sw16(s, 'hats') + rng.normal(0, .003) * SR, hit_clap(rng), e * 0.7)
+                if bar % 4 == 3:                                              # ghost clap que empuja
+                    add(drumb, base + sw16(14, 'hats'), hit_clap(rng), e * 0.28)
+            if e >= 0.5:
+                # hats cerrados finos en los offbeats
                 for s in (2, 6, 10, 14):
-                    add(drumb, base + sw16(s, 'hats') + rng.normal(0, .003) * SR, hit_hat(rng), e * 0.5)
-                if bar % 2 == 1:
-                    add(drumb, base + sw16(8, 'hats'), hit_hat(rng, open_=True), e * 0.45)
-                if bar % 8 == 7:
-                    for k, s in enumerate((12, 13, 14, 15)):
-                        add(drumb, base + sw16(s, 'conga'), hit_conga(rng, f0=175 + 30 * k, open_=(k == 3)), 0.4 + 0.1 * k)
+                    add(drumb, base + sw16(s, 'hats') + rng.normal(0, .003) * SR, hit_hat_fine(rng), e * 0.42)
+                if in_drop:                                                   # 16ths finos, muy bajitos, en los drops
+                    for s in range(16):
+                        if s % 4 != 0:
+                            add(drumb, base + sw16(s, 'hats'), hit_hat_fine(rng), e * 0.13 * (1.0 if s % 2 else 0.55))
+                if bar % 2 == 1:                                              # open hat aireado en el offbeat
+                    add(drumb, base + sw16(6, 'hats'), hit_hat_fine(rng, open_=True), e * 0.32)
+            # shaker: textura sutil, no protagonista
+            if e >= 0.6:
+                for s in range(0, 16, 2):
+                    add(drumb, base + sw16(s, 'shaker') + rng.normal(0, .003) * SR, hit_shaker(rng), 0.10 * (1.0 if s % 4 == 2 else 0.55))
+            # conga: un solo acento cálido por compás, no machaca
+            if e >= 0.6 and bar % 2 == 0:
+                add(drumb, base + sw16(7, 'conga') + rng.normal(0, .004) * SR, hit_conga(rng, open_=True), e * 0.26)
+            # fill fino de fin de frase (rim, no cincel)
+            if e >= 0.6 and bar % 8 == 7:
+                for k, s in enumerate((12, 13, 14, 15)):
+                    add(drumb, base + sw16(s, 'hats'), hit_rim(rng), e * (0.22 + 0.06 * k))
             # EL GANCHO
             if bar % 2 == 0:
                 if name == 'intro' and bar >= 8:
@@ -190,7 +221,7 @@ def build():
     from make_hechizo import sidechain_env, _verb_ir
     env = sidechain_env(total, kick_pos, depth=0.5, rel_s=0.10)
     bassb *= env
-    drum_st = widen(sat(drumb, 1.3, 0.06), amount=0.7, seed=4)
+    drum_st = widen(sat(drumb, 1.1, 0.04), amount=0.7, seed=4)
     hook_st = pingpong(hookb * (env * 0.4 + 0.6), BEAT_S, fb=0.42, mix=0.4, taps=7, damp=3800)
     pads = np.stack([padL, padR]) * (env * 0.4 + 0.6)[None, :]
     verb = np.stack([fconv(pads[0], _verb_ir(2.8, 4600, 11)), fconv(pads[1], _verb_ir(2.8, 4600, 88))])
