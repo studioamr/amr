@@ -1,0 +1,16 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs><radialGradient id="gam" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#C4756B" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#C4756B" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#C4756B" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="126" r="52" fill="url(#gam)"/>
+
+  <path d="M86 132 A34 34 0 0 1 154 132 Z" fill="#C4756B"/>
+  <path d="M120 74 L120 62 M88 86 L80 78 M152 86 L160 78" stroke="#E2A796" stroke-width="4" stroke-linecap="round"/>
+  <rect x="46" y="130" width="148" height="5" rx="2.5" fill="#141210"/>
+  <path d="M78 158 L102 158 M116 158 L142 158" stroke="#E2A796" stroke-width="4" stroke-linecap="round"/>
+  <path d="M92 180 L112 180 M126 180 L148 180" stroke="#141210" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="70" cy="94" r="2.2" fill="#141210"/><circle cx="174" cy="100" r="2.4" fill="#141210"/>
+
+</svg>
