@@ -128,31 +128,48 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
 .card:hover::after,.card.playing::after{width:100%}
 
-/* ---- the sound (editorial) ---- */
-.edit{background:var(--bone2)}
-.edit .row2{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
-.edit h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.5vw,60px);margin:14px 0 20px}
-.edit p{color:var(--mut);line-height:1.7;max-width:46ch}
-.edit p b{color:var(--ink);font-weight:500}
-.speclist{margin:26px 0 0;padding:0;list-style:none;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase}
-.speclist li{display:flex;gap:16px;padding:11px 0;border-top:1px solid rgba(20,18,16,.14);color:var(--mut)}
-.speclist li:last-child{border-bottom:1px solid rgba(20,18,16,.14)}
-.speclist b{color:var(--amber);font-weight:400;min-width:110px}
-.speclist i{font-style:normal;color:var(--ink)}
-.bigdisc{position:relative;aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#171412 0 2px,#232019 2px 4.4px);display:grid;place-items:center;box-shadow:0 10px 40px rgba(20,18,16,.3)}
-.bigdisc::after{content:"";width:33%;height:33%;border-radius:50%;background:var(--amber)}
-.bigdisc::before{content:"";position:absolute;width:5.5%;height:5.5%;border-radius:50%;background:var(--bone2);z-index:2}
-.bigdisc.spin{animation:spin 3.5s linear infinite}
-.bigdisc.blue::after{background:#2E6FB0}
-.soundrail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;-webkit-overflow-scrolling:touch}
-.soundrail::-webkit-scrollbar{display:none}
-.soundrail.dragging{cursor:grabbing;scroll-snap-type:none}
-.soundpanel{flex:0 0 100%;scroll-snap-align:center}
-.soundpanel .row2{padding-bottom:clamp(28px,4vw,50px)}
-.sounddots{display:flex;gap:10px;justify-content:center;padding-bottom:clamp(40px,6vw,72px)}
-.sounddots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--mut);background:none;cursor:pointer;padding:0;transition:.3s}
-.sounddots button.on{background:var(--ink);border-color:var(--ink)}
-@media(max-width:860px){.edit .row2{grid-template-columns:1fr}}
+/* ---- the mixer (consola de 4 canales) ---- */
+.mixsec{background:#141210;color:var(--bone)}
+.mixsec .mixin{max-width:1300px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(20px,4vw,48px)}
+.mixsec .hk{color:rgba(234,230,223,.55)}
+.mixsec h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.5vw,60px);margin:14px 0 16px}
+.mixsec .mixlede{color:rgba(234,230,223,.62);line-height:1.7;max-width:62ch;margin:0 0 34px}
+.mixsec .mixlede b{color:var(--bone);font-weight:500}
+.shelf{display:flex;gap:18px;overflow-x:auto;padding:18px 4px 26px;scrollbar-width:none}
+.shelf::-webkit-scrollbar{display:none}
+.shrec{flex:0 0 auto;width:118px;background:none;border:none;cursor:pointer;text-align:center;font-family:'IBM Plex Mono',monospace;color:rgba(234,230,223,.75);padding:0;transition:transform .25s}
+.shrec:hover{transform:translateY(-4px);color:var(--bone)}
+.sdisc{width:96px;height:96px;margin:0 auto 10px;border-radius:50%;position:relative;background:repeating-radial-gradient(circle at 50% 50%,#0d0b0a 0 2px,#1d1a17 2px 4.2px);box-shadow:0 6px 18px rgba(0,0,0,.5);display:grid;place-items:center}
+.sdisc::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--mc,#C96F2B)}
+.sdisc::before{content:"";position:absolute;width:6%;height:6%;border-radius:50%;background:#141210;z-index:2}
+.shrec:hover .sdisc{animation:spin 2.6s linear infinite}
+.shrec i{display:block;font-style:normal;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.shrec em{display:block;font-style:normal;font-size:10px;letter-spacing:.1em;color:rgba(234,230,223,.4);margin-top:3px}
+.shrec.deny .sdisc{animation:mxshake .3s}
+@keyframes mxshake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.mixer{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.6vw,22px);border:1px solid rgba(234,230,223,.16);border-radius:6px;padding:clamp(14px,2.4vw,28px);background:linear-gradient(180deg,rgba(234,230,223,.04),rgba(234,230,223,.01))}
+.mxch{--mc:#5a544c;--mlc:#7a746c;border:1px solid rgba(234,230,223,.12);border-radius:4px;padding:14px 12px 16px;display:flex;flex-direction:column;gap:11px;font-family:'IBM Plex Mono',monospace;min-width:0}
+.mxch .chn{font-size:10px;letter-spacing:.16em;color:rgba(234,230,223,.4);display:flex;justify-content:space-between}
+.mxch .chn b{font-weight:400;color:var(--mlc)}
+.mxdisc{width:min(104px,70%);aspect-ratio:1;margin:2px auto;border-radius:50%;position:relative;border:none;cursor:pointer;background:repeating-radial-gradient(circle at 50% 50%,#0d0b0a 0 2px,#1d1a17 2px 4.2px);box-shadow:0 8px 22px rgba(0,0,0,.5);display:grid;place-items:center;padding:0}
+.mxdisc::after{content:"";width:34%;height:34%;border-radius:50%;background:var(--mc)}
+.mxdisc::before{content:"";position:absolute;width:6%;height:6%;border-radius:50%;background:#141210;z-index:2}
+.mxdisc.empty{background:none;border:1px dashed rgba(234,230,223,.25);box-shadow:none}
+.mxdisc.empty::after{background:none;border:1px dashed rgba(234,230,223,.2)}
+.mxdisc.empty::before{display:none}
+.mxch.playing .mxdisc{animation:spin 1.8s linear infinite}
+.mxtrack{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(234,230,223,.6);min-height:26px;line-height:1.3;text-align:center;overflow:hidden}
+.mxtrack b{display:block;font-weight:400;color:var(--mlc)}
+.mxtr{display:flex;gap:6px;justify-content:center}
+.mxtr button{font-family:inherit;font-size:11px;letter-spacing:.08em;background:none;border:1px solid rgba(234,230,223,.22);border-radius:3px;color:var(--bone);cursor:pointer;padding:6px 0;flex:1;transition:.2s}
+.mxtr button:hover:not(:disabled){border-color:var(--mlc);color:var(--mlc)}
+.mxtr button:disabled{opacity:.3;cursor:default}
+.mxtr .mxplay{flex:1.6;background:var(--mc);border-color:var(--mc);color:#141210;font-weight:600}
+.mxch:not(.loaded) .mxtr .mxplay{background:none;color:var(--bone)}
+.mxfad{display:flex;flex-direction:column;gap:4px;font-size:9px;letter-spacing:.16em;color:rgba(234,230,223,.4)}
+.mxfad input{width:100%;accent-color:var(--mc);cursor:pointer;margin:0;height:18px}
+@media(max-width:900px){.mixer{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.mixer{grid-template-columns:1fr}}
 
 /* ---- about ---- */
 .about{text-align:center}
@@ -512,7 +529,7 @@ body.hasplayer{padding-bottom:70px}
   <a href="#" class="wm">STUDIO AMR<i>.</i></a>
   <nav>
     <a href="#records">Records</a>
-    <a href="#sound">The sound</a>
+    <a href="#sound">The mixer</a>
     <a href="#about">About</a>
     <a href="#own">Own one</a>
   </nav>
@@ -520,7 +537,7 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-top"><span>MORELIA, MX</span><span class="a">SEVEN RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">SIX RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
   <img class="hero-art" src="art/amr-hero.svg" alt="" aria-hidden="true">
   <h1 class="hero-word"><span>A</span><span>M</span><span>R</span></h1>
   <div class="hero-bottom">
@@ -626,47 +643,15 @@ body.hasplayer{padding-bottom:70px}
 <!-- MARQUEE DELIRIO (azul, scroll infinito) -->
 <div class="mq blue"><div id="mqtrack2"></div></div>
 
-<!-- THE SOUND -->
-<div class="edit" id="sound">
-<div class="soundrail" id="soundrail">
-  <!-- MONUMENTS sound -->
-  <div class="soundpanel"><div class="row2">
-    <div>
-      <span class="hk">THE SOUND — MONUMENTS</span>
-      <h2>Sub grave, dust, and patience.</h2>
-      <p>Where the catalogue started. Music built like monuments has rules: the sub sits at <b>41–65 Hz</b> where you feel it in your chest, the needle dust stays in the mix because <b>the surface is part of the song</b>, and every chord waits two bars before it answers.</p>
-      <p>No presets. No samples. Every kick, pad and grain of dust on these records was synthesized from raw sine waves and noise — then cut to the groove.</p>
-      <ul class="speclist">
-        <li><b>FORMAT</b><i>12&Prime; AMBER VINYL — 45 RPM</i></li>
-        <li><b>SUB RANGE</b><i>41.2 — 65.4 HZ</i></li>
-        <li><b>TEMPO</b><i>112 — 122 BPM · ONE BEATLESS</i></li>
-        <li><b>SURFACE</b><i>DUST PRESSED IN, NOT REMOVED</i></li>
-        <li><b>SYNTHESIS</b><i>PURE — NO SAMPLES, NO PRESETS</i></li>
-        <li><b>TOTAL PRESSING</b><i>50 RECORDS, EVER</i></li>
-      </ul>
-    </div>
-    <div class="bigdisc" id="bigdisc"></div>
-  </div></div>
-  <!-- DELIRIO sound -->
-  <div class="soundpanel"><div class="row2">
-    <div>
-      <span class="hk">THE SOUND — DELIRIO</span>
-      <h2>One take, in sync, all night.</h2>
-      <p>DELIRIO is one continuous take. Sixteen movements locked to <b>121 BPM</b>, every transition beat-aligned across four bars so the pulse never breaks. It builds like a night out — arrival, the roller, the euphoric lift, the peak <b>in sync</b>, the piano at dawn — one arc, no gaps.</p>
-      <p>No stems dropped in, no DJ software. The whole set was synthesized and mixed as a single piece, then cut to <b>blue vinyl</b>.</p>
-      <ul class="speclist">
-        <li><b>FORMAT</b><i>12&Prime; BLUE VINYL — CONTINUOUS</i></li>
-        <li><b>TEMPO</b><i>121 BPM · TEMPO-LOCKED</i></li>
-        <li><b>STRUCTURE</b><i>16 MOVEMENTS · ONE TAKE</i></li>
-        <li><b>TRANSITIONS</b><i>BEAT-ALIGNED · 4 BARS</i></li>
-        <li><b>LENGTH</b><i>1H51 · IN SYNC</i></li>
-        <li><b>TOTAL PRESSING</b><i>15 RECORDS, EVER</i></li>
-      </ul>
-    </div>
-    <div class="bigdisc blue" id="bigdisc2"></div>
-  </div></div>
+<!-- THE MIXER — consola de 4 canales -->
+<div class="mixsec" id="sound">
+<div class="mixin">
+  <span class="hk">THE MIXER — FOUR CHANNELS</span>
+  <h2>Mix the catalogue yourself.</h2>
+  <p class="mixlede">The whole shelf, one console. Pick a record — it drops onto the first open deck and spins in its own colour. <b>Four channels</b>, a fader and a filter on each, skip between the cuts and blend the sets live, right here.</p>
+  <div class="shelf" id="mxShelf"></div>
+  <div class="mixer" id="mxDecks"></div>
 </div>
-<div class="sounddots" id="sounddots"><button data-i="0" class="on" aria-label="MONUMENTS sound"></button><button data-i="1" aria-label="DELIRIO sound"></button></div>
 </div>
 
 
@@ -690,7 +675,7 @@ body.hasplayer{padding-bottom:70px}
   </div>
 </section>
 
-<!-- LOS DOS DISCOS (después de sub grave) -->
+<!-- LOS DOS DISCOS (después de la mixer) -->
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, blue, jade, violet, turquoise.</h2></div>
@@ -717,7 +702,7 @@ body.hasplayer{padding-bottom:70px}
 </div></section>
 
 <footer><div class="in">
-  <span>STUDIO AMR<b>.</b> — SEVEN RECORDS, EVER</span>
+  <span>STUDIO AMR<b>.</b> — SIX RECORDS, EVER</span>
   <span>CUT IN MORELIA, MX</span>
   <span>SYNTHESIZED FROM RAW WAVEFORMS</span>
 </div></footer>
@@ -878,18 +863,137 @@ if(window.AMR_TUL){
   var el2 = document.getElementById('mqtrack2'); if(el2) el2.innerHTML = mq2 + mq2;
 }
 
-/* ---- carril horizontal de THE SOUND (arrastrable + dots) ---- */
+/* ---- THE MIXER: consola de 4 canales sobre el catálogo ---- */
 (function(){
-  var rail = document.getElementById('soundrail'); if(!rail) return;
-  var dots = document.getElementById('sounddots');
-  var down=false, dragging=false, sx=0, sl=0, pid=null;
-  rail.addEventListener('pointerdown', function(e){ if(e.pointerType!=='mouse' || (e.button&&e.button!==0)) return; down=true; dragging=false; sx=e.clientX; sl=rail.scrollLeft; pid=e.pointerId; });
-  rail.addEventListener('pointermove', function(e){ if(!down) return; var dx=e.clientX-sx; if(!dragging){ if(Math.abs(dx)<6) return; dragging=true; rail.classList.add('dragging'); try{ rail.setPointerCapture(pid); }catch(_){} } rail.scrollLeft=sl-dx; });
-  function end(){ down=false; if(dragging){ dragging=false; rail.classList.remove('dragging'); } }
-  rail.addEventListener('pointerup', end); rail.addEventListener('pointercancel', end);
-  function upd(){ var i=Math.round(rail.scrollLeft/Math.max(1,rail.clientWidth)); if(dots) [].forEach.call(dots.children,function(b,k){ b.classList.toggle('on',k===i); }); }
-  rail.addEventListener('scroll', upd, {passive:true});
-  if(dots) [].forEach.call(dots.children, function(b,k){ b.addEventListener('click', function(){ rail.scrollTo({left:k*rail.clientWidth, behavior:'smooth'}); }); });
+  var shelf = document.getElementById('mxShelf'), deckwrap = document.getElementById('mxDecks');
+  if(!shelf || !deckwrap) return;
+  var RECS = [
+    {v:window.AMR_MON,       c:'#C96F2B', lc:'#E0954F'},
+    {v:window.AMR_SET,       c:'#A62D3E', lc:'#C8495E'},
+    {v:window.AMR_TUL,       c:'#2E6FB0', lc:'#5B9BD5'},
+    {v:window.AMR_GUER,      c:'#2E9C7C', lc:'#5BC4A5'},
+    {v:window.AMR_JACARANDA, c:'#6E5BAE', lc:'#9D8BD6'},
+    {v:window.AMR_COLIBRI,   c:'#12B3AE', lc:'#6FE0D8'},
+    {v:window.AMR_FIEBRE,    c:'#D1342F', lc:'#E8635F'},
+    {v:window.AMR_VUELVE,    c:'#8FA3B0', lc:'#B8C6CF'}
+  ].filter(function(r){ return !!r.v; });
+  shelf.innerHTML = RECS.map(function(r,i){
+    return '<button class="shrec" data-r="'+i+'" style="--mc:'+r.c+'">'+
+      '<span class="sdisc"></span><i>'+r.v.title+'</i><em>'+(r.v.bpm?r.v.bpm+' BPM':(r.v.kicker||'AMR'))+'</em></button>';
+  }).join('');
+  var ctx = null;
+  function actx(){ var AC = window.AudioContext||window.webkitAudioContext; if(!ctx && AC) ctx = new AC(); if(ctx && ctx.state==='suspended') ctx.resume(); return ctx; }
+  var DECKS = [];
+  deckwrap.innerHTML = [0,1,2,3].map(function(i){
+    return '<div class="mxch" id="mxch'+i+'">'+
+      '<span class="chn">CH '+(i+1)+'<b id="mxname'+i+'"></b></span>'+
+      '<button class="mxdisc empty" id="mxdisc'+i+'" aria-label="Deck '+(i+1)+'"></button>'+
+      '<div class="mxtrack" id="mxtk'+i+'">EMPTY — PICK A RECORD</div>'+
+      '<div class="mxtr">'+
+        '<button class="mxprev" id="mxprev'+i+'" disabled>&#9666;&#9666;</button>'+
+        '<button class="mxplay" id="mxplay'+i+'" disabled>&#9656;</button>'+
+        '<button class="mxnext" id="mxnext'+i+'" disabled>&#9656;&#9656;</button>'+
+      '</div>'+
+      '<label class="mxfad">VOLUME<input type="range" id="mxvol'+i+'" min="0" max="100" value="85"></label>'+
+      '<label class="mxfad">FILTER · LOW &#8592; &#8594; HIGH<input type="range" id="mxfil'+i+'" min="-100" max="100" value="0"></label>'+
+      '<div class="mxtr"><button id="mxej'+i+'" disabled>EJECT</button></div>'+
+    '</div>';
+  }).join('');
+  function el(id,i){ return document.getElementById(id+i); }
+  for(var i=0;i<4;i++) DECKS.push({rec:null, au:null, node:null, filt:null, i:i});
+  function titlesOf(r){ return (r.v.titles && r.v.titles.length) ? r.v.titles : [r.v.title]; }
+  function offsetsOf(r){ return (r.v.offsets && r.v.offsets.length) ? r.v.offsets : [0]; }
+  function paint(d){
+    var ch = el('mxch',d.i), disc = el('mxdisc',d.i);
+    if(!d.rec){
+      ch.classList.remove('loaded','playing'); ch.style.removeProperty('--mc'); ch.style.removeProperty('--mlc');
+      disc.classList.add('empty'); el('mxname',d.i).textContent='';
+      el('mxtk',d.i).innerHTML = 'EMPTY — PICK A RECORD';
+      ['mxprev','mxplay','mxnext','mxej'].forEach(function(p){ el(p,d.i).disabled = true; });
+      el('mxplay',d.i).innerHTML = '&#9656;';
+      return;
+    }
+    ch.classList.add('loaded'); ch.style.setProperty('--mc', d.rec.c); ch.style.setProperty('--mlc', d.rec.lc);
+    disc.classList.remove('empty'); el('mxname',d.i).textContent = d.rec.v.title;
+    var many = titlesOf(d.rec).length > 1;
+    el('mxprev',d.i).disabled = !many; el('mxnext',d.i).disabled = !many;
+    el('mxplay',d.i).disabled = false; el('mxej',d.i).disabled = false;
+    cue(d);
+  }
+  function curIdx(d){
+    var off = offsetsOf(d.rec), t = d.au ? d.au.currentTime : 0, k = 0;
+    for(var j=0;j<off.length;j++) if(t >= off[j]-0.4) k = j;
+    return k;
+  }
+  function cue(d){
+    var ts = titlesOf(d.rec), k = curIdx(d);
+    el('mxtk',d.i).innerHTML = '<b>'+ts[k]+'</b>'+(ts.length>1 ? ('CUT '+(k+1<10?'0':'')+(k+1)+'/'+ts.length) : (d.rec.v.kicker||'THE SINGLE'));
+  }
+  function wire(d){
+    if(d.node || !actx()) return;
+    try{
+      d.node = ctx.createMediaElementSource(d.au);
+      d.filt = ctx.createBiquadFilter(); d.filt.type='allpass'; d.filt.frequency.value=800; d.filt.Q.value=0.9;
+      d.node.connect(d.filt); d.filt.connect(ctx.destination);
+      applyFilter(d);
+    }catch(e){ d.node = null; }
+  }
+  function applyFilter(d){
+    if(!d.filt) return;
+    var f = +el('mxfil',d.i).value;
+    if(Math.abs(f) < 8){ d.filt.type='allpass'; return; }
+    if(f < 0){ d.filt.type='lowpass';  d.filt.frequency.value = 22050*Math.pow(80/22050, -f/100); }
+    else     { d.filt.type='highpass'; d.filt.frequency.value = 20*Math.pow(8000/20, f/100); }
+  }
+  function load(d, r){
+    if(d.au){ d.au.pause(); if(d.node){ try{ d.node.disconnect(); d.filt.disconnect(); }catch(e){} } }
+    d.rec = r; d.node = null; d.filt = null;
+    d.au = new Audio(r.v.file); d.au.preload = 'auto';
+    d.au.volume = (+el('mxvol',d.i).value)/100;
+    d.au.addEventListener('play', function(){
+      el('mxch',d.i).classList.add('playing'); el('mxplay',d.i).innerHTML='&#10074;&#10074;';
+      if(!audio.paused) audio.pause();
+    });
+    d.au.addEventListener('pause', function(){
+      el('mxch',d.i).classList.remove('playing'); el('mxplay',d.i).innerHTML='&#9656;';
+    });
+    d.au.addEventListener('ended', function(){ el('mxch',d.i).classList.remove('playing'); el('mxplay',d.i).innerHTML='&#9656;'; });
+    d.au.addEventListener('timeupdate', function(){ cue(d); });
+    paint(d);
+  }
+  function eject(d){
+    if(d.au){ d.au.pause(); d.au.removeAttribute('src'); try{ d.au.load(); }catch(e){} if(d.node){ try{ d.node.disconnect(); d.filt.disconnect(); }catch(e){} } }
+    d.rec = null; d.au = null; d.node = null; d.filt = null;
+    paint(d);
+  }
+  shelf.addEventListener('click', function(e){
+    var b = e.target.closest('.shrec'); if(!b) return;
+    var r = RECS[+b.getAttribute('data-r')];
+    var d = DECKS.find(function(x){ return !x.rec; }) || DECKS.find(function(x){ return x.au && x.au.paused; });
+    if(!d){ b.classList.remove('deny'); void b.offsetWidth; b.classList.add('deny'); return; }
+    load(d, r);
+  });
+  DECKS.forEach(function(d){
+    el('mxplay',d.i).addEventListener('click', function(){
+      if(!d.au) return;
+      if(d.au.paused){ actx(); wire(d); d.au.play(); } else d.au.pause();
+    });
+    el('mxprev',d.i).addEventListener('click', function(){
+      if(!d.au) return; var off = offsetsOf(d.rec), k = Math.max(0, curIdx(d)-1);
+      d.au.currentTime = off[k]; cue(d);
+    });
+    el('mxnext',d.i).addEventListener('click', function(){
+      if(!d.au) return; var off = offsetsOf(d.rec), k = Math.min(off.length-1, curIdx(d)+1);
+      d.au.currentTime = off[k]; cue(d);
+    });
+    el('mxvol',d.i).addEventListener('input', function(){ if(d.au) d.au.volume = (+this.value)/100; });
+    el('mxfil',d.i).addEventListener('input', function(){ applyFilter(d); });
+    el('mxej',d.i).addEventListener('click', function(){ eject(d); });
+    paint(d);
+  });
+  audio.addEventListener('play', function(){
+    DECKS.forEach(function(d){ if(d.au && !d.au.paused) d.au.pause(); });
+  });
 })();
 
 /* ---- próximas tocadas — EDITA AQUÍ (fecha, lugar, ciudad, nota) ---- */
@@ -1121,7 +1225,7 @@ for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cards
   if(cardsT[mi]) grid.appendChild(cardsT[mi]);
 }
 
-/* ---- los dos vinilos (después de sub grave) ---- */
+/* ---- los dos vinilos (después de la mixer) ---- */
 var vgrid = document.getElementById('vgrid');
 VINYLS.forEach(function(p,j){
   var gi = VOFF + j;   // índice global en T
@@ -1253,8 +1357,6 @@ function syncCards(){
   });
   player.classList.toggle('playing', !audio.paused);
   playBtn.innerHTML = audio.paused ? '▸' : '&#9646;&#9646;';
-  var bd = document.getElementById('bigdisc'); if(bd) bd.classList.toggle('spin', !audio.paused);
-  var bd2 = document.getElementById('bigdisc2'); if(bd2) bd2.classList.toggle('spin', !audio.paused);
   // cards de DELIRIO en LO MEJOR: cada una es su propio corte standalone
   if(typeof TPICKS !== 'undefined'){
     TPICKS.forEach(function(tp,k){
@@ -1355,7 +1457,7 @@ document.getElementById('claimBtn').addEventListener('click', function(e){
 
 /* ---- reveal ---- */
 addEventListener('DOMContentLoaded', function(){
-  var targets = [].slice.call(document.querySelectorAll('.mq, .sh, .card, .edit .row2 > *, .about > *, .cta .in'));
+  var targets = [].slice.call(document.querySelectorAll('.mq, .sh, .card, .mixsec .mixin > *, .about > *, .cta .in'));
   targets.forEach(function(el){
     el.classList.add('reveal');
     var sibs = [].filter.call(el.parentElement.children, function(n){ return n.classList.contains('card'); });
