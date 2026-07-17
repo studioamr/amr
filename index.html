@@ -329,16 +329,16 @@ body.hasplayer{padding-bottom:70px}
 @keyframes nrring{0%{transform:scale(.84);opacity:0}16%{opacity:.65}100%{transform:scale(1.24);opacity:0}}
 .nr .vdiscwrap{position:relative;width:100%;aspect-ratio:1}
 .nr .vlabel{background:radial-gradient(circle at 42% 38%,#5B9BD5,#2E6FB0);box-shadow:0 0 0 5px #1a4a7a}
-.nr.violet{background:linear-gradient(160deg,#0d0a17 0%,#181129 55%,#120d1f 100%)}
-.nr.violet .nrlive i{background:#9D8BD6;box-shadow:0 0 0 4px rgba(157,139,214,.25)}
-.nr.violet .nrsub b{color:#9D8BD6}
-.nr.violet .vlabel{background:radial-gradient(circle at 42% 38%,#9D8BD6,#6E5BAE);box-shadow:0 0 0 5px #453873}
-.nr.violet .vdisc::before{border-color:rgba(157,139,214,.4)}
-.nr.violet .nrrings span{border-color:rgba(157,139,214,.16)}
-.nr.violet .vstats b,.nr.violet .vinfo-lbl b,.nr.violet .vtracks li b{color:#9D8BD6}
-.nr.violet .vtracks li.on{color:#EAE6DF}
-.nr.violet .vbuy:hover{border-color:#9D8BD6;color:#9D8BD6}
-.nr.violet .vgo.on{background:#6E5BAE}
+.nr.lava{background:linear-gradient(160deg,#160804 0%,#2b1006 55%,#1c0a04 100%)}
+.nr.lava .nrlive i{background:#FF8A4C;box-shadow:0 0 0 4px rgba(255,138,76,.25)}
+.nr.lava .nrsub b{color:#FF8A4C}
+.nr.lava .vlabel{background:radial-gradient(circle at 42% 38%,#FF8A4C,#E04E1A);box-shadow:0 0 0 5px #7A2F0E}
+.nr.lava .vdisc::before{border-color:rgba(255,138,76,.4)}
+.nr.lava .nrrings span{border-color:rgba(255,138,76,.16)}
+.nr.lava .vstats b,.nr.lava .vinfo-lbl b,.nr.lava .vtracks li b{color:#FF8A4C}
+.nr.lava .vtracks li.on{color:#EAE6DF}
+.nr.lava .vbuy:hover{border-color:#FF8A4C;color:#FF8A4C}
+.nr.lava .vgo.on{background:#E04E1A}
 .nr.jade{background:linear-gradient(160deg,#07130f 0%,#0c2119 55%,#0a1a14 100%)}
 .nr.jade .nrlive i{background:#5BC4A5;box-shadow:0 0 0 4px rgba(91,196,165,.25)}
 .nr.jade .nrsub b{color:#5BC4A5}
@@ -381,11 +381,11 @@ body.hasplayer{padding-bottom:70px}
 .card.bluecard::after{background:#2E6FB0}
 .card.bluecard .pchip{border-color:#2E6FB0;color:#2E6FB0}
 .card.bluecard.playing .pchip{background:#2E6FB0;color:var(--bone)}
-.card.violetcard .num b{color:#6E5BAE}
-.card.violetcard .vinyl::after{background:#6E5BAE}
-.card.violetcard::after{background:#6E5BAE}
-.card.violetcard .pchip{border-color:#6E5BAE;color:#6E5BAE}
-.card.violetcard.playing .pchip{background:#6E5BAE;color:var(--bone)}
+.card.lavacard .num b{color:#E04E1A}
+.card.lavacard .vinyl::after{background:#E04E1A}
+.card.lavacard::after{background:#E04E1A}
+.card.lavacard .pchip{border-color:#E04E1A;color:#E04E1A}
+.card.lavacard.playing .pchip{background:#E04E1A;color:var(--bone)}
 .card.jadecard .num b{color:#2E9C7C}
 .card.jadecard .vinyl::after{background:#2E9C7C}
 .card.jadecard::after{background:#2E9C7C}
@@ -485,13 +485,13 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
-<!-- NUEVO LANZAMIENTO — MAREA (crepúsculo violeta) -->
-<section class="nr violet hpanel" id="marea">
+<!-- NUEVO LANZAMIENTO — MAGMA (lava / grid futurista) -->
+<section class="nr lava hpanel" id="magma">
   <div class="nrin">
     <div class="nrleft">
       <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
-      <h2 class="nrtitle">MAREA</h2>
-      <p class="nrsub">The hypnotic one. Ten movements at <b>120 BPM</b> — organic percussion played loose, supersaw pads that open over whole minutes, a kalimba answering in the dark. Energy moves in <b>waves, not peaks</b>: the valleys are on purpose. Cut to violet vinyl, numbered by hand.</p>
+      <h2 class="nrtitle">MAGMA</h2>
+      <p class="nrsub">The grid runs on molten rock. Ten movements at <b>120 BPM</b> descending into the core — circuit basslines over black glass, percussion struck like sparks, pads glowing like vents in the dark. Energy flows in <b>currents, not drops</b>: the cool-downs are on purpose. Cut to molten vinyl, numbered by hand.</p>
       <div id="nrMeta4"></div>
     </div>
     <div class="nrdisc" id="nrDisc4"></div>
@@ -668,8 +668,8 @@ body.hasplayer{padding-bottom:70px}
 <script src="set.js?v=202607161934"></script>
 <script src="tulum.js?v=202607161934"></script>
 <script src="megaset.js?v=202607161934"></script>
-<script src="guerrero.js?v=202607170310"></script>
-<script src="marea.js?v=202607170310"></script>
+<script src="guerrero.js?v=202607170430"></script>
+<script src="magma.js?v=202607170430"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -682,7 +682,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
     'amr-megaset':{img:'art/shots/shot-megaset.jpg', kick:'MONUMENTS × DELIRIO · MEGA SET', title:'MEGA SET', desc:'Double 12″ — the best of both albums, beat-mixed like a real DJ set: thirteen cuts locked to 121 BPM, long blends, EQ swaps, one 43-minute arc from LLEGADA to AMANECER.'},
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
-    'amr-marea':{img:'art/shots/shot-marea.jpg', kick:'HYPNOTIC TROPICAL · MAREA', title:'MAREA', desc:'Violet 12″ — the hypnotic one. Ten movements at 120 BPM built like a tide: organic percussion where no two hits are the same, supersaw pads voiced left and right the way the JP-8000 did it, a kalimba answering in the dark. Energy moves in waves — the valleys are on purpose. 41 minutes, 0 to 100.'}
+    'amr-magma':{img:'art/shots/shot-magma.jpg', kick:'MOLTEN GRID · MAGMA', title:'MAGMA', desc:'Molten 12″ — the futurist one. Ten movements at 120 BPM built like a descent into the core: circuit basslines over black glass, percussion struck like sparks with no two hits the same, supersaw pads glowing like vents. Energy flows in currents — the cool-downs are on purpose. 41 minutes, 0 to 100.'}
   };
   var current = null;
   window.openShot = function(p){
@@ -709,7 +709,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_MEGA, window.AMR_GUER, window.AMR_MAREA].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_MEGA, window.AMR_GUER, window.AMR_MAGMA].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -895,36 +895,36 @@ if(window.AMR_GUER){
     cardsJ.push(b);
   });
 }
-/* ---- cortes de MAREA en LO MEJOR (dibujos violeta) ---- */
+/* ---- cortes de MAGMA en LO MEJOR (dibujos lava) ---- */
 var MPICKS = [
-  {sec:1, file:'audio/amr-marea-cut-brisa.m4a',      art:'art/marea-brisa.svg',      desc:'The first rolling bassline of the tide — wind lines over warm sand.'},
-  {sec:3, file:'audio/amr-marea-cut-coral.m4a',      art:'art/marea-coral.svg',      desc:'Dorian shimmer — the kalimba answers the reef, filter opening slow.'},
-  {sec:5, file:'audio/amr-marea-cut-luciernaga.m4a', art:'art/marea-luciernaga.svg', desc:'Fireflies over the water — plucks in major light, the long climb begins.'},
-  {sec:6, file:'audio/amr-marea-cut-cenote.m4a',     art:'art/marea-cenote.svg',     desc:'The deep valley. No kick, no bass — just pads washing the cave walls.'},
-  {sec:7, file:'audio/amr-marea-cut-marejada.m4a',   art:'art/marea-marejada.svg',   desc:'The wave finally breaks — the peak of the set, everything at full sail.'},
-  {sec:8, file:'audio/amr-marea-cut-estela.m4a',     art:'art/marea-estela.svg',     desc:'The wake after the crest — riding it home while the light goes low.'}
+  {sec:1, file:'audio/amr-magma-cut-circuito.m4a', art:'art/magma-circuito.svg', desc:'First current on the grid — the bassline boots up, light racing the traces.'},
+  {sec:3, file:'audio/amr-magma-cut-nucleo.m4a',   art:'art/magma-nucleo.svg',   desc:'The reactor spins up — dorian shimmer over black glass, filter opening slow.'},
+  {sec:5, file:'audio/amr-magma-cut-foton.m4a',    art:'art/magma-foton.svg',    desc:'A photon crossing the caldera — plucks in major light, the long climb begins.'},
+  {sec:6, file:'audio/amr-magma-cut-crater.m4a',   art:'art/magma-crater.svg',   desc:'The deep vent. No kick, no bass — just heat shimmering off the glass walls.'},
+  {sec:7, file:'audio/amr-magma-cut-erupcion.m4a', art:'art/magma-erupcion.svg', desc:'The mountain finally blows — the peak of the set, everything molten at once.'},
+  {sec:8, file:'audio/amr-magma-cut-rio.m4a',      art:'art/magma-rio.svg',      desc:'The lava river home — riding the current while the glass cools behind you.'}
 ];
 var cardsV = [];
-if(window.AMR_MAREA){
+if(window.AMR_MAGMA){
   MPICKS.forEach(function(mp,k){
-    var S = window.AMR_MAREA, name = S.titles[mp.sec];
+    var S = window.AMR_MAGMA, name = S.titles[mp.sec];
     var end = (mp.sec+1 < S.offsets.length) ? S.offsets[mp.sec+1] : S.dur;
     var dur = end - S.offsets[mp.sec];
-    mp.gi = T.length; T.push({ title:name, file:mp.file, dur:dur, kicker:'MAREA CUT', bpm:120, cut:true, edition:(S.edition||12) });
+    mp.gi = T.length; T.push({ title:name, file:mp.file, dur:dur, kicker:'MAGMA CUT', bpm:120, cut:true, edition:(S.edition||12) });
     var b = document.createElement('button');
-    b.className = 'card violetcard'; b.id = 'card-v'+k;
+    b.className = 'card lavacard'; b.id = 'card-v'+k;
     b.innerHTML =
-      '<span class="num"><span>MAREA — CUT '+(mp.sec+1<10?'0':'')+(mp.sec+1)+'/10</span><b>VIOLET VINYL</b></span>'+
-      '<div class="sleeve"><div class="vinyl"><span class="lbl">MAREA</span></div>'+
+      '<span class="num"><span>MAGMA — CUT '+(mp.sec+1<10?'0':'')+(mp.sec+1)+'/10</span><b>MOLTEN VINYL</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">MAGMA</span></div>'+
       '<div class="cover"><img src="'+mp.art+'" alt="'+name+' drawing"></div>'+
       '<span class="pchip" id="chip-v'+k+'">▸ PLAY</span></div>'+
       '<h3>'+name+'</h3><p class="desc">'+mp.desc+'</p>'+
-      '<div class="row"><b>120 BPM</b><span>FROM MAREA</span><b>'+fmt(dur)+'</b></div>';
+      '<div class="row"><b>120 BPM</b><span>FROM MAGMA</span><b>'+fmt(dur)+'</b></div>';
     b.addEventListener('click', function(){ (cur===mp.gi && !audio.paused) ? pause() : playTrack(mp.gi); });
     cardsV.push(b);
   });
 }
-/* mixeadas: naranja, azul, jade, violeta… */
+/* mixeadas: naranja, azul, jade, lava… */
 for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
@@ -954,8 +954,8 @@ VINYLS.forEach(function(p,j){
   var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUT'+(p.tracks>1?'S':'')+'</span><ol class="vtracks">'+tl+'</ol></div>';
   var isMonFeat = (p.id === 'amr-monuments-side');
   var isGuerFeat = (p.id === 'amr-guerrero');
-  var isMareaFeat = (p.id === 'amr-marea');
-  if(isMareaFeat){
+  var isMagmaFeat = (p.id === 'amr-magma');
+  if(isMagmaFeat){
     document.getElementById('nrDisc4').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta4').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isGuerFeat){

@@ -11,7 +11,7 @@
       <stop offset="60%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#fff" stop-opacity="0.06"/>
     </linearGradient>
     <radialGradient id="lblg" cx="46%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#9D8BD6"/><stop offset="100%" stop-color="#6E5BAE"/>
+      <stop offset="0%" stop-color="#FF8A4C"/><stop offset="100%" stop-color="#E04E1A"/>
     </radialGradient>
     <linearGradient id="jacket" x1="0" y1="0" x2="0.3" y2="1">
       <stop offset="0%" stop-color="#F6F2EB"/><stop offset="100%" stop-color="#E7E0D4"/>
@@ -36,7 +36,7 @@
     <circle cx="1080" cy="600" r="108" fill="url(#lblg)"/>
     <circle cx="1080" cy="600" r="108" fill="none" stroke="#000" stroke-opacity="0.25" stroke-width="1.5"/>
     <text x="1080" y="584" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="3" fill="#EAE6DF" text-anchor="middle" opacity="0.9">STUDIO AMR</text>
-    <text x="1080" y="612" font-family="Georgia,serif" font-weight="bold" font-size="26" fill="#EAE6DF" text-anchor="middle">MAREA</text>
+    <text x="1080" y="612" font-family="Georgia,serif" font-weight="bold" font-size="26" fill="#EAE6DF" text-anchor="middle">MAGMA</text>
     <text x="1080" y="634" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2" fill="#EAE6DF" text-anchor="middle" opacity="0.8">45 RPM</text>
     <circle cx="1080" cy="600" r="7" fill="#EAE6DF"/>
   </g>
@@ -51,11 +51,11 @@
     <!-- borde interior tipo apertura de funda a la derecha -->
     <line x1="868" y1="318" x2="868" y2="902" stroke="#141210" stroke-opacity="0.10" stroke-width="3"/>
     <text x="288" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#6E675E">STUDIO AMR</text>
-    <text x="832" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#6E5BAE" text-anchor="end">MMXXVI</text>
+    <text x="832" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#E04E1A" text-anchor="end">MMXXVI</text>
     <!-- marca / dibujo -->
-    <g transform="translate(440.0 420) scale(1.0)"><path d="M60 150 A56 56 0 0 1 116 94 A26 26 0 0 1 142 120 A14 14 0 0 1 128 134 A7 7 0 0 1 121 127" fill="none" stroke="#6E5BAE" stroke-width="8" stroke-linecap="round"/><path d="M80 150 A38 38 0 0 1 110 114" fill="none" stroke="#9D8BD6" stroke-width="3.5" stroke-linecap="round"/><rect x="50" y="148" width="140" height="6" rx="3" fill="#141210"/></g>
-    <text x="560.0" y="824" font-family="Georgia,serif" font-weight="bold" font-size="56" letter-spacing="1" fill="#141210" text-anchor="middle">MAREA</text>
-    <text x="560.0" y="862" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="4" fill="#6E5BAE" text-anchor="middle">HYPNOTIC TROPICAL · 0→100 · 41 MIN</text>
+    <g transform="translate(440.0 420) scale(1.0)"><path d="M100 68 L140 68 L172 154 L68 154 Z" fill="#141210"/><ellipse cx="120" cy="68" rx="20" ry="6" fill="#E04E1A"/><path d="M120 74 L112 100 L126 124 L118 154" fill="none" stroke="#E04E1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="104" cy="52" r="4" fill="#FF8A4C"/><circle cx="136" cy="50" r="3.4" fill="#FF8A4C"/></g>
+    <text x="560.0" y="824" font-family="Georgia,serif" font-weight="bold" font-size="56" letter-spacing="1" fill="#141210" text-anchor="middle">MAGMA</text>
+    <text x="560.0" y="862" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="4" fill="#E04E1A" text-anchor="middle">MOLTEN GRID · 0→100 · 41 MIN</text>
     <text x="560.0" y="888" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="3" fill="#6E675E" text-anchor="middle">EDITION OF 12 · NUMBERED BY HAND</text>
   </g>
 

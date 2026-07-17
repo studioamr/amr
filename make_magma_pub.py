@@ -7,8 +7,8 @@ from make_dream import SECTIONS, TMP, SPB, XF_BARS
 
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, 'masters', 'amr-marea.wav')
-CUTS = ['BRISA', 'CORAL', 'LUCIERNAGA', 'CENOTE', 'MAREJADA', 'ESTELA']
+SRC = os.path.join(HERE, 'masters', 'amr-magma.wav')
+CUTS = ['CIRCUITO', 'NUCLEO', 'FOTON', 'CRATER', 'ERUPCION', 'RIO']
 
 def sh(cmd): subprocess.run(cmd, check=True)
 
@@ -26,7 +26,7 @@ def peaks(path, W=720):
 
 if __name__ == '__main__':
     # 1. set completo
-    m4a = os.path.join(HERE, 'audio', 'amr-marea.m4a')
+    m4a = os.path.join(HERE, 'audio', 'amr-magma.m4a')
     enc(SRC, m4a)
     I, lra, tp = ffmeter(m4a)
     print(f'SET m4a: {os.path.getsize(m4a)//1048576} MB · {I} LUFS · LRA {lra} · TP {tp}', flush=True)
@@ -38,12 +38,12 @@ if __name__ == '__main__':
         acc += s['bars'] * SPB / 44100.0
     titles = [s['name'] for s in SECTIONS]
 
-    meta = dict(id='amr-marea', title='MAREA', kicker='HYPNOTIC TROPICAL · 0→100',
+    meta = dict(id='amr-magma', title='MAGMA', kicker='MOLTEN GRID · 0→100',
                 tracks=len(titles), dur=round(acc, 1), titles=titles, offsets=offsets,
-                file='audio/amr-marea.m4a', art='art/shots/shot-marea.svg', edition=12,
+                file='audio/amr-marea.m4a', art='art/shots/shot-magma.svg', edition=12,
                 peaks=peaks(m4a), bpm=120, key='E MIN')
-    with open(os.path.join(HERE, 'marea.js'), 'w') as f:
-        f.write('window.AMR_MAREA=' + json.dumps(meta) + ';')
+    with open(os.path.join(HERE, 'magma.js'), 'w') as f:
+        f.write('window.AMR_MAGMA=' + json.dumps(meta) + ';')
     print('marea.js escrito', flush=True)
 
     # 3. cortes standalone: la sección pre-master se masteriza individual (mismo chain)
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         secw = os.path.join(TMP, f'sec-{i:02d}-{s["name"].lower()}.wav')
         mst = os.path.join(TMP, f'cut-{s["name"].lower()}.wav')
         hist = master_file(secw, mst, target_i=-8.5, ceiling_db=-1.1)
-        dst = os.path.join(HERE, 'audio', f'amr-marea-cut-{s["name"].lower()}.m4a')
+        dst = os.path.join(HERE, 'audio', f'amr-magma-cut-{s["name"].lower()}.m4a')
         enc(mst, dst)
         os.remove(mst)
         Ic, _, tpc = ffmeter(dst)

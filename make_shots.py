@@ -101,10 +101,10 @@ TRI_MARK = '<circle cx="90" cy="100" r="40" fill="#141210"/><circle cx="90" cy="
 
 GUER_MARK = '<path d="M120 40 L150 96 L120 152 L90 96 Z" fill="#141210"/><path d="M120 62 L138 96 L120 130 L102 96 Z" fill="#2E9C7C"/><circle cx="120" cy="96" r="7" fill="#EAE6DF"/><path d="M60 96 L78 96 M162 96 L180 96" stroke="#2E9C7C" stroke-width="3" stroke-linecap="round"/>'
 
-MAREA_MARK = '<path d="M60 150 A56 56 0 0 1 116 94 A26 26 0 0 1 142 120 A14 14 0 0 1 128 134 A7 7 0 0 1 121 127" fill="none" stroke="#6E5BAE" stroke-width="8" stroke-linecap="round"/><path d="M80 150 A38 38 0 0 1 110 114" fill="none" stroke="#9D8BD6" stroke-width="3.5" stroke-linecap="round"/><rect x="50" y="148" width="140" height="6" rx="3" fill="#141210"/>'
+MAGMA_MARK = '<path d="M100 68 L140 68 L172 154 L68 154 Z" fill="#141210"/><ellipse cx="120" cy="68" rx="20" ry="6" fill="#E04E1A"/><path d="M120 74 L112 100 L126 124 L118 154" fill="none" stroke="#E04E1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="104" cy="52" r="4" fill="#FF8A4C"/><circle cx="136" cy="50" r="3.4" fill="#FF8A4C"/>'
 
 SHOTS = [
-    dict(id='marea',     accent='#6E5BAE', accent_lt='#9D8BD6', title='MAREA',     sub='HYPNOTIC TROPICAL · 0→100 · 41 MIN', edition=12, num='01', mark=MAREA_MARK, tsize=56),
+    dict(id='magma',     accent='#E04E1A', accent_lt='#FF8A4C', title='MAGMA',     sub='MOLTEN GRID · 0→100 · 41 MIN', edition=12, num='01', mark=MAGMA_MARK, tsize=56),
     dict(id='guerrero',  accent='#2E9C7C', accent_lt='#5BC4A5', title='GUERRERO',  sub='DESERT SET · 0→100 · 57 MIN', edition=12, num='03', mark=GUER_MARK, tsize=54),
     dict(id='megaset',   accent='#C96F2B', accent_lt='#e0954f', title='MEGA SET',  sub='MONUMENTS × DELIRIO · 43 MIN', edition=10, num='02', mark=TRI_MARK, tsize=54),
     dict(id='monuments', accent='#C96F2B', accent_lt='#e0954f', title='MONUMENTS', sub='THE EP · 5 CUTS',   edition=50, num='07', mark=MONO_MARK, tsize=50),
