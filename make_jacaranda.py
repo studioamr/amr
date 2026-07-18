@@ -212,7 +212,7 @@ def _shave(x):
 
 def build(only=None):
     tot=sum(s['bars'] for s in SECTIONS)
-    print(f'JACARANDA · {len(SECTIONS)} movimientos · {tot} compases ≈ {tot*SPB/SR/60:.0f} min · HUESO Y SALVIA', flush=True)
+    print(f'JACARANDA · {len(SECTIONS)} movimientos · {tot} compases ≈ {tot*SPB/SR/60:.0f} min · FLORACIÓN', flush=True)
     secs=[]
     for i,s in enumerate(SECTIONS):
         if only and s['name']!=only: continue

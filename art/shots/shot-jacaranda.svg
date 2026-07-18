@@ -1,39 +1,39 @@
 <svg viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg">
  <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#F2EEE7"/><stop offset="60%" stop-color="#EAE4DA"/><stop offset="100%" stop-color="#DED7CB"/></linearGradient>
-  <radialGradient id="disc" cx="40%" cy="36%" r="72%"><stop offset="0%" stop-color="#161d13"/><stop offset="55%" stop-color="#0c110a"/><stop offset="100%" stop-color="#080c06"/></radialGradient>
+  <radialGradient id="disc" cx="40%" cy="36%" r="72%"><stop offset="0%" stop-color="#161331"/><stop offset="55%" stop-color="#0b0912"/><stop offset="100%" stop-color="#08060c"/></radialGradient>
   <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0.12"/><stop offset="42%" stop-color="#fff" stop-opacity="0"/><stop offset="100%" stop-color="#fff" stop-opacity="0.06"/></linearGradient>
-  <radialGradient id="lblg" cx="46%" cy="40%" r="60%"><stop offset="0%" stop-color="#A8BE9E"/><stop offset="100%" stop-color="#7E9478"/></radialGradient>
+  <radialGradient id="lblg" cx="46%" cy="40%" r="60%"><stop offset="0%" stop-color="#9D8BD6"/><stop offset="100%" stop-color="#6E5BAE"/></radialGradient>
   <linearGradient id="jacket" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0%" stop-color="#F6F2EB"/><stop offset="100%" stop-color="#E7E0D4"/></linearGradient>
   <radialGradient id="vig" cx="50%" cy="46%" r="70%"><stop offset="0%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.06"/></radialGradient>
  </defs>
  <rect width="1600" height="1200" fill="url(#bg)"/><rect width="1600" height="1200" fill="url(#vig)"/>
  <ellipse cx="1080" cy="930" rx="258" ry="26" fill="#14120f" opacity="0.10"/>
  <g><circle cx="1080" cy="600" r="300" fill="url(#disc)"/>
-  <circle cx="1080" cy="600" r="137" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="151" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="165" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="179" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="193" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="207" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="221" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="235" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="249" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="263" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="277" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="291" fill="none" stroke="#222b1e" stroke-width="1.1" opacity="0.4"/>
+  <circle cx="1080" cy="600" r="137" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="151" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="165" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="179" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="193" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="207" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="221" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="235" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="249" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="263" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="277" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/><circle cx="1080" cy="600" r="291" fill="none" stroke="#221d33" stroke-width="1.1" opacity="0.4"/>
   <circle cx="1080" cy="600" r="300" fill="url(#sheen)"/>
-  <circle cx="1080" cy="600" r="114" fill="none" stroke="#080c06" stroke-width="4"/>
+  <circle cx="1080" cy="600" r="114" fill="none" stroke="#08060c" stroke-width="4"/>
   <circle cx="1080" cy="600" r="108" fill="url(#lblg)"/>
   <circle cx="1080" cy="600" r="108" fill="none" stroke="#000" stroke-opacity="0.25" stroke-width="1.5"/>
-  <text x="1080" y="584" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="3" fill="#0d1209" text-anchor="middle" opacity="0.9">STUDIO AMR</text>
-  <text x="1080" y="612" font-family="Georgia,serif" font-weight="bold" font-size="24" fill="#0d1209" text-anchor="middle">JACARANDA</text>
-  <text x="1080" y="634" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2" fill="#0d1209" text-anchor="middle" opacity="0.8">45 RPM</text>
-  <circle cx="1080" cy="600" r="7" fill="#0d1209"/></g>
+  <text x="1080" y="584" font-family="'IBM Plex Mono',monospace" font-size="15" letter-spacing="3" fill="#0c0914" text-anchor="middle" opacity="0.9">STUDIO AMR</text>
+  <text x="1080" y="612" font-family="Georgia,serif" font-weight="bold" font-size="24" fill="#0c0914" text-anchor="middle">JACARANDA</text>
+  <text x="1080" y="634" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="2" fill="#0c0914" text-anchor="middle" opacity="0.8">45 RPM</text>
+  <circle cx="1080" cy="600" r="7" fill="#0c0914"/></g>
  <ellipse cx="550" cy="954" rx="322" ry="30" fill="#14120f" opacity="0.12"/>
  <g transform="rotate(-4 560 610)">
   <rect x="250" y="300" width="620" height="620" rx="8" fill="url(#jacket)" stroke="#141210" stroke-opacity="0.12" stroke-width="2"/>
   <line x1="868" y1="318" x2="868" y2="902" stroke="#141210" stroke-opacity="0.10" stroke-width="3"/>
   <text x="288" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#6E675E">STUDIO AMR</text>
-  <text x="832" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#4F5F4A" text-anchor="end">MMXXVI</text>
+  <text x="832" y="366" font-family="'IBM Plex Mono',monospace" font-size="20" letter-spacing="6" fill="#463A73" text-anchor="end">MMXXVI</text>
   <g transform="translate(400 430)">
    <rect x="0" y="10" width="320" height="150" rx="12" fill="none" stroke="#141210" stroke-width="9"/>
-   <rect x="22" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="58" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="94" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="130" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="166" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="202" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="238" y="112" width="22" height="28" rx="4" fill="#7E9478"/><rect x="274" y="112" width="22" height="28" rx="4" fill="#7E9478"/>
+   <rect x="22" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="58" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="94" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="130" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="166" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="202" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="238" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/><rect x="274" y="112" width="22" height="28" rx="4" fill="#6E5BAE"/>
    <circle cx="52" cy="62" r="17" fill="none" stroke="#141210" stroke-width="7"/>
    <circle cx="112" cy="62" r="17" fill="none" stroke="#141210" stroke-width="7"/>
    <line x1="164" y1="52" x2="292" y2="52" stroke="#141210" stroke-width="7" stroke-linecap="round"/>
    <line x1="164" y1="76" x2="252" y2="76" stroke="#141210" stroke-width="7" stroke-linecap="round"/></g>
   <text x="560" y="824" font-family="Georgia,serif" font-weight="bold" font-size="54" letter-spacing="1" fill="#141210" text-anchor="middle">JACARANDA</text>
-  <text x="560" y="862" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="3" fill="#4F5F4A" text-anchor="middle">MELODIC TECHNO · FLORACIÓN · DRUMS REALES · 22 MIN</text>
+  <text x="560" y="862" font-family="'IBM Plex Mono',monospace" font-size="13" letter-spacing="3" fill="#463A73" text-anchor="middle">MELODIC TECHNO · FLORACIÓN · DRUMS REALES · 22 MIN</text>
   <text x="560" y="888" font-family="'IBM Plex Mono',monospace" font-size="12" letter-spacing="3" fill="#6E675E" text-anchor="middle">EDITION OF 12 · NUMBERED BY HAND</text></g>
  <g transform="rotate(6 1330 980)">
   <rect x="1180" y="930" width="300" height="120" rx="4" fill="#DcCfb6" stroke="#141210" stroke-opacity="0.18" stroke-width="1.5"/>
