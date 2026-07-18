@@ -24,3 +24,6 @@ _wf_*.png
 _ficcion_build.log
 _oraculo_tmp/
 _oraculo_build.log
+_samples/
+_maquina_tmp/
+_maquina_build.log

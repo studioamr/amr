@@ -17,6 +17,7 @@ DISCS = [
     'audio/amr-set-the-set.m4a',
     'audio/amr-tulum.m4a',
     'audio/amr-guerrero.m4a',
+    'audio/amr-maquina.m4a',
 ]
 
 def decode_mono(path):
