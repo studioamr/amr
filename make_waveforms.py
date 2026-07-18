@@ -20,7 +20,6 @@ DISCS = [
     'audio/amr-jacaranda.m4a',
     'audio/amr-colibri.m4a',
     'audio/amr-fiebre.m4a',
-    'audio/amr-vuelve.m4a',
 ]
 
 def decode_mono(path):

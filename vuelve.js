@@ -1,1 +1,0 @@
-window.AMR_VUELVE={"id": "amr-vuelve", "title": "VUELVE", "kicker": "THE SINGLE \u00b7 VOZ", "dur": 258.0, "file": "audio/amr-vuelve.m4a", "art": "art/vuelve.svg", "edition": 20, "bpm": 120, "key": "A MIN"};
