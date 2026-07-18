@@ -6,7 +6,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio AMR">
 <meta property="og:title" content="Studio AMR — Seven records, cut like monuments">
-<meta property="og:description" content="Seven records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA, COLIBRÍ and PLAYA — synthesized from raw waveforms, pressed to hand-numbered vinyl. Morelia, MX.">
+<meta property="og:description" content="Eight records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA, COLIBRÍ, PLAYA and BATUQUE — synthesized from raw waveforms, pressed to hand-numbered vinyl. Morelia, MX.">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23141210"/><circle cx="16" cy="16" r="5.5" fill="%23C96F2B"/><circle cx="16" cy="16" r="1.8" fill="%23EAE6DF"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
 <style>
@@ -476,6 +476,11 @@ body.hasplayer{padding-bottom:70px}
 .card.orocard::after{background:#D9A13B}
 .card.orocard .pchip{border-color:#D9A13B;color:#D9A13B}
 .card.orocard.playing .pchip{background:#D9A13B;color:var(--bone)}
+.card.batucard .num b{color:#159E52}
+.card.batucard .vinyl::after{background:#159E52}
+.card.batucard::after{background:#159E52}
+.card.batucard .pchip{border-color:#159E52;color:#159E52}
+.card.batucard.playing .pchip{background:#159E52;color:var(--bone)}
 .nr.teal{background:linear-gradient(160deg,#06201e 0%,#0a3330 55%,#07211f 100%)}
 .nr.teal .nrlive i{background:#6FE0D8;box-shadow:0 0 0 4px rgba(111,224,216,.25)}
 .nr.teal .nrsub b{color:#6FE0D8}
@@ -506,6 +511,16 @@ body.hasplayer{padding-bottom:70px}
 .nr.jade .vtracks li.on{color:#EAE6DF}
 .nr.jade .vbuy:hover{border-color:#5BC4A5;color:#5BC4A5}
 .nr.jade .vgo.on{background:#2E9C7C}
+.nr.verde{background:linear-gradient(160deg,#07160e 0%,#0c2417 55%,#081a10 100%)}
+.nr.verde .nrlive i{background:#7DEEA9;box-shadow:0 0 0 4px rgba(125,238,169,.25)}
+.nr.verde .nrsub b{color:#7DEEA9}
+.nr.verde .vlabel{background:radial-gradient(circle at 42% 38%,#7DEEA9,#22D96C);box-shadow:0 0 0 5px #0F6236}
+.nr.verde .vdisc::before{border-color:rgba(125,238,169,.4)}
+.nr.verde .nrrings span{border-color:rgba(125,238,169,.16)}
+.nr.verde .vstats b,.nr.verde .vinfo-lbl b,.nr.verde .vtracks li b{color:#7DEEA9}
+.nr.verde .vtracks li.on{color:#EAE6DF}
+.nr.verde .vbuy:hover{border-color:#7DEEA9;color:#7DEEA9}
+.nr.verde .vgo.on{background:#22D96C}
 .nr .vdisc{box-shadow:0 26px 90px rgba(0,0,0,.6),0 0 90px rgba(46,111,176,.35),inset 0 0 70px rgba(0,0,0,.4)}
 .nr .vdisc::before{border-color:rgba(91,155,213,.4)}
 .nr .vgo.on{background:#2E6FB0}
@@ -664,7 +679,7 @@ body.hasplayer{padding-bottom:70px}
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> Studio AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#records">▸ New single — IMÁN</a>
+      <a class="btn solid" href="#batuque">▸ New record — BATUQUE</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -684,6 +699,19 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
+<!-- BATUQUE (tech house verde, estilo Volkoder) -->
+<section class="nr verde hpanel" id="batuque">
+  <div class="nrin">
+    <div class="nrleft">
+      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
+      <h2 class="nrtitle">BATUQUE</h2>
+      <p class="nrsub">Rhythm-led tech house with <b>Brazilian swing</b>, in the spirit of Volkoder. Eight movements at <b>128 BPM</b> where <b>the wonky bass leads</b>: a mono low-end that rolls in the pocket with the kick, shuffled hats and congas snaking around it, chopped and vocoded <b>vocal hooks</b>, dry rhythmic stabs — one melodic <b>rooftop breakdown</b> in the middle before the cosmic peak. Cut to green vinyl, numbered by hand.</p>
+      <div id="nrMeta8"></div>
+    </div>
+    <div class="nrdisc" id="nrDisc8"></div>
+  </div>
+</section>
+
 <!-- PLAYA (desert funk dorado) -->
 <section class="nr oro hpanel" id="playa">
   <div class="nrin">
@@ -767,7 +795,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="records">
   <div class="sh">
     <div><span class="hk">THE BEST — SIX RECORDS, SIDE BY SIDE</span><h2>Our best tracks.</h2></div>
-    <p>The favourite cuts from every record: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade, JACARANDA in violet, COLIBRÍ in turquoise, PLAYA in gold. Hit play on any of them.</p>
+    <p>The favourite cuts from every record: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade, JACARANDA in violet, COLIBRÍ in turquoise, PLAYA in gold and BATUQUE in green. Hit play on any of them.</p>
   </div>
   <div class="grid" id="recordGrid"></div>
 </section>
@@ -806,7 +834,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, blue, jade, violet, turquoise.</h2></div>
-    <p>The collection, seven records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet, COLIBRÍ on turquoise and PLAYA on gold. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
+    <p>The collection, eight records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet, COLIBRÍ on turquoise, PLAYA on gold and BATUQUE on green. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -815,7 +843,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec about" id="about">
   <span class="hk">WHO IS STUDIO AMR</span>
   <p class="lede">Studio AMR is the workshop of <i>André Macouzet Ruiz</i> — AMR, his initials — a builder from Morelia who treats every release like architecture.</p>
-  <p>Seven records so far: an EP pressed from pure waveforms, three continuous sets, JACARANDA the hypnotic one, COLIBRÍ the sunny one, and PLAYA — desert funk on gold, out now. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
+  <p>Eight records so far: an EP pressed from pure waveforms, three continuous sets, JACARANDA the hypnotic one, COLIBRÍ the sunny one, PLAYA the desert-funk one, and BATUQUE — Brazilian tech house on green, out now. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
 </section>
 
 <!-- CTA -->
@@ -882,7 +910,8 @@ body.hasplayer{padding-bottom:70px}
 <script src="playa.js?v=202607180200"></script>
 <script src="fiebre.js?v=202607170920"></script>
 <script src="iman.js?v=202607180600"></script>
-<script src="waveforms.js?v=202607180700"></script>
+<script src="batuque.js?v=202607180900"></script>
+<script src="waveforms.js?v=202607181000"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -895,6 +924,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
+    'amr-batuque':{img:'art/shots/shot-batuque.svg', kick:'BRAZILIAN TECH HOUSE · BATUQUE', title:'BATUQUE', desc:'Green 12″ — rhythm-led tech house with Brazilian swing, in the spirit of Volkoder. Eight movements at 128 BPM where the wonky bass leads: a mono low-end rolling in the pocket with the kick, shuffled hats and congas snaking around it, chopped and vocoded vocal hooks, dry rhythmic stabs — one melodic rooftop breakdown before the cosmic peak. 25 minutes, 0 to 100.'},
     'amr-colibri':{img:'art/shots/shot-colibri.jpg', kick:'TROPICAL SOLAR · COLIBRÍ', title:'COLIBRÍ', desc:'Turquoise 12″ — the left turn. French-touch tropical in the spirit of Polo & Pan: marimba, pan flute, glassy arpeggios through tape delay, happy vocal chops, a funky bassline, and the bittersweet major-to-minor turn that makes the sun feel nostalgic. Water and birds all the way through. 29 minutes, 0 to 100.'},
     'amr-jacaranda':{img:'art/shots/shot-jacaranda.jpg', kick:'VIOLET BLOOM · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the hypnotic one. Ten movements at 120 BPM under the jacaranda in bloom: organic percussion where no two hits are the same, supersaw pads voiced left and right the way the JP-8000 did it, a kalimba raining like petals. Energy moves in seasons — the shade is on purpose. 41 minutes, 0 to 100.'}
   };
@@ -923,7 +953,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_COLIBRI, window.AMR_PLAYA].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_COLIBRI, window.AMR_PLAYA, window.AMR_BATUQUE].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -981,7 +1011,7 @@ function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 
 /* ---- marquee ---- */
 var MQCAT = ['AMR-01 MONUMENTS \u00b7 AMBER', 'AMR-02 SESI\u00d3N 001 \u00b7 WINE', 'AMR-03 DELIRIO \u00b7 BLUE',
-             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-06 COLIBR\u00cd \u00b7 TURQUOISE', 'AMR-07 PLAYA \u00b7 GOLD'];
+             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-06 COLIBR\u00cd \u00b7 TURQUOISE', 'AMR-07 PLAYA \u00b7 GOLD', 'AMR-08 BATUQUE \u00b7 GREEN'];
 var mq = MQCAT.map(function(t){ return '<span>'+t+'</span>'; }).join('')
        + '<span>SEVEN RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
@@ -1005,6 +1035,7 @@ if(window.AMR_TUL){
     {v:window.AMR_JACARANDA, c:'#6E5BAE', lc:'#9D8BD6'},
     {v:window.AMR_COLIBRI,   c:'#12B3AE', lc:'#6FE0D8'},
     {v:window.AMR_PLAYA,     c:'#D9A13B', lc:'#F0C97A'},
+    {v:window.AMR_BATUQUE,   c:'#159E52', lc:'#7DEEA9'},
     {v:window.AMR_FIEBRE,    c:'#D1342F', lc:'#E8635F'},
     {v:window.AMR_IMAN,      c:'#1FB6BA', lc:'#6FE0E4'}
   ].filter(function(r){ return !!r.v; });
@@ -2024,6 +2055,38 @@ if(window.AMR_PLAYA){
   syncCards = function(){ _sc2(); GPICKS.forEach(function(gp,k){ var c=document.getElementById('card-g'+k), ch=document.getElementById('chip-g'+k); if(c){var on=(cur===gp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
 }
 
+/* ---- cortes de BATUQUE en LO MEJOR (dibujos verdes) ---- */
+var WPICKS = [
+  {sec:1, file:'audio/amr-batuque-cut-garoa.m4a',    art:'art/batuque-garoa.svg',    desc:'The São Paulo drizzle — the wonky bass settles into the pocket and the groove starts to shuffle.'},
+  {sec:2, file:'audio/amr-batuque-cut-paulista.m4a', art:'art/batuque-paulista.svg', desc:'Down the avenue — full swing, congas snaking around the kick, the vocal hook locks in.'},
+  {sec:3, file:'audio/amr-batuque-cut-neon.m4a',     art:'art/batuque-neon.svg',     desc:'Neon and grit — sleazy vocoder cuts over a rolling, sticky low-end.'},
+  {sec:4, file:'audio/amr-batuque-cut-mirante.m4a',  art:'art/batuque-mirante.svg',  desc:'The rooftop lookout — no kick, no bass: supersaw chords and an airy vocal over the city.'},
+  {sec:5, file:'audio/amr-batuque-cut-farol.m4a',    art:'art/batuque-farol.svg',    desc:'The beam — the peak, a cosmic lead slicing over the wonky bass rolling in sixteenths.'},
+  {sec:6, file:'audio/amr-batuque-cut-baile.m4a',    art:'art/batuque-baile.svg',    desc:'Hands up — the party in full, call-and-response chops all the way.'}
+];
+var cardsW = [];
+if(window.AMR_BATUQUE){
+  WPICKS.forEach(function(gp,k){
+    var S = window.AMR_BATUQUE, name = S.titles[gp.sec];
+    var end = (gp.sec+1 < S.offsets.length) ? S.offsets[gp.sec+1] : S.dur;
+    var dur = end - S.offsets[gp.sec];
+    gp.gi = T.length; T.push({ title:name, file:gp.file, dur:dur, kicker:'BATUQUE CUT', bpm:128, cut:true, edition:(S.edition||12) });
+    var b = document.createElement('button');
+    b.className = 'card batucard'; b.id = 'card-w'+k;
+    b.innerHTML =
+      '<span class="num"><span>BATUQUE — CUT '+(gp.sec+1<10?'0':'')+(gp.sec+1)+'/08</span><b>GREEN VINYL</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">BATUQUE</span></div>'+
+      '<div class="cover"><img src="'+gp.art+'" alt="'+name+' drawing"></div>'+
+      '<span class="pchip" id="chip-w'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+gp.desc+'</p>'+
+      '<div class="row"><b>128 BPM</b><span>FROM BATUQUE</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===gp.gi && !audio.paused) ? pause() : playTrack(gp.gi); });
+    cardsW.push(b);
+  });
+  var _sc3 = syncCards;
+  syncCards = function(){ _sc3(); WPICKS.forEach(function(gp,k){ var c=document.getElementById('card-w'+k), ch=document.getElementById('chip-w'+k); if(c){var on=(cur===gp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
+}
+
 /* ---- FIEBRE: el single, tarjeta roja primero ---- */
 if(window.AMR_FIEBRE){
   var FS = window.AMR_FIEBRE;
@@ -2061,13 +2124,14 @@ if(window.AMR_IMAN){
   audio.addEventListener('pause', function(){ var c=document.getElementById('card-i0'), ch=document.getElementById('chip-i0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
 }
 /* mixeadas: naranja, azul, jade, violeta, turquesa, oro — todas intercaladas */
-for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length, cardsT.length, cardsG.length); mi++){
+for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length, cardsT.length, cardsG.length, cardsW.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
   if(cardsJ[mi]) grid.appendChild(cardsJ[mi]);
   if(cardsV[mi]) grid.appendChild(cardsV[mi]);
   if(cardsT[mi]) grid.appendChild(cardsT[mi]);
   if(cardsG[mi]) grid.appendChild(cardsG[mi]);
+  if(cardsW[mi]) grid.appendChild(cardsW[mi]);
 }
 
 /* ---- los dos vinilos (después de la mixer) ---- */
@@ -2095,7 +2159,11 @@ VINYLS.forEach(function(p,j){
   var isJacaFeat = (p.id === 'amr-jacaranda');
   var isColiFeat = (p.id === 'amr-colibri');
   var isPlayaFeat = (p.id === 'amr-playa');
-  if(isPlayaFeat){
+  var isBatuqueFeat = (p.id === 'amr-batuque');
+  if(isBatuqueFeat){
+    document.getElementById('nrDisc8').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta8').innerHTML = statsHTML + actHTML + infoHTML;
+  } else if(isPlayaFeat){
     document.getElementById('nrDisc7').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta7').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isColiFeat){

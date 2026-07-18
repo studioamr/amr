@@ -14,4 +14,7 @@ _cantera_tmp/
 _colibri_tmp/
 _tambor_tmp/
 _playa_tmp/
+_batuque_tmp/
+_batuque_build.log
+_test_batuque.wav
 _test_*.wav
