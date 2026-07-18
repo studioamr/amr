@@ -1,1 +1,0 @@
-window.AMR_FIEBRE={"id": "amr-fiebre", "title": "FIEBRE", "kicker": "THE SINGLE", "dur": 297.2, "file": "audio/amr-fiebre.m4a", "art": "art/fiebre.svg", "edition": 20, "bpm": 126, "key": "A MIN"};
