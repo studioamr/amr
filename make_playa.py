@@ -31,7 +31,7 @@ SECTIONS = [
       chords=[[45,52,57,60],[45,52,57,60],[41,48,53,57],[43,50,55,59]],
       riff=[(0,33,1,1.0),(3,33,1,.6),(6,36,1,.8),(8,33,2,.9),(14,31,1,.6),(16,33,1,1.0),(19,33,1,.6),(22,40,1,.75),(24,38,2,.85),(30,36,1,.6)],
       stab=[57,60,64]),
- dict(name='CARAVANA', energy=0.8, shape='peak', bars=112, lead='wah',
+ dict(name='CARAVANA', energy=0.8, shape='peak', bars=112, lead='clav',
       chords=[[45,52,57,60],[43,50,55,59],[45,52,57,60],[48,52,55,60]],   # Am G Am C
       riff=[(0,33,2,1.0),(6,45,1,.7),(8,33,1,.85),(10,36,1,.7),(12,38,2,.9),(16,33,2,1.0),(22,45,1,.7),(24,43,1,.8),(26,40,1,.7),(28,38,2,.85)],
       stab=[60,64,67]),
@@ -39,11 +39,11 @@ SECTIONS = [
       chords=[[41,48,53,57],[43,50,55,59],[45,52,57,60],[45,52,57,60]],   # F G Am Am
       riff=[(0,29,2,1.0),(6,29,1,.6),(8,41,1,.7),(12,31,2,.9),(16,33,2,1.0),(22,33,1,.6),(24,45,1,.7),(28,43,1,.75)],
       stab=[57,60,65]),
- dict(name='AMANECER', energy=0.4, shape='valley', bars=88, lead='wah',
+ dict(name='AMANECER', energy=0.4, shape='valley', bars=88, lead='clav',
       chords=[[45,52,57,60],[41,48,53,57],[48,52,55,60],[43,50,55,59]],   # Am F C G — el amanecer
       riff=[(0,33,3,.9),(8,33,2,.7),(16,29,3,.85),(24,31,2,.7)],
       stab=[57,60,64]),
- dict(name='FUEGO', energy=0.96, shape='peak', bars=128, lead='wah',
+ dict(name='FUEGO', energy=0.96, shape='peak', bars=128, lead='clav',
       chords=[[45,52,57,60],[43,50,55,59],[41,48,53,57],[43,50,55,59]],
       riff=[(0,33,1,1.0),(2,33,1,.6),(4,36,1,.85),(6,33,1,.6),(8,38,2,.95),(12,36,1,.7),(16,33,1,1.0),(18,33,1,.6),(20,40,1,.85),(24,43,2,.9),(28,45,1,.7),(30,43,1,.6)],
       stab=[60,64,69]),
@@ -273,11 +273,14 @@ def build(only=None):
         x = ffdecode(f)
         if k > 0: x[:, :xf] *= (np.linspace(0, 1, xf) ** 0.5).astype(np.float32)[None, :]
         a = min(total - pos, x.shape[1]); out[:, pos:pos + a] += x[:, :a]; pos += s['bars'] * SPB; del x
+    # afeitado pre-master (soft-clip) para domar transientes picudos de funk → TP controlado
+    out = np.stack([sat(out[0] * 1.5, 2.0, 0.04), sat(out[1] * 1.5, 2.0, 0.04)])
+    out *= 0.72 / max(1e-9, float(np.abs(out).max()))
     raw = os.path.join(TMP, 'playa-raw.wav'); wav_write(raw, out); del out
-    print('  … master -9.0 LUFS', flush=True)
+    print('  … afeitado + master -10.0 LUFS', flush=True)
     os.makedirs(os.path.join(HERE, 'masters'), exist_ok=True)
     final = os.path.join(HERE, 'masters', 'amr-playa.wav')
-    hist = master_file(raw, final, target_i=-9.0, ceiling_db=-1.2)
+    hist = master_file(raw, final, target_i=-10.0, ceiling_db=-1.5)
     I, lra, tp = ffmeter(final)
     print(f'MASTER: {hist} → {I} LUFS · LRA {lra} · TP {tp}'); print(final)
 

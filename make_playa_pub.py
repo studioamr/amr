@@ -54,7 +54,7 @@ if __name__ == '__main__':
         pre = os.path.join(TMP, f'pre-{s["name"].lower()}.wav')
         wav_write(pre, x); del x
         mst = os.path.join(TMP, f'cut-{s["name"].lower()}.wav')
-        hist = master_file(pre, mst, target_i=-10.0, ceiling_db=-2.2)
+        hist = master_file(pre, mst, target_i=-10.0, ceiling_db=-3.8)
         dst = os.path.join(HERE, 'audio', f'amr-playa-cut-{s["name"].lower()}.m4a')
         enc(mst, dst)
         os.remove(mst); os.remove(pre)
