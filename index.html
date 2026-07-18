@@ -548,6 +548,11 @@ body.hasplayer{padding-bottom:70px}
 .card.firecard::after{background:#D1342F}
 .card.firecard .pchip{border-color:#D1342F;color:#D1342F}
 .card.firecard.playing .pchip{background:#D1342F;color:var(--bone)}
+.card.magcard .num b{color:#1FB6BA}
+.card.magcard .vinyl::after{background:#1FB6BA}
+.card.magcard::after{background:#1FB6BA}
+.card.magcard .pchip{border-color:#1FB6BA;color:#1FB6BA}
+.card.magcard.playing .pchip{background:#1FB6BA;color:var(--bone)}
 .card.violetcard .num b{color:#6E5BAE}
 .card.violetcard .vinyl::after{background:#6E5BAE}
 .card.violetcard::after{background:#6E5BAE}
@@ -659,7 +664,7 @@ body.hasplayer{padding-bottom:70px}
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> Studio AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#colibri">▸ New release — COLIBRÍ</a>
+      <a class="btn solid" href="#records">▸ New single — IMÁN</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -876,7 +881,8 @@ body.hasplayer{padding-bottom:70px}
 <script src="colibri.js?v=202607171010"></script>
 <script src="playa.js?v=202607180200"></script>
 <script src="fiebre.js?v=202607170920"></script>
-<script src="waveforms.js?v=202607180500"></script>
+<script src="iman.js?v=202607180600"></script>
+<script src="waveforms.js?v=202607180700"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -999,7 +1005,8 @@ if(window.AMR_TUL){
     {v:window.AMR_JACARANDA, c:'#6E5BAE', lc:'#9D8BD6'},
     {v:window.AMR_COLIBRI,   c:'#12B3AE', lc:'#6FE0D8'},
     {v:window.AMR_PLAYA,     c:'#D9A13B', lc:'#F0C97A'},
-    {v:window.AMR_FIEBRE,    c:'#D1342F', lc:'#E8635F'}
+    {v:window.AMR_FIEBRE,    c:'#D1342F', lc:'#E8635F'},
+    {v:window.AMR_IMAN,      c:'#1FB6BA', lc:'#6FE0E4'}
   ].filter(function(r){ return !!r.v; });
   /* --- MIXING ARMÓNICO: tonalidad → rueda de Camelot --- */
   var CAMELOT={'A MIN':'8A','A MAJ':'11B','C MAJ':'8B','E MIN':'9A','D MIN':'7A','G MAJ':'9B','F MAJ':'7B','B MIN':'10A','G MIN':'6A','E MAJ':'12B','D MAJ':'10B','F MIN':'4A'};
@@ -2034,6 +2041,24 @@ if(window.AMR_FIEBRE){
   grid.appendChild(fb);
   audio.addEventListener('play', function(){ var c=document.getElementById('card-f0'), ch=document.getElementById('chip-f0'); if(c){var on=(cur===fgi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'\u25b8 PLAY';} });
   audio.addEventListener('pause', function(){ var c=document.getElementById('card-f0'), ch=document.getElementById('chip-f0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
+}
+/* ---- IM\u00c1N: single techno-electro, tarjeta cian ---- */
+if(window.AMR_IMAN){
+  var IS = window.AMR_IMAN;
+  var igi = T.length; T.push({ title:IS.title, file:IS.file, dur:IS.dur, kicker:'THE SINGLE \u00b7 VOLKODER', bpm:IS.bpm, cut:true, edition:IS.edition });
+  var ib = document.createElement('button');
+  ib.className = 'card magcard'; ib.id = 'card-i0';
+  ib.innerHTML =
+    '<span class="num"><span>AMR SINGLE 002 \u2014 IM\u00c1N</span><b>CHROME 7\u2033</b></span>'+
+    '<div class="sleeve"><div class="vinyl"><span class="lbl">IM\u00c1N</span></div>'+
+    '<div class="cover"><img src="'+IS.art+'" alt="IM\u00c1N artwork"></div>'+
+    '<span class="pchip" id="chip-i0">\u25b8 PLAY</span></div>'+
+    '<h3>IM\u00c1N</h3><p class="desc">Techno-electro in the spirit of Volkoder\u2019s \u201cShe Kisses\u201d \u2014 a throbbing bassline that runs the whole thing, cosmic synths that slice through, club drums and sci-fi zaps. Cold, magnetic, built to pull the floor.</p>'+
+    '<div class="row"><b>126 BPM</b><span>THE SINGLE \u00b7 A MIN</span><b>'+fmt(IS.dur)+'</b></div>';
+  ib.addEventListener('click', function(){ (cur===igi && !audio.paused) ? pause() : playTrack(igi); });
+  grid.appendChild(ib);
+  audio.addEventListener('play', function(){ var c=document.getElementById('card-i0'), ch=document.getElementById('chip-i0'); if(c){var on=(cur===igi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'\u25b8 PLAY';} });
+  audio.addEventListener('pause', function(){ var c=document.getElementById('card-i0'), ch=document.getElementById('chip-i0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
 }
 /* mixeadas: naranja, azul, jade, violeta, turquesa, oro — todas intercaladas */
 for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length, cardsT.length, cardsG.length); mi++){

@@ -1,0 +1,18 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs><radialGradient id="gim" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#2FE0E4" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#2FE0E4" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#2FE0E4" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="120" r="56" fill="url(#gim)"/>
+  <!-- herradura de imán -->
+  <path d="M88 158 L88 108 A32 32 0 0 1 152 108 L152 158" fill="none" stroke="#2FE0E4" stroke-width="12" stroke-linecap="butt"/>
+  <rect x="80" y="158" width="18" height="20" rx="2" fill="#E8E6E0"/>
+  <rect x="142" y="158" width="18" height="20" rx="2" fill="#141210"/>
+  <!-- líneas de campo / atracción -->
+  <path d="M74 92 Q120 64 166 92" fill="none" stroke="#8FF3F6" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <path d="M66 108 Q120 74 174 108" fill="none" stroke="#8FF3F6" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+  <circle cx="120" cy="70" r="4" fill="#8FF3F6"/>
+  <circle cx="96" cy="82" r="2.4" fill="#141210"/><circle cx="146" cy="80" r="2.6" fill="#141210"/>
+  <rect x="46" y="192" width="148" height="5" rx="2.5" fill="#141210"/>
+</svg>
