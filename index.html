@@ -6,7 +6,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio AMR">
 <meta property="og:title" content="Studio AMR — Seven records, cut like monuments">
-<meta property="og:description" content="Six records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA and PLAYA — synthesized from raw waveforms, pressed to hand-numbered vinyl. Morelia, MX.">
+<meta property="og:description" content="Seven records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA, PLAYA and ORÁCULO — synthesized from raw waveforms, pressed to hand-numbered vinyl. Morelia, MX.">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23141210"/><circle cx="16" cy="16" r="5.5" fill="%23C96F2B"/><circle cx="16" cy="16" r="1.8" fill="%23EAE6DF"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
 <style>
@@ -573,6 +573,21 @@ body.hasplayer{padding-bottom:70px}
 .card.ficcard::after{background:#4A50D0}
 .card.ficcard .pchip{border-color:#4A50D0;color:#4A50D0}
 .card.ficcard.playing .pchip{background:#4A50D0;color:var(--bone)}
+.card.corcard .num b{color:#C41F45}
+.card.corcard .vinyl::after{background:#C41F45}
+.card.corcard::after{background:#C41F45}
+.card.corcard .pchip{border-color:#C41F45;color:#C41F45}
+.card.corcard.playing .pchip{background:#C41F45;color:var(--bone)}
+.nr.crimson{background:linear-gradient(160deg,#1a0a0f 0%,#2a0f18 55%,#160810 100%)}
+.nr.crimson .nrlive i{background:#FF7D9C;box-shadow:0 0 0 4px rgba(255,125,156,.25)}
+.nr.crimson .nrsub b{color:#FF7D9C}
+.nr.crimson .vlabel{background:radial-gradient(circle at 42% 38%,#FF7D9C,#E0335A);box-shadow:0 0 0 5px #6E1728}
+.nr.crimson .vdisc::before{border-color:rgba(255,125,156,.4)}
+.nr.crimson .nrrings span{border-color:rgba(255,125,156,.16)}
+.nr.crimson .vstats b,.nr.crimson .vinfo-lbl b,.nr.crimson .vtracks li b{color:#FF7D9C}
+.nr.crimson .vtracks li.on{color:#EAE6DF}
+.nr.crimson .vbuy:hover{border-color:#FF7D9C;color:#FF7D9C}
+.nr.crimson .vgo.on{background:#E0335A}
 .card.violetcard .num b{color:#6E5BAE}
 .card.violetcard .vinyl::after{background:#6E5BAE}
 .card.violetcard::after{background:#6E5BAE}
@@ -684,7 +699,7 @@ body.hasplayer{padding-bottom:70px}
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> Studio AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#records">▸ New single — FICCIÓN</a>
+      <a class="btn solid" href="#oraculo">▸ New record — ORÁCULO</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -704,6 +719,19 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
+<!-- ORÁCULO (melodic techno sci-fi, estilo Anyma) -->
+<section class="nr crimson hpanel" id="oraculo">
+  <div class="nrin">
+    <div class="nrleft">
+      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
+      <h2 class="nrtitle">ORÁCULO</h2>
+      <p class="nrsub">Cinematic <b>melodic techno</b> in the spirit of Anyma / Afterlife — a sci-fi journey from an ambient <b>beatless intro</b> to euphoric peaks. Eight movements where the <b>tempo climbs 122→126 BPM</b>, minor keys <b>lift to the relative major</b> at the drops, a <b>gated supersaw lead</b> and an ethereal machine-muse voice ride huge reverb, and every drop arrives through a stripped breakdown and a riser. The heart in the machine. Cut to crimson vinyl, numbered by hand.</p>
+      <div id="nrMeta8"></div>
+    </div>
+    <div class="nrdisc" id="nrDisc8"></div>
+  </div>
+</section>
+
 <!-- PLAYA (desert funk dorado) -->
 <section class="nr oro hpanel" id="playa">
   <div class="nrin">
@@ -774,7 +802,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="records">
   <div class="sh">
     <div><span class="hk">THE BEST — SIX RECORDS, SIDE BY SIDE</span><h2>Our best tracks.</h2></div>
-    <p>The favourite cuts from every record: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade, JACARANDA in violet and PLAYA in gold. Hit play on any of them.</p>
+    <p>The favourite cuts from every record: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade, JACARANDA in violet, PLAYA in gold and ORÁCULO in crimson. Hit play on any of them.</p>
   </div>
   <div class="grid" id="recordGrid"></div>
 </section>
@@ -813,7 +841,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, blue, jade, violet, turquoise.</h2></div>
-    <p>The collection, six records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet and PLAYA on gold. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
+    <p>The collection, seven records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet, PLAYA on gold and ORÁCULO on crimson. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -822,7 +850,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec about" id="about">
   <span class="hk">WHO IS STUDIO AMR</span>
   <p class="lede">Studio AMR is the workshop of <i>André Macouzet Ruiz</i> — AMR, his initials — a builder from Morelia who treats every release like architecture.</p>
-  <p>Six records so far: an EP pressed from pure waveforms, three continuous sets, JACARANDA the hypnotic one and PLAYA the desert-funk one — plus three singles: FIEBRE, IMÁN and FICCIÓN. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
+  <p>Seven records so far: an EP pressed from pure waveforms, continuous sets from DELIRIO to PLAYA, and ORÁCULO — melodic techno sci-fi on crimson, out now — plus three singles: FIEBRE, IMÁN and FICCIÓN. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
 </section>
 
 <!-- CTA -->
@@ -889,7 +917,8 @@ body.hasplayer{padding-bottom:70px}
 <script src="fiebre.js?v=202607170920"></script>
 <script src="iman.js?v=202607180600"></script>
 <script src="ficcion.js?v=202607181400"></script>
-<script src="waveforms.js?v=202607181600"></script>
+<script src="oraculo.js?v=202607181700"></script>
+<script src="waveforms.js?v=202607181700"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -902,6 +931,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
+    'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
     'amr-jacaranda':{img:'art/shots/shot-jacaranda.jpg', kick:'VIOLET BLOOM · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the hypnotic one. Ten movements at 120 BPM under the jacaranda in bloom: organic percussion where no two hits are the same, supersaw pads voiced left and right the way the JP-8000 did it, a kalimba raining like petals. Energy moves in seasons — the shade is on purpose. 41 minutes, 0 to 100.'}
   };
   var current = null;
@@ -929,7 +959,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_PLAYA].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_PLAYA, window.AMR_ORACULO].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -987,7 +1017,7 @@ function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 
 /* ---- marquee ---- */
 var MQCAT = ['AMR-01 MONUMENTS \u00b7 AMBER', 'AMR-02 SESI\u00d3N 001 \u00b7 WINE', 'AMR-03 DELIRIO \u00b7 BLUE',
-             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-07 PLAYA \u00b7 GOLD'];
+             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-07 PLAYA \u00b7 GOLD', 'AMR-08 ORÁCULO · CRIMSON'];
 var mq = MQCAT.map(function(t){ return '<span>'+t+'</span>'; }).join('')
        + '<span>SEVEN RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
@@ -1012,7 +1042,8 @@ if(window.AMR_TUL){
     {v:window.AMR_PLAYA,     c:'#D9A13B', lc:'#F0C97A'},
     {v:window.AMR_FIEBRE,    c:'#D1342F', lc:'#E8635F'},
     {v:window.AMR_IMAN,      c:'#1FB6BA', lc:'#6FE0E4'},
-    {v:window.AMR_FICCION,   c:'#4A50D0', lc:'#A9AEFB'}
+    {v:window.AMR_FICCION,   c:'#4A50D0', lc:'#A9AEFB'},
+    {v:window.AMR_ORACULO,   c:'#E0335A', lc:'#FF7D9C'}
   ].filter(function(r){ return !!r.v; });
   /* --- MIXING ARMÓNICO: tonalidad → rueda de Camelot --- */
   var CAMELOT={'A MIN':'8A','A MAJ':'11B','C MAJ':'8B','E MIN':'9A','D MIN':'7A','G MAJ':'9B','F MAJ':'7B','B MIN':'10A','G MIN':'6A','E MAJ':'12B','D MAJ':'10B','F MIN':'4A'};
@@ -1994,6 +2025,37 @@ if(window.AMR_PLAYA){
 var cardsW = [];
 
 /* ---- FIEBRE: el single, tarjeta roja primero ---- */
+/* ---- cortes de ORÁCULO en LO MEJOR (dibujos crimson) ---- */
+var RPICKS = [
+  {sec:2, file:'audio/amr-oraculo-cut-musa.m4a',     art:'art/oraculo-musa.svg',     bpm:123, desc:'The muse sings — the machine-voice enters over the emotional lead, huge reverb.'},
+  {sec:3, file:'audio/amr-oraculo-cut-descenso.m4a', art:'art/oraculo-descenso.svg', bpm:124, desc:'Deep drive — into the machine, hypnotic and dark, FM stabs forward.'},
+  {sec:4, file:'audio/amr-oraculo-cut-vacio.m4a',    art:'art/oraculo-vacio.svg',    bpm:125, desc:'The void — kill the kick, pads and a lone voice, then the euphoric drop in the major.'},
+  {sec:5, file:'audio/amr-oraculo-cut-himno.m4a',    art:'art/oraculo-himno.svg',    bpm:126, desc:'The anthem — full peak, the gated supersaw and the muse at max.'},
+  {sec:6, file:'audio/amr-oraculo-cut-corazon.m4a',  art:'art/oraculo-corazon.svg',  bpm:126, desc:'The heart — the climax, the key lifts to major, the heart in the machine.'}
+];
+var cardsR = [];
+if(window.AMR_ORACULO){
+  RPICKS.forEach(function(rp,k){
+    var S = window.AMR_ORACULO, name = S.titles[rp.sec];
+    var end = (rp.sec+1 < S.offsets.length) ? S.offsets[rp.sec+1] : S.dur;
+    var dur = end - S.offsets[rp.sec];
+    rp.gi = T.length; T.push({ title:name, file:rp.file, dur:dur, kicker:'ORÁCULO CUT', bpm:rp.bpm, cut:true, edition:(S.edition||12) });
+    var b = document.createElement('button');
+    b.className = 'card corcard'; b.id = 'card-r'+k;
+    b.innerHTML =
+      '<span class="num"><span>ORÁCULO — CUT '+(rp.sec+1<10?'0':'')+(rp.sec+1)+'/08</span><b>CRIMSON VINYL</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">ORÁCULO</span></div>'+
+      '<div class="cover"><img src="'+rp.art+'" alt="'+name+' drawing"></div>'+
+      '<span class="pchip" id="chip-r'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+rp.desc+'</p>'+
+      '<div class="row"><b>'+rp.bpm+' BPM</b><span>FROM ORÁCULO</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===rp.gi && !audio.paused) ? pause() : playTrack(rp.gi); });
+    cardsR.push(b);
+  });
+  var _scR = syncCards;
+  syncCards = function(){ _scR(); RPICKS.forEach(function(rp,k){ var c=document.getElementById('card-r'+k), ch=document.getElementById('chip-r'+k); if(c){var on=(cur===rp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
+}
+
 if(window.AMR_FIEBRE){
   var FS = window.AMR_FIEBRE;
   var fgi = T.length; T.push({ title:FS.title, file:FS.file, dur:FS.dur, kicker:'THE SINGLE', bpm:FS.bpm, cut:true, edition:FS.edition });
@@ -2048,7 +2110,7 @@ if(window.AMR_FICCION){
   audio.addEventListener('pause', function(){ var c=document.getElementById('card-x0'), ch=document.getElementById('chip-x0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
 }
 /* mixeadas: naranja, azul, jade, violeta, turquesa, oro — todas intercaladas */
-for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length, cardsT.length, cardsG.length, cardsW.length); mi++){
+for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
   if(cardsJ[mi]) grid.appendChild(cardsJ[mi]);
@@ -2056,6 +2118,7 @@ for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cards
   if(cardsT[mi]) grid.appendChild(cardsT[mi]);
   if(cardsG[mi]) grid.appendChild(cardsG[mi]);
   if(cardsW[mi]) grid.appendChild(cardsW[mi]);
+  if(cardsR[mi]) grid.appendChild(cardsR[mi]);
 }
 
 /* ---- los dos vinilos (después de la mixer) ---- */
@@ -2082,7 +2145,11 @@ VINYLS.forEach(function(p,j){
   var isGuerFeat = (p.id === 'amr-guerrero');
   var isJacaFeat = (p.id === 'amr-jacaranda');
   var isPlayaFeat = (p.id === 'amr-playa');
-  if(isPlayaFeat){
+  var isOracFeat = (p.id === 'amr-oraculo');
+  if(isOracFeat){
+    document.getElementById('nrDisc8').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta8').innerHTML = statsHTML + actHTML + infoHTML;
+  } else if(isPlayaFeat){
     document.getElementById('nrDisc7').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta7').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isJacaFeat){
