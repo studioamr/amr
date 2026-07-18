@@ -1,0 +1,59 @@
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="afsun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#C9D6E3" stop-opacity="0.85"/>
+      <stop offset="45%" stop-color="#5B7794" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#5B7794" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="afhaze" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#5B7794" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#5B7794" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- bruma de fondo -->
+  <circle cx="120" cy="118" r="96" fill="url(#afhaze)"/>
+
+  <!-- la órbita: elipse real, el sol en UNO de los focos (no en el centro) -->
+  <ellipse cx="120" cy="118" rx="78" ry="44" fill="none" stroke="#5B7794" stroke-width="2.4"/>
+  <ellipse cx="120" cy="118" rx="78" ry="44" fill="none" stroke="#C9D6E3" stroke-width="0.7" opacity="0.55"/>
+
+  <!-- eje mayor, punteado: del perihelio al afelio -->
+  <line x1="42" y1="118" x2="198" y2="118" stroke="#5B7794" stroke-width="1"
+        stroke-dasharray="3 5" opacity="0.8"/>
+
+  <!-- marcas de tiempo sobre la órbita (más juntas cerca del sol: 2ª ley de Kepler) -->
+  <g stroke="#C9D6E3" stroke-width="1.4" opacity="0.75" stroke-linecap="round">
+    <line x1="55.6" y1="74.5" x2="55.6" y2="80.5"/>
+    <line x1="78"   y1="76"   x2="78"   y2="82"/>
+    <line x1="100"  y1="74.6" x2="100"  y2="80.6"/>
+    <line x1="140"  y1="74.6" x2="140"  y2="80.6"/>
+    <line x1="168"  y1="83"   x2="168"  y2="89"/>
+    <line x1="184"  y1="93"   x2="184"  y2="99"/>
+  </g>
+
+  <!-- EL SOL, en el foco izquierdo -->
+  <circle cx="55.6" cy="118" r="30" fill="url(#afsun)"/>
+  <circle cx="55.6" cy="118" r="7.5" fill="#C9D6E3"/>
+  <circle cx="55.6" cy="118" r="7.5" fill="none" stroke="#141210" stroke-width="1.6"/>
+
+  <!-- EL AFELIO: el punto más lejano. El cuerpo, marcado. -->
+  <circle cx="198" cy="118" r="14" fill="none" stroke="#C9D6E3" stroke-width="0.9" opacity="0.6"/>
+  <circle cx="198" cy="118" r="5.4" fill="#2B3A4A" stroke="#C9D6E3" stroke-width="2"/>
+  <g stroke="#C9D6E3" stroke-width="1.2" stroke-linecap="round" opacity="0.9">
+    <line x1="198" y1="96"  x2="198" y2="103"/>
+    <line x1="198" y1="133" x2="198" y2="140"/>
+    <line x1="215" y1="118" x2="222" y2="118"/>
+  </g>
+
+  <!-- radio vector sol -> afelio, la distancia máxima -->
+  <line x1="63" y1="118" x2="192" y2="118" stroke="#C9D6E3" stroke-width="1.8" opacity="0.5"/>
+
+  <!-- pie: la barra editorial que llevan todas las portadas -->
+  <rect x="46" y="192" width="148" height="5" rx="2.5" fill="#141210"/>
+  <g fill="#5B7794">
+    <rect x="46" y="204" width="34" height="3" rx="1.5"/>
+    <rect x="86" y="204" width="20" height="3" rx="1.5"/>
+    <rect x="112" y="204" width="46" height="3" rx="1.5"/>
+  </g>
+</svg>
