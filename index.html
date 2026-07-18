@@ -1792,6 +1792,26 @@ if(window.AMR_TUL){
       lcddot.classList.toggle('on', ph < 0.12);
     } else lcddot.classList.remove('on');
   }
+  // ---- SET PRECARGADO (André): DELIRIO en SINCRONIA (deck 0, lado A) + GUERRERO (deck 2, lado B) ----
+  (function preloadSet(){
+    var iDeli=-1, iGuer=-1;
+    RECS.forEach(function(r,k){ if(r&&r.v){ if(r.v.id==='amr-tulum') iDeli=k; if(r.v.id==='amr-guerrero') iGuer=k; } });
+    if(iDeli<0 || iGuer<0 || !DECKS[0] || !DECKS[2]) return;
+    load(DECKS[0], RECS[iDeli]);                 // DELIRIO en el deck 0 (lado A)
+    load(DECKS[2], RECS[iGuer]);                 // GUERRERO en el deck 2 (lado B)
+    try{ DECKS[0].au.preload='metadata'; DECKS[2].au.preload='metadata'; }catch(e){}
+    var s0=document.getElementById('rola0'); if(s0) s0.value=iDeli;
+    var s2=document.getElementById('rola2'); if(s2) s2.value=iGuer;
+    masterDeck=0;
+    // cue DELIRIO en SINCRONIA (el pico) — arranca ahí
+    var tt=titlesOf(DECKS[0].rec), si=tt.indexOf('SINCRONIA'); if(si<0) si=9;
+    var sinc=(offsetsOf(DECKS[0].rec)[si])||3752.8;
+    var d0=DECKS[0]; d0.cuePt=sinc;
+    var setCue=function(){ try{ d0.au.currentTime=sinc; }catch(e){} };
+    if(d0.au.readyState>=1) setCue(); else d0.au.addEventListener('loadedmetadata', setCue, {once:true});
+    setXF(-1);                                    // crossfader hacia DELIRIO
+    paintSync();
+  })();
   draw();
 })();
 
