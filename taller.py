@@ -40,6 +40,7 @@ import imageio_ffmpeg
 from dream_core import SR, wav_write, sat, widen, sub_mono, lp, hp, bp
 import kit as K
 import af_voices as A
+import instrumentos as I
 from af_voices import midi_f, deg, MIN
 from groove import Groove
 
@@ -74,10 +75,17 @@ OPCIONES = {
    'suspenso':'i-iv-VII-III — más movimiento armónico.',
    'drone':   'Dos acordes nada más, 4 compases cada uno. Lo más hipnótico.'},
  'gancho': {
-   'marimba': 'Pluck de madera, corto y percusivo. Lo más orgánico.',
-   'gated':   'Supersaw con gate a 18 Hz. La firma melodic techno.',
-   'stab':    'Stab FM metálico en los huecos. Puntual, agresivo.',
-   'piano':   'Acordes de piano tenues. Lo más cálido.'},
+   # ⛔ Se acabaron los sintetizadores. Todo esto son GRABACIONES de instrumentos
+   #    reales (VCSL, CC0). André: "cuando te digo videojuego justo a eso me
+   #    refiero, esos que tú haces — elimínalos por completo".
+   'kalimba':  'Kalimba de Tanzania. Metálica, seca, muy africana.',
+   'mbira':    'Mbira de Kenia. Prima de la kalimba, más grave y con más cuerpo.',
+   'balafon':  'Balafón — xilófono africano de calabazas. Madera con zumbido.',
+   'marimba':  'Marimba. Madera cálida y redonda, el clásico del afro house.',
+   'vibrafono':'Vibráfono. Metal con sostén largo, jazzero y flotante.',
+   'piano':    'Piano de verdad, grabado. Cuerda percutida.',
+   'arpa':     'Arpa. Pulsada, cristalina, el más suave de todos.',
+   'campana':  'Campanas y crotales. Puntual, brillante, ceremonial.'},
  'melodia': {
    'llamada': 'Sube y se queda en el aire. Deja la pregunta abierta.',
    'caida':   'Baja y aterriza en la tónica. La más resuelta.',
@@ -259,22 +267,17 @@ def bloque(dec, bars=8, seed=7, abre=1.0):
         #      La frase dura 2 compases y se repite — así se vuelve el gancho.
         gm = e.get('gancho','marimba')
         mel = MELODIAS[e.get('melodia','arco')]
-        if gm=='piano':
-            # el piano hace el colchón armónico y además dobla la melodía
-            if bar%2==0:
-                add(B['gancho'], base, A.pad([m+12 for m in c['tri']], 2*SPB/SR, rng, 1500), 0.55)
+        if bar%2==0:      # colchón armónico, tocado por el MISMO instrumento real
+            add(B['pad'], base, I.acorde(gm, [m+12 for m in c['tri']], 2*SPB/SR*0.9, rng), 0.42)
         for (mb, st16, ln, grado) in mel:
             if bar % 2 != mb: continue
             nt = ROOT + 12 + MIN[grado % 7] + 12*(grado // 7)
             dur = ln * S16 / SR
-            if   gm=='marimba': v = A.arp(midi_f(nt), dur, rng, decay=0.16)
-            elif gm=='gated':   v = A.lead(midi_f(nt), dur, rng, 18.0, 1800)
-            elif gm=='stab':    v = A.fmstab(midi_f(nt+12), min(dur,0.34), rng)
-            else:               v = A.arp(midi_f(nt), dur, rng, decay=0.5, sustain=0.6)
+            # GRABACIÓN de instrumento real. Sin sierras, sin FM, sin supersaw.
+            v = I.nota(gm, nt, dur, rng)
             add(B['gancho'], g.pos(base, st16, bar), v, 0.9)
         # ---- PAD de fondo, siempre (es el colchón)
-        if bar%2==0:
-            add(B['pad'], base, A.pad(c['tri'], 2*SPB/SR*1.02, rng, 1200), 0.5)
+        pass   # el colchón ya lo pone el instrumento real, arriba
 
         # ---- VOZ
         vm = e.get('voz','ninguna')
