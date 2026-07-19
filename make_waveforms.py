@@ -19,7 +19,6 @@ DISCS = [
     'audio/amr-guerrero.m4a',
     'audio/amr-jacaranda.m4a',
     'audio/amr-afelio.m4a',      # faltaba: la mixer le dibujaba una onda aproximada
-    'audio/amr-ofrenda.m4a',
 ]
 
 def decode_mono(path):

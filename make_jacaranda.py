@@ -1,245 +1,269 @@
 #!/usr/bin/env python3
-"""JACARANDA — set melodic techno cinemático (124 BPM, La menor) con BATERÍA REAL.
+"""JACARANDA — 7 rolas generadas en Gemini, masterizadas parejas y mezcladas en set.
 
-La diferencia con todo lo anterior: kick, clap, hats, percusión, crashes y FX
-NO son sintetizados — son samples de hardware real (TR-909/808/707, DR5, RX5,
-CC0 dominio público) vía kit.py, con variación por golpe (micro-pitch+amplitud)
-para que no suene a copy-paste. Solo lo melódico se sintetiza (mt_voices.py).
+QUÉ HACE ESTE ARCHIVO Y QUÉ NO
+  No sintetiza nada. El material viene de Gemini y ya está mezclado; aquí se hace
+  lo que sí se puede hacer bien con medición: emparejar, corregir, alinear y
+  mezclar. Es el trabajo de mastering e ingeniería de un DJ mix, no de producción.
 
-8 movimientos con el arco Anyma/Afterlife, contados como la FLORACIÓN de una
-jacaranda (la narrativa que André tenía en el set JACARANDA): semilla (ambiental
-SIN kick) → brote (sube) → rama → sombra (motor hipnótico) → flor (breakdown +
-drop en MAYOR: el árbol abre) → abril (cumbre de la temporada) → pétalos (clímax,
-la lluvia violeta) → primavera (comedown). Bajo LIMPIO, dinámica ANCHA.
-Uso: python3 make_jacaranda.py RAMA (una sección) | sin args = set completo."""
-import os, sys
+LAS TRES CORRECCIONES QUE SE APLICAN
+  1. TEMPO. Todas midieron 119.78–119.97 BPM: son 120.000 con ruido de medición.
+     Se estira cada una a 120.000 exacto (atempo, 0.06 % — inaudible) para que el
+     compás valga 2.000 s = 88200 muestras justas y la rejilla no se despegue en
+     los 20 minutos de set.
+  2. FASE. Ninguna empieza en el 1. Se recorta la cabeza al primer compás medido
+     por rejilla.py, si no los cruces caen a contratiempo.
+  3. TONO. Murmuration reprobó el juez: centroide 1349 Hz (mínimo 1443) e
+     inclinación −9.4 dB/oct (piso −8.0). Está sorda de arriba. Se le pone una
+     repisa de agudos calculada para meterla al rango, y se vuelve a juzgar.
+
+LA MEZCLA
+  Cruces de 8 compases (16 s) con dos cosas pasando a la vez:
+    · ganancia equal-power (sin/cos) — mantiene volumen constante, no hace hueco
+    · intercambio de EQ — la que sale se va filtrando de graves hacia arriba
+      mientras la que entra abre desde graves. Dos bombos y dos bajos sonando
+      juntos se cancelan y embarran; separarlos por banda es lo que hace un DJ
+      con los tres perillas del mixer.
+"""
+import os, json, subprocess, wave
 import numpy as np
-from dream_core import (SR, lp, hp, bp, sat, widen, sub_mono, pingpong,
-                        master_file, ffmeter, wav_write, spectrum_pct, ffdecode)
-import kit as K
-import mt_voices as V
-from mt_voices import midi_f, deg, MIN, MAJ
+from dream_core import (SR, FF, ffdecode, wav_write, ffmeter, lp, hp,
+                        master_file, fir_from_gain, fconv)
+from rejilla import rejilla
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TMP = os.path.join(HERE, '_jacaranda_tmp'); os.makedirs(TMP, exist_ok=True)
-BPM = 124.0
-SPB = int(round(SR * 240.0 / BPM)); S16 = SPB / 16.0; BEAT = 60.0 / BPM
-XF = 4
-ROOT = 57                       # La (A3) — La menor = 8A (mixea con DELIRIO/GUERRERO)
+RAW = os.path.join(HERE, '_jacaranda', '_raw')
+OUT = os.path.join(HERE, '_jacaranda', 'master')
+TMP = os.path.join(HERE, '_jacaranda', '_tmp')
 
-SECTIONS = [
- dict(name='SEMILLA',   shape='amb',    bars=48,  maj=False),
- dict(name='BROTE',    shape='rise',   bars=88,  maj=False),
- dict(name='RAMA',    shape='wave',   bars=96,  maj=False),
- dict(name='SOMBRA',     shape='drive',  bars=96,  maj=False),
- dict(name='FLOR',    shape='jacaranday', bars=96,  maj=True),
- dict(name='ABRIL', shape='peak',   bars=88,  maj=False),
- dict(name='PETALOS',     shape='peak2',  bars=104, maj=True),
- dict(name='PRIMAVERA',    shape='outro',  bars=56,  maj=False),
+BPM = 120.000
+BAR = 240.0 / BPM                       # 2.000 s exactos
+BAR_N = int(round(BAR * SR))            # 88200 muestras
+CRUCE = 8                               # compases de traslape = 16 s
+
+# Nivel al que se emparejan las rolas ANTES de mezclar. Bajo a propósito: aquí
+# sólo se iguala volumen, con ganancia lineal. Todo el margen se lo queda el
+# único limitador de la cadena, que vive al final.
+NIVEL_MEZCLA = -18.0
+
+# ⭐ EL ARCO. Emparejar las 8 al MISMO nivel dejó el set plano — LRA 2.1 contra
+# el 6.6 de AFELIO. Un set no es plano: abre bajito, llega a un pico y se apaga.
+# Estos dB relativos son ese arco, y de paso le devuelven al set el rango
+# dinámico de largo plazo que la nivelación uniforme le había quitado.
+ARCO = {
+    'VÍSPERA':   -2.5,   # abre, casi vacío
+    'AUGURIO':   -1.2,
+    'FULGOR':    -0.5,
+    'LETANÍA':   -0.6,
+    'EPIFANÍA':   0.0,   # el pico
+    'PENUMBRA':  -1.8,   # se apaga la luz, y se oye
+    'ÉTER':      -1.0,
+    'VESTIGIO':  -3.0,   # irse caminando
+}
+# Techo del master. Se pide −1.5 y no −1.0 porque el AAC sobrepasa al codificar:
+# la primera vuelta salió a −0.5 dBTP y reprobó. El colchón es el códec.
+TECHO = -1.5
+
+# archivo → (nº, nombre, qué es). El orden es el del florecimiento.
+#
+# LOS NOMBRES son místicos, no botánicos. Un primer intento fue por el ciclo del
+# árbol (savia, yema, dosel, vaina…) y André lo rechazó: "pon otra cosa mística".
+# Tiene razón — el jacarandá interesa como EVENTO, no como lección de botánica:
+# un árbol que pone violeta una ciudad entera tres semanas y se acaba. Visto así
+# es un presagio, un resplandor y un vestigio, no un diagrama de partes.
+#
+# ⚠️ Ninguno repite los nombres de los dos discos JACARANDA viejos que se
+# borraron (SEMILLA, BROTE, RAMA, SOMBRA, FLOR, ABRIL, PETALOS, PRIMAVERA,
+# RAIZ, CALMA, LLUVIA) — se revisó uno por uno.
+#
+# Sky_Catches_Fire.mp3 (aquí EPIFANÍA) salió y volvió a entrar. André dijo
+# "parece Avicii" señalando el minuto 11:30, y se quitó; después aclaró que se
+# había confundido y que esa sí le gustaba. Vuelve tal cual, en su lugar.
+# Se deja anotado para no volver a sacarla por error.
+SET = [
+    ('Before_The_Sun_Hits.mp3',   'VÍSPERA',
+     'la noche antes de que algo pase'),
+    ('Cooling_The_Soil.mp3',      'AUGURIO',
+     'la primera flor: la señal de que ya viene'),
+    ('Glow_in_the_Deep.mp3',      'FULGOR',
+     'el resplandor — la ciudad entera prendida en violeta'),
+    ('Murmuration_at_Dusk.mp3',   'LETANÍA',
+     'miles de flores idénticas repitiendo hasta volverse una sola'),
+    ('Sky_Catches_Fire.mp3',      'EPIFANÍA',
+     'la luz que llega de golpe y lo explica todo'),
+    ('Midnight_at_Noon.mp3',      'PENUMBRA',
+     'la sombra parcial: ni luz ni oscuridad'),
+    ('Salt_Flat_Mirror.mp3',      'ÉTER',
+     'lo que llena el vacío. La única sin voz'),
+    ('Between_The_Tides.mp4',     'VESTIGIO',
+     'lo que queda cuando ya pasó'),
 ]
 
-def chords(sec):
-    sc = MAJ if sec['maj'] else MIN
-    prog = [(0,0),(5,0),(3,0),(4,0)] if sec['maj'] else [(0,0),(5,0),(2,0),(6,0)]
-    out = []
-    for d,o in prog:
-        tri = [deg(ROOT,d,o,sc), deg(ROOT,d+2,o,sc), deg(ROOT,d+4,o,sc)]
-        out.append([ROOT + sc[d%7] + 12*(d//7) - 24] + tri)   # [bass_root(grave), t1,t2,t3]
-    return out
 
-def plan(shape, p):
-    b = dict(kick=1, bass=1, hats=0.7, clap=1, perc=0.4, lead=0, stab=0, pad=0.4,
-             piano=0, vox=0, amb=0, gain=1.0, pre=0, filt=1.0, crash=0)
-    if shape=='amb':
-        b.update(kick=0,bass=0,hats=0,clap=0,perc=0,pad=1,amb=1,vox=0.5 if p>0.45 else 0,
-                 gain=0.5+0.34*p, filt=0.4+0.5*p)
-    elif shape=='rise':
-        b.update(hats=0.3+0.4*p, clap=1 if p>0.35 else 0, perc=0.3, pad=0.5, amb=0.5*(1-p),
-                 lead=0.4 if p>0.6 else 0, gain=0.7+0.28*p, filt=0.45+0.5*p,
-                 crash=1 if p<0.06 else 0)
-        if p>0.88: b.update(pre=1)
-    elif shape=='wave':
-        b.update(lead=0.9, stab=0.6, vox=1, pad=0.6, perc=0.5, gain=1.0, crash=1 if p<0.06 else 0)
-        if 0.5<p<0.62: b.update(kick=0,bass=0,clap=0,pad=0.9,vox=1,gain=0.76)
-    elif shape=='drive':
-        b.update(lead=0.8, stab=0.9, pad=0.5, perc=0.6, vox=0.4, gain=1.02, crash=1 if p<0.06 else 0)
-    elif shape=='jacaranday':
-        if p<0.55:
-            b.update(kick=0,bass=0,clap=0,hats=0.08,perc=0.05,pad=1,vox=1,piano=0.6,amb=0.5,
-                     lead=0.5 if p>0.3 else 0, gain=0.6, filt=0.55)
-        elif p<0.6:
-            b.update(kick=0,bass=0,clap=0,hats=0,perc=0,pad=0.7,vox=0.6,pre=1,gain=0.7)
-        else:
-            b.update(lead=1.0, stab=0.8, pad=0.8, vox=0.8, perc=0.7, gain=1.05, crash=1 if p<0.64 else 0)
-    elif shape=='peak':
-        b.update(lead=1.0, stab=1.0, vox=0.9, pad=0.7, perc=0.8, hats=0.9, gain=1.05,
-                 crash=1 if p<0.06 else 0)
-    elif shape=='peak2':
-        if 0.34<p<0.45:
-            b.update(kick=0,bass=0,clap=0,pad=1,vox=1,pre=1,gain=0.8)
-        else:
-            b.update(lead=1.0, stab=1.0, vox=1, pad=0.8, perc=0.9, hats=0.95, gain=1.08,
-                     crash=1 if (p<0.06 or 0.45<=p<0.5) else 0)
-    elif shape=='outro':
-        b.update(gain=1.0-0.5*max(0,p-0.25), lead=0.5*(1-p), stab=0, perc=0.4*(1-p),
-                 pad=0.8, piano=0.7, vox=0.7, amb=0.6*p, kick=1 if p<0.55 else 0,
-                 clap=1 if p<0.5 else 0, filt=1.0-0.4*max(0,p-0.4))
-    return b
+# Repisa de agudos sólo para la que reprobó. Los valores salieron de barrer
+# cinco combinaciones y leer las dos métricas en cada una — no de oído:
+#   3500/+4.5 → 1811 Hz, −8.73   ·   2500/+5.5 → 1962, −8.31
+#   2000/+6.0 → 2034,   −8.09    ·   1800/+6.5 → 2101, −7.94  ✓
+# 1800/+6.5 es la corrección MÍNIMA que mete las dos al rango. Es fuerte, y se
+# justifica: la fuente venía en −9.4 dB/oct, muy fuera de la distribución de
+# Pestana. Además le sirve al concepto — la rola es la de "cien mil detallitos
+# chiquitos", y estaban enterrados.
+REPISA = {'LETANÍA': (1800.0, 6.5)}
 
-def sc_env(n, kpos, depth=0.5, rel=0.12):
-    e = np.ones(n, np.float32)
-    dip = 1.0 - depth*np.exp(-np.arange(int(rel*4*SR))/(rel*SR)).astype(np.float32)
-    for p_ in kpos:
-        q = min(n, p_+len(dip))
-        if q>p_: e[p_:q] = np.minimum(e[p_:q], dip[:q-p_])
-    return e
 
-def render_section(sec, idx):
-    rng = np.random.default_rng(800 + idx*37)
-    bars = sec['bars']; n = bars*SPB + XF*SPB
-    ch = chords(sec); shape = sec['shape']; nb = bars//8
-    drum = np.zeros(n, np.float32); kickb = np.zeros(n, np.float32); bassb = np.zeros(n, np.float32)
-    leadb = np.zeros(n, np.float32); stabb = np.zeros(n, np.float32)
-    padL = np.zeros(n, np.float32); padR = np.zeros(n, np.float32)
-    voxb = np.zeros(n, np.float32); pianob = np.zeros(n, np.float32); ambb = np.zeros(n, np.float32)
-    kpos = []
-    def add(buf,pos,x,g=1.0):
-        pos=int(pos)
-        if pos<0: x=x[-pos:]; pos=0
-        e=min(len(buf),pos+len(x))
-        if e>pos: buf[pos:e]+=x[:e-pos]*g
-    blocks=[plan(shape, i/max(1,nb-1)) for i in range(nb)]
-    for bi,b in enumerate(blocks):
-        for bar in range(8):
-            gb=bi*8+bar
-            if gb>=bars: break
-            base=gb*SPB; c=ch[(gb//2)%4]; root=c[0]; cyc=gb%2
-            last=(gb%8==7); silent=(b['pre'] and last)
-            # ---- AMBIENTE real (drone/glass)
-            if b['amb']>0 and gb%8==0:
-                a = K.smp(K.AMBI_DRONE if (gb//8)%2==0 else K.AMBI_GLASS)
-                add(ambb, base, np.tile(a, int(np.ceil(8*SPB/len(a))))[:8*SPB], b['amb']*0.35)
-            # ---- CRASH real al arranque de sección
-            if b['crash'] and bar==0 and gb%8==0:
-                add(drum, base, K.vary(K.smp(K.CRASH), rng), 0.5)
-            # ---- KICK 909 REAL 4x4
-            if b['kick'] and not silent:
-                for beat in range(4):
-                    add(kickb, base+beat*4*S16, K.vary(K.smp(K.KICK), rng, 0.012, 0.08), 0.95)
-                    kpos.append(int(base+beat*4*S16))
-            # ---- CLAP 909 REAL en 2 y 4
-            if b['clap'] and not silent:
-                for s in (4,12):
-                    add(drum, base+s*S16-0.012*SR, K.vary(K.smp(K.CLAP), rng, 0.02, 0.15), b['clap']*0.42)
-            # ---- HATS 909 REALES (16vos + open en contratiempo)
-            if b['hats']>0 and not silent:
-                for s in range(16):
-                    op=(s%4==2)
-                    sm = K.smp(K.HATO) if op else K.smp(K.HATC)
-                    add(drum, base+s*S16+rng.normal(0,.0018)*SR, K.vary(sm, rng, 0.03, 0.3),
-                        (0.34 if s%2 else 0.22)*b['hats']*(0.75 if op else 1))
-            # ---- PERCUSIÓN real (shaker, cabasa, rim, conga)
-            if b['perc']>0 and not silent:
-                for s in range(2,16,4):
-                    add(drum, base+s*S16+rng.normal(0,.003)*SR, K.vary(K.smp(K.SHAKER), rng, 0.04, 0.3), b['perc']*0.3)
-                if bar%2==1:
-                    add(drum, base+10*S16, K.vary(K.smp(K.RIM), rng, 0.03, 0.2), b['perc']*0.4)
-                if b['perc']>=0.6 and bar%4==2:
-                    add(drum, base+6*S16, K.vary(K.smp(K.CONGA_L), rng, 0.03, 0.2), b['perc']*0.45)
-                if b['perc']>=0.8 and bar%4==3:
-                    add(drum, base+14*S16, K.vary(K.smp(K.CABASA), rng, 0.04, 0.3), b['perc']*0.3)
-            # ---- FX REAL antes del drop (reverse cymbal + reverse clap)
-            if last and b['pre']:
-                rc = K.smp(K.REVCYM)
-                add(drum, base+8*SPB//8*0 + (SPB - len(rc)) if len(rc)<SPB else base, rc, 0.55)
-                add(drum, base+int(12*S16), K.smp(K.REVCLAP), 0.4)
-            # ---- BAJO LIMPIO rolling (deja vacía la 1a semicorchea del beat)
-            if b['bass'] and not silent:
-                for s in range(16):
-                    if s%4==0: continue
-                    add(bassb, base+s*S16+rng.normal(0,.002)*SR,
-                        V.bass(midi_f(root), 0.9*S16/SR, rng, cutoff=360+230*b['filt']), 0.85)
-            # ---- LEAD gated (frases de 2 compases con huecos)
-            if b['lead']>0 and gb%2==0:
-                for (s,d,ln) in [(0,0,3),(6,2,2),(10,4,3),(16,1,2),(22,3,4)]:
-                    pos=base+int(s*S16)+(SPB if s>=16 else 0)
-                    f=midi_f(deg(ROOT, d, 1, MAJ if sec['maj'] else MIN))
-                    add(leadb, pos, V.lead(f, ln*S16/SR*1.15, rng, gate_hz=BPM/60*2,
-                                           cut=1600+1400*b['filt']), b['lead']*0.5)
-            # ---- STABS FM en los huecos
-            if b['stab']>0 and not silent:
-                for s in ((12,13,14,15) if cyc==1 else (4,5)):
-                    if rng.uniform()<0.7:
-                        add(stabb, base+s*S16, V.stab(midi_f(deg(ROOT,int(rng.integers(0,5)),1)), 0.13, rng), b['stab']*0.42)
-            # ---- PADS
-            if b['pad']>0.2 and gb%2==0:
-                x=V.pad([c[1]+12, c[3]+12], 2*SPB/SR*1.04, rng)
-                add(padL, base, x, b['pad']); add(padR, base+int(0.02*SR), x, b['pad']*0.92)
-            if b['piano']>0 and gb%4==0:
-                add(pianob, base, V.piano([c[1],c[2],c[3]], 2*SPB/SR, rng), b['piano'])
-            # ---- VOZ-musa ELIMINADA (André: suena a trompeta chillona / globo desinflándose).
-            # Los tonos con filtros de formante + vibrato le suenan a chillido — mismo
-            # problema que el lead 'wah' de PLAYA. NO volver a usar formantes sostenidos.
-            if False and b['vox']>0 and gb%4==0:
-                add(voxb, base, V.vox(midi_f(deg(ROOT,(gb//4)%5,1)), 2*SPB/SR*0.9, rng, 'aou'[(gb//4)%3]), b['vox']*0.5)
-    # ---- buses
-    env = sc_env(n, kpos)
-    bassb *= env
-    drum_st = widen(drum, amount=0.45, seed=idx*3+2)
-    lead_st = pingpong(leadb*(env*0.5+0.5), BEAT, fb=0.42, mix=0.4, taps=7, damp=5200)
-    stab_st = pingpong(stabb*(env*0.5+0.5), BEAT, fb=0.36, mix=0.34, taps=5, damp=6000)
-    vox_st  = pingpong(voxb*(env*0.5+0.5), BEAT, fb=0.4, mix=0.42, taps=6, damp=5000)
-    pads = np.stack([padL,padR])*(env*0.5+0.5)[None,:]
-    piano_st = np.stack([pianob,pianob]); amb_st = np.stack([ambb, ambb[::-1].copy()])
-    music = (drum_st*0.82 + lead_st*0.7 + stab_st*0.5 + pads*0.86           # SIN voz-musa
-             + piano_st*0.56 + amb_st*0.55)
-    mm=0.5*(music[0]+music[1]); ss=bp(0.5*(music[0]-music[1]), 200, 12000, 2)*2.1
-    mix=np.stack([mm+ss, mm-ss])
-    mix += kickb[None,:]*1.15 + bassb[None,:]*0.78
-    genv=np.ones(n,np.float32)
-    for bi,blk in enumerate(blocks):
-        genv[bi*8*SPB:min(n,(bi+1)*8*SPB)]=blk['gain']
-    genv=lp(genv,2.0,1)**1.5; mix*=genv[None,:]
-    mix=np.stack([sat(mix[0],1.04,0.02), sat(mix[1],1.04,0.02)])   # muy suave
-    mix=sub_mono(mix,120.0)
-    pk=np.abs(mix).max()
-    if pk>1.5: mix*=1.5/pk
-    return mix
+def sh(args):
+    subprocess.run(args, check=True, capture_output=True)
 
-def _shave(x):
-    x=np.stack([sat(x[0],1.3,0.02), sat(x[1],1.3,0.02)])
-    return x*(0.90/max(1e-9,float(np.abs(x).max())))
 
-def build(only=None):
-    tot=sum(s['bars'] for s in SECTIONS)
-    print(f'JACARANDA · {len(SECTIONS)} movimientos · {tot} compases ≈ {tot*SPB/SR/60:.0f} min · FLORACIÓN', flush=True)
-    secs=[]
-    for i,s in enumerate(SECTIONS):
-        if only and s['name']!=only: continue
-        f=os.path.join(TMP, f'sec-{i:02d}-{s["name"].lower()}.wav')
-        if not only and os.path.exists(f):
-            print(f'  ✓ {s["name"]}', flush=True); secs.append((i,s,f)); continue
-        print(f'  … {s["name"]} ({s["bars"]} comp, {s["shape"]})', flush=True)
-        mix=render_section(s,i); wav_write(f,mix); secs.append((i,s,f)); del mix
-    if only:
-        i,s,f=secs[0]; I,lra,tp=ffmeter(f)
-        print(f'  {s["name"]}: {I} LUFS · LRA {lra} · TP {tp} · {spectrum_pct(ffdecode(f,mono=True))}')
-        return
-    print('  … crossfades', flush=True)
-    xf=XF*SPB; total=tot*SPB+xf
-    out=np.zeros((2,total),np.float32); pos=0
-    for k,(i,s,f) in enumerate(secs):
-        x=ffdecode(f)
-        if k>0: x[:,:xf]*=(np.linspace(0,1,xf)**0.5).astype(np.float32)[None,:]
-        a=min(total-pos,x.shape[1]); out[:,pos:pos+a]+=x[:,:a]; pos+=s['bars']*SPB; del x
-    print('  … afeitado suave + master -10.5 (dinámico)', flush=True)
-    out=_shave(out)
-    raw=os.path.join(TMP,'jacaranda-raw.wav'); wav_write(raw,out); del out
-    os.makedirs(os.path.join(HERE,'masters'),exist_ok=True)
-    final=os.path.join(HERE,'masters','amr-jacaranda.wav')
-    hist=master_file(raw, final, target_i=-10.5, ceiling_db=-1.2)
-    I,lra,tp=ffmeter(final)
-    print(f'MASTER: {hist} → {I} LUFS · LRA {lra} · TP {tp}'); print(final)
+def repisa_agudos(x, f0, db):
+    """Repisa suave de primer orden: plana abajo, +db arriba de f0."""
+    g = 10.0 ** (db / 20.0)
+    def gain(f):
+        r = np.maximum(f, 1e-6) / f0
+        return 1.0 + (g - 1.0) * (r ** 2 / (1.0 + r ** 2))
+    h = fir_from_gain(gain, 2049)
+    return np.stack([fconv(x[0], h, align=1), fconv(x[1], h, align=1)])
 
-if __name__=='__main__':
-    build(sys.argv[1] if len(sys.argv)>1 else None)
+
+def prepara(fn, nombre):
+    """Estira a 120.000, recorta al compás 1, corrige tono, masteriza."""
+    src = os.path.join(RAW, fn)
+    b, off, _ = rejilla(src)
+    ratio = BPM / b
+
+    # 1. estirar al tempo exacto (atempo preserva la afinación)
+    est = os.path.join(TMP, f'{nombre}-est.wav')
+    sh([FF, '-y', '-v', 'error', '-i', src, '-af', f'atempo={ratio:.9f}',
+        '-ar', str(SR), '-ac', '2', est])
+
+    x = ffdecode(est)
+    if x.ndim == 1:
+        x = np.stack([x, x])
+
+    # 2. recortar al primer compás (el offset también se estiró)
+    o = int(round(off * ratio))
+    if o > 0:
+        x = x[:, o:]
+    nb = x.shape[1] // BAR_N                       # compases enteros
+    x = x[:, :nb * BAR_N]
+
+    # 3. corrección de tono si el juez la reprobó
+    if nombre in REPISA:
+        f0, db = REPISA[nombre]
+        x = repisa_agudos(x, f0, db)
+
+    crudo = os.path.join(TMP, f'{nombre}-crudo.wav')
+    wav_write(crudo, x)
+    return crudo, nb, ratio, b
+
+
+def eq_barrido(x, fcs, modo):
+    """EQ que se mueve durante el cruce: se parte en bloques y cada uno filtra
+    a distinta frecuencia, imitando girar la perilla poco a poco."""
+    n = x.shape[1]
+    k = len(fcs)
+    for i, fc in enumerate(fcs):
+        a, b = i * n // k, (i + 1) * n // k
+        if fc <= 0 or b <= a:
+            continue
+        for c in (0, 1):
+            x[c, a:b] = (hp if modo == 'hp' else lp)(x[c, a:b], float(fc), 2)
+    return x
+
+
+def build():
+    os.makedirs(OUT, exist_ok=True)
+    os.makedirs(TMP, exist_ok=True)
+    ovn = CRUCE * BAR_N
+
+    print(f'rejilla {BPM} BPM · compás {BAR_N} muestras · cruce {CRUCE} compases\n')
+    segs = []
+    for fn, nombre, _ in SET:
+        crudo, nb, ratio, b = prepara(fn, nombre)
+        # ⚠️ AQUÍ SÓLO SE EMPAREJA NIVEL, NO SE MASTERIZA.
+        # La primera versión masterizaba cada rola Y LUEGO el set completo: dos
+        # limitadores en serie. El juez lo cachó — crest se cayó de 9/11 a
+        # 6.3/6.6, o sea aplastado. El limitador va UNA sola vez, al final de la
+        # cadena. Antes de eso, ganancia lineal y nada más.
+        lufs = ffmeter(crudo)[0]
+        g = 10.0 ** ((NIVEL_MEZCLA + ARCO[nombre] - lufs) / 20.0)
+        x = ffdecode(crudo)
+        if x.ndim == 1:
+            x = np.stack([x, x])
+        x = (x * g).astype(np.float32)
+        x = x[:, :(x.shape[1] // BAR_N) * BAR_N]
+        segs.append((nombre, x))
+        print(f'  {nombre:17s} {b:7.3f}→120 ({ratio:.5f})  {x.shape[1]//BAR_N:3d} compases'
+              f'  {x.shape[1]/SR:6.1f}s  {lufs:6.1f} LUFS {g:+5.2f}×', flush=True)
+
+    total = sum(x.shape[1] for _, x in segs) - ovn * (len(segs) - 1)
+    mix = np.zeros((2, total), dtype=np.float32)
+    cortes, pos = [], 0
+    for i, (nombre, x) in enumerate(segs):
+        x = x.copy()
+        n = x.shape[1]
+        if i > 0:                                   # entra: abre de graves hacia arriba
+            h = min(ovn, n)
+            x[:, :h] *= np.sin(np.linspace(0, np.pi / 2, h), dtype=np.float32)
+            x[:, :h] = eq_barrido(x[:, :h], [300, 700, 1600, 4000, 0, 0, 0, 0], 'lp')
+        if i < len(segs) - 1:                       # sale: se le van quitando los graves
+            t = min(ovn, n)
+            x[:, -t:] = eq_barrido(x[:, -t:], [0, 0, 0, 0, 90, 200, 450, 1000], 'hp')
+            x[:, -t:] *= np.cos(np.linspace(0, np.pi / 2, t), dtype=np.float32)
+        mix[:, pos:pos + n] += x
+        # el corte se marca donde la nueva ya manda: a la mitad del cruce
+        cortes.append(round((pos + (ovn // 2 if i > 0 else 0)) / SR, 1))
+        pos += n - ovn
+
+    crudo_set = os.path.join(TMP, 'jacaranda-set-crudo.wav')
+    wav_write(crudo_set, mix)
+    dur = total / SR
+    print(f'\nset: {dur:.1f}s = {dur/60:.1f} min · {total//BAR_N} compases')
+
+    # picos para la onda de la página
+    W = 900
+    seg = total // W
+    mono = np.abs(mix).mean(axis=0)[:seg * W].reshape(W, seg)
+    pk = mono.max(axis=1)
+    pk = (pk / max(1e-9, pk.max())).round(3).tolist()
+    return crudo_set, dur, cortes, pk, segs
+
+
+if __name__ == '__main__':
+    crudo, dur, cortes, pk, segs = build()
+
+    # ÚNICO paso de limitación en toda la cadena.
+    #
+    # El objetivo NO se eligió a gusto: se midió. Con la mezcla ya hecha se
+    # masterizó a cuatro niveles y se leyó el crest de 1 s en cada uno:
+    #     −11.5 → 8.0 (reprueba)   −12.0 → 8.4 (reprueba)
+    #     −12.5 → 8.9 (pasa)       −13.0 → 9.3
+    # −12.5 es donde cruza el umbral con margen. Y no cuesta nada real: Spotify
+    # y Apple normalizan a −14, así que un master más fuerte no se oye más
+    # fuerte — sólo llega con menos dinámica. El experimento que llevó aquí
+    # midió los tres puntos de la cadena y mostró que la mezcla en sí sólo
+    # cuesta 0.2 dB de crest; los 3.2 restantes eran el limitador.
+    setm = os.path.join(TMP, 'jacaranda-set.wav')
+    master_file(crudo, setm, target_i=-12.5, ceiling_db=TECHO)
+
+    os.makedirs(os.path.join(HERE, 'audio'), exist_ok=True)
+    m4a = os.path.join(HERE, 'audio', 'amr-jacaranda.m4a')
+    sh([FF, '-y', '-v', 'error', '-i', setm,
+        '-af', 'aformat=sample_fmts=fltp:sample_rates=44100',
+        '-c:a', 'aac_at', '-b:a', '192k', '-movflags', '+faststart', m4a])
+    print(f'\nM4A {os.path.getsize(m4a)//1024//1024} MB · {m4a}')
+    print('medido:', ffmeter(m4a))
+
+    # Tonos MEDIDOS con analiza.py, no los que se pidieron: Gemini no respetó
+    # las tonalidades del prompt, así que la ficha dice lo que las rolas son.
+    # F MAJ es la modal del set (3 de 8) y es la que se usa para el Camelot.
+    TONOS = ['F MAJ', 'F MAJ', 'C MAJ', 'C MAJ', 'F MAJ', 'A MIN', 'E MIN', 'D MIN']
+    meta = dict(
+        id='amr-jacaranda', title='JACARANDA', kicker='FLORACIÓN · UNA MEZCLA',
+        tracks=len(SET), dur=round(dur, 1),
+        titles=[n for _, n, _ in SET], notes=[d for _, _, d in SET],
+        keys=TONOS, offsets=cortes, file='audio/amr-jacaranda.m4a',
+        art='art/jacaranda.svg', edition=8, peaks=pk, bpm=120, key='F MAJ')
+    with open(os.path.join(HERE, 'jacaranda.js'), 'w') as f:
+        f.write('window.AMR_JACARANDA=' + json.dumps(meta, ensure_ascii=False) + ';')
+    print('jacaranda.js escrito ·', len(SET), 'cortes')

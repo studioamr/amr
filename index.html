@@ -1,12 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Studio AMR — Six records, cut like monuments</title>
-<meta name="description" content="AMR presses deep house in numbered vinyl editions. Six records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
+<title>Studio AMR — Five records, cut like monuments</title>
+<meta name="description" content="AMR presses deep house in numbered vinyl editions. Five records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
 <meta name="theme-color" content="#EAE6DF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio AMR">
-<meta property="og:title" content="Studio AMR — Six records, cut like monuments">
-<meta property="og:description" content="Six records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA and OFRENDA — pressed to hand-numbered vinyl. Morelia, MX.">
+<meta property="og:title" content="Studio AMR — Five records, cut like monuments">
+<meta property="og:description" content="Five records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO and JACARANDA — pressed to hand-numbered vinyl. Morelia, MX.">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23141210"/><circle cx="16" cy="16" r="5.5" fill="%23C96F2B"/><circle cx="16" cy="16" r="1.8" fill="%23EAE6DF"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
 <style>
@@ -578,29 +578,26 @@ body.hasplayer{padding-bottom:70px}
 .card.icecard::after{background:#2B3A4A}
 .card.icecard .pchip{border-color:#2B3A4A;color:#2B3A4A}
 .card.icecard.playing .pchip{background:#2B3A4A;color:var(--bone)}
-/* OFRENDA: ceniza con un solo destello de aurora — la paleta ES la narrativa */
-.card.cenizacard .num b{color:#3A3A38}
-.card.cenizacard .vinyl::after{background:#3A3A38}
-.card.cenizacard::after{background:#5FE8B0}
-.card.cenizacard .pchip{border-color:#3A3A38;color:#3A3A38}
-.card.cenizacard.playing .pchip{background:#3A3A38;color:#5FE8B0}
 .card.jaccard .num b{color:#463A73}
 .card.jaccard .vinyl::after{background:#463A73}
-.card.jaccard::after{background:#463A73}
+.card.jaccard::after{background:#9D8BD6}
 .card.jaccard .pchip{border-color:#463A73;color:#463A73}
-.card.jaccard.playing .pchip{background:#463A73;color:var(--bone)}
+.card.jaccard.playing .pchip{background:#463A73;color:#D8CFF0}
 .nr.jacaranda{background:linear-gradient(160deg,#12101C 0%,#201B33 55%,#0B0912 100%)}
 .nr.jacaranda .nrlive i{background:#9D8BD6;box-shadow:0 0 0 4px rgba(157,139,214,.25)}
 .nr.jacaranda .nrsub b{color:#9D8BD6}
 .nr.jacaranda .vlabel{background:radial-gradient(circle at 42% 38%,#9D8BD6,#6E5BAE);box-shadow:0 0 0 5px #2E2650;color:#221C3B}
 .nr.jacaranda .vdisc::before{border-color:rgba(157,139,214,.4)}
 .nr.jacaranda .nrrings span{border-color:rgba(157,139,214,.16)}
-.nr.jacaranda .vstats b,.nr.jacaranda .vinfo-lbl b,.nr.jacaranda .vtracks li b{color:#9D8BD6}
+.nr.jacaranda .vstats b,.nr.jacaranda .vinfo-lbl b{color:#9D8BD6}
+/* ⚠️ los números de la lista NO van todos en lila. Si se prenden los ocho,
+   ninguno destaca — el mismo bug que ya se corrigió una vez. Van en violeta
+   apagado y sólo EPIFANÍA, que es el pico, se enciende. */
+.nr.jacaranda .vtracks li b{color:#6B6383}
+.nr.jacaranda .vtracks li:nth-child(5) b{color:#9D8BD6;text-shadow:0 0 12px rgba(157,139,214,.55)}
 .nr.jacaranda .vtracks li.on{color:#EAE6DF}
 .nr.jacaranda .vbuy:hover{border-color:#9D8BD6;color:#9D8BD6}
 .nr.jacaranda .vgo.on{background:#6E5BAE}
-/* OFRENDA — ceniza casi neutra con UN acento aurora. El panel más apagado del
-   carril a propósito: la ofrenda es gris, la respuesta es esa luz verde. */
 .nr.ceniza{background:linear-gradient(160deg,#141413 0%,#262623 55%,#0D0D0C 100%)}
 .nr.ceniza .nrlive i{background:#5FE8B0;box-shadow:0 0 0 4px rgba(95,232,176,.25)}
 .nr.ceniza .nrsub b{color:#5FE8B0}
@@ -633,11 +630,6 @@ body.hasplayer{padding-bottom:70px}
 .nr.crimson .vtracks li.on{color:#EAE6DF}
 .nr.crimson .vbuy:hover{border-color:#FF7D9C;color:#FF7D9C}
 .nr.crimson .vgo.on{background:#E0335A}
-.card.violetcard .num b{color:#6E5BAE}
-.card.violetcard .vinyl::after{background:#6E5BAE}
-.card.violetcard::after{background:#6E5BAE}
-.card.violetcard .pchip{border-color:#6E5BAE;color:#6E5BAE}
-.card.violetcard.playing .pchip{background:#6E5BAE;color:var(--bone)}
 .card.jadecard .num b{color:#2E9C7C}
 .card.jadecard .vinyl::after{background:#2E9C7C}
 .card.jadecard::after{background:#2E9C7C}
@@ -719,7 +711,7 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- INTRO -->
 <div id="intro">
-  <div class="isub">OFRENDA — SIX RECORDS <b>·</b> MMXXVI</div>
+  <div class="isub">JACARANDA — FIVE RECORDS <b>·</b> MMXXVI</div>
   <div class="iword">AMR</div>
   <button class="btn solid ibtn" id="dropBtn">Drop the needle ↓</button>
   <button class="iskip" id="skipBtn">just browse</button>
@@ -738,13 +730,13 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-top"><span>MORELIA, MX</span><span class="a">SIX RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">FIVE RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
   <img class="hero-art" src="art/amr-hero.svg" alt="" aria-hidden="true">
   <h1 class="hero-word"><span>A</span><span>M</span><span>R</span></h1>
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> Studio AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#ofrenda">▸ New record — OFRENDA</a>
+      <a class="btn solid" href="#jacaranda">▸ New record — JACARANDA</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -764,18 +756,6 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
-<!-- OFRENDA — el lanzamiento nuevo, primero del carril (noche ceniza) -->
-<section class="nr ceniza hpanel" id="ofrenda">
-  <div class="nrin">
-    <div class="nrleft">
-      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
-      <h2 class="nrtitle">OFRENDA</h2>
-      <p class="nrsub">Seven offerings to forces that have <b>no face</b> — the rain you smell before it falls, the sea that lights up where you touch it, a hundred thousand birds moving as one body. <b>Deep house at 120 BPM</b> in one continuous mix, cut in the order of a rite: dry ground at the start, volcanic ash at the end. <b>BIOLUMINISCENCIA</b> is where the record answers back, and the only place it shows colour. Nothing here says a word. Cut to ash vinyl, numbered by hand.</p>
-      <div id="nrMeta10"></div>
-    </div>
-    <div class="nrdisc" id="nrDisc10"></div>
-  </div>
-</section>
 
 <!-- JACARANDA (melodic techno con baterías reales) -->
 <section class="nr jacaranda hpanel" id="jacaranda">
@@ -783,7 +763,7 @@ body.hasplayer{padding-bottom:70px}
     <div class="nrleft">
       <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
       <h2 class="nrtitle">JACARANDA</h2>
-      <p class="nrsub">The first record cut with <b>real drum machines</b> — every kick, clap, hat and shaker is a recording of hardware (TR-909, TR-808, DR-5, RX5), not a synthesised approximation, with micro pitch and level variation on every hit so no two are the same. Cinematic <b>melodic techno at 124 BPM</b> in A minor: eight movements told as one jacaranda coming into bloom — SEMILLA beatless underground, through SOMBRA and the major-key opening of FLOR, to the petal rain of PETALOS — a gated supersaw lead over huge reverb, and a clean rolling sub. Cut to violet vinyl, numbered by hand.</p>
+      <p class="nrsub">The jacaranda is not interesting as a tree. It is interesting as an <b>event</b>: it turns a whole city violet for three weeks and then it is over. Eight movements at <b>120 BPM</b> in one continuous mix, read as omen and blaze and vestige rather than as a season — VÍSPERA before anything shows, AUGURIO for the first flower, <b>EPIFANÍA</b> when the light arrives all at once, VESTIGIO for what is left on the ground. Deep house, patient, no ceremony. Cut to violet vinyl, numbered by hand.</p>
       <div id="nrMeta9"></div>
     </div>
     <div class="nrdisc" id="nrDisc9"></div>
@@ -873,7 +853,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, blue, jade, violet, turquoise.</h2></div>
-    <p>The collection, six records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet and OFRENDA on ash. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
+    <p>The collection, five records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade and JACARANDA on violet. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -882,7 +862,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec about" id="about">
   <span class="hk">WHO IS STUDIO AMR</span>
   <p class="lede">Studio AMR is the workshop of <i>André Macouzet Ruiz</i> — AMR, his initials — a builder from Morelia who treats every release like architecture.</p>
-  <p>Six records: an EP pressed from pure waveforms, three continuous sets, JACARANDA — melodic techno cut with real drum machines — and OFRENDA, eight offerings to eight faceless natural forces, mixed as one. Plus AFELIO, the single, and cuts from JACARANDA and OFRENDA. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
+  <p>Five records: an EP pressed from pure waveforms, three continuous sets, and JACARANDA — eight movements that read a flowering tree as an event rather than a season, mixed as one. Plus AFELIO, the single, and two cuts from JACARANDA. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
 </section>
 
 <!-- CTA -->
@@ -896,7 +876,7 @@ body.hasplayer{padding-bottom:70px}
 </div></section>
 
 <footer><div class="in">
-  <span>STUDIO AMR<b>.</b> — SIX RECORDS, EVER</span>
+  <span>STUDIO AMR<b>.</b> — FIVE RECORDS, EVER</span>
   <span>CUT IN MORELIA, MX</span>
   <span>SYNTHESIZED FROM RAW WAVEFORMS</span>
 </div></footer>
@@ -944,11 +924,9 @@ body.hasplayer{padding-bottom:70px}
 <script src="set.js?v=202607161934"></script>
 <script src="tulum.js?v=202607161934"></script>
 <script src="guerrero.js?v=202607170430"></script>
-<script src="jaca-orig.js?v=202607190500"></script>
-<script src="jacaranda.js?v=202607190500"></script>
+<script src="jacaranda.js?v=202607200100"></script>
 <script src="afelio.js?v=202607190500"></script>
-<script src="ofrenda.js?v=202607192300"></script>
-<script src="waveforms.js?v=202607192300"></script>
+<script src="waveforms.js?v=202607200100"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -959,12 +937,10 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-monuments-side':{img:'art/shots/shot-monuments.jpg', kick:'THE EP · MONUMENTS', title:'MONUMENTS', desc:'Amber 12″ pressed from pure waveforms — no samples, no presets. Ships in its printed jacket with the digital master and the number inked on the label.'},
     'amr-set-the-set':{img:'art/shots/shot-sesion.jpg', kick:'THE SET · SESIÓN 001', title:'SESIÓN 001', desc:'The ninety-minute set on wine-red vinyl. One continuous mix, hand-numbered jacket, download code inside.'},
     'amr-tulum':{img:'art/shots/shot-tulum.jpg', kick:'IN SYNC · DELIRIO', title:'DELIRIO', desc:'Blue 12″ — one continuous take, in sync from the first bar to the last. Numbered by hand, printed jacket, digital master included.'},
-    'amr-jacaranda':{img:'art/shots/shot-jacaranda.svg', kick:'MELODIC TECHNO · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the first record cut with real drum machines. Every kick, clap, hat and shaker is a recording of hardware (TR-909, TR-808, DR-5, RX5), with micro pitch and level variation on every hit. Cinematic melodic techno at 124 BPM in A minor: eight movements told as one jacaranda coming into bloom — SEMILLA beatless underground, through SOMBRA and the major-key opening of FLOR, to the petal rain of PETALOS — a gated supersaw lead over huge reverb, a clean rolling sub. 22 minutes, 0 to 100.'},
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
     'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
-    'amr-jaca-orig':{img:'art/shots/shot-jaca-orig.jpg', kick:'VIOLET BLOOM · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the hypnotic one. Ten movements at 120 BPM under the jacaranda in bloom: organic percussion where no two hits are the same, supersaw pads voiced left and right the way the JP-8000 did it, a kalimba raining like petals. Energy moves in seasons — the shade is on purpose. 41 minutes, 0 to 100.'},
-    'amr-ofrenda':{img:'art/amr-ofrenda.svg', kick:'THE OFFERING · OFRENDA', title:'OFRENDA', desc:'Ash 12″ — seven offerings to forces that have no face. Deep house at 120 BPM in one continuous mix, cut in the order of a rite: dry ground at the start, volcanic ash at the end. BIOLUMINISCENCIA is where the record answers back, and the only place it shows colour. Nothing here says a word. Numbered by hand, edition of 7.'}
+    'amr-jacaranda':{img:'art/jacaranda.svg', kick:'FLORACIÓN · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the jacaranda is not interesting as a tree. It is interesting as an event: it turns a whole city violet for three weeks and then it is over. Eight movements at 120 BPM read as omen, blaze and vestige — VÍSPERA before anything shows, EPIFANÍA when the light arrives all at once, VESTIGIO for what is left on the ground. Deep house, one continuous mix. Numbered by hand, edition of 8.'}
   };
   var current = null;
   window.openShot = function(p){
@@ -991,7 +967,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_OFRENDA].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -1049,10 +1025,9 @@ function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 
 /* ---- marquee ---- */
 var MQCAT = ['AMR-01 MONUMENTS \u00b7 AMBER', 'AMR-02 SESI\u00d3N 001 \u00b7 WINE', 'AMR-03 DELIRIO \u00b7 BLUE',
-             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET',
-             'AMR-06 OFRENDA \u00b7 ASH'];
+             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET'];
 var mq = MQCAT.map(function(t){ return '<span>'+t+'</span>'; }).join('')
-       + '<span>SIX RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
+       + '<span>FIVE RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
 
 /* ---- marquee DELIRIO (azul, scroll infinito) ---- */
@@ -1072,8 +1047,7 @@ if(window.AMR_TUL){
     {v:window.AMR_TUL,       c:'#2E6FB0', lc:'#5B9BD5'},
     {v:window.AMR_GUER,      c:'#2E9C7C', lc:'#5BC4A5'},
     {v:window.AMR_JACARANDA,   c:'#463A73', lc:'#9D8BD6'},
-    {v:window.AMR_AFELIO,  c:'#2B3A4A', lc:'#C9D6E3'},
-    {v:window.AMR_OFRENDA, c:'#3A3A38', lc:'#5FE8B0'}
+    {v:window.AMR_AFELIO,  c:'#2B3A4A', lc:'#C9D6E3'}
   ].filter(function(r){ return !!r.v; });
   /* --- MIXING ARMÓNICO: tonalidad → rueda de Camelot --- */
   var CAMELOT={'A MIN':'8A','A MAJ':'11B','C MAJ':'8B','E MIN':'9A','D MIN':'7A','G MAJ':'9B','F MAJ':'7B','B MIN':'10A','G MIN':'6A','E MAJ':'12B','D MAJ':'10B','F MIN':'4A'};
@@ -1999,36 +1973,6 @@ if(window.AMR_GUER){
     cardsJ.push(b);
   });
 }
-/* ---- cortes de JACARANDA en LO MEJOR (dibujos violeta) ---- */
-var QPICKS = [
-  {sec:2, file:'audio/amr-jacaranda-cut-rama.m4a',   art:'art/jacaranda-rama.svg?v=2',   desc:'The branch opens — the emotional lead over huge reverb, the widest air on the record.'},
-  {sec:3, file:'audio/amr-jacaranda-cut-sombra.m4a',  art:'art/jacaranda-sombra.svg?v=2',  desc:'Shade under the tree — hypnotic and dark, real 909 hats rolling, FM stabs in the gaps.'},
-  {sec:4, file:'audio/amr-jacaranda-cut-flor.m4a',  art:'art/jacaranda-flor.svg?v=2',  desc:'The tree opens — kick out, pads alone, then the bloom: the euphoric drop in the major.'},
-  {sec:5, file:'audio/amr-jacaranda-cut-abril.m4a', art:'art/jacaranda-abril.svg?v=2', desc:'April — the peak of the season, the gated supersaw over real hardware drums.'},
-  {sec:6, file:'audio/amr-jacaranda-cut-petalos.m4a', art:'art/jacaranda-petalos.svg?v=2', desc:'The petal rain — the climax, the key lifts, the whole sky coming down.'}
-];
-var cardsQ = [];
-if(window.AMR_JACARANDA){
-  QPICKS.forEach(function(qp,k){
-    var S = window.AMR_JACARANDA, name = S.titles[qp.sec];
-    var end = (qp.sec+1 < S.offsets.length) ? S.offsets[qp.sec+1] : S.dur;
-    var dur = end - S.offsets[qp.sec];
-    qp.gi = T.length; T.push({ title:name, file:qp.file, dur:dur, kicker:'JACARANDA CUT', bpm:124, cut:true, edition:(S.edition||12) });
-    var b = document.createElement('button');
-    b.className = 'card jaccard'; b.id = 'card-q'+k;
-    b.innerHTML =
-      '<span class="num"><span>JACARANDA — CUT '+(qp.sec+1<10?'0':'')+(qp.sec+1)+'/08</span><b>VIOLET VINYL</b></span>'+
-      '<div class="sleeve"><div class="vinyl"><span class="lbl">JACARANDA</span></div>'+
-      '<div class="cover"><img src="'+qp.art+'" alt="'+name+' drawing"></div>'+
-      '<span class="pchip" id="chip-q'+k+'">▸ PLAY</span></div>'+
-      '<h3>'+name+'</h3><p class="desc">'+qp.desc+'</p>'+
-      '<div class="row"><b>124 BPM</b><span>FROM JACARANDA</span><b>'+fmt(dur)+'</b></div>';
-    b.addEventListener('click', function(){ (cur===qp.gi && !audio.paused) ? pause() : playTrack(qp.gi); });
-    cardsQ.push(b);
-  });
-  var _scQ = syncCards;
-  syncCards = function(){ _scQ(); QPICKS.forEach(function(qp,k){ var c=document.getElementById('card-q'+k), ch=document.getElementById('chip-q'+k); if(c){var on=(cur===qp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
-}
 
 /* ---- AFELIO: el single sci-fi, tarjeta hielo ---- */
 if(window.AMR_AFELIO){
@@ -2049,44 +1993,26 @@ if(window.AMR_AFELIO){
   syncCards = function(){ _scAF(); var c=document.getElementById('card-af0'), ch=document.getElementById('chip-af0'); if(c){var on=(cur===afgi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} };
 }
 
-/* ---- OFRENDA: el set de ocho ofrendas, tarjeta ceniza ---- */
-if(window.AMR_OFRENDA){
-  var OF = window.AMR_OFRENDA;
-  var ofgi = VOFF + VINYLS.indexOf(OF);
-  var ofb = document.createElement('button');
-  ofb.className = 'card cenizacard'; ofb.id = 'card-of0';
-  ofb.innerHTML =
-    '<span class="num"><span>AMR SET 006 — OFRENDA</span><b>ASH 12″</b></span>'+
-    '<div class="sleeve"><div class="vinyl"><span class="lbl">OFRENDA</span></div>'+
-    '<div class="cover"><img src="'+OF.art+'" alt="OFRENDA artwork — a murmuration in ash with one flash of aurora"></div>'+
-    '<span class="pchip" id="chip-of0">▸ PLAY</span></div>'+
-    '<h3>OFRENDA</h3><p class="desc">Ash 12″ — seven offerings to forces that have no face: the rain you smell before it falls, the sea that lights up where you touch it, a hundred thousand birds moving as one body. Deep house at 120 BPM in one continuous mix — dry ground at the start, volcanic ash at the end. BIOLUMINISCENCIA is where the record answers back, and the only place it shows colour. Nothing here says a word.</p>'+
-    '<div class="row"><b>120 BPM</b><span>THE SET · F MAJ</span><b>'+fmt(OF.dur)+'</b></div>';
-  ofb.addEventListener('click', function(){ (cur===ofgi && !audio.paused) ? pause() : playTrack(ofgi); });
-  grid.appendChild(ofb);
-  var _scOF = syncCards;
-  syncCards = function(){ _scOF(); var c=document.getElementById('card-of0'), ch=document.getElementById('chip-of0'); if(c){var on=(cur===ofgi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} };
-}
 
-/* ---- OFRENDA: los dos cortes sueltos ---- */
+/* ---- JACARANDA: los dos cortes sueltos ---- */
 var NPICKS = [
-  {sec:2, file:'audio/amr-ofrenda-cut-biolum.m4a',      art:'art/ofrenda-biolum.svg',      key:'C MAJ',
-   desc:'Black water that lights up green where you touch it. The peak of the record, and the only place it shows colour.'},
-  {sec:3, file:'audio/amr-ofrenda-cut-murmuracion.m4a', art:'art/ofrenda-murmuracion.svg?v=3', key:'C MAJ',
-   desc:'A hundred thousand birds moving as one body. Nobody leads; the shape comes from everyone watching their neighbours.'}
+  {sec:2, file:'audio/amr-jacaranda-cut-fulgor.m4a',  art:'art/jacaranda-fulgor.svg',  key:'C MAJ',
+   desc:'Standing under the tree looking up, with the sun coming through the flowers. The violet stops being a colour and becomes light.'},
+  {sec:3, file:'audio/amr-jacaranda-cut-letania.m4a', art:'art/jacaranda-letania.svg', key:'C MAJ',
+   desc:'A litany is the same phrase said so many times it stops being a phrase. Thousands of identical flowers doing exactly that.'}
 ];
 var cardsN = [];
-if(window.AMR_OFRENDA){
+if(window.AMR_JACARANDA){
   NPICKS.forEach(function(np,k){
-    var S = window.AMR_OFRENDA, name = S.titles[np.sec];
+    var S = window.AMR_JACARANDA, name = S.titles[np.sec];
     var end = (np.sec+1 < S.offsets.length) ? S.offsets[np.sec+1] : S.dur;
     var dur = end - S.offsets[np.sec];
-    np.gi = T.length; T.push({ title:name, file:np.file, dur:dur, kicker:'OFRENDA · CORTE', bpm:120, cut:true, edition:(S.edition||8) });
+    np.gi = T.length; T.push({ title:name, file:np.file, dur:dur, kicker:'JACARANDA · CORTE', bpm:120, cut:true, edition:(S.edition||8) });
     var b = document.createElement('button');
-    b.className = 'card cenizacard'; b.id = 'card-n'+k;
+    b.className = 'card jaccard'; b.id = 'card-n'+k;
     b.innerHTML =
-      '<span class="num"><span>OFRENDA · OCHO OFRENDAS</span><b>ASH 7″</b></span>'+
-      '<div class="sleeve"><div class="vinyl"><span class="lbl">OFRENDA</span></div>'+
+      '<span class="num"><span>JACARANDA · FLORACIÓN</span><b>VIOLET 7″</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">JACARANDA</span></div>'+
       '<div class="cover"><img src="'+np.art+'" alt="'+name+' drawing"></div>'+
       '<span class="pchip" id="chip-n'+k+'">▸ PLAY</span></div>'+
       '<h3>'+name+'</h3><p class="desc">'+np.desc+'</p>'+
@@ -2098,30 +2024,6 @@ if(window.AMR_OFRENDA){
   syncCards = function(){ _scN(); NPICKS.forEach(function(np,k){ var c=document.getElementById('card-n'+k), ch=document.getElementById('chip-n'+k); if(c){var on=(cur===np.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
 }
 
-var MPICKS = [
-  {sec:1, file:'audio/amr-jaca-orig-cut-raiz.m4a',    art:'art/jaca-orig-raiz.svg',    desc:'The roots take hold — the first rolling bassline anchors the season.'},
-  {sec:7, file:'audio/amr-jaca-orig-cut-lluvia.m4a',  art:'art/jaca-orig-lluvia.svg',  desc:'The petal rain — the peak of the set, the whole sky coming down violet.'}
-];
-var cardsV = [];
-if(window.AMR_JACA_ORIG){
-  MPICKS.forEach(function(mp,k){
-    var S = window.AMR_JACA_ORIG, name = S.titles[mp.sec];
-    var end = (mp.sec+1 < S.offsets.length) ? S.offsets[mp.sec+1] : S.dur;
-    var dur = end - S.offsets[mp.sec];
-    mp.gi = T.length; T.push({ title:name, file:mp.file, dur:dur, kicker:'JACARANDA · 1ª PRENSA', bpm:120, cut:true, edition:(S.edition||12) });
-    var b = document.createElement('button');
-    b.className = 'card violetcard'; b.id = 'card-v'+k;
-    b.innerHTML =
-      '<span class="num"><span>JACARANDA · PRIMERA PRENSA</span><b>VIOLET 7″</b></span>'+
-      '<div class="sleeve"><div class="vinyl"><span class="lbl">JACARANDA</span></div>'+
-      '<div class="cover"><img src="'+mp.art+'" alt="'+name+' drawing"></div>'+
-      '<span class="pchip" id="chip-v'+k+'">▸ PLAY</span></div>'+
-      '<h3>'+name+'</h3><p class="desc">'+mp.desc+'</p>'+
-      '<div class="row"><b>120 BPM</b><span>FIRST PRESSING · E MIN</span><b>'+fmt(dur)+'</b></div>';
-    b.addEventListener('click', function(){ (cur===mp.gi && !audio.paused) ? pause() : playTrack(mp.gi); });
-    cardsV.push(b);
-  });
-}
 
 
 
@@ -2258,16 +2160,14 @@ if(window.AMR_FICCION){
   audio.addEventListener('pause', function(){ var c=document.getElementById('card-x0'), ch=document.getElementById('chip-x0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
 }
 /* mixeadas: naranja, azul, jade, violeta, turquesa, oro — todas intercaladas */
-for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsV.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length, cardsQ.length, cardsN.length); mi++){
+for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length, cardsN.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
   if(cardsJ[mi]) grid.appendChild(cardsJ[mi]);
-  if(cardsV[mi]) grid.appendChild(cardsV[mi]);
   if(cardsT[mi]) grid.appendChild(cardsT[mi]);
   if(cardsG[mi]) grid.appendChild(cardsG[mi]);
   if(cardsW[mi]) grid.appendChild(cardsW[mi]);
   if(cardsR[mi]) grid.appendChild(cardsR[mi]);
-  if(cardsQ[mi]) grid.appendChild(cardsQ[mi]);
   if(cardsN[mi]) grid.appendChild(cardsN[mi]);
 }
 
@@ -2294,14 +2194,9 @@ VINYLS.forEach(function(p,j){
   var isMonFeat = (p.id === 'amr-monuments-side');
   var isGuerFeat = (p.id === 'amr-guerrero');
   var isJacFeat = (p.id === 'amr-jacaranda');
-  var isJacaFeat = (p.id === 'amr-jaca-orig');
   var isPlayaFeat = (p.id === 'amr-playa');
   var isOracFeat = (p.id === 'amr-oraculo');
-  var isOfrendaFeat = (p.id === 'amr-ofrenda');
-  if(isOfrendaFeat){
-    document.getElementById('nrDisc10').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
-    document.getElementById('nrMeta10').innerHTML = statsHTML + actHTML + infoHTML;
-  } else if(isJacFeat){
+  if(isJacFeat){
     document.getElementById('nrDisc9').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta9').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isOracFeat){
@@ -2310,9 +2205,6 @@ VINYLS.forEach(function(p,j){
   } else if(isPlayaFeat){
     document.getElementById('nrDisc7').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta7').innerHTML = statsHTML + actHTML + infoHTML;
-  } else if(isJacaFeat){
-    document.getElementById('nrDisc4').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
-    document.getElementById('nrMeta4').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isGuerFeat){
     document.getElementById('nrDisc3').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta3').innerHTML = statsHTML + actHTML + infoHTML;
@@ -2441,15 +2333,6 @@ function syncCards(){
       var on5 = (cur === cp.gi && !audio.paused);
       c.classList.toggle('playing', on5);
       chip.innerHTML = on5 ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
-    });
-  }
-  if(typeof MPICKS !== 'undefined'){
-    MPICKS.forEach(function(mp,k){
-      var c = document.getElementById('card-v'+k), chip = document.getElementById('chip-v'+k);
-      if(!c) return;
-      var on4 = (cur === mp.gi && !audio.paused);
-      c.classList.toggle('playing', on4);
-      chip.innerHTML = on4 ? '&#9646;&#9646; PLAYING' : '▸ PLAY';
     });
   }
 }
