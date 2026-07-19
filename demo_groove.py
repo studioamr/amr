@@ -28,7 +28,7 @@ def bloque(modo, seed):
     n = BARS * SPB + SPB
     kick = np.zeros(n, np.float32); perc = np.zeros(n, np.float32)
     rng = np.random.default_rng(seed)
-    g = None if modo == 'viejo' else Groove(modo, S16, SR, seed=seed)
+    g = None if modo == 'viejo' else Groove(modo, S16, SR, bpm=BPM, seed=seed)
 
     def add(buf, pos, x, gain):
         pos = int(pos)
@@ -71,7 +71,7 @@ def bloque(modo, seed):
             for s in range(16):
                 if g.ghost(s, bar, rng):
                     add(perc, g.pos(base, s, bar),
-                        K.vary(K.smp(K.HATC), rng, 0.05, 0.4), 0.10 * g.vel(s, bar))
+                        K.vary(K.smp(K.HATC), rng, 0.05, 0.4), g.ghost_vel(s, bar) * 0.5)
                     if s % 4 == 3 and rng.random() < 0.35:
                         add(perc, g.pos(base, s, bar),
                             K.vary(K.smp(K.RIM), rng, 0.04, 0.3), 0.13)
