@@ -1,10 +1,33 @@
 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-  <defs><radialGradient id="gcu" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.44"/><stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/></radialGradient></defs>
-  <circle cx="120" cy="118" r="58" fill="url(#gcu)"/>
-  <path d="M56 158 L100 92 L128 132 L150 104 L184 158 Z" fill="none" stroke="#6E5BAE" stroke-width="10" stroke-linejoin="round"/>
-  <circle cx="150" cy="76" r="12" fill="#9D8BD6"/>
-  <circle cx="76" cy="88" r="2.6" fill="#141210"/><circle cx="176" cy="120" r="2.6" fill="#141210"/>
-  <rect x="46" y="192" width="148" height="5" rx="2.5" fill="#141210"/>
+  <defs><radialGradient id="gab" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="104" r="58" fill="url(#gab)"/>
+
+  <!-- ABRIL: el árbol entero encendido. La cumbre de la temporada. -->
+  <g fill="#6E5BAE">
+    <circle cx="120" cy="62"  r="24"/>
+    <circle cx="86"  cy="82"  r="22"/>
+    <circle cx="154" cy="82"  r="22"/>
+    <circle cx="102" cy="106" r="21"/>
+    <circle cx="140" cy="106" r="21"/>
+    <circle cx="68"  cy="108" r="15"/>
+    <circle cx="172" cy="108" r="15"/>
+  </g>
+  <g fill="#9D8BD6">
+    <circle cx="106" cy="72"  r="9"/>
+    <circle cx="140" cy="94"  r="8"/>
+    <circle cx="82"  cy="98"  r="7"/>
+    <circle cx="158" cy="66"  r="6.5"/>
+    <circle cx="120" cy="112" r="6"/>
+  </g>
+
+  <!-- tronco -->
+  <path d="M120 122 L120 160 M120 138 L104 128 M120 144 L136 133"
+        stroke="#463A73" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="54" cy="76" r="2.2" fill="#141210"/><circle cx="190" cy="134" r="2.4" fill="#141210"/>
 </svg>

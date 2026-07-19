@@ -1,12 +1,25 @@
 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-  <defs><radialGradient id="gmu" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.44"/><stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/></radialGradient></defs>
-  <circle cx="120" cy="118" r="58" fill="url(#gmu)"/>
-  <ellipse cx="120" cy="118" rx="17" ry="10" fill="#6E5BAE"/>
-  <path d="M150 96 Q170 118 150 140" fill="none" stroke="#9D8BD6" stroke-width="4" stroke-linecap="round"/>
-  <path d="M164 84 Q192 118 164 152" fill="none" stroke="#9D8BD6" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-  <path d="M90 96 Q70 118 90 140" fill="none" stroke="#9D8BD6" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="120" cy="74" r="3" fill="#9D8BD6"/><circle cx="120" cy="162" r="2.6" fill="#141210"/>
-  <rect x="46" y="192" width="148" height="5" rx="2.5" fill="#141210"/>
+  <defs><radialGradient id="gra2" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="112" r="56" fill="url(#gra2)"/>
+
+  <!-- RAMA: la rama principal sube y se abre. Hermana de RAIZ, al revés. -->
+  <path d="M58 166 Q92 146 116 112 Q132 90 148 66" fill="none"
+        stroke="#6E5BAE" stroke-width="9" stroke-linecap="round"/>
+  <!-- ramitas -->
+  <path d="M104 128 Q118 108 142 100" fill="none" stroke="#6E5BAE" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M126 96 Q112 78 90 70"    fill="none" stroke="#9D8BD6" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M86 148 Q76 132 58 124"   fill="none" stroke="#9D8BD6" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- brotes en las puntas -->
+  <circle cx="148" cy="66"  r="7"   fill="#9D8BD6"/>
+  <circle cx="142" cy="100" r="5.5" fill="#6E5BAE"/>
+  <circle cx="90"  cy="70"  r="5"   fill="#6E5BAE"/>
+  <circle cx="58"  cy="124" r="4.5" fill="#9D8BD6"/>
+
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="176" cy="140" r="2.2" fill="#141210"/><circle cx="64" cy="86" r="2.4" fill="#141210"/>
 </svg>

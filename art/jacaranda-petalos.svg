@@ -1,13 +1,34 @@
 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-  <defs><radialGradient id="gnu" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.44"/><stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/></radialGradient></defs>
-  <circle cx="120" cy="118" r="58" fill="url(#gnu)"/>
-  <g stroke="#6E5BAE" stroke-width="8" stroke-linecap="round">
-   <line x1="120" y1="118" x2="120" y2="68"/><line x1="120" y1="118" x2="164" y2="94"/>
-   <line x1="120" y1="118" x2="164" y2="142"/><line x1="120" y1="118" x2="120" y2="168"/>
-   <line x1="120" y1="118" x2="76" y2="142"/><line x1="120" y1="118" x2="76" y2="94"/></g>
-  <circle cx="120" cy="118" r="15" fill="#9D8BD6"/>
-  <circle cx="120" cy="56" r="3" fill="#9D8BD6"/><circle cx="176" cy="150" r="2.6" fill="#141210"/>
-  <rect x="46" y="192" width="148" height="5" rx="2.5" fill="#141210"/>
+  <defs><radialGradient id="gpe" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="112" r="56" fill="url(#gpe)"/>
+
+  <!-- PETALOS: el clímax. LLUVIA son pétalos cayendo; aquí ya cubrieron el suelo. -->
+  <g stroke="#9D8BD6" stroke-width="2.6" stroke-linecap="round" opacity="0.45">
+    <path d="M74 44 L64 72"/><path d="M120 38 L110 66"/><path d="M166 46 L156 74"/>
+  </g>
+  <ellipse cx="88"  cy="70"  rx="6" ry="11" fill="#6E5BAE" transform="rotate(-26 88 70)"/>
+  <ellipse cx="132" cy="58"  rx="6" ry="11" fill="#9D8BD6" transform="rotate(-16 132 58)"/>
+  <ellipse cx="158" cy="92"  rx="6" ry="10" fill="#6E5BAE" transform="rotate(-32 158 92)"/>
+  <ellipse cx="72"  cy="104" rx="6" ry="10" fill="#9D8BD6" transform="rotate(-20 72 104)"/>
+  <ellipse cx="118" cy="96"  rx="7" ry="12" fill="#6E5BAE" transform="rotate(-30 118 96)"/>
+
+  <!-- la alfombra: el suelo cubierto -->
+  <ellipse cx="120" cy="150" rx="74" ry="20" fill="#463A73" opacity="0.55"/>
+  <g>
+    <ellipse cx="66"  cy="146" rx="8" ry="6" fill="#6E5BAE" transform="rotate(-18 66 146)"/>
+    <ellipse cx="90"  cy="154" rx="9" ry="6" fill="#9D8BD6" transform="rotate(12 90 154)"/>
+    <ellipse cx="114" cy="144" rx="8" ry="6" fill="#6E5BAE" transform="rotate(-8 114 144)"/>
+    <ellipse cx="138" cy="156" rx="9" ry="6" fill="#9D8BD6" transform="rotate(20 138 156)"/>
+    <ellipse cx="162" cy="146" rx="8" ry="6" fill="#6E5BAE" transform="rotate(-14 162 146)"/>
+    <ellipse cx="102" cy="164" rx="8" ry="5" fill="#6E5BAE" transform="rotate(6 102 164)"/>
+    <ellipse cx="150" cy="166" rx="7" ry="5" fill="#9D8BD6" transform="rotate(-10 150 166)"/>
+    <ellipse cx="78"  cy="164" rx="7" ry="5" fill="#9D8BD6" transform="rotate(16 78 164)"/>
+  </g>
+
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="52" cy="88" r="2.2" fill="#141210"/><circle cx="192" cy="118" r="2.4" fill="#141210"/>
 </svg>

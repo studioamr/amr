@@ -1,11 +1,22 @@
 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
-  <defs><radialGradient id="gva" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.44"/><stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.15"/>
-    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/></radialGradient></defs>
-  <circle cx="120" cy="118" r="58" fill="url(#gva)"/>
-  <circle cx="120" cy="118" r="44" fill="none" stroke="#6E5BAE" stroke-width="11"/>
-  <circle cx="120" cy="118" r="24" fill="none" stroke="#9D8BD6" stroke-width="3" opacity="0.6"/>
-  <circle cx="120" cy="118" r="6" fill="#9D8BD6"/>
-  <path d="M120 52 L120 66 M186 118 L172 118 M120 184 L120 170 M54 118 L68 118" stroke="#141210" stroke-width="4" stroke-linecap="round"/>
-  <rect x="46" y="192" width="148" height="5" rx="2.5" fill="#141210"/>
+  <defs><radialGradient id="gfl" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#6E5BAE" stop-opacity="0.42"/>
+    <stop offset="55%" stop-color="#6E5BAE" stop-opacity="0.14"/>
+    <stop offset="100%" stop-color="#6E5BAE" stop-opacity="0"/>
+  </radialGradient></defs>
+  <circle cx="120" cy="118" r="56" fill="url(#gfl)"/>
+
+  <!-- FLOR: la jacaranda abriéndose. Cinco pétalos desde el centro. -->
+  <ellipse cx="120"   cy="92"  rx="13" ry="27" fill="#6E5BAE" transform="rotate(0 120 92)"/>
+  <ellipse cx="144.7" cy="110" rx="13" ry="27" fill="#6E5BAE" transform="rotate(72 144.7 110)"/>
+  <ellipse cx="135.3" cy="139" rx="13" ry="27" fill="#9D8BD6" transform="rotate(144 135.3 139)"/>
+  <ellipse cx="104.7" cy="139" rx="13" ry="27" fill="#9D8BD6" transform="rotate(216 104.7 139)"/>
+  <ellipse cx="95.3"  cy="110" rx="13" ry="27" fill="#6E5BAE" transform="rotate(288 95.3 110)"/>
+  <circle cx="120" cy="118" r="12" fill="#221C3B"/>
+  <circle cx="120" cy="118" r="5"  fill="#9D8BD6"/>
+
+  <path d="M120 152 L120 172" stroke="#6E5BAE" stroke-width="5" stroke-linecap="round"/>
+
+  <rect x="46" y="176" width="148" height="5" rx="2.5" fill="#141210"/>
+  <circle cx="60" cy="88" r="2.2" fill="#141210"/><circle cx="182" cy="146" r="2.4" fill="#141210"/>
 </svg>
