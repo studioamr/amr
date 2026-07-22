@@ -743,11 +743,19 @@ body.hasplayer{padding-bottom:70px}
 </section>
 </div><!-- /dropsrail -->
 
+<!-- LO MEJOR — MONUMENTS × DELIRIO -->
+<section class="sec" id="records">
+  <div class="sh">
+    <div><span class="hk">THE BEST — THE WHOLE CATALOGUE, SIDE BY SIDE</span><h2>Our best tracks.</h2></div>
+    <p>The favourite cuts from every record: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade and JACARANDA in violet. Hit play on any of them.</p>
+  </div>
+  <div class="grid" id="recordGrid"></div>
+</section>
+
 <!-- LA SESIÓN — el catálogo corrido como un solo set -->
 <div class="sess" id="sound">
 <div class="sessin">
   <span class="hk">THE SESSION — SIX RECORDS, ONE SITTING</span>
-  <h2>The whole catalogue, end to end.</h2>
   <p class="sesslede">Every record in order, played as one session — <b>press play once</b> and it runs from the first bar of MONUMENTS to the last of SUBSUELO without you touching anything. Pick any movement below to drop straight into it.</p>
   <div class="sessbar" id="sessBar"><canvas id="sessCv"></canvas><div class="sesshead" id="sessHead" style="left:0"></div></div>
   <div class="sessnums"><span id="sessT">0:00</span><span class="sessnow" id="sessNow">—</span><span id="sessD">0:00</span></div>
@@ -759,15 +767,6 @@ body.hasplayer{padding-bottom:70px}
   <div id="sessList"></div>
 </div>
 </div>
-
-<!-- LO MEJOR — MONUMENTS × DELIRIO -->
-<section class="sec" id="records">
-  <div class="sh">
-    <div><span class="hk">THE BEST — THE WHOLE CATALOGUE, SIDE BY SIDE</span><h2>Our best tracks.</h2></div>
-    <p>The favourite cuts from every record: MONUMENTS in amber, DELIRIO in blue, GUERRERO in jade and JACARANDA in violet. Hit play on any of them.</p>
-  </div>
-  <div class="grid" id="recordGrid"></div>
-</section>
 
 
 
@@ -860,8 +859,8 @@ body.hasplayer{padding-bottom:70px}
 <script src="set.js?v=202607161934"></script>
 <script src="tulum.js?v=202607161934"></script>
 <script src="guerrero.js?v=202607170430"></script>
-<script src="jacaranda.js?v=202607201200"></script>
-<script src="subsuelo.js?v=202607201200"></script>
+<script src="jacaranda.js?v=202607201600"></script>
+<script src="subsuelo.js?v=202607201600"></script>
 <script src="waveforms.js?v=202607201200"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
@@ -876,7 +875,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
     'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
-    'amr-subsuelo':{img:'art/subsuelo.svg', kick:'OCHO NIVELES · SUBSUELO', title:'SUBSUELO', desc:'Rust 12″ — a Boiler Room with no voices, because nobody is talking down there. Eight levels straight down at 125 BPM in one continuous mix: from the kerb through concrete and iron to BASALTO, the bedrock the city stands on, then water seeping back and a door onto daylight. The bassline leads the whole way. Numbered by hand, edition of 8.'},
+    'amr-subsuelo':{img:'art/subsuelo.svg?v=2', kick:'OCHO NIVELES · SUBSUELO', title:'SUBSUELO', desc:'Rust 12″ — a Boiler Room with no voices, because nobody is talking down there. Eight levels straight down at 125 BPM in one continuous mix: from the kerb through concrete and iron to BASALTO, the bedrock the city stands on, then water seeping back and a door onto daylight. The bassline leads the whole way. Numbered by hand, edition of 8.'},
     'amr-jacaranda':{img:'art/jacaranda.svg', kick:'FLORACIÓN · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the jacaranda is not interesting as a tree. It is interesting as an event: it turns a whole city violet for three weeks and then it is over. Seven movements at 120 BPM read as omen, blaze and vestige — VÍSPERA before anything shows, FULGOR when the whole tree catches, VESTIGIO for what is left on the ground. Deep house, one continuous mix. Numbered by hand, edition of 7.'}
   };
   var current = null;
@@ -1104,9 +1103,9 @@ if(window.AMR_SUBSUELO){
 
 /* ---- SUBSUELO: los dos cortes sueltos ---- */
 var SPICKS = [
-  {sec:5, file:'audio/amr-subsuelo-cut-basalto.m4a', art:'art/subsuelo-basalto.svg', key:'A MIN',
+  {sec:5, file:'audio/amr-subsuelo-cut-basalto.m4a', art:'art/subsuelo-basalto.svg?v=2', key:'A MIN',
    desc:'Bedrock — the volcanic rock the whole city stands on, cooled into hexagonal columns. The deepest, densest point of the record.'},
-  {sec:3, file:'audio/amr-subsuelo-cut-ducto.m4a',   art:'art/subsuelo-ducto.svg',   key:'A MIN',
+  {sec:3, file:'audio/amr-subsuelo-cut-ducto.m4a',   art:'art/subsuelo-ducto.svg?v=2',   key:'A MIN',
    desc:'A vertical air shaft seen from the bottom, looking up at the light. Everything echoes and comes back late — the delay is the melody.'}
 ];
 var cardsS = [];
