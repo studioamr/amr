@@ -1,12 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Studio AMR — Five records, cut like monuments</title>
-<meta name="description" content="AMR presses deep house in numbered vinyl editions. Five records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
+<title>Studio AMR — Six records, cut like monuments</title>
+<meta name="description" content="AMR presses deep house in numbered vinyl editions. Six records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
 <meta name="theme-color" content="#EAE6DF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio AMR">
-<meta property="og:title" content="Studio AMR — Five records, cut like monuments">
-<meta property="og:description" content="Five records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO and JACARANDA — pressed to hand-numbered vinyl. Morelia, MX.">
+<meta property="og:title" content="Studio AMR — Six records, cut like monuments">
+<meta property="og:description" content="Six records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA and SUBSUELO — pressed to hand-numbered vinyl. Morelia, MX.">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23141210"/><circle cx="16" cy="16" r="5.5" fill="%23C96F2B"/><circle cx="16" cy="16" r="1.8" fill="%23EAE6DF"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
 <style>
@@ -128,164 +128,52 @@ body.hero-in .hero-bottom{opacity:1;transform:none;transition-delay:.66s}
 .card::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--amber);transition:width .5s}
 .card:hover::after,.card.playing::after{width:100%}
 
-/* ---- the setup — réplica CDJ-3000 × DJM-900NXS2 (fondo estudio limpio) ---- */
-.mixsec{position:relative;color:var(--bone);overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#1b1d21,#0c0d0f 70%)}
-.mixsec button:focus,.mixsec .pkcap:focus,.mixsec .pfader:focus,.mixsec .tempo:focus,.mixsec .xftrack:focus,.mixsec .jog:focus{outline:none}
-.mixsec button::-moz-focus-inner{border:0}
-.mixsec .mixin{position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(16px,3vw,40px)}
-.mixsec .hk{color:rgba(234,230,223,.55)}
-.mixsec h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.5vw,60px);margin:14px 0 16px}
-.mixsec .mixlede{color:rgba(234,230,223,.62);line-height:1.7;max-width:64ch;margin:0 0 22px}
-.mixsec .mixlede b{color:var(--bone);font-weight:500}
-.aibar{display:flex;align-items:center;gap:12px;margin:0 0 16px}
-.aibtn{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;background:linear-gradient(180deg,#1a1c20,#0e0f12);border:1px solid #3a3d44;border-radius:5px;color:#eae6df;cursor:pointer;padding:10px 18px;transition:.2s}
-.aibtn:hover{border-color:#8b857c}
-.aibtn.on{background:#e5372e;border-color:#e5372e;color:#fff;font-weight:600;box-shadow:0 0 18px rgba(229,55,46,.5);animation:aipulse 1.4s ease-in-out infinite}
-@keyframes aipulse{50%{box-shadow:0 0 26px rgba(229,55,46,.8)}}
-.aistatus{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:rgba(234,230,223,.5);text-transform:uppercase}
-.pmxshelf{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 14px;scrollbar-width:none;margin-bottom:14px;font-family:'IBM Plex Mono',monospace}
-.pmxshelf::-webkit-scrollbar{display:none}
-.shrec{flex:0 0 auto;width:82px;background:none;border:none;cursor:pointer;text-align:center;font-family:inherit;color:rgba(234,230,223,.72);padding:4px 0;transition:transform .22s}
-.shrec:hover{transform:translateY(-3px);color:var(--bone)}
-.sdisc{width:46px;height:46px;margin:0 auto 7px;border-radius:50%;position:relative;background:repeating-radial-gradient(circle at 50% 50%,#0d0b0a 0 1.5px,#1d1a17 1.5px 3.4px);box-shadow:0 4px 12px rgba(0,0,0,.5);display:grid;place-items:center}
-.sdisc::after{content:"";width:36%;height:36%;border-radius:50%;background:var(--mc,#C96F2B)}
-.sdisc::before{content:"";position:absolute;width:8%;height:8%;border-radius:50%;background:#141210;z-index:2}
-.shrec:hover .sdisc{animation:spin 2.4s linear infinite}
-.shrec i{display:block;font-style:normal;font-size:9px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.shrec em{display:block;font-style:normal;font-size:8px;letter-spacing:.08em;color:rgba(234,230,223,.38);margin-top:2px}
-.shrec.deny .sdisc{animation:mxshake .3s}
-@keyframes mxshake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-/* --- la cabina: CDJ · CDJ · DJM · CDJ · CDJ --- */
-.booth{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr minmax(400px,1.42fr) 1fr 1fr;gap:8px;align-items:stretch;margin-bottom:14px;font-family:'IBM Plex Mono',monospace}
-.unit{background:linear-gradient(180deg,#292b2f 0,#16171a 14%,#0c0d0f 55%,#08090b);border:1px solid #000;border-radius:7px;box-shadow:0 30px 62px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.14),inset 0 -14px 26px rgba(0,0,0,.4);padding:9px 8px 14px;position:relative;min-width:0}
-.unit::before,.unit::after{content:"";position:absolute;top:5px;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#54575e,#191a1d 70%);box-shadow:inset 0 0 1px #000}
-.unit::before{left:6px}.unit::after{right:6px}
-.unit .feet{position:absolute;left:8%;right:8%;bottom:-7px;height:9px;display:flex;justify-content:space-between;pointer-events:none}
-.unit .feet i{width:14px;height:9px;border-radius:0 0 4px 4px;background:linear-gradient(180deg,#e9e7e2,#b9b6ad);box-shadow:0 3px 5px rgba(0,0,0,.4)}
-/* --- CDJ --- */
-.cdj{display:flex;flex-direction:column;gap:7px}
-.cdjscr{width:100%;height:106px;background:#060a14;border:1px solid #272a31;border-radius:3px;cursor:crosshair;display:block}
-.cdjmid{display:flex;gap:6px;align-items:center;justify-content:center}
-.jogctl{display:flex;flex-direction:column;gap:4px;flex:0 0 auto}
-.jogctl .jc{font-family:inherit;font-size:6px;letter-spacing:.02em;background:#0f1013;border:1px solid #24262b;border-radius:2px;color:#8b877f;cursor:pointer;padding:4px 5px;transition:.14s;width:38px}
-.jogctl .jc:hover:not(:disabled){border-color:#8b857c;color:#fff}
-.jogctl .jc:disabled{opacity:.28;cursor:default}
-.jogctl .jc.on{background:#2f7de0;border-color:#2f7de0;color:#08131f;font-weight:600}
-.jogctl .jc.rev.on{background:#e5372e;border-color:#e5372e;color:#fff}
-.jogctl .jc.quant.on{background:#5bc4a5;border-color:#5bc4a5;color:#08181a}
-/* --- tornamesa de vinilo (Technics) --- */
-.jogwrap{position:relative;flex:0 0 auto;display:grid;place-items:center;padding:6px}
-.jog{width:clamp(114px,10vw,162px);aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#050505 0 1.4px,#181818 1.4px 2.9px),radial-gradient(circle at 50% 50%,#111 0,#000 100%);border:1px solid #000;display:grid;place-items:center;position:relative;box-shadow:0 12px 28px rgba(0,0,0,.6),inset 0 0 0 4px #1a1c20,inset 0 0 22px rgba(0,0,0,.6);cursor:grab;touch-action:none}
-.jog::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 38% 26%,rgba(255,255,255,.1),transparent 42%);pointer-events:none;z-index:4}
-.cdj.playing .jog{animation:spin 1.8s linear infinite}
-.jog.grabbing{cursor:grabbing;animation:none}
-.jog.grabbing~.jogring{border-color:#ffb03a !important}
-.jogring{position:absolute;inset:1%;border-radius:50%;border:2px solid rgba(255,255,255,.04);transition:.25s;pointer-events:none}
-.cdj.playing .jogring{border-color:rgba(229,55,46,.4)}
-.jogart{width:41%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#0c0d0f 0 9%,var(--mc,#2c2e33) 10%);display:grid;place-items:center;position:relative;z-index:3;box-shadow:0 0 0 1px rgba(0,0,0,.5),inset 0 0 4px rgba(0,0,0,.4);color:#0d0b0a;font-size:6.5px;font-weight:700;letter-spacing:.04em;text-align:center;overflow:hidden;padding:14% 4px 4px;line-height:1}
-.tonearm{position:absolute;top:1%;right:1%;width:52%;height:52%;pointer-events:none;z-index:5;transform-origin:82% 14%;transform:rotate(24deg);transition:transform .55s cubic-bezier(.4,1.3,.5,1)}
-.cdj.playing .tonearm{transform:rotate(2deg)}
-.tonearm .apiv{position:absolute;top:2px;right:2px;width:15px;height:15px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#e4e2dd,#8f9198 70%);box-shadow:0 1px 3px rgba(0,0,0,.5)}
-.tonearm .aarm{position:absolute;top:11px;right:9px;width:64%;height:3px;background:linear-gradient(180deg,#e8e7e3,#a7a9ae);transform:rotate(40deg);transform-origin:right center;border-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,.5)}
-.tonearm .ahead{position:absolute;top:44%;left:8%;width:9px;height:7px;background:#2a2c31;border:1px solid #54575e;border-radius:1px}
-.tempo{position:relative;width:24px;height:112px;flex:0 0 auto;cursor:ns-resize;touch-action:none;background:linear-gradient(90deg,transparent 42%,rgba(234,230,223,.2) 46% 54%,transparent 58%)}
-.tempo::after{content:"";position:absolute;left:2px;right:2px;top:50%;height:1px;background:rgba(234,230,223,.35)}
-.tcap{position:absolute;left:0;right:0;height:14px;border-radius:2px;background:linear-gradient(180deg,#3d3831,#211d19);border:1px solid rgba(234,230,223,.32);box-shadow:0 2px 5px rgba(0,0,0,.5)}
-.tcap::after{content:"";position:absolute;left:3px;right:3px;top:50%;height:1px;background:#e8e5df}
-.tlab{font-size:7px;letter-spacing:.12em;color:rgba(234,230,223,.4);text-align:center;margin-top:3px}
-.cdjbtns{display:flex;gap:8px;justify-content:center;align-items:center}
-.synrow{display:flex;gap:3px;justify-content:center;flex-wrap:wrap}
-.synrow button{font-family:inherit;font-size:6.5px;letter-spacing:.06em;background:#0f1013;border:1px solid #24262b;border-radius:2px;color:#8b877f;cursor:pointer;padding:4px 7px;transition:.15s}
-.synrow button:hover:not(:disabled){border-color:#8b857c;color:#fff}
-.synrow button:disabled{opacity:.26;cursor:default}
-.synrow .synbtn.on{background:#2f7de0;border-color:#2f7de0;color:#08131f;font-weight:600;box-shadow:0 0 9px rgba(47,125,224,.55)}
-.synrow .mstbtn.on{background:#ff9f1a;border-color:#ff9f1a;color:#1a1206;font-weight:600;box-shadow:0 0 9px rgba(255,159,26,.5)}
-.synrow .klbtn.on{border-color:#5bc4a5;color:#5bc4a5}
-.rbtn{width:40px;height:40px;border-radius:50%;border:2px solid #3c4046;background:radial-gradient(circle at 35% 30%,#212328,#101114);color:#cfccc5;font-size:13px;cursor:pointer;display:grid;place-items:center;transition:.2s;padding:0;font-family:inherit}
-.rbtn:disabled{opacity:.3;cursor:default}
-.rbtn.play.on{border-color:#35e07a;color:#35e07a;box-shadow:0 0 12px rgba(53,224,122,.45)}
-.rbtn.cue{font-size:8px;letter-spacing:.08em}
-.rbtn.cue.set{border-color:#ff9f1a;color:#ff9f1a;box-shadow:0 0 10px rgba(255,159,26,.4)}
-.tsk{display:flex;gap:3px;justify-content:center}
-.tsk button,.peject{font-family:inherit;font-size:6.5px;letter-spacing:.08em;background:#0f1013;border:1px solid #24262b;border-radius:2px;color:#9a968e;cursor:pointer;padding:4px 8px;transition:.18s}
-.tsk button:hover:not(:disabled){border-color:#8b857c;color:#fff}
-.tsk button:disabled,.peject:disabled{opacity:.28;cursor:default}
-.peject:hover:not(:disabled){border-color:#d1342f;color:#d1342f}
-/* --- selector de rola por deck --- */
-.perf{display:flex;flex-direction:column;gap:4px;margin-top:2px}
-.padhd{font-size:6px;letter-spacing:.2em;color:#5c5f66;text-align:left}
-.rolasel{width:100%;font-family:inherit;font-size:8px;letter-spacing:.06em;background:#0f1013;border:1px solid #2a2c31;border-radius:3px;color:#cfccc5;cursor:pointer;padding:6px 6px;transition:.15s;-webkit-appearance:none;appearance:none;background-image:url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"8\" height=\"6\"><path d=\"M0 0l4 6 4-6z\" fill=\"%238b857c\"/></svg>');background-repeat:no-repeat;background-position:right 7px center}
-.rolasel:hover{border-color:#8b857c;color:#fff}
-.rolasel:focus{outline:none;border-color:var(--mlc,#8b857c)}
-.rolasel option{background:#15161a;color:#eae6df}
-.pad{aspect-ratio:1.7;border-radius:3px;border:1px solid #202227;background:color-mix(in srgb,var(--pc,#3a3d44) 13%,#0d0e11);cursor:pointer;font-family:inherit;font-size:8px;letter-spacing:.02em;color:color-mix(in srgb,var(--pc,#8b857c) 60%,#6c6f76);display:grid;place-items:center;text-align:center;line-height:1;transition:transform .05s,box-shadow .12s,background .12s;position:relative;box-shadow:inset 0 -2px 5px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05);padding:0;-webkit-tap-highlight-color:transparent}
-.pad:disabled{opacity:.4;cursor:default;background:#0d0e11;color:#4a4d54}
-.pad:not(:disabled):active{transform:translateY(1px)}
-.pad.lit{color:#08090b;font-weight:700;background:var(--pc,#2fd0d8);border-color:var(--pc,#2fd0d8);box-shadow:0 0 12px var(--pc,#2fd0d8),inset 0 0 8px rgba(255,255,255,.4)}
-.mloop{display:flex;gap:2px}
-.mloop button{font-family:inherit;font-size:6.5px;letter-spacing:.02em;background:#0f1013;border:1px solid #24262b;border-radius:2px;color:#8b877f;cursor:pointer;padding:3px 0;flex:1;min-width:0;transition:.14s}
-.mloop button:hover:not(:disabled){border-color:#8b857c;color:#fff}
-.mloop button:disabled{opacity:.26;cursor:default}
-.mloop button.lin.on,.mloop button.lout.on{border-color:#35e07a;color:#35e07a}
-.mloop button.lrl.on{background:#35e07a;border-color:#35e07a;color:#08181a;box-shadow:0 0 8px rgba(53,224,122,.5)}
-.cdjfoot{font-size:6.5px;letter-spacing:.24em;color:#4c4f56;text-align:center;margin-top:1px}
-/* --- DJM --- */
-.djm{display:flex;flex-direction:column;gap:6px}
-.djmgrid{display:grid;grid-template-columns:repeat(4,1fr) auto;gap:0;flex:1}
-.strip{display:flex;flex-direction:column;align-items:center;gap:6px;padding:4px 3px 6px;border-right:1px solid #232529;min-width:0}
-.stname{font-size:7px;letter-spacing:.08em;color:var(--mlc,#8b857c);text-transform:uppercase;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-height:10px}
-.knob{width:29px;height:29px;border-radius:50%;background:radial-gradient(circle at 40% 28%,#f2f1ee,#c3c2bd 42%,#7f8188 72%,#42444a);border:1px solid #26282c;box-shadow:0 2px 6px rgba(0,0,0,.55),inset 0 1px 1px rgba(255,255,255,.5),inset 0 -2px 3px rgba(0,0,0,.3);position:relative;cursor:ns-resize;touch-action:none}
-.knob::after{content:"";position:absolute;left:50%;top:50%;width:2px;height:10px;margin:-13px 0 0 -1px;background:#1a1b1e;transform-origin:1px 13px;transform:rotate(var(--rot,0deg));border-radius:1px}
-.klab{font-size:7px;letter-spacing:.12em;color:#9a968e;margin-top:-3px}
-.cuebtn{width:82%;padding:4px 0;background:#17181b;border:1px solid #3a3d44;border-radius:2px;color:#c9c5bd;font-size:8px;letter-spacing:.16em;cursor:pointer;font-family:inherit;transition:.18s}
-.cuebtn.set{background:#ff9f1a;border-color:#ff9f1a;color:#141210;box-shadow:0 0 10px rgba(255,159,26,.45)}
-.chipnum{min-width:16px;height:14px;background:#ff7f27;color:#141210;font-size:9px;font-weight:600;display:grid;place-items:center;border-radius:2px;padding:0 3px}
-.fadrow{display:flex;gap:7px;align-items:flex-end;justify-content:center}
-.pvu{display:flex;flex-direction:column-reverse;gap:1.6px;padding-bottom:2px}
-.pvu i{width:8px;height:4px;border-radius:1px;background:rgba(234,230,223,.09)}
-.pvu i.on{background:#37c95d}
-.pvu i.a.on{background:#d9a13b}
-.pvu i.r.on{background:#e5372e}
-.pfader{position:relative;width:32px;height:112px;cursor:ns-resize;touch-action:none;background:linear-gradient(90deg,transparent 45%,rgba(234,230,223,.2) 48% 52%,transparent 55%)}
-.pfh{position:absolute;left:1px;right:1px;height:15px;border-radius:2px;background:linear-gradient(180deg,#3d3831,#221e1a);border:1px solid rgba(234,230,223,.32);box-shadow:0 2px 6px rgba(0,0,0,.5)}
-.pfh::after{content:"";position:absolute;left:4px;right:4px;top:50%;height:1px;background:#e8e5df}
-.xa3{display:flex;gap:2px}
-.xa3 button{font-family:inherit;font-size:7px;letter-spacing:.06em;background:#141519;border:1px solid #33363d;border-radius:2px;color:#8f8b83;cursor:pointer;padding:3px 5px;transition:.15s}
-.xa3 button.on{background:#e8e5df;border-color:#e8e5df;color:#141210}
-/* FX + master */
-.fxcol{display:flex;flex-direction:column;gap:6px;align-items:center;padding:4px 6px 6px;min-width:96px}
-.fxlcd{width:100%;background:#050607;border:1px solid #2b2e34;border-radius:3px;padding:6px 7px;color:#ffb03a;display:flex;flex-direction:column;gap:3px;font-size:9px}
-.fxlcd .lrow{display:flex;justify-content:space-between;align-items:center}
-.fxlcd b{font-weight:600;letter-spacing:.1em}
-.fxlcd .lsm{font-size:8px;color:rgba(255,176,58,.65)}
-.beatdot{width:6px;height:6px;border-radius:50%;background:#ffb03a;opacity:.15;transition:opacity .05s}
-.beatdot.on{opacity:1;box-shadow:0 0 6px rgba(255,176,58,.7)}
-.fxsel{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%}
-.fxsel button,.chsel button{font-family:inherit;font-size:7px;letter-spacing:.08em;background:#17181b;border:1px solid #34373e;border-radius:2px;color:#a5a199;cursor:pointer;padding:4px 2px;transition:.15s}
-.fxsel button.on{border-color:#ffb03a;color:#ffb03a}
-.chsel{display:flex;gap:3px;width:100%}
-.chsel button{flex:1}
-.chsel button.on{border-color:#ffb03a;color:#ffb03a}
-.fxfreq,.fxbeat{display:flex;gap:3px;width:100%}
-.fxfreq button,.fxbeat button{flex:1;font-family:inherit;font-size:7px;letter-spacing:.06em;background:#17181b;border:1px solid #34373e;border-radius:2px;color:#a5a199;cursor:pointer;padding:4px 0;transition:.15s;min-width:0}
-.fxfreq button:hover,.fxbeat button:hover{color:#fff;border-color:#54575e}
-.fxfreq button.on{border-color:#2f7de0;color:#4fa3ff}
-.fxbeat button#fxQz.on{border-color:#5bc4a5;color:#5bc4a5}
-.fxon{width:100%;font-family:inherit;font-size:9px;letter-spacing:.14em;background:#17181b;border:1px solid #3a3d44;border-radius:3px;color:#c9c5bd;cursor:pointer;padding:7px 0;transition:.2s}
-.fxon.on{background:#ffb03a;border-color:#ffb03a;color:#141210;animation:fxpulse 1s ease-in-out infinite}
-@keyframes fxpulse{50%{box-shadow:0 0 16px rgba(255,176,58,.65)}}
-.mstrow{display:flex;gap:10px;align-items:center;justify-content:center;border-top:1px solid #232529;padding-top:7px}
-.pmvu{display:flex;gap:4px}
-.mstlab{font-size:7px;letter-spacing:.16em;color:#9a968e;text-align:center}
-.xfrow{display:flex;align-items:center;gap:10px;justify-content:center;border-top:1px solid #232529;padding-top:8px;font-size:10px;letter-spacing:.18em;color:rgba(234,230,223,.5)}
-.xftrack{position:relative;width:min(240px,52%);height:28px;cursor:ew-resize;touch-action:none;background:linear-gradient(180deg,transparent 42%,rgba(234,230,223,.2) 46% 54%,transparent 58%)}
-.xfhandle{position:absolute;top:1px;bottom:1px;width:20px;border-radius:2px;background:linear-gradient(180deg,#3d3831,#221e1a);border:1px solid rgba(234,230,223,.32);box-shadow:0 2px 6px rgba(0,0,0,.5)}
-.xfhandle::after{content:"";position:absolute;top:4px;bottom:4px;left:50%;width:1px;background:#e8e5df}
-.djmlogo{font-size:8px;letter-spacing:.3em;color:#6e7178;text-align:center}
-/* pedestal plinth */
-@media(max-width:1150px){.booth{grid-template-columns:1fr 1fr}.djm{grid-column:1/-1;order:3}.cdj[data-d="0"]{order:1}.cdj[data-d="1"]{order:2}.cdj[data-d="2"]{order:4}.cdj[data-d="3"]{order:5}}
-@media(max-width:560px){.booth{grid-template-columns:1fr}.djmgrid{grid-template-columns:1fr 1fr}.fxcol{grid-column:1/-1}}
-
+/* ---- LA SESIÓN — el catálogo corrido como un solo set ----
+   Aquí vivía la cabina completa: cuatro tornamesas, la DJM de cuatro canales,
+   AI DJ, hot cues, loops, beat FX. Mil líneas para que el visitante jugara a
+   ser DJ. André pidió lo contrario — "déjalo más bien como un set de nuestras
+   canciones" — así que no se simplificó la cabina: se quitó entera y en su
+   lugar quedó una sola cosa que hace una sola cosa. */
+.sess{position:relative;color:var(--bone);background:radial-gradient(120% 80% at 50% 0%,#1b1d21,#0c0d0f 70%);overflow:hidden}
+.sessin{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:clamp(60px,9vw,120px) clamp(16px,3vw,40px)}
+.sess .hk{color:rgba(234,230,223,.55)}
+.sess h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,4.5vw,60px);margin:14px 0 16px}
+.sesslede{color:rgba(234,230,223,.62);line-height:1.7;max-width:60ch;margin:0 0 34px}
+.sesslede b{color:var(--bone);font-weight:500}
+/* la barra: onda real del disco que suena + cabezal */
+.sessbar{position:relative;height:120px;margin:0 0 4px;cursor:pointer;background:#0a0b0d;border:1px solid rgba(234,230,223,.09)}
+.sessbar canvas{position:absolute;inset:0;width:100%;height:100%}
+.sesshead{position:absolute;top:0;bottom:0;width:1px;background:var(--bone);pointer-events:none;box-shadow:0 0 10px rgba(234,230,223,.5)}
+.sessnums{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:rgba(234,230,223,.45);padding:9px 0 26px}
+.sessnums b{color:var(--bone);font-weight:400}
+/* el transporte: un botón grande y dos chicos. Nada más. */
+.sesstrans{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:0 0 38px}
+.sessplay{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid var(--bone);background:var(--bone);color:#0c0d0f;padding:17px 34px;cursor:pointer;transition:.3s}
+.sessplay:hover{background:transparent;color:var(--bone)}
+.sesskip{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  border:1px solid rgba(234,230,223,.35);background:none;color:rgba(234,230,223,.75);padding:16px 20px;cursor:pointer;transition:.3s}
+.sesskip:hover{border-color:var(--bone);color:var(--bone)}
+.sessnow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:rgba(234,230,223,.5);text-transform:uppercase}
+.sessnow b{color:var(--bone);font-weight:400}
+/* el orden del set: un renglón por disco, sus movimientos adentro */
+.sessdisc{border-top:1px solid rgba(234,230,223,.13)}
+.sessdisc:last-child{border-bottom:1px solid rgba(234,230,223,.13)}
+.sesshead2{display:flex;align-items:baseline;gap:14px;padding:18px 0;cursor:pointer;transition:.2s}
+.sesshead2:hover{padding-left:6px}
+.sessno{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--sc,#8b857c);min-width:34px}
+.sesstit{font-family:'Instrument Serif',serif;font-size:clamp(22px,2.6vw,32px);line-height:1}
+.sessmeta{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:rgba(234,230,223,.42);text-align:right}
+.sessdisc.on .sesstit{color:var(--sc,#8b857c)}
+.sesscuts{list-style:none;margin:0;padding:0 0 16px;columns:3;column-gap:26px}
+.sesscuts li{display:flex;gap:9px;padding:4px 0;font-family:'IBM Plex Mono',monospace;font-size:11px;
+  color:rgba(234,230,223,.45);cursor:pointer;break-inside:avoid;transition:color .2s}
+.sesscuts li:hover{color:var(--bone)}
+.sesscuts li b{color:var(--sc,#8b857c);font-weight:400;min-width:22px}
+.sesscuts li.on{color:var(--bone)}
+.sesscuts li.on b::after{content:" \25b8"}
+@media(max-width:860px){.sesscuts{columns:2}.sessbar{height:88px}}
+@media(max-width:560px){.sesscuts{columns:1}}
 /* ---- about ---- */
 .about{text-align:center}
 .about .lede{font-family:'Instrument Serif',serif;font-size:clamp(26px,3.6vw,44px);line-height:1.25;max-width:26ch;margin:0 auto 24px}
@@ -591,6 +479,27 @@ body.hasplayer{padding-bottom:70px}
 .card.jaccard::after{background:#9D8BD6}
 .card.jaccard .pchip{border-color:#463A73;color:#463A73}
 .card.jaccard.playing .pchip{background:#463A73;color:#D8CFF0}
+.card.oxidocard .num b{color:#B4501F}
+.card.oxidocard .vinyl::after{background:#B4501F}
+.card.oxidocard::after{background:#D97A45}
+.card.oxidocard .pchip{border-color:#B4501F;color:#B4501F}
+.card.oxidocard.playing .pchip{background:#B4501F;color:#F0DBCB}
+/* SUBSUELO — óxido sobre concreto: el disco industrial */
+.nr.subsuelo{background:linear-gradient(160deg,#1C1815 0%,#2A2420 55%,#0F0C0A 100%)}
+.nr.subsuelo .nrlive i{background:#D97A45;box-shadow:0 0 0 4px rgba(180,80,31,.28)}
+.nr.subsuelo .nrsub b{color:#D97A45}
+.nr.subsuelo .vlabel{background:radial-gradient(circle at 42% 38%,#D97A45,#B4501F);box-shadow:0 0 0 5px #5A2810;color:#F0DBCB}
+.nr.subsuelo .vdisc::before{border-color:rgba(180,80,31,.42)}
+.nr.subsuelo .nrrings span{border-color:rgba(217,122,69,.18)}
+.nr.subsuelo .vstats b,.nr.subsuelo .vinfo-lbl b{color:#D97A45}
+/* ⚠️ mismo cuidado que jacaranda: los números NO van todos en óxido. Van en
+   café apagado y sólo BASALTO (la 6ª, el fondo del disco) se enciende. Si el
+   orden del set cambia hay que mover ESTE nth-child Y la marca de
+   make_subsuelo_art.py. */
+.nr.subsuelo .vtracks li b{color:#7A6A5E}
+.nr.subsuelo .vtracks li:nth-child(6) b{color:#D97A45;text-shadow:0 0 12px rgba(217,122,69,.55)}
+.nr.subsuelo .vtracks li.on{color:#EAE6DF}
+.nr.subsuelo .vbuy:hover{border-color:#D97A45;color:#D97A45}
 .nr.jacaranda{background:linear-gradient(160deg,#12101C 0%,#201B33 55%,#0B0912 100%)}
 .nr.jacaranda .nrlive i{background:#9D8BD6;box-shadow:0 0 0 4px rgba(157,139,214,.25)}
 .nr.jacaranda .nrsub b{color:#9D8BD6}
@@ -722,7 +631,7 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- INTRO -->
 <div id="intro">
-  <div class="isub">JACARANDA — FIVE RECORDS <b>·</b> MMXXVI</div>
+  <div class="isub">SUBSUELO — SIX RECORDS <b>·</b> MMXXVI</div>
   <div class="iword">AMR</div>
   <button class="btn solid ibtn" id="dropBtn">Drop the needle ↓</button>
   <button class="iskip" id="skipBtn">just browse</button>
@@ -741,13 +650,13 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-top"><span>MORELIA, MX</span><span class="a">FIVE RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">SIX RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
   <img class="hero-art" src="art/amr-hero.svg" alt="" aria-hidden="true">
   <h1 class="hero-word"><span>A</span><span>M</span><span>R</span></h1>
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> Studio AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#jacaranda">▸ New record — JACARANDA</a>
+      <a class="btn solid" href="#subsuelo">▸ New record — SUBSUELO</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -767,6 +676,19 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
+
+<!-- SUBSUELO — el lanzamiento nuevo, primero del carril (óxido) -->
+<section class="nr subsuelo hpanel" id="subsuelo">
+  <div class="nrin">
+    <div class="nrleft">
+      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
+      <h2 class="nrtitle">SUBSUELO</h2>
+      <p class="nrsub">A Boiler Room is not a show — it is a room, a low ceiling, the DJ at floor level, and the music is <b>the only thing happening</b>. So this record has no voices: nobody is talking down there. Eight levels straight down at <b>125 BPM</b>, one continuous mix — from the kerb, where you only hear the low end through a closed door, to <b>BASALTO</b>, the bedrock the whole city stands on, then the water seeps back and a door opens onto daylight. The bassline leads the whole way. Concrete, iron and groove. Cut to rust-on-concrete vinyl, numbered by hand.</p>
+      <div id="nrMeta6"></div>
+    </div>
+    <div class="nrdisc" id="nrDisc6"></div>
+  </div>
+</section>
 
 <!-- JACARANDA (melodic techno con baterías reales) -->
 <section class="nr jacaranda hpanel" id="jacaranda">
@@ -821,6 +743,23 @@ body.hasplayer{padding-bottom:70px}
 </section>
 </div><!-- /dropsrail -->
 
+<!-- LA SESIÓN — el catálogo corrido como un solo set -->
+<div class="sess" id="sound">
+<div class="sessin">
+  <span class="hk">THE SESSION — SIX RECORDS, ONE SITTING</span>
+  <h2>The whole catalogue, end to end.</h2>
+  <p class="sesslede">Every record in order, played as one session — <b>press play once</b> and it runs from the first bar of MONUMENTS to the last of SUBSUELO without you touching anything. Pick any movement below to drop straight into it.</p>
+  <div class="sessbar" id="sessBar"><canvas id="sessCv"></canvas><div class="sesshead" id="sessHead" style="left:0"></div></div>
+  <div class="sessnums"><span id="sessT">0:00</span><span class="sessnow" id="sessNow">—</span><span id="sessD">0:00</span></div>
+  <div class="sesstrans">
+    <button class="sessplay" id="sessPlay">&#9654; Play the session</button>
+    <button class="sesskip" id="sessPrev">&#9664;&#9664;</button>
+    <button class="sesskip" id="sessNext">&#9654;&#9654;</button>
+  </div>
+  <div id="sessList"></div>
+</div>
+</div>
+
 <!-- LO MEJOR — MONUMENTS × DELIRIO -->
 <section class="sec" id="records">
   <div class="sh">
@@ -835,20 +774,6 @@ body.hasplayer{padding-bottom:70px}
 <!-- MARQUEE DELIRIO (azul, scroll infinito) -->
 <div class="mq blue"><div id="mqtrack2"></div></div>
 
-<!-- THE MIXER — cabina PRO (CDJ·CDJ·DJM·CDJ·CDJ) en entornos plinth -->
-<div class="mixsec" id="sound">
-<div class="mixin">
-  <span class="hk">THE SETUP — TURNTABLES × 4 · DJM-900NXS2</span>
-  <h2>Mix the catalogue yourself.</h2>
-  <p class="mixlede">Four turntables and the four-channel mixer in the middle: <b>drop a record on a deck</b>, ride the pitch, EQ and colour filter, blend on the crossfader. Or hit <b>AI DJ</b> and let it beatmatch and mix the whole catalogue for you — sit back and listen.</p>
-  <div class="aibar">
-    <button class="aibtn" id="aiDJ">▶ AI DJ &#183; AUTO-MIX</button>
-    <span class="aistatus" id="aiStatus">off</span>
-  </div>
-  <div class="pmxshelf" id="mxShelf"></div>
-  <div class="booth" id="mxBooth"></div>
-</div>
-</div>
 
 
 <!-- NIGHTS PAST — archivo -->
@@ -864,7 +789,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, blue, jade, violet, turquoise.</h2></div>
-    <p>The collection, five records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade and JACARANDA on violet. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
+    <p>The collection, six records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet and SUBSUELO on rust. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -873,7 +798,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec about" id="about">
   <span class="hk">WHO IS STUDIO AMR</span>
   <p class="lede">Studio AMR is the workshop of <i>André Macouzet Ruiz</i> — AMR, his initials — a builder from Morelia who treats every release like architecture.</p>
-  <p>Five records: an EP pressed from pure waveforms, three continuous sets, and JACARANDA — eight movements that read a flowering tree as an event rather than a season, mixed as one. Plus two cuts from JACARANDA. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
+  <p>Six records: an EP pressed from pure waveforms, three continuous sets, JACARANDA — a flowering tree read as an event — and SUBSUELO, eight levels of voiceless Boiler Room tech house down to bedrock. Plus cuts from JACARANDA and SUBSUELO. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
 </section>
 
 <!-- CTA -->
@@ -887,7 +812,7 @@ body.hasplayer{padding-bottom:70px}
 </div></section>
 
 <footer><div class="in">
-  <span>STUDIO AMR<b>.</b> — FIVE RECORDS, EVER</span>
+  <span>STUDIO AMR<b>.</b> — SIX RECORDS, EVER</span>
   <span>CUT IN MORELIA, MX</span>
   <span>SYNTHESIZED FROM RAW WAVEFORMS</span>
 </div></footer>
@@ -935,8 +860,9 @@ body.hasplayer{padding-bottom:70px}
 <script src="set.js?v=202607161934"></script>
 <script src="tulum.js?v=202607161934"></script>
 <script src="guerrero.js?v=202607170430"></script>
-<script src="jacaranda.js?v=202607200800"></script>
-<script src="waveforms.js?v=202607200800"></script>
+<script src="jacaranda.js?v=202607201200"></script>
+<script src="subsuelo.js?v=202607201200"></script>
+<script src="waveforms.js?v=202607201200"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -950,6 +876,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
     'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
+    'amr-subsuelo':{img:'art/subsuelo.svg', kick:'OCHO NIVELES · SUBSUELO', title:'SUBSUELO', desc:'Rust 12″ — a Boiler Room with no voices, because nobody is talking down there. Eight levels straight down at 125 BPM in one continuous mix: from the kerb through concrete and iron to BASALTO, the bedrock the city stands on, then water seeping back and a door onto daylight. The bassline leads the whole way. Numbered by hand, edition of 8.'},
     'amr-jacaranda':{img:'art/jacaranda.svg', kick:'FLORACIÓN · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the jacaranda is not interesting as a tree. It is interesting as an event: it turns a whole city violet for three weeks and then it is over. Seven movements at 120 BPM read as omen, blaze and vestige — VÍSPERA before anything shows, FULGOR when the whole tree catches, VESTIGIO for what is left on the ground. Deep house, one continuous mix. Numbered by hand, edition of 7.'}
   };
   var current = null;
@@ -977,7 +904,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_SUBSUELO].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -1035,9 +962,9 @@ function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 
 /* ---- marquee ---- */
 var MQCAT = ['AMR-01 MONUMENTS \u00b7 AMBER', 'AMR-02 SESI\u00d3N 001 \u00b7 WINE', 'AMR-03 DELIRIO \u00b7 BLUE',
-             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET'];
+             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-06 SUBSUELO \u00b7 RUST'];
 var mq = MQCAT.map(function(t){ return '<span>'+t+'</span>'; }).join('')
-       + '<span>FIVE RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
+       + '<span>SIX RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
 
 /* ---- marquee DELIRIO (azul, scroll infinito) ---- */
@@ -1047,839 +974,6 @@ if(window.AMR_TUL){
   var el2 = document.getElementById('mqtrack2'); if(el2) el2.innerHTML = mq2 + mq2;
 }
 
-/* ---- THE MIXER PRO BOOTH: CDJ·CDJ·DJM·CDJ·CDJ — motor completo ---- */
-(function(){
-  var shelf = document.getElementById('mxShelf'), booth = document.getElementById('mxBooth');
-  if(!shelf || !booth) return;
-  var RECS = [
-    {v:window.AMR_MON,       c:'#C96F2B', lc:'#E0954F'},
-    {v:window.AMR_SET,       c:'#A62D3E', lc:'#C8495E'},
-    {v:window.AMR_TUL,       c:'#2E6FB0', lc:'#5B9BD5'},
-    {v:window.AMR_GUER,      c:'#2E9C7C', lc:'#5BC4A5'},
-    {v:window.AMR_JACARANDA,   c:'#463A73', lc:'#9D8BD6'}
-  ].filter(function(r){ return !!r.v; });
-  // los colores de disco viven aquí; el motor de fondos y surcos los reusa en
-  // vez de tener su propia tabla que se desincronice
-  window.__RECCOL = RECS.map(function(r){ return {id:r.v.id, c:r.c, lc:r.lc}; });
-  /* --- MIXING ARMÓNICO: tonalidad → rueda de Camelot --- */
-  var CAMELOT={'A MIN':'8A','A MAJ':'11B','C MAJ':'8B','E MIN':'9A','D MIN':'7A','G MAJ':'9B','F MAJ':'7B','B MIN':'10A','G MIN':'6A','E MAJ':'12B','D MAJ':'10B','F MIN':'4A'};
-  var KEYFALL={'amr-monuments-side':'A MIN','amr-set-the-set':'A MIN','amr-tulum':'A MIN','amr-guerrero':'A MIN'};
-  RECS.forEach(function(r){
-    var kn=(r.v.key||KEYFALL[r.v.id]||'A MIN').toUpperCase().replace('MAJOR','MAJ').replace('MINOR','MIN');
-    r.keyName=kn; r.cam=CAMELOT[kn]||'8A';
-  });
-  function camParse(c){ return {n:parseInt(c,10), l:c.slice(-1)}; }
-  function harmonic(a,b){ if(!a||!b) return false; if(a===b) return true;   // igual / relativo / adyacente ±1
-    var x=camParse(a),y=camParse(b); if(x.n===y.n) return true;
-    var d=Math.abs(x.n-y.n); if(d>6) d=12-d; return d===1 && x.l===y.l; }
-  function masterCam(exclude){ if(masterDeck==null) return null; var m=DECKS[masterDeck];
-    return (m && m.rec && m!==exclude && m.au && !m.au.paused) ? m.rec.cam : null; }
-  function b64bytes(s){ var bin=atob(s), u=new Uint8Array(bin.length); for(var i=0;i<bin.length;i++) u[i]=bin.charCodeAt(i); return u; }
-  var WF = window.AMR_WF || {};
-  RECS.forEach(function(r){
-    var w = WF[r.v.file];
-    if(w){                       // onda REAL analizada del audio (3 bandas, 0-255)
-      r.lo = b64bytes(w.lo); r.mi = b64bytes(w.mi); r.hi = b64bytes(w.hi); r.wfN = r.lo.length;
-    } else {                     // respaldo: envolvente aproximada desde peaks
-      var pk = (r.v.peaks && r.v.peaks.length) ? r.v.peaks : (function(){ var p=[],s=7; for(var i=0;i<240;i++){ s=(s*1103515245+12345)%2147483648; p.push(0.2+0.55*Math.abs(Math.sin(i*0.31))+((s/2147483648)-0.5)*0.2);} return p; })();
-      var N=pk.length; r.lo=new Uint8Array(N); r.mi=new Uint8Array(N); r.hi=new Uint8Array(N); r.wfN=N;
-      for(var k=0;k<N;k++){ var s2=0,c=0; for(var j=Math.max(0,k-3);j<=Math.min(N-1,k+3);j++){s2+=pk[j];c++;} var lo=s2/c;
-        r.lo[k]=Math.min(255,lo*255); r.mi[k]=Math.min(255,pk[k]*0.8*255); r.hi[k]=Math.min(255,(Math.abs(pk[k]-lo)*2.4+pk[k]*0.12)*255); }
-    }
-  });
-  shelf.innerHTML = RECS.map(function(r,i){
-    return '<button class="shrec" data-r="'+i+'" style="--mc:'+r.c+'">'+
-      '<span class="sdisc"></span><i>'+r.v.title+'</i><em>'+(r.v.bpm?r.v.bpm+' BPM':(r.v.kicker||'AMR'))+'</em></button>';
-  }).join('');
-
-  /* --- registro de perillas --- */
-  var KV = {}, KDEF = {}, KAPPLY = {};
-  function knobHTML(name, label, def){ KV[name]=def; KDEF[name]=def; return '<div class="knob" data-kn="'+name+'" id="kn_'+name+'"></div><span class="klab">'+label+'</span>'; }
-  function setKnob(name, v){
-    KV[name] = Math.max(0, Math.min(1, v));
-    var e = document.getElementById('kn_'+name);
-    if(e) e.style.setProperty('--rot', ((KV[name]-0.5)*270)+'deg');
-    if(KAPPLY[name]) KAPPLY[name](KV[name]);
-  }
-
-  /* --- DOM: 2 CDJs, DJM, 2 CDJs --- */
-  function rolaOpts(){ return '<option value="-1">&mdash; PICK A TRACK &mdash;</option>' + RECS.map(function(r,k){ return '<option value="'+k+'">'+r.v.title+(r.v.bpm?' &#183; '+r.v.bpm+' &#183; '+r.cam:'')+'</option>'; }).join(''); }
-  function cdjHTML(i){
-    return '<div class="unit cdj" data-d="'+i+'" id="pcdj'+i+'">'+
-      '<canvas class="cdjscr" id="cscr'+i+'"></canvas>'+
-      '<div class="cdjmid">'+
-        '<div class="jogctl">'+
-          '<button class="jc" id="pvinyl'+i+'" disabled>VINYL</button>'+
-          '<button class="jc" id="prev'+i+'" disabled>REV</button>'+
-          '<button class="jc" id="pslip'+i+'" disabled>SLIP</button>'+
-          '<button class="jc" id="pquant'+i+'" disabled>QUANT</button>'+
-          '<button class="jc" id="prange'+i+'" disabled>RANGE</button>'+
-        '</div>'+
-        '<div class="jogwrap"><div class="jog" id="jog'+i+'"><div class="jogart" id="jart'+i+'"></div></div><div class="jogring"></div>'+
-          '<div class="tonearm" id="tarm'+i+'"><span class="apiv"></span><span class="aarm"></span><span class="ahead"></span></div></div>'+
-        '<div><div class="tempo" id="ptmp'+i+'"><div class="tcap" id="ptcap'+i+'"></div></div><div class="tlab">TEMPO<br><span id="trange'+i+'">&#177;8</span></div></div>'+
-      '</div>'+
-      '<div class="cdjbtns">'+
-        '<button class="rbtn cue" id="pcue'+i+'" disabled>CUE</button>'+
-        '<button class="rbtn play" id="pplay'+i+'" disabled>&#9656;</button>'+
-      '</div>'+
-      '<div class="synrow">'+
-        '<button class="synbtn" id="psync'+i+'" disabled>SYNC</button>'+
-        '<button class="mstbtn" id="pmst'+i+'" disabled>MASTER</button>'+
-        '<button class="klbtn on" id="pkl'+i+'" disabled>M.TEMPO</button>'+
-      '</div>'+
-      '<div class="perf" id="perf'+i+'">'+
-        '<div class="padhd">TRACK SELECT</div>'+
-        '<select class="rolasel" id="rola'+i+'">'+rolaOpts()+'</select>'+
-      '</div>'+
-      '<div class="tsk">'+
-        '<button id="pprev'+i+'" disabled>&#9666;&#9666;</button>'+
-        '<button id="pnext'+i+'" disabled>&#9656;&#9656;</button>'+
-        '<button class="peject" id="pej'+i+'" disabled>EJECT</button>'+
-      '</div>'+
-      '<div class="cdjfoot">AMR &#183; CDJ &#183; DECK '+(i+1)+'</div>'+
-      '<div class="feet"><i></i><i></i><i></i></div>'+
-    '</div>';
-  }
-  function stripHTML(i){
-    return '<div class="strip" id="pstrip'+i+'">'+
-      '<span class="chipnum">'+(i+1)+'</span>'+
-      '<span class="stname" id="stname'+i+'"></span>'+
-      knobHTML('trim'+i,'TRIM',0.5)+
-      knobHTML('hi'+i,'HI',0.5)+
-      knobHTML('mid'+i,'MID',0.5)+
-      knobHTML('low'+i,'LOW',0.5)+
-      knobHTML('col'+i,'COLOR',0.5)+
-      '<button class="cuebtn" id="scue'+i+'">CUE</button>'+
-      '<div class="fadrow"><div class="pvu" id="pvu'+i+'"></div><div class="pfader" id="pfader'+i+'"><div class="pfh" id="pfh'+i+'"></div></div></div>'+
-      '<div class="xa3">'+
-        '<button id="pxa'+i+'a">A</button><button id="pxa'+i+'t">THRU</button><button id="pxa'+i+'b">B</button>'+
-      '</div>'+
-    '</div>';
-  }
-  var fxHTML = '<div class="fxcol">'+
-    '<div class="fxlcd">'+
-      '<div class="lrow"><b id="lcdfx">ECHO</b><span class="beatdot" id="lcddot"></span></div>'+
-      '<div class="lrow"><span id="lcdms">500 ms</span><span id="lcdbpm">&#8212; BPM</span></div>'+
-      '<div class="lrow lsm"><span>CH <b id="lcdch">M</b></span><span id="lcdon">OFF</span></div>'+
-    '</div>'+
-    '<div class="fxsel" id="fxSel">'+
-      '<button data-f="0">DELAY</button><button data-f="1" class="on">ECHO</button>'+
-      '<button data-f="2">SPIRAL</button><button data-f="3">REVERB</button>'+
-    '</div>'+
-    '<div class="chsel" id="chSel"><button data-c="0">1</button><button data-c="1">2</button><button data-c="2">3</button><button data-c="3">4</button><button data-c="M" class="on">MST</button></div>'+
-    '<div class="fxfreq" id="fxFreq"><button data-q="lo">LOW</button><button data-q="mid" class="on">MID</button><button data-q="hi">HI</button></div>'+
-    '<div class="fxbeat"><button id="fxBd">&#9666; BEAT</button><button id="fxQz" class="on">QUANT</button><button id="fxBu">BEAT &#9656;</button></div>'+
-    knobHTML('fxtime','TIME',0.4)+
-    knobHTML('fxlvl','LEVEL / DEPTH',0.5)+
-    '<button class="fxon" id="pfxon">ON / OFF</button>'+
-    '<div class="mstrow"><div class="pmvu"><div class="pvu" id="pvuML"></div><div class="pvu" id="pvuMR"></div></div><div>'+knobHTML('master','MASTER',0.75)+'</div></div>'+
-    '<span class="mstlab">MASTER</span>'+
-  '</div>';
-  var djmHTML = '<div class="unit djm">'+
-    '<div class="djmgrid">'+stripHTML(0)+stripHTML(1)+stripHTML(2)+stripHTML(3)+fxHTML+'</div>'+
-    '<div class="xfrow"><span>A</span><div class="xftrack" id="xfTrack"><div class="xfhandle" id="xfHandle"></div></div><span>B</span></div>'+
-    '<div class="djmlogo">STUDIO AMR &#183; AMR-900 &#183; 4CH</div>'+
-    '<div class="feet"><i></i><i></i><i></i><i></i></div>'+
-  '</div>';
-  booth.innerHTML = cdjHTML(0)+cdjHTML(1)+djmHTML+cdjHTML(2)+cdjHTML(3);
-  function segs(id,n,amb,red){ var e=document.getElementById(id), h=''; for(var k=0;k<n;k++) h+='<i class="'+(k>=red?'r':k>=amb?'a':'')+'"></i>'; e.innerHTML=h; return e; }
-  var VUS = [segs('pvu0',15,10,13),segs('pvu1',15,10,13),segs('pvu2',15,10,13),segs('pvu3',15,10,13)];
-  var VUML = segs('pvuML',15,10,13), VUMR = segs('pvuMR',15,10,13);
-
-  /* --- grafo de audio --- */
-  var ctx = null, BUS = null;
-  var FXMODES = [
-    {n:'DELAY',  t:0.25, fb:0.3,  lp:16000},
-    {n:'ECHO',   t:0.5,  fb:0.5,  lp:9000},
-    {n:'SPIRAL', t:0.38, fb:0.72, lp:12000},
-    {n:'REVERB', t:0.09, fb:0.68, lp:3200}
-  ];
-  var fxi = 1, selCh = 'M', fxOn = false, fxFreq = 'mid';   // selCh: 0-3 = canal · 'M' = master
-  function actx(){
-    var AC = window.AudioContext||window.webkitAudioContext;
-    if(!ctx && AC){
-      ctx = new AC();
-      BUS = {};
-      BUS.sum = ctx.createGain();
-      BUS.master = ctx.createGain(); BUS.master.gain.value = KV.master;   // sin boost: dos decks suman limpio
-      BUS.masterSend = ctx.createGain(); BUS.masterSend.gain.value = 0;  // envío del master al FX
-      BUS.dly = ctx.createDelay(2.0);
-      BUS.fb = ctx.createGain();
-      BUS.wetLP = ctx.createBiquadFilter(); BUS.wetLP.type='lowpass';
-      BUS.wet = ctx.createGain(); BUS.wet.gain.value = KV.fxlvl*1.1;
-      BUS.split = ctx.createChannelSplitter(2);
-      BUS.anL = ctx.createAnalyser(); BUS.anL.fftSize = 512;
-      BUS.anR = ctx.createAnalyser(); BUS.anR.fftSize = 512;
-      // LIMITADOR de seguridad: pase lo que pase (4 canales al tope, FX, etc.) nunca clipea/revienta
-      BUS.limiter = ctx.createDynamicsCompressor();
-      BUS.limiter.threshold.value = -1; BUS.limiter.knee.value = 4; BUS.limiter.ratio.value = 6;   // suave, solo red de seguridad
-      BUS.limiter.attack.value = 0.006; BUS.limiter.release.value = 0.15;
-      BUS.sum.connect(BUS.master);
-      BUS.sum.connect(BUS.masterSend); BUS.masterSend.connect(BUS.dly);
-      BUS.dly.connect(BUS.fb); BUS.fb.connect(BUS.dly);
-      BUS.dly.connect(BUS.wetLP); BUS.wetLP.connect(BUS.wet); BUS.wet.connect(BUS.master);
-      BUS.master.connect(BUS.limiter);
-      BUS.limiter.connect(BUS.split);
-      BUS.split.connect(BUS.anL,0); BUS.split.connect(BUS.anR,1);
-      BUS.limiter.connect(ctx.destination);
-      applyFX();
-    }
-    if(ctx && ctx.state==='suspended') ctx.resume();
-    return ctx;
-  }
-  function fxTime(){ return FXMODES[fxi].t*(0.35+1.3*KV.fxtime); }
-  function applyFX(){
-    if(!BUS) return;
-    BUS.dly.delayTime.value = fxTime();
-    BUS.fb.gain.value = FXMODES[fxi].fb;
-    // FX FREQUENCY: recorta el wet a la banda elegida (LOW/MID/HI)
-    if(fxFreq==='lo'){ BUS.wetLP.type='lowpass'; BUS.wetLP.frequency.value = Math.min(700, FXMODES[fxi].lp); }
-    else if(fxFreq==='hi'){ BUS.wetLP.type='highpass'; BUS.wetLP.frequency.value = 1800; }
-    else { BUS.wetLP.type='lowpass'; BUS.wetLP.frequency.value = FXMODES[fxi].lp; }
-  }
-  function selDeck(){ return selCh==='M' ? (masterDeck!=null ? DECKS[masterDeck] : null) : DECKS[selCh]; }
-  function applyFXRoute(){   // enruta SOLO el canal (o master) elegido al FX — como la DJM real
-    if(!BUS) return;
-    BUS.masterSend.gain.value = (fxOn && selCh==='M') ? 0.9 : 0;
-    DECKS.forEach(function(d){ if(d.fxsend) d.fxsend.gain.value = (fxOn && selCh===d.i) ? 0.9 : 0; });
-  }
-
-  var DECKS = [];
-  for(var di=0;di<4;di++) DECKS.push({i:di, rec:null, au:null, node:null, fv:1, tv:0, xa:(di<2?0:2), cuePt:0,
-    loopOn:false, loopA:0, loopB:0, loopBeats:0, hc:[null,null,null,null,null,null,null,null],
-    synced:false, keylock:true, previewing:false, padMode:'cue', rollActive:null,
-    range:8, quant:true, vinyl:false, reversed:false, slip:false});
-  var RANGES = [6,10,16,'WIDE'];
-  var PADCOL = ['#4fa3ff','#3fd07a','#ffa93a','#e05fd0','#ff5f6d','#37d0c0','#b06bff','#ffd24a'];
-  var LOOPB = [0.25,0.5,1,2,4,8,16,32], LOOPLBL = ['&frac14;','&frac12;','1','2','4','8','16','32'];
-  var JUMPB = [-16,-8,-4,-1,1,4,8,16];
-  var masterDeck = null;   // índice del deck maestro de tempo
-  function setKeylock(d){   // MASTER TEMPO ON = mantiene el tono al cambiar tempo (default Pioneer)
-    if(!d.au) return;
-    try{ d.au.preservesPitch = d.keylock; d.au.mozPreservesPitch = d.keylock; d.au.webkitPreservesPitch = d.keylock; }catch(e){}
-  }
-
-  function eqDb(v){ return v<0.03 ? -40 : (v<0.5 ? (v-0.5)/0.5*26 : (v-0.5)/0.5*6); }
-  function wire(d){
-    if(d.node || !actx()) return;
-    try{
-      d.node = ctx.createMediaElementSource(d.au);
-      d.trim = ctx.createGain();
-      d.eqLo = ctx.createBiquadFilter(); d.eqLo.type='lowshelf'; d.eqLo.frequency.value=120;
-      d.eqMid = ctx.createBiquadFilter(); d.eqMid.type='peaking'; d.eqMid.frequency.value=1000; d.eqMid.Q.value=0.8;
-      d.eqHi = ctx.createBiquadFilter(); d.eqHi.type='highshelf'; d.eqHi.frequency.value=8000;
-      d.filt = ctx.createBiquadFilter(); d.filt.type='allpass'; d.filt.frequency.value=800; d.filt.Q.value=0.85;
-      d.an = ctx.createAnalyser(); d.an.fftSize=512;
-      d.fadeG = ctx.createGain();
-      d.xf = ctx.createGain();
-      d.fxsend = ctx.createGain(); d.fxsend.gain.value = 0;   // envío de ESTE canal al Beat FX
-      d.node.connect(d.trim); d.trim.connect(d.eqLo); d.eqLo.connect(d.eqMid); d.eqMid.connect(d.eqHi);
-      d.eqHi.connect(d.filt); d.filt.connect(d.an); d.an.connect(d.fadeG); d.fadeG.connect(d.xf); d.xf.connect(BUS.sum);
-      d.xf.connect(d.fxsend); d.fxsend.connect(BUS.dly);
-      applyDeck(d); applyFXRoute();
-
-    }catch(e){ d.node = null; }
-  }
-  function applyDeck(d){
-    if(!d.node) return;
-    var i = d.i;
-    d.trim.gain.value = KV['trim'+i]*2;
-    d.eqLo.gain.value = eqDb(KV['low'+i]);
-    d.eqMid.gain.value = eqDb(KV['mid'+i]);
-    d.eqHi.gain.value = eqDb(KV['hi'+i]);
-    applyFilter(d);
-    d.fadeG.gain.value = Math.pow(d.fv, 1.4);
-    applyXF();
-  }
-  function applyFilter(d){
-    if(!d.filt) return;
-    var v = KV['col'+d.i];
-    if(Math.abs(v-0.5) < 0.04){ d.filt.type='allpass'; return; }
-    if(v < 0.5){ var t=(0.5-v)/0.5; d.filt.type='lowpass'; d.filt.frequency.value = 20000*Math.pow(100/20000, t); }
-    else { var t2=(v-0.5)/0.5; d.filt.type='highpass'; d.filt.frequency.value = 20*Math.pow(8000/20, t2); }
-  }
-  var XFPOS = 0;
-  function applyXF(){
-    var t = (XFPOS+1)/2, gA = Math.cos(t*Math.PI/2), gB = Math.sin(t*Math.PI/2);
-    DECKS.forEach(function(d){ if(d.xf) d.xf.gain.value = d.xa===1 ? 1 : (d.xa===0 ? gA : gB); });
-  }
-  for(var ki=0; ki<4; ki++)(function(i){
-    KAPPLY['trim'+i] = KAPPLY['hi'+i] = KAPPLY['mid'+i] = KAPPLY['low'+i] = function(){ applyDeck(DECKS[i]); };
-    KAPPLY['col'+i] = function(){ applyFilter(DECKS[i]); };
-  })(ki);
-  KAPPLY.master = function(v){ if(BUS) BUS.master.gain.value = v; };
-  KAPPLY.fxtime = function(){ applyFX(); };
-  KAPPLY.fxlvl  = function(v){ if(BUS) BUS.wet.gain.value = v*1.1; };
-
-  /* --- drags --- */
-  function dragKnob(cap){
-    var name = cap.getAttribute('data-kn');
-    cap.addEventListener('pointerdown', function(e){
-      var sy=e.clientY, sv=KV[name];
-      try{ cap.setPointerCapture(e.pointerId); }catch(_){} e.preventDefault();
-      function mv(ev){ setKnob(name, sv + (sy-ev.clientY)/150); }
-      function up(){ cap.removeEventListener('pointermove',mv); cap.removeEventListener('pointerup',up); cap.removeEventListener('pointercancel',up); }
-      cap.addEventListener('pointermove',mv); cap.addEventListener('pointerup',up); cap.addEventListener('pointercancel',up);
-    });
-    cap.addEventListener('dblclick', function(){ setKnob(name, KDEF[name]); });
-  }
-  [].forEach.call(booth.querySelectorAll('.knob'), dragKnob);
-  Object.keys(KV).forEach(function(n){ setKnob(n, KV[n]); });
-
-  function vslider(track, cap, get, set){
-    function paintPos(){ cap.style.top = ((1-get())*(track.clientHeight-cap.offsetHeight))+'px'; }
-    function pos(ev){ var r=track.getBoundingClientRect(); set(1-(ev.clientY-r.top-7)/(r.height-14)); paintPos(); }
-    track.addEventListener('pointerdown', function(e){
-      try{ track.setPointerCapture(e.pointerId); }catch(_){} pos(e); e.preventDefault();
-      function mv(ev){ pos(ev); }
-      function up(){ track.removeEventListener('pointermove',mv); track.removeEventListener('pointerup',up); track.removeEventListener('pointercancel',up); }
-      track.addEventListener('pointermove',mv); track.addEventListener('pointerup',up); track.addEventListener('pointercancel',up);
-    });
-    paintPos();
-    return paintPos;
-  }
-  DECKS.forEach(function(d){
-    var i = d.i;
-    var ftr = document.getElementById('pfader'+i), fh = document.getElementById('pfh'+i);
-    d.paintF = vslider(ftr, fh,
-      function(){ return d.fv; },
-      function(v){ d.fv = Math.max(0,Math.min(1,v)); if(d.fadeG) d.fadeG.gain.value = Math.pow(d.fv,1.4); });
-    ftr.addEventListener('dblclick', function(){ d.fv=1; if(d.fadeG) d.fadeG.gain.value=1; d.paintF(); });
-    var ttr = document.getElementById('ptmp'+i), tc = document.getElementById('ptcap'+i);
-    d.paintT = vslider(ttr, tc,
-      function(){ var R=(d.range==='WIDE'?100:d.range); return (d.tv/R+1)/2; },
-      function(v){ var R=(d.range==='WIDE'?100:d.range); d.tv=(Math.max(0,Math.min(1,v))*2-1)*R; if(d.au) d.au.playbackRate = 1+d.tv/100;
-        if(d.synced){ d.synced=false; paintSync(); }          // mover el tempo a mano rompe el sync
-        if(masterDeck===d.i) resyncFollowers(); });
-    ttr.addEventListener('dblclick', function(){ d.tv=0; if(d.au) d.au.playbackRate=1; d.paintT();
-      if(d.synced){ d.synced=false; paintSync(); } if(masterDeck===d.i) resyncFollowers(); });
-  });
-  var xfT = document.getElementById('xfTrack'), xfH = document.getElementById('xfHandle');
-  function setXF(v){
-    XFPOS = Math.max(-1, Math.min(1, v));
-    xfH.style.left = (((XFPOS+1)/2)*(xfT.clientWidth-20))+'px';
-    applyXF();
-  }
-  (function(){
-    function pos(ev){ var r=xfT.getBoundingClientRect(); setXF(((ev.clientX-r.left-10)/(r.width-20))*2-1); }
-    xfT.addEventListener('pointerdown', function(e){
-      try{ xfT.setPointerCapture(e.pointerId); }catch(_){} pos(e); e.preventDefault();
-      function mv(ev){ pos(ev); }
-      function up(){ xfT.removeEventListener('pointermove',mv); xfT.removeEventListener('pointerup',up); xfT.removeEventListener('pointercancel',up); }
-      xfT.addEventListener('pointermove',mv); xfT.addEventListener('pointerup',up); xfT.addEventListener('pointercancel',up);
-    });
-    xfT.addEventListener('dblclick', function(){ setXF(0); });
-  })();
-
-  /* --- decks --- */
-  function titlesOf(r){ return (r.v.titles && r.v.titles.length) ? r.v.titles : [r.v.title]; }
-  function offsetsOf(r){ return (r.v.offsets && r.v.offsets.length) ? r.v.offsets : [0]; }
-  function curIdx(d){
-    var off = offsetsOf(d.rec), t = d.au ? d.au.currentTime : 0, k = 0;
-    for(var j=0;j<off.length;j++) if(t >= off[j]-0.4) k = j;
-    return k;
-  }
-  /* --- loops / hot cues / beat jump --- */
-  function beatSec(d){ return 60 / ((d.rec && d.rec.v.bpm) || 120); }
-  function qBeat(d, t){ if(!d.quant) return t; var b = beatSec(d); return Math.round(t / b) * b; }   // pega a la rejilla (si QUANTIZE)
-  function paintLoop(d){ paintPads(d); }
-  function paintPads(d){   // sincroniza el selector de rola con lo cargado
-    var sel=document.getElementById('rola'+d.i); if(!sel) return;
-    sel.value = String(d.rec ? RECS.indexOf(d.rec) : -1);
-  }
-  function setBeatLoop(d, N){
-    if(!d.au) return;
-    if(d.loopOn && d.loopBeats===N){ d.loopOn=false; paintLoop(d); return; }  // mismo botón = salir
-    d.loopA = qBeat(d, d.au.currentTime);
-    d.loopB = d.loopA + N*beatSec(d);
-    d.loopBeats = N; d.loopOn = true; paintLoop(d);
-  }
-  function scaleLoop(d, f){
-    if(d.loopB<=d.loopA) return;
-    d.loopB = d.loopA + (d.loopB-d.loopA)*f;
-    if(d.loopBeats) d.loopBeats *= f;
-    paintLoop(d);
-  }
-  function clearLoopState(d){ d.loopOn=false; d.loopA=0; d.loopB=0; d.loopBeats=0; }
-  /* --- BEAT SYNC / MASTER --- */
-  function effBPM(d){ return ((d.rec && d.rec.v.bpm) || 120) * (1 + d.tv/100); }
-  function masterOf(d){
-    if(masterDeck!=null && masterDeck!==d.i && DECKS[masterDeck].rec) return DECKS[masterDeck];
-    for(var k=0;k<4;k++){ if(k!==d.i && DECKS[k].rec && DECKS[k].au && !DECKS[k].au.paused) return DECKS[k]; }
-    for(var k2=0;k2<4;k2++){ if(k2!==d.i && DECKS[k2].rec) return DECKS[k2]; }
-    return null;
-  }
-  function doSync(d){
-    var m = masterOf(d); if(!m || !d.rec) return false;
-    d.tv = (effBPM(m) / d.rec.v.bpm - 1) * 100;            // iguala el tempo (aunque exceda ±8)
-    if(d.au) d.au.playbackRate = 1 + d.tv/100;
-    if(d.paintT) d.paintT();
-    if(d.au && m.au){                                       // alinea la fase de beat
-      var mb = 60/m.rec.v.bpm, mfrac = (m.au.currentTime % mb)/mb;
-      var myb = 60/d.rec.v.bpm, base = Math.round((d.au.currentTime - mfrac*myb)/myb)*myb + mfrac*myb;
-      if(base < 0) base += myb;
-      try{ d.au.currentTime = base; }catch(e){}
-    }
-    return true;
-  }
-  function resyncFollowers(){ DECKS.forEach(function(d){ if(d.synced) doSync(d); }); }
-  function paintSync(){
-    DECKS.forEach(function(d){
-      var sy=document.getElementById('psync'+d.i), ms=document.getElementById('pmst'+d.i);
-      sy.classList.toggle('on', d.synced);
-      ms.classList.toggle('on', masterDeck===d.i && !!d.rec);
-    });
-  }
-  function paint(d){
-    var i=d.i, cdj=document.getElementById('pcdj'+i), strip=document.getElementById('pstrip'+i);
-    var jart=document.getElementById('jart'+i), name=document.getElementById('stname'+i);
-    var perfBtns = document.getElementById('perf'+i).querySelectorAll('button');
-    if(!d.rec){
-      cdj.classList.remove('playing'); cdj.style.removeProperty('--mc'); strip.style.removeProperty('--mlc');
-      jart.style.removeProperty('background'); jart.textContent='';
-      name.textContent='';
-      ['pplay','pcue','pprev','pnext','pej','psync','pmst','pkl','pvinyl','prev','pslip','pquant','prange'].forEach(function(p){ document.getElementById(p+i).disabled=true; });
-      [].forEach.call(perfBtns, function(b){ b.disabled=true; b.classList.remove('on','set'); });
-      document.getElementById('rola'+i).value='-1';
-      document.getElementById('pplay'+i).innerHTML='&#9656;';
-      document.getElementById('pplay'+i).classList.remove('on');
-      document.getElementById('pcue'+i).classList.remove('set');
-      paintSync();
-      return;
-    }
-    cdj.style.setProperty('--mc', d.rec.c); strip.style.setProperty('--mlc', d.rec.lc);
-    jart.style.background = d.rec.c; jart.textContent = d.rec.v.title;
-    name.textContent = d.rec.v.title;
-    var many = titlesOf(d.rec).length>1;
-    document.getElementById('pprev'+i).disabled=!many; document.getElementById('pnext'+i).disabled=!many;
-    ['pplay','pcue','pej','psync','pmst','pkl','pvinyl','prev','pslip','pquant','prange'].forEach(function(p){ document.getElementById(p+i).disabled=false; });
-    document.getElementById('pkl'+i).classList.toggle('on', d.keylock);
-    document.getElementById('pquant'+i).classList.toggle('on', d.quant);
-    document.getElementById('pvinyl'+i).classList.toggle('on', d.vinyl);
-    document.getElementById('prev'+i).classList.toggle('on', d.reversed);
-    document.getElementById('pslip'+i).classList.toggle('on', d.slip);
-    document.getElementById('trange'+i).innerHTML = (d.range==='WIDE'?'WIDE':'&#177;'+d.range);
-    [].forEach.call(perfBtns, function(b){ b.disabled=false; });
-    paintLoop(d); paintSync();
-  }
-  function load(d, r){
-    if(d.au){ d.au.pause(); if(d.node){ try{ d.node.disconnect(); }catch(e){} } }
-    d.rec=r; d.node=null; d.cuePt=0; d.previewing=false; clearLoopState(d); d.hc=[null,null,null,null]; d.rollActive=null; d.synced=false; d.tv=0;
-    if(masterDeck==null) masterDeck=d.i;   // el primer disco cargado es el maestro
-    d.au = new Audio(r.v.file); d.au.preload='auto';
-    setKeylock(d);                          // MASTER TEMPO (key lock)
-    d.au.playbackRate = 1 + d.tv/100;
-    document.getElementById('pcue'+d.i).classList.add('set');   // auto-cue al inicio
-    d.au.addEventListener('play', function(){
-      document.getElementById('pcdj'+d.i).classList.add('playing');
-      var pb = document.getElementById('pplay'+d.i); pb.innerHTML='&#10074;&#10074;'; pb.classList.add('on');
-      if(!audio.paused) audio.pause();
-    });
-    d.au.addEventListener('pause', function(){
-      document.getElementById('pcdj'+d.i).classList.remove('playing');
-      var pb = document.getElementById('pplay'+d.i); pb.innerHTML='&#9656;'; pb.classList.remove('on');
-    });
-    d.au.addEventListener('ended', function(){ d.loopOn=false; try{ d.au.currentTime=0; }catch(e){} });  // fin de pista: limpio
-    d.au.addEventListener('error', function(){ var pb=document.getElementById('pplay'+d.i); if(pb){ pb.innerHTML='&#9656;'; pb.classList.remove('on'); } });
-    paint(d);
-  }
-  function eject(d){
-    if(d.au){ d.au.pause(); d.au.removeAttribute('src'); try{ d.au.load(); }catch(e){} if(d.node){ try{ d.node.disconnect(); }catch(e){} } }
-    d.rec=null; d.au=null; d.node=null; clearLoopState(d); d.hc=[null,null,null,null]; d.rollActive=null; d.synced=false;
-    if(masterDeck===d.i){ masterDeck=null; for(var k=0;k<4;k++){ if(DECKS[k].rec){ masterDeck=k; break; } } }
-    paint(d);
-  }
-  shelf.addEventListener('click', function(e){
-    var b = e.target.closest('.shrec'); if(!b) return;
-    var r = RECS[+b.getAttribute('data-r')];
-    var d = null;
-    for(var k=0;k<4;k++){ if(!DECKS[k].rec){ d=DECKS[k]; break; } }
-    if(!d){ for(var k2=0;k2<4;k2++){ if(DECKS[k2].au && DECKS[k2].au.paused){ d=DECKS[k2]; break; } } }
-    if(!d){ b.classList.remove('deny'); void b.offsetWidth; b.classList.add('deny'); return; }
-    load(d, r);
-  });
-  DECKS.forEach(function(d){
-    var i=d.i;
-    document.getElementById('pplay'+i).addEventListener('click', function(){
-      if(!d.au) return;
-      if(d.au.paused){ actx(); wire(d); d.au.play(); } else d.au.pause();
-    });
-    var cueBtn = document.getElementById('pcue'+i);
-    cueBtn.addEventListener('pointerdown', function(e){
-      if(!d.au) return; e.preventDefault(); actx(); wire(d);
-      if(!d.au.paused){ try{ d.au.currentTime = d.cuePt||0; }catch(_){} d.au.pause(); return; }  // back to cue
-      d.cuePt = d.au.currentTime; this.classList.add('set');   // en pausa: fija cue aquí...
-      d.previewing = true; d.au.play();                        // ...y previsualiza mientras se mantiene
-    });
-    function endPreview(){ if(d.previewing){ d.previewing=false; if(d.au){ d.au.pause(); try{ d.au.currentTime=d.cuePt||0; }catch(_){} } } }
-    cueBtn.addEventListener('pointerup', endPreview);
-    cueBtn.addEventListener('pointercancel', endPreview);
-    cueBtn.addEventListener('pointerleave', endPreview);
-    document.getElementById('pprev'+i).addEventListener('click', function(){
-      if(!d.au) return; var off=offsetsOf(d.rec), k=Math.max(0,curIdx(d)-1);
-      try{ d.au.currentTime=off[k]; }catch(e){}
-    });
-    document.getElementById('pnext'+i).addEventListener('click', function(){
-      if(!d.au) return; var off=offsetsOf(d.rec), k=Math.min(off.length-1,curIdx(d)+1);
-      try{ d.au.currentTime=off[k]; }catch(e){}
-    });
-    document.getElementById('pej'+i).addEventListener('click', function(){ eject(d); });
-    /* --- selector de rola: escoge qué disco carga en este deck --- */
-    document.getElementById('rola'+i).addEventListener('change', function(){
-      var k=+this.value; if(k<0){ if(d.rec) eject(d); return; }
-      if(aiOn) aiStop();
-      load(d, RECS[k]);
-    });
-    /* --- controles del jog: VINYL / REV / SLIP / QUANTIZE / RANGE --- */
-    document.getElementById('pvinyl'+i).addEventListener('click', function(){ if(!d.rec) return; d.vinyl=!d.vinyl; this.classList.toggle('on',d.vinyl); });
-    document.getElementById('prev'+i).addEventListener('click', function(){ if(!d.rec) return; d.reversed=!d.reversed; this.classList.toggle('on',d.reversed); });
-    document.getElementById('pslip'+i).addEventListener('click', function(){ if(!d.rec) return; d.slip=!d.slip; this.classList.toggle('on',d.slip); });
-    document.getElementById('pquant'+i).addEventListener('click', function(){ if(!d.rec) return; d.quant=!d.quant; this.classList.toggle('on',d.quant); });
-    document.getElementById('prange'+i).addEventListener('click', function(){
-      if(!d.rec) return; var k=(RANGES.indexOf(d.range)+1)%RANGES.length; d.range=RANGES[k];
-      document.getElementById('trange'+i).innerHTML = (d.range==='WIDE'?'WIDE':'&#177;'+d.range);
-      d.paintT();
-    });
-    /* --- SYNC / MASTER --- */
-    document.getElementById('psync'+i).addEventListener('click', function(){
-      if(!d.rec) return;
-      if(d.synced){ d.synced=false; paintSync(); return; }     // apagar
-      actx(); wire(d);
-      if(doSync(d)){ d.synced=true; }                          // engancha tempo+fase al maestro
-      paintSync();
-    });
-    document.getElementById('pmst'+i).addEventListener('click', function(){
-      if(!d.rec) return; masterDeck = d.i; resyncFollowers(); paintSync();
-    });
-    document.getElementById('pkl'+i).addEventListener('click', function(){
-      if(!d.rec) return; d.keylock = !d.keylock; setKeylock(d); this.classList.toggle('on', d.keylock);
-    });
-    document.getElementById('scue'+i).addEventListener('click', function(){ this.classList.toggle('set'); });
-    ['a','t','b'].forEach(function(x, xi){
-      document.getElementById('pxa'+i+x).addEventListener('click', function(){
-        d.xa = xi;
-        ['a','t','b'].forEach(function(x2,k2){ document.getElementById('pxa'+i+x2).classList.toggle('on', k2===xi); });
-        applyXF();
-      });
-    });
-    document.getElementById('pxa'+i+(['a','t','b'][d.xa])).classList.add('on');
-    var cscr = document.getElementById('cscr'+i);
-    cscr.addEventListener('click', function(e){
-      if(!d.au || !d.rec) return;
-      var r = cscr.getBoundingClientRect(), dur = d.rec.v.dur || d.au.duration || 0;
-      var fx = (e.clientX-r.left)/r.width, fy = e.clientY-r.top;
-      var whc = r.height-42, oyc = 13+whc+4;   // mismo layout que drawDeck (px CSS)
-      try{
-        if(fy >= oyc) d.au.currentTime = fx*dur;                      // overview = salto absoluto
-        else d.au.currentTime = Math.max(0, Math.min(dur, (d.au.currentTime||0) + (fx-0.5)*8)); // onda grande = ±4 s
-      }catch(err){}
-    });
-    /* --- JOG: pitch-bend (sonando) / scrub (en pausa) como un CDJ --- */
-    var jog = document.getElementById('jog'+i);
-    function jang(e){ var r=jog.getBoundingClientRect(); return Math.atan2(e.clientY-(r.top+r.height/2), e.clientX-(r.left+r.width/2)); }
-    jog.addEventListener('pointerdown', function(e){
-      if(!d.au) return; e.preventDefault(); actx(); wire(d);
-      try{ jog.setPointerCapture(e.pointerId); }catch(_){}
-      d.jogActive=true; d.jogLastAng=jang(e); d.jogLastT=performance.now();
-      jog.classList.add('grabbing');
-    });
-    jog.addEventListener('pointermove', function(e){
-      if(!d.jogActive || !d.au) return;
-      var a=jang(e), da=a-d.jogLastAng; if(da>Math.PI) da-=2*Math.PI; if(da<-Math.PI) da+=2*Math.PI;
-      var now=performance.now(), dt=Math.max(1, now-d.jogLastT); d.jogLastAng=a; d.jogLastT=now;
-      if(d.au.paused || d.vinyl){                        // SCRUB (en pausa, o en modo VINYL aunque suene): 1 vuelta ≈ 1.8 s
-        var dur=d.rec.v.dur||d.au.duration||0;
-        try{ d.au.currentTime = Math.max(0, Math.min(dur, d.au.currentTime + (da/(2*Math.PI))*1.8)); }catch(_){}
-      } else {                                           // PITCH BEND temporal por velocidad angular
-        var vel=da/(dt/1000), bend=Math.max(-0.5, Math.min(0.5, vel*0.11));
-        d.au.playbackRate = Math.max(0.25, (1+d.tv/100)*(1+bend)); d.jogBendT=now;
-      }
-    });
-    function jogEnd(){ if(!d.jogActive) return; d.jogActive=false; jog.classList.remove('grabbing');
-      if(d.au && !d.au.paused) d.au.playbackRate = 1+d.tv/100; }   // restaura tempo base
-    jog.addEventListener('pointerup', jogEnd); jog.addEventListener('pointercancel', jogEnd); jog.addEventListener('pointerleave', jogEnd);
-    paint(d);
-  });
-  document.getElementById('fxSel').addEventListener('click', function(e){
-    var b = e.target.closest('button'); if(!b) return;
-    fxi = +b.getAttribute('data-f');
-    [].forEach.call(this.children, function(c){ c.classList.toggle('on', c===b); });
-    document.getElementById('lcdfx').textContent = FXMODES[fxi].n;
-    applyFX();
-  });
-  document.getElementById('chSel').addEventListener('click', function(e){
-    var b = e.target.closest('button'); if(!b) return;
-    var v = b.getAttribute('data-c'); selCh = (v==='M') ? 'M' : +v;
-    [].forEach.call(this.children, function(c){ c.classList.toggle('on', c===b); });
-    document.getElementById('lcdch').textContent = (selCh==='M') ? 'M' : (selCh+1);
-    applyFXRoute();
-  });
-  document.getElementById('pfxon').addEventListener('click', function(){
-    fxOn = this.classList.toggle('on');
-    actx(); applyFXRoute();
-    document.getElementById('lcdon').textContent = fxOn ? 'ON' : 'OFF';
-  });
-  // FX FREQUENCY: banda del efecto (LOW/MID/HI)
-  document.getElementById('fxFreq').addEventListener('click', function(e){
-    var b=e.target.closest('button'); if(!b) return;
-    fxFreq = b.getAttribute('data-q');
-    [].forEach.call(this.children, function(c){ c.classList.toggle('on', c===b); });
-    applyFX();
-  });
-  // BEAT ◄/►: mitad / doble del tiempo del FX; QUANT: cuantiza (cosmético)
-  document.getElementById('fxBd').addEventListener('click', function(){ setKnob('fxtime', Math.max(0, KV.fxtime-0.16)); });
-  document.getElementById('fxBu').addEventListener('click', function(){ setKnob('fxtime', Math.min(1, KV.fxtime+0.16)); });
-  document.getElementById('fxQz').addEventListener('click', function(){ this.classList.toggle('on'); });
-  setXF(0);
-  audio.addEventListener('play', function(){
-    if(aiOn) aiStop();
-    DECKS.forEach(function(d){ if(d.au && !d.au.paused) d.au.pause(); });
-  });
-
-  /* ---- AI DJ: auto-mix como pro (armónico · por frase · bass-swap) ---- */
-  var aiOn=false, aiTimer=null, aiRAF=null, aiIdx=0, aiCur=0;   // deck 0 (lado A) y deck 2 (lado B)
-  var aiBtn=document.getElementById('aiDJ'), aiStatus=document.getElementById('aiStatus');
-  function aiSay(t){ if(aiStatus) aiStatus.textContent=t; }
-  function aiLoadPlay(deck, rec){
-    load(DECKS[deck], rec); actx(); wire(DECKS[deck]);
-    var d=DECKS[deck]; d.fv=1; if(d.fadeG) d.fadeG.gain.value=1; if(d.paintF) d.paintF();
-    try{ d.au.play(); }catch(e){}
-  }
-  function aiPickNext(curCam){   // elige el siguiente disco ARMÓNICO (en clave)
-    for(var s=1;s<=RECS.length;s++){ var k=(aiIdx+s)%RECS.length;
-      if(!curCam || harmonic(RECS[k].cam, curCam)){ aiIdx=k; return RECS[k]; } }
-    aiIdx=(aiIdx+1)%RECS.length; return RECS[aiIdx];
-  }
-  function aiStart(){
-    if(!RECS.length) return;
-    aiOn=true; aiBtn.classList.add('on'); aiBtn.innerHTML='&#9632; AI DJ &#183; MIXING'; actx();
-    DECKS[0].xa=0; DECKS[2].xa=2; applyXF();
-    setKnob('low0',0.5); setKnob('low2',0.5);
-    aiIdx=0; aiCur=0;
-    aiLoadPlay(0, RECS[0]); masterDeck=0; paintSync(); setXF(-1);
-    aiSay('mixing · '+RECS[0].v.title+' · '+RECS[0].cam);
-    aiTimer=setTimeout(aiTransition, 16000);
-  }
-  function aiStop(){
-    aiOn=false; aiBtn.classList.remove('on'); aiBtn.innerHTML='&#9654; AI DJ &#183; AUTO-MIX';
-    if(aiTimer){ clearTimeout(aiTimer); aiTimer=null; }
-    if(aiRAF){ cancelAnimationFrame(aiRAF); aiRAF=null; }
-    aiSay('off');
-  }
-  function aiTransition(){   // espera a un borde de frase (8 compases) del master y ahí mezcla
-    if(!aiOn) return;
-    var m=DECKS[aiCur], delay=0;
-    if(m.au && m.rec){ var bs=60/((m.rec.v.bpm||120)*(1+m.tv/100)); var mbar=Math.floor(m.au.currentTime/(4*bs));
-      delay=((8-(mbar%8))%8)*4*bs*1000; if(delay<1200) delay+=8*4*bs*1000; }
-    aiSay('cueing next cut…');
-    aiTimer=setTimeout(aiDoMix, delay);
-  }
-  function aiDoMix(){
-    if(!aiOn) return;
-    var from=aiCur, to=(aiCur===0?2:0);
-    var rec=aiPickNext(DECKS[from].rec ? DECKS[from].rec.cam : null);
-    aiLoadPlay(to, rec);
-    var off=offsetsOf(rec); if(off.length>1){ try{ DECKS[to].au.currentTime=off[1]; }catch(e){} }  // pasa el intro
-    masterDeck=from; DECKS[to].synced=true; doSync(DECKS[to]); paintSync();
-    setKnob('low'+to, 0);   // BASS-SWAP: el entrante llega SIN bajos (nunca dos bajos juntos)
-    aiSay('mixing · '+rec.v.title+' · '+rec.cam+(harmonic(rec.cam, DECKS[from].rec?DECKS[from].rec.cam:null)?' ✓ in key':''));
-    var start=XFPOS, end=(to===0?-1:1), t0=performance.now(), dur=10000, swapped=false;
-    (function step(){
-      if(!aiOn) return;
-      var k=Math.min(1,(performance.now()-t0)/dur);
-      setXF(start+(end-start)*k);
-      if(k>=0.55 && !swapped){ swapped=true; setKnob('low'+from,0); setKnob('low'+to,0.5); }  // swap de bajos al ~55%
-      if(k<1){ aiRAF=requestAnimationFrame(step); }
-      else { try{ DECKS[from].au.pause(); }catch(e){} setKnob('low'+from,0.5); aiCur=to; aiTimer=setTimeout(aiTransition, 16000); }
-    })();
-  }
-  aiBtn.addEventListener('click', function(){ aiOn ? aiStop() : aiStart(); });
-
-  /* --- pantallas CDJ + meters + LCD (un RAF) --- */
-  var u8 = new Uint8Array(256);
-  function lvlDb(an){
-    if(!an) return -100;
-    an.getByteTimeDomainData(u8);
-    var s=0; for(var k=0;k<u8.length;k++){ var x=(u8[k]-128)/128; s+=x*x; }
-    var rms=Math.sqrt(s/u8.length);
-    return rms<=0.0001 ? -100 : 20*Math.log(rms)/Math.LN10;
-  }
-  function setVU(e, db){
-    var n = Math.round((db+40)/40*15);
-    for(var k=0;k<15;k++) e.children[k].classList.toggle('on', k<n);
-  }
-  function drawDeck(d){
-    var cv = document.getElementById('cscr'+d.i);
-    var dpr = devicePixelRatio||1, W = Math.floor(cv.clientWidth*dpr), H = Math.floor(cv.clientHeight*dpr);
-    if(!W||!H) return;
-    if(cv.width!==W||cv.height!==H){ cv.width=W; cv.height=H; }
-    var g = cv.getContext('2d');
-    g.fillStyle='#060a14'; g.fillRect(0,0,W,H);
-    g.font = Math.round(8.5*dpr)+'px "IBM Plex Mono",monospace'; g.textBaseline='top';
-    if(!d.rec){
-      g.fillStyle='rgba(143,180,232,.28)';
-      g.fillText('DECK '+(d.i+1)+' — NO TRACK', 8*dpr, H/2-5*dpr);
-      return;
-    }
-    var r = d.rec, N = r.wfN, dur = r.v.dur || (d.au&&d.au.duration) || 1;
-    var t = d.au ? d.au.currentTime : 0, prog = Math.min(1, t/dur);
-    // muestreo interpolado de las 3 bandas reales (0-255) en el tiempo tb
-    function sample(arr, tb){
-      var fp = tb/dur*(N-1); if(fp<0||fp>N-1) return 0;
-      var i0=fp|0, fr=fp-i0, a=arr[i0]/255; return (a+((arr[i0+1]||a*255)/255-a)*fr);
-    }
-    /* fila superior: corte + REMAIN */
-    var ts = titlesOf(r)[curIdx(d)];
-    g.fillStyle='#dfe6f2'; g.fillText(ts, 6*dpr, 2*dpr);
-    var tm = 'REMAIN -'+fmt(Math.max(0,dur-t));
-    var tw = g.measureText(tm).width;
-    g.fillStyle='#8fb4e8'; g.fillText(tm, W-tw-6*dpr, 2*dpr);
-    /* onda grande: 3 bandas reales, relleno reflejado al centro, bajo la aguja fija */
-    var wy = 13*dpr, wh = H-42*dpr, cyc = wy+wh/2;
-    var win = Math.max(12, Math.min(45, dur*0.03));   // ventana visible (s)
-    var bw = Math.max(1.5*dpr, 2*dpr), n = Math.ceil(W/bw);
-    for(var b=0;b<n;b++){
-      var x = b*bw, tb = t - win/2 + (x/W)*win;
-      if(tb < 0 || tb > dur) continue;
-      var lo=sample(r.lo,tb), mi=sample(r.mi,tb), hi=sample(r.hi,tb);
-      var hL = Math.max(1.2*dpr, lo*wh*0.98);
-      g.fillStyle='#1f6ad0'; g.fillRect(x, cyc-hL/2, bw+0.6, hL);          // bajos (azul, cuerpo)
-      var hM = mi*wh*0.74;
-      if(hM>1){ g.fillStyle='#f0902f'; g.fillRect(x, cyc-hM/2, bw+0.6, hM); } // medios (naranja)
-      var hH = hi*wh*0.40;
-      if(hH>1){ g.fillStyle='#f4f6fb'; g.fillRect(x, cyc-hH/2, bw+0.6, hH); } // agudos (blanco)
-    }
-    /* región de loop activo (verde) sobre la onda */
-    var winA = t-win/2;
-    if(d.loopB>d.loopA){
-      var lx0 = Math.max(0, ((d.loopA-winA)/win)*W), lx1 = Math.min(W, ((d.loopB-winA)/win)*W);
-      if(lx1>0 && lx0<W){
-        g.fillStyle = d.loopOn ? 'rgba(47,208,216,.16)' : 'rgba(120,130,140,.12)';
-        g.fillRect(lx0, wy, lx1-lx0, wh);
-        g.fillStyle = d.loopOn ? '#2fd0d8' : 'rgba(160,170,180,.6)';
-        if(((d.loopA-winA)/win)*W >= 0) g.fillRect(lx0, wy, Math.max(1.4,dpr), wh);
-        if(((d.loopB-winA)/win)*W <= W) g.fillRect(lx1-Math.max(1.4,dpr), wy, Math.max(1.4,dpr), wh);
-      }
-    }
-    /* CUE point principal (naranja, con banderín ▼) */
-    var cx = ((d.cuePt||0)-winA)/win*W;
-    if(cx>=0 && cx<=W){ g.fillStyle='#ff9f1a'; g.fillRect(cx-dpr*0.7, wy, Math.max(1.4,dpr*1.4), wh);
-      g.beginPath(); g.moveTo(cx-4*dpr,wy); g.lineTo(cx+4*dpr,wy); g.lineTo(cx,wy+5*dpr); g.closePath(); g.fill();
-    }
-    /* marcadores de hot cue (líneas de color, 8 slots) */
-    for(var hci=0; hci<4; hci++){ if(d.hc[hci]==null) continue;
-      var hx = ((d.hc[hci]-winA)/win)*W;
-      if(hx>=0 && hx<=W){ g.fillStyle=PADCOL[hci]; g.fillRect(hx-dpr, wy, Math.max(1.4,dpr*1.4), wh);
-        g.fillStyle='#0d0b0a'; g.fillRect(hx-4*dpr, wy, 8*dpr, 7*dpr);
-        g.fillStyle=PADCOL[hci]; g.font=Math.round(6*dpr)+'px "IBM Plex Mono",monospace'; g.fillText((hci+1), hx-1.6*dpr, wy+0.5*dpr);
-        g.font=Math.round(8.5*dpr)+'px "IBM Plex Mono",monospace';
-      }
-    }
-    /* beat grid al BPM (los sets van al grid desde t=0) */
-    if(r.v.bpm){
-      var spb = 60/r.v.bpm, b0 = Math.max(0, Math.ceil((t-win/2)/spb)), b1 = Math.floor((t+win/2)/spb);
-      for(var kb=b0; kb<=b1; kb++){
-        var xb = ((kb*spb-(t-win/2))/win)*W, bar4 = (kb%4===0);
-        g.fillStyle = bar4 ? 'rgba(229,55,46,.7)' : 'rgba(223,230,242,.32)';
-        g.fillRect(xb, wy, bar4?Math.max(2,1.4*dpr):1, 4*dpr);
-      }
-    }
-    /* aguja roja fija al centro */
-    g.fillStyle='#e5372e'; g.fillRect(W/2-1*dpr, wy-2*dpr, Math.max(2,1.6*dpr), wh+4*dpr);
-    /* tira overview del track completo (bajos) */
-    var oy = wy+wh+4*dpr, oh = 12*dpr;
-    var n2 = Math.max(80, Math.min(N, Math.floor(W/(1.6*dpr))));
-    for(var b2=0;b2<n2;b2++){
-      var v2 = (r.lo[Math.floor(b2/n2*N)]/255)||0.02, h2 = Math.max(1, v2*oh*0.95);
-      g.fillStyle = (b2/n2 < prog) ? '#3f86e0' : 'rgba(63,134,224,.3)';
-      g.fillRect(b2/n2*W, oy+(oh-h2)/2, Math.max(1,1.4*dpr), h2);
-    }
-    /* loop + hot cues en el overview */
-    if(d.loopB>d.loopA){
-      g.fillStyle = d.loopOn ? 'rgba(47,208,216,.28)' : 'rgba(120,130,140,.2)';
-      g.fillRect(d.loopA/dur*W, oy, Math.max(1,(d.loopB-d.loopA)/dur*W), oh);
-    }
-    for(var hco=0; hco<4; hco++){ if(d.hc[hco]==null) continue;
-      g.fillStyle=PADCOL[hco]; g.fillRect(d.hc[hco]/dur*W, oy, Math.max(1,1.2*dpr), oh); }
-    g.fillStyle='#ff9f1a'; g.fillRect((d.cuePt||0)/dur*W, oy, Math.max(1,1.2*dpr), oh);   // cue point
-    g.fillStyle='#e5372e'; g.fillRect(prog*(W-2*dpr), oy-1*dpr, Math.max(2,1.4*dpr), oh+2*dpr);
-    /* fila inferior: caja BPM · KEY (Camelot, color = match armónico) · FRASE */
-    var by = H-11*dpr;
-    var bpm = r.v.bpm ? (r.v.bpm*(1+d.tv/100)).toFixed(1) : '--';
-    g.strokeStyle='rgba(143,180,232,.5)'; g.lineWidth=1;
-    g.strokeRect(5*dpr, by-1.5*dpr, 56*dpr, 11*dpr);
-    g.fillStyle='#dfe6f2'; g.fillText(bpm+' BPM', 8*dpr, by);
-    var mk=masterCam(d), kcol=mk?(harmonic(r.cam,mk)?'#3fd07a':'#e5372e'):'#d9b24a';
-    g.fillStyle=kcol; g.fillText(r.cam+' '+r.keyName.replace(' MIN','m').replace(' MAJ','M'), 66*dpr, by);
-    var bs=60/(r.v.bpm||120), bar=Math.floor(t/(4*bs)), bip=(bar%8)+1, phr='P'+(Math.floor(bar/8)+1)+' '+bip+'/8';
-    g.fillStyle=(bip>=7)?'#ffb03a':'#8fb4e8'; var pw=g.measureText(phr).width;
-    g.fillText(phr, W-pw-6*dpr, by);
-  }
-  var lcdms = document.getElementById('lcdms'), lcdbpm = document.getElementById('lcdbpm'), lcddot = document.getElementById('lcddot');
-  var lastDrift = 0;
-  function draw(){
-    requestAnimationFrame(draw);
-    var now = performance.now();
-    // enforcement de loops: al llegar al final del loop, regresa al inicio
-    DECKS.forEach(function(d){
-      if(d.loopOn && d.au && !d.au.paused && d.loopB>d.loopA && d.au.currentTime >= d.loopB-0.004){
-        try{ d.au.currentTime = d.loopA; }catch(e){}
-      }
-      // el pitch-bend del jog solo dura mientras giras: si te detienes, vuelve al tempo base
-      if(d.jogActive && d.au && !d.au.paused && d.jogBendT && (now - d.jogBendT) > 80){
-        d.au.playbackRate = 1+d.tv/100; d.jogBendT=0;
-      }
-    });
-    // anti-deriva del SYNC: cada 1.5 s re-alinea la fase si se desvió >3% de un beat
-    if(now - lastDrift > 1500){ lastDrift = now;
-      DECKS.forEach(function(d){
-        if(!d.synced || !d.au || d.au.paused || d.loopOn) return;
-        var m = masterOf(d); if(!m || !m.au || m.au.paused) return;
-        var mb=60/m.rec.v.bpm, myb=60/d.rec.v.bpm;
-        var mfrac=(m.au.currentTime%mb)/mb, err=(d.au.currentTime%myb)/myb - mfrac;
-        if(err>0.5) err-=1; if(err<-0.5) err+=1;
-        if(Math.abs(err) > 0.03){
-          var base = Math.round((d.au.currentTime - mfrac*myb)/myb)*myb + mfrac*myb;
-          if(base<0) base+=myb; try{ d.au.currentTime = base; }catch(e){}
-        }
-      });
-    }
-    DECKS.forEach(drawDeck);
-    DECKS.forEach(function(d,i){ setVU(VUS[i], d.an ? lvlDb(d.an) : -100); });
-    setVU(VUML, BUS ? lvlDb(BUS.anL) : -100);
-    setVU(VUMR, BUS ? lvlDb(BUS.anR) : -100);
-    lcdms.textContent = Math.round(fxTime()*1000)+' ms';
-    var sd = selDeck();
-    var bpm = (sd && sd.rec && sd.rec.v.bpm) ? sd.rec.v.bpm*(1+sd.tv/100) : 0;
-    lcdbpm.textContent = bpm ? bpm.toFixed(1)+' BPM' : '— BPM';
-    if(bpm && sd.au && !sd.au.paused){
-      var ph = (performance.now()/1000) % (60/bpm);
-      lcddot.classList.toggle('on', ph < 0.12);
-    } else lcddot.classList.remove('on');
-  }
-  // ---- SET PRECARGADO (André): DELIRIO en SINCRONIA (deck 0, lado A) + GUERRERO (deck 2, lado B) ----
-  (function preloadSet(){
-    var iDeli=-1, iGuer=-1;
-    RECS.forEach(function(r,k){ if(r&&r.v){ if(r.v.id==='amr-tulum') iDeli=k; if(r.v.id==='amr-guerrero') iGuer=k; } });
-    if(iDeli<0 || iGuer<0 || !DECKS[0] || !DECKS[2]) return;
-    load(DECKS[0], RECS[iDeli]);                 // DELIRIO en el deck 0 (lado A)
-    load(DECKS[2], RECS[iGuer]);                 // GUERRERO en el deck 2 (lado B)
-    try{ DECKS[0].au.preload='metadata'; DECKS[2].au.preload='metadata'; }catch(e){}
-    var s0=document.getElementById('rola0'); if(s0) s0.value=iDeli;
-    var s2=document.getElementById('rola2'); if(s2) s2.value=iGuer;
-    masterDeck=0;
-    // cue DELIRIO en SINCRONIA (el pico) — arranca ahí
-    var tt=titlesOf(DECKS[0].rec), si=tt.indexOf('SINCRONIA'); if(si<0) si=9;
-    var sinc=(offsetsOf(DECKS[0].rec)[si])||3752.8;
-    var d0=DECKS[0]; d0.cuePt=sinc;
-    var setCue=function(){ try{ d0.au.currentTime=sinc; }catch(e){} };
-    if(d0.au.readyState>=1) setCue(); else d0.au.addEventListener('loadedmetadata', setCue, {once:true});
-    setXF(-1);                                    // crossfader hacia DELIRIO
-    paintSync();
-  })();
-  draw();
-})();
 
 /* ---- próximas tocadas — EDITA AQUÍ (fecha, lugar, ciudad, nota) ---- */
 var EVENTS = [
@@ -1989,6 +1083,55 @@ if(window.AMR_GUER){
 
 
 /* ---- JACARANDA: los dos cortes sueltos ---- */
+/* ---- SUBSUELO: el set completo + dos cortes ---- */
+if(window.AMR_SUBSUELO){
+  var SU = window.AMR_SUBSUELO;
+  var sugi = VOFF + VINYLS.indexOf(SU);
+  var sub = document.createElement('button');
+  sub.className = 'card oxidocard'; sub.id = 'card-su0';
+  sub.innerHTML =
+    '<span class="num"><span>AMR SET 006 — SUBSUELO</span><b>RUST 12″</b></span>'+
+    '<div class="sleeve"><div class="vinyl"><span class="lbl">SUBSUELO</span></div>'+
+    '<div class="cover"><img src="'+SU.art+'" alt="SUBSUELO artwork — a cross-section descending into glowing bedrock"></div>'+
+    '<span class="pchip" id="chip-su0">▸ PLAY</span></div>'+
+    '<h3>SUBSUELO</h3><p class="desc">Rust 12″ — a Boiler Room with no voices, because nobody is talking down there. Eight levels straight down at 125 BPM in one continuous mix: from the kerb, where the low end comes through a closed door, to BASALTO — the bedrock the city stands on — then the water seeps back and a door opens onto daylight. The bassline leads the whole way. Concrete, iron and groove.</p>'+
+    '<div class="row"><b>125 BPM</b><span>THE SET · A MIN</span><b>'+fmt(SU.dur)+'</b></div>';
+  sub.addEventListener('click', function(){ (cur===sugi && !audio.paused) ? pause() : playTrack(sugi); });
+  grid.appendChild(sub);
+  var _scSU = syncCards;
+  syncCards = function(){ _scSU(); var c=document.getElementById('card-su0'), ch=document.getElementById('chip-su0'); if(c){var on=(cur===sugi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} };
+}
+
+/* ---- SUBSUELO: los dos cortes sueltos ---- */
+var SPICKS = [
+  {sec:5, file:'audio/amr-subsuelo-cut-basalto.m4a', art:'art/subsuelo-basalto.svg', key:'A MIN',
+   desc:'Bedrock — the volcanic rock the whole city stands on, cooled into hexagonal columns. The deepest, densest point of the record.'},
+  {sec:3, file:'audio/amr-subsuelo-cut-ducto.m4a',   art:'art/subsuelo-ducto.svg',   key:'A MIN',
+   desc:'A vertical air shaft seen from the bottom, looking up at the light. Everything echoes and comes back late — the delay is the melody.'}
+];
+var cardsS = [];
+if(window.AMR_SUBSUELO){
+  SPICKS.forEach(function(sp,k){
+    var S = window.AMR_SUBSUELO, name = S.titles[sp.sec];
+    var end = (sp.sec+1 < S.offsets.length) ? S.offsets[sp.sec+1] : S.dur;
+    var dur = end - S.offsets[sp.sec];
+    sp.gi = T.length; T.push({ title:name, file:sp.file, dur:dur, kicker:'SUBSUELO · CORTE', bpm:125, cut:true, edition:(S.edition||8) });
+    var b = document.createElement('button');
+    b.className = 'card oxidocard'; b.id = 'card-s'+k;
+    b.innerHTML =
+      '<span class="num"><span>SUBSUELO · OCHO NIVELES</span><b>RUST 7″</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">SUBSUELO</span></div>'+
+      '<div class="cover"><img src="'+sp.art+'" alt="'+name+' drawing"></div>'+
+      '<span class="pchip" id="chip-s'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+sp.desc+'</p>'+
+      '<div class="row"><b>125 BPM</b><span>THE CUT · '+sp.key+'</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===sp.gi && !audio.paused) ? pause() : playTrack(sp.gi); });
+    cardsS.push(b);
+  });
+  var _scS = syncCards;
+  syncCards = function(){ _scS(); SPICKS.forEach(function(sp,k){ var c=document.getElementById('card-s'+k), ch=document.getElementById('chip-s'+k); if(c){var on=(cur===sp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
+}
+
 var NPICKS = [
   {sec:2, file:'audio/amr-jacaranda-cut-fulgor.m4a',  art:'art/jacaranda-fulgor.svg',  key:'C MAJ',
    desc:'Standing under the tree looking up, with the sun coming through the flowers. The violet stops being a colour and becomes light.'},
@@ -2154,7 +1297,7 @@ if(window.AMR_FICCION){
   audio.addEventListener('pause', function(){ var c=document.getElementById('card-x0'), ch=document.getElementById('chip-x0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
 }
 /* mixeadas: naranja, azul, jade, violeta, turquesa, oro — todas intercaladas */
-for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length, cardsN.length); mi++){
+for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length, cardsN.length, cardsS.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
   if(cardsJ[mi]) grid.appendChild(cardsJ[mi]);
@@ -2163,6 +1306,7 @@ for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cards
   if(cardsW[mi]) grid.appendChild(cardsW[mi]);
   if(cardsR[mi]) grid.appendChild(cardsR[mi]);
   if(cardsN[mi]) grid.appendChild(cardsN[mi]);
+  if(cardsS[mi]) grid.appendChild(cardsS[mi]);
 }
 
 /* ---- los dos vinilos (después de la mixer) ---- */
@@ -2187,10 +1331,14 @@ VINYLS.forEach(function(p,j){
   var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUT'+(p.tracks>1?'S':'')+'</span><ol class="vtracks">'+tl+'</ol></div>';
   var isMonFeat = (p.id === 'amr-monuments-side');
   var isGuerFeat = (p.id === 'amr-guerrero');
+  var isSubsueloFeat = (p.id === 'amr-subsuelo');
   var isJacFeat = (p.id === 'amr-jacaranda');
   var isPlayaFeat = (p.id === 'amr-playa');
   var isOracFeat = (p.id === 'amr-oraculo');
-  if(isJacFeat){
+  if(isSubsueloFeat){
+    document.getElementById('nrDisc6').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta6').innerHTML = statsHTML + actHTML + infoHTML;
+  } else if(isJacFeat){
     document.getElementById('nrDisc9').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta9').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isOracFeat){
@@ -2239,6 +1387,123 @@ VINYLS.forEach(function(p,j){
     });
   });
 });
+
+/* ---- LA SESIÓN: el catálogo corrido, una sola cosa que hace una sola cosa ----
+   Reemplaza a la cabina de 4 tornamesas que vivía aquí. No hay decks, ni EQ, ni
+   crossfader, ni AI DJ: hay un botón que arranca MONUMENTS y no para hasta el
+   último compás del último disco, encadenando uno con otro solo. Y una lista
+   donde puedes caer directo en cualquier movimiento.
+   Aquí también se define __RECCOL (la tabla de colores por disco) que ANTES
+   vivía dentro del mixer y que usa el motor de fondos y surcos de abajo. */
+window.__RECCOL = [
+  {id:'amr-monuments-side', c:'#C96F2B', lc:'#E0954F'},
+  {id:'amr-set-the-set',    c:'#A62D3E', lc:'#C8495E'},
+  {id:'amr-tulum',          c:'#2E6FB0', lc:'#5B9BD5'},
+  {id:'amr-guerrero',       c:'#2E9C7C', lc:'#5BC4A5'},
+  {id:'amr-jacaranda',      c:'#463A73', lc:'#9D8BD6'},
+  {id:'amr-subsuelo',       c:'#B4501F', lc:'#D97A45'}
+];
+(function(){
+  var lista = document.getElementById('sessList'), cv = document.getElementById('sessCv');
+  if(!lista || !cv || !VINYLS.length) return;
+  var COL = {}; window.__RECCOL.forEach(function(r){ COL[r.id] = r.lc; });
+  var bar = document.getElementById('sessBar'), cab = document.getElementById('sessHead');
+  var elT = document.getElementById('sessT'), elD = document.getElementById('sessD');
+  var elNow = document.getElementById('sessNow'), btn = document.getElementById('sessPlay');
+  var idx = 0;                                      // disco de la sesión que toca
+  function gi(j){ return VOFF + j; }                // índice global en T
+
+  function bytes(b64){ var t=atob(b64), u=new Uint8Array(t.length); for(var i=0;i<t.length;i++) u[i]=t.charCodeAt(i); return u; }
+  var ONDA = {};
+  VINYLS.forEach(function(v){
+    var w = (window.AMR_WF||{})[v.file];
+    if(w) ONDA[v.id] = {lo:bytes(w.lo), mi:bytes(w.mi), hi:bytes(w.hi)};
+  });
+  function rgb(h){ var n=parseInt(h.slice(1),16); return [(n>>16)&255,(n>>8)&255,n&255]; }
+
+  function dibuja(){
+    var v = VINYLS[idx], W = ONDA[v.id];
+    var d = Math.min(2, window.devicePixelRatio||1), r = bar.getBoundingClientRect();
+    if(r.width < 8){ requestAnimationFrame(dibuja); return; }   // espera al layout
+    cv.width = Math.max(2, Math.round(r.width*d)); cv.height = Math.max(2, Math.round(r.height*d));
+    var x = cv.getContext('2d'), w = cv.width, h = cv.height, mid = h/2;
+    x.clearRect(0,0,w,h);
+    if(!W) return;
+    var c = rgb(COL[v.id] || '#8b857c');
+    [['lo',1.0,.42],['mi',.62,.34],['hi',.34,.5]].forEach(function(b){
+      var A = W[b[0]]; x.fillStyle = 'rgba('+c[0]+','+c[1]+','+c[2]+','+b[2]+')';
+      for(var i=0;i<w;i++){
+        var a = A[Math.floor(i/w*(A.length-1))]/255 * b[1];
+        var alto = Math.max(1, a*mid*0.94);
+        x.fillRect(i, mid-alto, 1, alto*2);
+      }
+    });
+  }
+
+  function pinta(){
+    var t = (typeof absTime==='function' ? absTime() : audio.currentTime) || 0;
+    var dur = VINYLS[idx].dur || 0;
+    cab.style.left = (dur ? Math.min(1, t/dur)*100 : 0) + '%';
+    elT.textContent = fmt(t); elD.textContent = fmt(dur);
+    var v = VINYLS[idx], k = 0;
+    (v.offsets||[]).forEach(function(o,i){ if(t >= o) k = i; });
+    elNow.innerHTML = '<b>'+v.title+'</b> &#183; '+((v.titles||[])[k]||'');
+    document.querySelectorAll('.sessdisc').forEach(function(el,j){
+      el.classList.toggle('on', j===idx);
+      el.querySelectorAll('.sesscuts li').forEach(function(li,i){
+        li.classList.toggle('on', j===idx && i===k && !audio.paused);
+      });
+    });
+    btn.innerHTML = (!audio.paused && cur===gi(idx)) ? '&#9646;&#9646; Pause' : '&#9654; Play the session';
+  }
+
+  function suena(j, seg){
+    idx = j; dibuja();
+    if(cur === gi(j)){ if(seg!=null) absSeek(seg); if(audio.paused) audio.play(); }
+    else {
+      playTrack(gi(j));
+      if(seg!=null){ var f=function(){ audio.removeEventListener('canplay', f); absSeek(seg); }; audio.addEventListener('canplay', f); }
+    }
+  }
+
+  VINYLS.forEach(function(v,j){
+    var col = COL[v.id] || '#8b857c';
+    var cuts = (v.titles||[]).map(function(t,i){
+      return '<li data-d="'+j+'" data-c="'+i+'"><b>'+(i+1<10?'0':'')+(i+1)+'</b> '+t+'</li>';
+    }).join('');
+    var el = document.createElement('div');
+    el.className = 'sessdisc'; el.style.setProperty('--sc', col);
+    el.innerHTML =
+      '<div class="sesshead2" data-d="'+j+'">'+
+        '<span class="sessno">'+(j+1<10?'0':'')+(j+1)+'</span>'+
+        '<span class="sesstit">'+v.title+'</span>'+
+        '<span class="sessmeta">'+(v.tracks||0)+' CUTS &#183; '+fmt(v.dur)+'</span>'+
+      '</div><ul class="sesscuts">'+cuts+'</ul>';
+    lista.appendChild(el);
+  });
+  lista.addEventListener('click', function(e){
+    var h = e.target.closest('.sesshead2');
+    if(h){ suena(+h.dataset.d, 0); return; }
+    var li = e.target.closest('.sesscuts li');
+    if(li){ suena(+li.dataset.d, (VINYLS[+li.dataset.d].offsets||[])[+li.dataset.c]||0); }
+  });
+  btn.addEventListener('click', function(){ (!audio.paused && cur===gi(idx)) ? pause() : suena(idx, null); });
+  document.getElementById('sessPrev').addEventListener('click', function(){ suena((idx-1+VINYLS.length)%VINYLS.length, 0); });
+  document.getElementById('sessNext').addEventListener('click', function(){ suena((idx+1)%VINYLS.length, 0); });
+  bar.addEventListener('click', function(e){
+    var r = bar.getBoundingClientRect();
+    suena(idx, ((e.clientX-r.left)/r.width) * (VINYLS[idx].dur||0));
+  });
+  // encadenado: al acabar un disco entra el siguiente, sin que nadie toque nada
+  audio.addEventListener('ended', function(){ if(cur===gi(idx) && idx<VINYLS.length-1) suena(idx+1, 0); });
+  // si el disco se arranca desde otra parte de la página, la sesión se sincroniza
+  audio.addEventListener('play', function(){
+    var j = VINYLS.findIndex(function(v,k){ return cur === gi(k); });
+    if(j > -1 && j !== idx){ idx = j; dibuja(); }
+  });
+  dibuja(); pinta(); setInterval(pinta, 250);
+  var rd; addEventListener('resize', function(){ clearTimeout(rd); rd = setTimeout(dibuja, 200); });
+})();
 
 /* ---- IDENTIDAD POR DISCO: fondo y surcos dibujados con SUS PROPIOS DATOS ----
    Antes los cuatro paneles eran el mismo par de manchas borrosas con distinto
@@ -2371,8 +1636,12 @@ VINYLS.forEach(function(p,j){
   var COLOR = {};
   (window.__RECCOL||[]).forEach(function(r){ COLOR[r.id] = r.lc; });
   function pinta(){
+    var pendiente = false;
     document.querySelectorAll('.nr').forEach(function(panel){
       if(panel.querySelector('.nrbg')) return;
+      // ⚠️ los paneles del carrusel miden 0 de ancho hasta que hay layout; si se
+      // pinta en ese instante el canvas queda de 2px. Se salta y se reintenta.
+      if(panel.getBoundingClientRect().width < 8){ pendiente = true; return; }
       var disco = panel.querySelector('.vdisc'); if(!disco) return;
       var id = (disco.id||'').replace('vdisc-','');
       var rec = VINYLS[+id]; if(!rec) return;
@@ -2382,11 +1651,13 @@ VINYLS.forEach(function(p,j){
     });
     document.querySelectorAll('.vprod').forEach(function(pr){
       var disco = pr.querySelector('.vdisc'); if(!disco || pr.querySelector('.vgrooves')) return;
+      if(pr.getBoundingClientRect().width < 8){ pendiente = true; return; }
       var rec = VINYLS[+(disco.id||'').replace('vdisc-','')]; if(!rec) return;
       surcos(pr, rec, COLOR[rec.id] || '#C96F2B');
     });
+    if(pendiente) requestAnimationFrame(pinta);
   }
-  pinta();
+  requestAnimationFrame(pinta);
   var redib; addEventListener('resize', function(){
     clearTimeout(redib);
     redib = setTimeout(function(){
