@@ -1,12 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Studio AMR — Six records, cut like monuments</title>
-<meta name="description" content="AMR presses deep house in numbered vinyl editions. Six records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
+<title>Studio AMR — Seven records, cut like monuments</title>
+<meta name="description" content="AMR presses deep house in numbered vinyl editions. Seven records. One sound: sub bass, dust and chords that answer late. Fifty records will ever exist.">
 <meta name="theme-color" content="#EAE6DF">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Studio AMR">
-<meta property="og:title" content="Studio AMR — Six records, cut like monuments">
-<meta property="og:description" content="Six records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA and SUBSUELO — pressed to hand-numbered vinyl. Morelia, MX.">
+<meta property="og:title" content="Studio AMR — Seven records, cut like monuments">
+<meta property="og:description" content="Seven records — MONUMENTS, SESIÓN 001, DELIRIO, GUERRERO, JACARANDA, SUBSUELO and MICELIO — pressed to hand-numbered vinyl. Morelia, MX.">
 <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23141210"/><circle cx="16" cy="16" r="5.5" fill="%23C96F2B"/><circle cx="16" cy="16" r="1.8" fill="%23EAE6DF"/></svg>'>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono&family=Instrument+Serif&display=swap" rel="stylesheet">
 <style>
@@ -438,6 +438,27 @@ body.hasplayer{padding-bottom:70px}
 .card.oxidocard::after{background:#D97A45}
 .card.oxidocard .pchip{border-color:#B4501F;color:#B4501F}
 .card.oxidocard.playing .pchip{background:#B4501F;color:#F0DBCB}
+.card.foxfirecard .num b{color:#12707A}
+.card.foxfirecard .vinyl::after{background:#12707A}
+.card.foxfirecard::after{background:#5ED4DE}
+.card.foxfirecard .pchip{border-color:#12707A;color:#12707A}
+.card.foxfirecard.playing .pchip{background:#12707A;color:#D6F5F7}
+/* MICELIO — noche de bosque, turquesa foxfire: la luz que se prende bajo tus pies */
+.nr.micelio{background:linear-gradient(160deg,#0D1E1F 0%,#123032 55%,#081617 100%)}
+.nr.micelio .nrlive i{background:#5ED4DE;box-shadow:0 0 0 4px rgba(18,112,122,.28)}
+.nr.micelio .nrsub b{color:#5ED4DE}
+.nr.micelio .vlabel{background:radial-gradient(circle at 42% 38%,#5ED4DE,#12707A);box-shadow:0 0 0 5px #0A3A3E;color:#EAFAFB}
+.nr.micelio .vdisc::before{border-color:rgba(18,112,122,.42)}
+.nr.micelio .nrrings span{border-color:rgba(94,212,222,.18)}
+.nr.micelio .vstats b,.nr.micelio .vinfo-lbl b{color:#5ED4DE}
+/* ⚠️ mismo cuidado que subsuelo/jacaranda: los números NO van todos en
+   turquesa. Van apagados y sólo MICELIO (la 5ª, el pico por asombro) se
+   enciende. Si el orden del set cambia hay que mover ESTE nth-child Y la
+   marca de make_micelio_art.py (si algún día tiene marcas propias). */
+.nr.micelio .vtracks li b{color:#4F7A7D}
+.nr.micelio .vtracks li:nth-child(5) b{color:#5ED4DE;text-shadow:0 0 12px rgba(94,212,222,.55)}
+.nr.micelio .vtracks li.on{color:#EAE6DF}
+.nr.micelio .vbuy:hover{border-color:#5ED4DE;color:#5ED4DE}
 /* SUBSUELO — óxido sobre concreto: el disco industrial */
 .nr.subsuelo{background:linear-gradient(160deg,#1C1815 0%,#2A2420 55%,#0F0C0A 100%)}
 .nr.subsuelo .nrlive i{background:#D97A45;box-shadow:0 0 0 4px rgba(180,80,31,.28)}
@@ -585,7 +606,7 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- INTRO -->
 <div id="intro">
-  <div class="isub">SUBSUELO — SIX RECORDS <b>·</b> MMXXVI</div>
+  <div class="isub">MICELIO — SEVEN RECORDS <b>·</b> MMXXVI</div>
   <div class="iword">AMR</div>
   <button class="btn solid ibtn" id="dropBtn">Drop the needle ↓</button>
   <button class="iskip" id="skipBtn">just browse</button>
@@ -603,13 +624,13 @@ body.hasplayer{padding-bottom:70px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-top"><span>MORELIA, MX</span><span class="a">SIX RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
+  <div class="hero-top"><span>MORELIA, MX</span><span class="a">SEVEN RECORDS · ONE STUDIO</span><span>EST. MMXXVI</span></div>
   <img class="hero-art" src="art/amr-hero.svg" alt="" aria-hidden="true">
   <h1 class="hero-word"><span>A</span><span>M</span><span>R</span></h1>
   <div class="hero-bottom">
     <p class="hero-claim"><b>Streaming forgets. Vinyl doesn't.</b> Studio AMR presses its music to coloured records in short, hand-numbered runs. When a run sells out, the plate is retired — no repress, ever.</p>
     <div class="hero-cta">
-      <a class="btn solid" href="#subsuelo">▸ New record — SUBSUELO</a>
+      <a class="btn solid" href="#micelio">▸ New record — MICELIO</a>
       <a class="btn" href="#vinyls">Get the vinyl</a>
     </div>
   </div>
@@ -630,7 +651,20 @@ body.hasplayer{padding-bottom:70px}
 <!-- LOS DOS DROPS — carril horizontal libre (deriva sola, arrastrable) -->
 <div class="dropsrail" id="dropsrail">
 
-<!-- SUBSUELO — el lanzamiento nuevo, primero del carril (óxido) -->
+<!-- MICELIO — el lanzamiento nuevo, primero del carril (turquesa foxfire) -->
+<section class="nr micelio hpanel" id="micelio">
+  <div class="nrin">
+    <div class="nrleft">
+      <span class="nrlive"><i></i>OUT NOW — NEW RELEASE</span>
+      <h2 class="nrtitle">MICELIO</h2>
+      <p class="nrsub">A starry night deep in the forest, with something growing underneath. Eight movements at <b>120 BPM</b> in one continuous mix — the wooden flute is the voice the whole way through, answered by a nylon-string guitar and a warm rolling bass, with real water, birds and crickets woven under everything. It opens in the fog at the tree line and ends at dawn, walking home. <b>MICELIO</b> is the peak — not a drop, the moment the network under your feet lights up and the whole forest turns out to be one organism. Psychedelic, never dark. Cut to foxfire vinyl, numbered by hand.</p>
+      <div id="nrMeta5"></div>
+    </div>
+    <div class="nrdisc" id="nrDisc5"></div>
+  </div>
+</section>
+
+<!-- SUBSUELO (Boiler Room sin voces) -->
 <section class="nr subsuelo hpanel" id="subsuelo">
   <div class="nrin">
     <div class="nrleft">
@@ -723,7 +757,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec" id="vinyls">
   <div class="sh">
     <div><span class="hk">THE VINYL</span><h2>Amber, wine, blue, jade, violet, turquoise.</h2></div>
-    <p>The collection, six records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet and SUBSUELO on rust. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
+    <p>The collection, seven records deep: the amber EP, the session on wine-red, DELIRIO on blue, GUERRERO on jade, JACARANDA on violet, SUBSUELO on rust and MICELIO on foxfire. Hit play on a record — it plays right here and spins. When an edition sells out, the plate is retired.</p>
   </div>
   <div class="vgrid" id="vgrid"></div>
 </section>
@@ -732,7 +766,7 @@ body.hasplayer{padding-bottom:70px}
 <section class="sec about" id="about">
   <span class="hk">WHO IS STUDIO AMR</span>
   <p class="lede">Studio AMR is the workshop of <i>André Macouzet Ruiz</i> — AMR, his initials — a builder from Morelia who treats every release like architecture.</p>
-  <p>Six records: an EP pressed from pure waveforms, three continuous sets, JACARANDA — a flowering tree read as an event — and SUBSUELO, eight levels of voiceless Boiler Room tech house down to bedrock. Plus cuts from JACARANDA and SUBSUELO. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
+  <p>Seven records: an EP pressed from pure waveforms, three continuous sets, JACARANDA — a flowering tree read as an event — SUBSUELO, eight levels of voiceless Boiler Room tech house down to bedrock, and MICELIO, a night in the forest where the wooden flute is the only voice. Plus cuts from JACARANDA, SUBSUELO and MICELIO. The rule is the one pinned to the studio wall: <em>most tracks are content — these are records.</em> Each one is numbered by hand. None will be repressed.</p>
 </section>
 
 <!-- CTA -->
@@ -746,7 +780,7 @@ body.hasplayer{padding-bottom:70px}
 </div></section>
 
 <footer><div class="in">
-  <span>STUDIO AMR<b>.</b> — SIX RECORDS, EVER</span>
+  <span>STUDIO AMR<b>.</b> — SEVEN RECORDS, EVER</span>
   <span>CUT IN MORELIA, MX</span>
   <span>SYNTHESIZED FROM RAW WAVEFORMS</span>
 </div></footer>
@@ -796,7 +830,8 @@ body.hasplayer{padding-bottom:70px}
 <script src="guerrero.js?v=202607170430"></script>
 <script src="jacaranda.js?v=202607202300"></script>
 <script src="subsuelo.js?v=202607202300"></script>
-<script src="waveforms.js?v=202607201200"></script>
+<script src="micelio.js?v=202607232200"></script>
+<script src="waveforms.js?v=202607232200"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
 
@@ -810,6 +845,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
     'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
+    'amr-micelio':{img:'art/micelio.svg', kick:'OCHO NOCHES · MICELIO', title:'MICELIO', desc:'Foxfire 12″ — a starry night in the forest with something growing underneath. Eight movements at 120 BPM in one continuous mix: the wooden flute carries the whole record, answered by nylon-string guitar and warm rolling bass, with real water, birds and crickets woven through everything. MICELIO is the peak — not a drop, the moment the network under your feet lights up. Numbered by hand, edition of 8.'},
     'amr-subsuelo':{img:'art/subsuelo.svg?v=3', kick:'OCHO NIVELES · SUBSUELO', title:'SUBSUELO', desc:'Rust 12″ — a Boiler Room with no voices, because nobody is talking down there. Eight levels straight down at 125 BPM in one continuous mix: from the kerb through concrete and iron to BASALTO, the bedrock the city stands on, then water seeping back and a door onto daylight. The bassline leads the whole way. Numbered by hand, edition of 8.'},
     'amr-jacaranda':{img:'art/jacaranda.svg', kick:'FLORACIÓN · JACARANDA', title:'JACARANDA', desc:'Violet 12″ — the jacaranda is not interesting as a tree. It is interesting as an event: it turns a whole city violet for three weeks and then it is over. Seven movements at 120 BPM read as omen, blaze and vestige — VÍSPERA before anything shows, FULGOR when the whole tree catches, VESTIGIO for what is left on the ground. Deep house, one continuous mix. Numbered by hand, edition of 7.'}
   };
@@ -838,7 +874,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
 })();
 
 var ROLAS = window.AMR_TRACKS || [];                           // 5 rolas (grid)
-var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_SUBSUELO].filter(Boolean); // discos completos
+var VINYLS = [window.AMR_MON, window.AMR_SET, window.AMR_TUL, window.AMR_GUER, window.AMR_JACARANDA, window.AMR_SUBSUELO, window.AMR_MICELIO].filter(Boolean); // discos completos
 var T = ROLAS.concat(VINYLS);                                  // reproducibles: 0..4 rolas, 5.. vinilos
 var VOFF = ROLAS.length;
 window.__tulIdx = window.AMR_TUL ? VOFF + VINYLS.indexOf(window.AMR_TUL) : null;
@@ -896,9 +932,10 @@ function cat(t){ return t.kicker ? t.title : 'AMR-00'+t.n; }
 
 /* ---- marquee ---- */
 var MQCAT = ['AMR-01 MONUMENTS \u00b7 AMBER', 'AMR-02 SESI\u00d3N 001 \u00b7 WINE', 'AMR-03 DELIRIO \u00b7 BLUE',
-             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-06 SUBSUELO \u00b7 RUST'];
+             'AMR-04 GUERRERO \u00b7 JADE', 'AMR-05 JACARANDA \u00b7 VIOLET', 'AMR-06 SUBSUELO \u00b7 RUST',
+             'AMR-07 MICELIO \u00b7 FOXFIRE'];
 var mq = MQCAT.map(function(t){ return '<span>'+t+'</span>'; }).join('')
-       + '<span>SIX RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
+       + '<span>SEVEN RECORDS <b>·</b> PRESS PLAY <b>·</b> NUMBERED BY HAND</span>';
 document.getElementById('mqtrack').innerHTML = mq + mq;
 
 /* ---- marquee DELIRIO (azul, scroll infinito) ---- */
@@ -1017,6 +1054,55 @@ if(window.AMR_GUER){
 
 
 /* ---- JACARANDA: los dos cortes sueltos ---- */
+/* ---- MICELIO: el set completo + dos cortes ---- */
+if(window.AMR_MICELIO){
+  var MI = window.AMR_MICELIO;
+  var migi = VOFF + VINYLS.indexOf(MI);
+  var mic = document.createElement('button');
+  mic.className = 'card foxfirecard'; mic.id = 'card-mi0';
+  mic.innerHTML =
+    '<span class="num"><span>AMR SET 007 — MICELIO</span><b>FOXFIRE 12″</b></span>'+
+    '<div class="sleeve"><div class="vinyl"><span class="lbl">MICELIO</span></div>'+
+    '<div class="cover"><img src="'+MI.art+'" alt="MICELIO artwork — a glowing mushroom over its underground network"></div>'+
+    '<span class="pchip" id="chip-mi0">▸ PLAY</span></div>'+
+    '<h3>MICELIO</h3><p class="desc">Foxfire 12″ — a starry night in the forest with something growing underneath. Eight movements at 120 BPM in one continuous mix: the wooden flute is the voice, a nylon-string guitar answers low in the mix, real water and birds and crickets under everything. MICELIO is the peak — not a drop, the moment the network under your feet lights up.</p>'+
+    '<div class="row"><b>120 BPM</b><span>THE SET · D MIN</span><b>'+fmt(MI.dur)+'</b></div>';
+  mic.addEventListener('click', function(){ (cur===migi && !audio.paused) ? pause() : playTrack(migi); });
+  grid.appendChild(mic);
+  var _scMI = syncCards;
+  syncCards = function(){ _scMI(); var c=document.getElementById('card-mi0'), ch=document.getElementById('chip-mi0'); if(c){var on=(cur===migi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} };
+}
+
+/* ---- MICELIO: los dos cortes sueltos ---- */
+var MPICKS2 = [
+  {sec:4, file:'audio/amr-micelio-cut-micelio.m4a', art:'art/micelio.svg', key:'G MIN',
+   desc:'The peak of the record. Not a drop — the moment the network under your feet lights up and the whole forest turns out to be one organism.'},
+  {sec:2, file:'audio/amr-micelio-cut-raudal.m4a',  art:'art/micelio.svg', key:'F MAJ',
+   desc:'Reaching the stream — the flute plays quick liquid runs that answer the running water. The most playful movement of the night.'}
+];
+var cardsMI = [];
+if(window.AMR_MICELIO){
+  MPICKS2.forEach(function(mp,k){
+    var S = window.AMR_MICELIO, name = S.titles[mp.sec];
+    var end = (mp.sec+1 < S.offsets.length) ? S.offsets[mp.sec+1] : S.dur;
+    var dur = end - S.offsets[mp.sec];
+    mp.gi = T.length; T.push({ title:name, file:mp.file, dur:dur, kicker:'MICELIO · CORTE', bpm:120, cut:true, edition:(S.edition||8) });
+    var b = document.createElement('button');
+    b.className = 'card foxfirecard'; b.id = 'card-mi'+k;
+    b.innerHTML =
+      '<span class="num"><span>MICELIO · OCHO NOCHES</span><b>FOXFIRE 7″</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">MICELIO</span></div>'+
+      '<div class="cover"><img src="'+mp.art+'" alt="'+name+' drawing"></div>'+
+      '<span class="pchip" id="chip-mi'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+mp.desc+'</p>'+
+      '<div class="row"><b>120 BPM</b><span>THE CUT · '+mp.key+'</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===mp.gi && !audio.paused) ? pause() : playTrack(mp.gi); });
+    cardsMI.push(b);
+  });
+  var _scMI2 = syncCards;
+  syncCards = function(){ _scMI2(); MPICKS2.forEach(function(mp,k){ var c=document.getElementById('card-mi'+k), ch=document.getElementById('chip-mi'+k); if(c){var on=(cur===mp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
+}
+
 /* ---- SUBSUELO: el set completo + dos cortes ---- */
 if(window.AMR_SUBSUELO){
   var SU = window.AMR_SUBSUELO;
@@ -1231,7 +1317,7 @@ if(window.AMR_FICCION){
   audio.addEventListener('pause', function(){ var c=document.getElementById('card-x0'), ch=document.getElementById('chip-x0'); if(c){c.classList.remove('playing'); ch.innerHTML='\u25b8 PLAY';} });
 }
 /* mixeadas: naranja, azul, jade, violeta, turquesa, oro — todas intercaladas */
-for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length, cardsN.length, cardsS.length); mi++){
+for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cardsT.length, cardsG.length, cardsW.length, cardsR.length, cardsN.length, cardsS.length, cardsMI.length); mi++){
   if(cardsO[mi]) grid.appendChild(cardsO[mi]);
   if(cardsB[mi]) grid.appendChild(cardsB[mi]);
   if(cardsJ[mi]) grid.appendChild(cardsJ[mi]);
@@ -1241,6 +1327,7 @@ for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cards
   if(cardsR[mi]) grid.appendChild(cardsR[mi]);
   if(cardsN[mi]) grid.appendChild(cardsN[mi]);
   if(cardsS[mi]) grid.appendChild(cardsS[mi]);
+  if(cardsMI[mi]) grid.appendChild(cardsMI[mi]);
 }
 
 /* ---- los dos vinilos (después de la mixer) ---- */
@@ -1265,6 +1352,7 @@ VINYLS.forEach(function(p,j){
   var infoHTML = '<div class="vinfo"><span class="vinfo-lbl">THE TRACKS <b>·</b> '+p.tracks+' CUT'+(p.tracks>1?'S':'')+'</span><ol class="vtracks">'+tl+'</ol></div>';
   var isMonFeat = (p.id === 'amr-monuments-side');
   var isGuerFeat = (p.id === 'amr-guerrero');
+  var isMicelioFeat = (p.id === 'amr-micelio');
   var isSubsueloFeat = (p.id === 'amr-subsuelo');
   var isJacFeat = (p.id === 'amr-jacaranda');
   var isPlayaFeat = (p.id === 'amr-playa');
@@ -1281,6 +1369,9 @@ VINYLS.forEach(function(p,j){
   } else if(isPlayaFeat){
     document.getElementById('nrDisc7').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta7').innerHTML = statsHTML + actHTML + infoHTML;
+  } else if(isMicelioFeat){
+    document.getElementById('nrDisc5').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
+    document.getElementById('nrMeta5').innerHTML = statsHTML + actHTML + infoHTML;
   } else if(isGuerFeat){
     document.getElementById('nrDisc3').innerHTML = '<div class="nrrings"><span></span><span></span><span></span></div>' + discHTML;
     document.getElementById('nrMeta3').innerHTML = statsHTML + actHTML + infoHTML;
@@ -1331,7 +1422,8 @@ window.__RECCOL = [
   {id:'amr-tulum',          c:'#2E6FB0', lc:'#5B9BD5'},
   {id:'amr-guerrero',       c:'#2E9C7C', lc:'#5BC4A5'},
   {id:'amr-jacaranda',      c:'#463A73', lc:'#9D8BD6'},
-  {id:'amr-subsuelo',       c:'#B4501F', lc:'#D97A45'}
+  {id:'amr-subsuelo',       c:'#B4501F', lc:'#D97A45'},
+  {id:'amr-micelio',        c:'#12707A', lc:'#5ED4DE'}
 ];
 
 /* ---- IDENTIDAD POR DISCO: fondo y surcos dibujados con SUS PROPIOS DATOS ----
