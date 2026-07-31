@@ -443,6 +443,12 @@ body.hasplayer{padding-bottom:70px}
 .card.foxfirecard::after{background:#5ED4DE}
 .card.foxfirecard .pchip{border-color:#12707A;color:#12707A}
 .card.foxfirecard.playing .pchip{background:#12707A;color:#D6F5F7}
+/* ECO — ámbar de válvula (el único color cálido-dorado del catálogo) */
+.card.ecocard .num b{color:#9A6B1E}
+.card.ecocard .vinyl::after{background:#9A6B1E}
+.card.ecocard::after{background:#E8B24C}
+.card.ecocard .pchip{border-color:#9A6B1E;color:#9A6B1E}
+.card.ecocard.playing .pchip{background:#9A6B1E;color:#FBF0DA}
 /* MICELIO — noche de bosque, turquesa foxfire: la luz que se prende bajo tus pies */
 .nr.micelio{background:linear-gradient(160deg,#0D1E1F 0%,#123032 55%,#081617 100%)}
 .nr.micelio .nrlive i{background:#5ED4DE;box-shadow:0 0 0 4px rgba(18,112,122,.28)}
@@ -831,6 +837,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="jacaranda.js?v=202607202300"></script>
 <script src="subsuelo.js?v=202607202300"></script>
 <script src="micelio.js?v=202607232200"></script>
+<script src="eco.js?v=202607311300"></script>
 <script src="waveforms.js?v=202607232200"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
@@ -1103,6 +1110,27 @@ if(window.AMR_MICELIO){
   syncCards = function(){ _scMI2(); MPICKS2.forEach(function(mp,k){ var c=document.getElementById('card-mi'+k), ch=document.getElementById('chip-mi'+k); if(c){var on=(cur===mp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
 }
 
+/* ---- ECO: single suelto (no es un set de ocho, es una rola) ---- */
+var cardsEC = [];
+if(window.AMR_ECO){
+  var EC = window.AMR_ECO;
+  EC.gi = T.length;
+  T.push({ title:'ECO', file:EC.file, dur:EC.dur, kicker:'SINGLE · DUB', bpm:120, cut:true, edition:1 });
+  var ecb = document.createElement('button');
+  ecb.className = 'card ecocard'; ecb.id = 'card-ec0';
+  ecb.innerHTML =
+    '<span class="num"><span>AMR SINGLE — ECO</span><b>VALVE 7″</b></span>'+
+    '<div class="sleeve"><div class="vinyl"><span class="lbl">ECO</span></div>'+
+    '<div class="cover"><img src="'+EC.art+'" alt="ECO artwork — a sound-system speaker repeating into its own echoes"></div>'+
+    '<span class="pchip" id="chip-ec0">▸ PLAY</span></div>'+
+    '<h3>ECO</h3><p class="desc">Valve 7″ — dub built the way dub was built: the echo is not an effect on top of the arrangement, the echo IS the arrangement. A round upright bass walks slow with room between every phrase, the drums sit behind the beat, organ skanks get swallowed by tape delay, and a melodica carries the melody. Mastered to −12 LUFS on purpose — squeeze it louder and you crush the air between the repeats, which is the whole record.</p>'+
+    '<div class="row"><b>120 BPM</b><span>THE SINGLE · A MIN</span><b>'+fmt(EC.dur)+'</b></div>';
+  ecb.addEventListener('click', function(){ (cur===EC.gi && !audio.paused) ? pause() : playTrack(EC.gi); });
+  cardsEC.push(ecb);
+  var _scEC = syncCards;
+  syncCards = function(){ _scEC(); var c=document.getElementById('card-ec0'), ch=document.getElementById('chip-ec0'); if(c){var on=(cur===EC.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} };
+}
+
 /* ---- SUBSUELO: el set completo + dos cortes ---- */
 if(window.AMR_SUBSUELO){
   var SU = window.AMR_SUBSUELO;
@@ -1329,6 +1357,7 @@ for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cards
   if(cardsS[mi]) grid.appendChild(cardsS[mi]);
   if(cardsMI[mi]) grid.appendChild(cardsMI[mi]);
 }
+cardsEC.forEach(function(c){ grid.appendChild(c); });
 
 /* ---- los dos vinilos (después de la mixer) ---- */
 var vgrid = document.getElementById('vgrid');

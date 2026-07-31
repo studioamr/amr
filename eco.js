@@ -1,0 +1,1 @@
+window.AMR_ECO={"id": "amr-eco", "title": "ECO", "kicker": "SINGLE · DUB", "dur": 168, "file": "audio/amr-eco.m4a", "art": "art/eco.svg", "edition": 1, "bpm": 120, "key": "A MIN"};
