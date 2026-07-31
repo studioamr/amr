@@ -885,6 +885,8 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
     'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
+    'amr-purpurina-vestidor':{img:'art/purpurina-vestidor.svg', kick:'PURPURINA · CORTE', title:'VESTIDOR', desc:'Glitter 7\u2033 \u2014 the opening of PURPURINA, and the odd one out: almost no kick until the very end. Alone in the dressing room before the lights, one warm analog arpeggio circling and gathering. The only track on the record that stands on its own without the floor.'},
+    'amr-purpurina-salon':{img:'art/purpurina-salon.svg', kick:'PURPURINA · CORTE', title:'SAL\u00d3N', desc:'Glitter 7\u2033 \u2014 the other extreme of PURPURINA: the fullest, most physical moment of the record. The floor at its busiest, three synth lines locked together over a bassline with real momentum. The power comes from the groove holding.'},
     'amr-purpurina':{img:'art/purpurina.svg', kick:'SEIS LUCES · PURPURINA', title:'PURPURINA', desc:'Glitter 12″ — the sequin under the spotlight and what is left on the floor after everyone goes home, at the same time. Six movements at 125 BPM in one continuous mix: minimal techno with the heart of a late-70s pop record — bright major-key arpeggios circling like a mirror ball, with a sadness sitting right underneath. Opens alone in the dressing room with no kick, fills the floor, ends with the house lights up. Numbered by hand, edition of 6.'},
     'amr-micelio':{img:'art/micelio.svg', kick:'OCHO NOCHES · MICELIO', title:'MICELIO', desc:'Foxfire 12″ — a starry night in the forest with something growing underneath. Eight movements at 120 BPM in one continuous mix: the wooden flute carries the whole record, answered by nylon-string guitar and warm rolling bass, with real water, birds and crickets woven through everything. MICELIO is the peak — not a drop, the moment the network under your feet lights up. Numbered by hand, edition of 8.'},
     'amr-subsuelo':{img:'art/subsuelo.svg?v=3', kick:'OCHO NIVELES · SUBSUELO', title:'SUBSUELO', desc:'Rust 12″ — a Boiler Room with no voices, because nobody is talking down there. Eight levels straight down at 125 BPM in one continuous mix: from the kerb through concrete and iron to BASALTO, the bedrock the city stands on, then water seeping back and a door onto daylight. The bassline leads the whole way. Numbered by hand, edition of 8.'},
@@ -1113,6 +1115,34 @@ if(window.AMR_PURPURINA){
   cardsPU.push(puc);
   var _scPU = syncCards;
   syncCards = function(){ _scPU(); var c=document.getElementById('card-pu0'), ch=document.getElementById('chip-pu0'); if(c){var on=(cur===pugi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} };
+
+  /* los dos cortes sueltos: los extremos del disco, cada uno con su dibujo */
+  var PPICKS = [
+    {sec:0, file:'audio/amr-purpurina-cut-vestidor.m4a', art:'art/purpurina-vestidor.svg', key:'E MIN',
+     desc:'The opening, and the odd one out: almost no kick until the very end. Alone in the dressing room before the lights — one warm analog arpeggio circling, gathering a pad and a second line an octave up. The only track on the record that stands on its own without the floor.'},
+    {sec:3, file:'audio/amr-purpurina-cut-salon.m4a',    art:'art/purpurina-salon.svg',    key:'D MIN',
+     desc:'The other extreme: the fullest, most physical moment of the record. The floor at its busiest — a firm round kick, a bassline with real momentum, three synth lines locked together. The power comes from the groove holding, not from a build.'}
+  ];
+  PPICKS.forEach(function(pp,k){
+    var name = PU.titles[pp.sec];
+    var end = (pp.sec+1 < PU.offsets.length) ? PU.offsets[pp.sec+1] : PU.dur;
+    var dur = end - PU.offsets[pp.sec];
+    pp.gi = T.length;
+    T.push({ title:name, file:pp.file, dur:dur, kicker:'PURPURINA · CORTE', bpm:125, cut:true, edition:(PU.edition||6) });
+    var b = document.createElement('button');
+    b.className = 'card purpurinacard'; b.id = 'card-pp'+k;
+    b.innerHTML =
+      '<span class="num"><span>PURPURINA · SEIS LUCES</span><b>GLITTER 7″</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">'+name+'</span></div>'+
+      '<div class="cover"><img src="'+pp.art+'" alt="'+name+' drawing"></div>'+
+      '<span class="pchip" id="chip-pp'+k+'">▸ PLAY</span></div>'+
+      '<h3>'+name+'</h3><p class="desc">'+pp.desc+'</p>'+
+      '<div class="row"><b>125 BPM</b><span>THE CUT · '+pp.key+'</span><b>'+fmt(dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===pp.gi && !audio.paused) ? pause() : playTrack(pp.gi); });
+    cardsPU.push(b);
+  });
+  var _scPP = syncCards;
+  syncCards = function(){ _scPP(); PPICKS.forEach(function(pp,k){ var c=document.getElementById('card-pp'+k), ch=document.getElementById('chip-pp'+k); if(c){var on=(cur===pp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
 }
 
 /* ---- MICELIO: el set completo + dos cortes ---- */
