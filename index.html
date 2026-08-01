@@ -469,6 +469,12 @@ body.hasplayer{padding-bottom:70px}
 .card.purpurinacard::after{background:#F2D479}
 .card.purpurinacard .pchip{border-color:#B98A2E;color:#B98A2E}
 .card.purpurinacard.playing .pchip{background:#B98A2E;color:#FBF3DC}
+/* SESIÓN 003 — violeta profundo: el color de las tres horas */
+.card.sesioncard .num b{color:#7A5CA8}
+.card.sesioncard .vinyl::after{background:#7A5CA8}
+.card.sesioncard::after{background:#B49BE0}
+.card.sesioncard .pchip{border-color:#7A5CA8;color:#7A5CA8}
+.card.sesioncard.playing .pchip{background:#7A5CA8;color:#EFE8FA}
 .nr.micelio{background:linear-gradient(160deg,#0D1E1F 0%,#123032 55%,#081617 100%)}
 .nr.micelio .nrlive i{background:#5ED4DE;box-shadow:0 0 0 4px rgba(18,112,122,.28)}
 .nr.micelio .nrsub b{color:#5ED4DE}
@@ -871,6 +877,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="micelio.js?v=202607232200"></script>
 <script src="eco.js?v=202607311300"></script>
 <script src="purpurina.js?v=202607311500"></script>
+<script src="sesion003-partes.js?v=202607311800"></script>
 <script src="waveforms.js?v=202607311500"></script>
 <script>
 var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp con lada, ej '52443...'
@@ -1441,6 +1448,37 @@ for(var mi = 0; mi < Math.max(cardsO.length, cardsB.length, cardsJ.length, cards
   if(cardsS[mi]) grid.appendChild(cardsS[mi]);
   if(cardsMI[mi]) grid.appendChild(cardsMI[mi]);
 }
+/* ---- SESIÓN 003: el set de 3 h, en tres actos ----
+   Va partido porque el archivo completo pesa 211 MB y GitHub rechaza cualquier
+   cosa arriba de 100 MB. Los cortes NO caen a los 61 min exactos: caen en el
+   offset de pieza más cercano al tercio, así cada acto abre y cierra en una
+   transición real. Y coinciden con la forma del set, que se diseñó en dos
+   picos con un valle en medio. */
+var cardsSE = [];
+if(window.AMR_SESION003_PARTES){
+  window.AMR_SESION003_PARTES.forEach(function(pa,k){
+    pa.gi = T.length;
+    T.push({ title:'SESIÓN 003 · '+pa.title, file:pa.file, dur:pa.dur,
+             kicker:'TRES HORAS · '+pa.title, bpm:121, cut:true, edition:3 });
+    var b = document.createElement('button');
+    b.className = 'card sesioncard'; b.id = 'card-se'+k;
+    b.innerHTML =
+      '<span class="num"><span>AMR SESIÓN 003 · '+pa.title+'</span><b>'+(k+1)+' DE 3</b></span>'+
+      '<div class="sleeve"><div class="vinyl"><span class="lbl">'+pa.title.replace('ACTO ','')+'</span></div>'+
+      '<div class="cover"><img src="art/sesion003.svg" alt="SESIÓN 003 — the energy arc of the set"></div>'+
+      '<span class="pchip" id="chip-se'+k+'">▸ PLAY</span></div>'+
+      '<h3>SESIÓN 003 · '+pa.title+'</h3>'+
+      '<p class="desc">'+pa.desc+'. '+pa.tracks+' pieces, mixed continuously at 121 BPM. '+
+      'Part '+(k+1)+' of a three-hour set built the way a set is built: analyse the whole library first, plan the peak, then shape everything as a climb toward it and a descent after. Two peaks with a valley between them — the contrast is what makes a peak land.</p>'+
+      '<div class="row"><b>121 BPM</b><span>THE SESSION · '+pa.tracks+' CUTS</span><b>'+fmt(pa.dur)+'</b></div>';
+    b.addEventListener('click', function(){ (cur===pa.gi && !audio.paused) ? pause() : playTrack(pa.gi); });
+    cardsSE.push(b);
+  });
+  var _scSE = syncCards;
+  syncCards = function(){ _scSE(); window.AMR_SESION003_PARTES.forEach(function(pa,k){ var c=document.getElementById('card-se'+k), ch=document.getElementById('chip-se'+k); if(c){var on=(cur===pa.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
+}
+
+cardsSE.forEach(function(c){ grid.appendChild(c); });
 cardsPU.forEach(function(c){ grid.appendChild(c); });
 cardsEC.forEach(function(c){ grid.appendChild(c); });
 
