@@ -475,6 +475,12 @@ body.hasplayer{padding-bottom:70px}
 .card.sesioncard::after{background:#B49BE0}
 .card.sesioncard .pchip{border-color:#7A5CA8;color:#7A5CA8}
 .card.sesioncard.playing .pchip{background:#7A5CA8;color:#EFE8FA}
+/* RESACA — coral de playa nocturna */
+.card.resacacard .num b{color:#C25A4A}
+.card.resacacard .vinyl::after{background:#C25A4A}
+.card.resacacard::after{background:#F0A08C}
+.card.resacacard .pchip{border-color:#C25A4A;color:#C25A4A}
+.card.resacacard.playing .pchip{background:#C25A4A;color:#FDEDE8}
 .nr.micelio{background:linear-gradient(160deg,#0D1E1F 0%,#123032 55%,#081617 100%)}
 .nr.micelio .nrlive i{background:#5ED4DE;box-shadow:0 0 0 4px rgba(18,112,122,.28)}
 .nr.micelio .nrsub b{color:#5ED4DE}
@@ -876,6 +882,7 @@ body.hasplayer{padding-bottom:70px}
 <script src="subsuelo.js?v=202607202300"></script>
 <script src="micelio.js?v=202607232200"></script>
 <script src="eco.js?v=202607311300"></script>
+<script src="resaca.js?v=202607312100"></script>
 <script src="purpurina.js?v=202607311500"></script>
 <script src="sesion003-partes.js?v=202607311800"></script>
 <script src="waveforms.js?v=202607311500"></script>
@@ -892,6 +899,7 @@ var CONFIG = { email:'andremacouzetruiz@gmail.com', wa:'' }; // pon tu WhatsApp 
     'amr-guerrero':{img:'art/shots/shot-guerrero.jpg', kick:'DESERT SET · GUERRERO', title:'GUERRERO', desc:'Jade 12″ — twelve brand-new cuts written for the desert, in the Maccabi House spirit: the bassline is the lead — three layers of saw, sub and acid squelch through a resonant filter that opens all night. Soft kicks, hand percussion, cowbell, semitone tension. Constant groove, zero ceremony. 57 minutes, 0 to 100.'},
     'amr-playa':{img:'art/shots/shot-playa.svg', kick:'DESERT FUNK · PLAYA', title:'PLAYA', desc:'Gold 12″ — desert funk for the playa at first light. Eight movements at 119 BPM where the bass riff leads: rubbery slides, muted guitar chops, clavinet answering, retro brass stabs and cheeky vocal chops — dust and wind all the way through, one golden sunrise breakdown in the middle. 26 minutes, 0 to 100.'},
     'amr-oraculo':{img:'art/shots/shot-oraculo.svg', kick:'MELODIC TECHNO · ORÁCULO', title:'ORÁCULO', desc:'Crimson 12″ — cinematic melodic techno sci-fi in the spirit of Anyma. Eight movements from a beatless ambient intro to euphoric peaks: the tempo climbs 122→126 BPM, minor keys lift to the relative major at the drops, a gated supersaw lead and a machine-muse voice ride huge reverb, every drop through a stripped breakdown and a riser. The heart in the machine. 21 minutes, 0 to 100.'},
+    'amr-resaca':{img:'art/resaca.svg', kick:'SINGLE \u00b7 RESACA', title:'RESACA', desc:'Coral 7\u2033 \u2014 Brazilian bass, synthesised from nothing but numbers. The bite in that bass does not come from saturation \u2014 it comes from an 11 ms pitch drop at the head of every note, which the ear reads as a finger snapping a string. Drive stays at 1.35: the grit lives in the envelope, not in the distortion. The bass falls BETWEEN the kicks, sub locked to mono under 120 Hz, no reverb anywhere near the low end. Original progression in A minor.'},
     'amr-purpurina-vestidor':{img:'art/purpurina-vestidor.svg', kick:'PURPURINA · CORTE', title:'VESTIDOR', desc:'Glitter 7\u2033 \u2014 the opening of PURPURINA, and the odd one out: almost no kick until the very end. Alone in the dressing room before the lights, one warm analog arpeggio circling and gathering. The only track on the record that stands on its own without the floor.'},
     'amr-purpurina-salon':{img:'art/purpurina-salon.svg', kick:'PURPURINA · CORTE', title:'SAL\u00d3N', desc:'Glitter 7\u2033 \u2014 the other extreme of PURPURINA: the fullest, most physical moment of the record. The floor at its busiest, three synth lines locked together over a bassline with real momentum. The power comes from the groove holding.'},
     'amr-purpurina':{img:'art/purpurina.svg', kick:'SEIS LUCES · PURPURINA', title:'PURPURINA', desc:'Glitter 12″ — the sequin under the spotlight and what is left on the floor after everyone goes home, at the same time. Six movements at 125 BPM in one continuous mix: minimal techno with the heart of a late-70s pop record — bright major-key arpeggios circling like a mirror ball, with a sadness sitting right underneath. Opens alone in the dressing room with no kick, fills the floor, ends with the house lights up. Numbered by hand, edition of 6.'},
@@ -1201,6 +1209,27 @@ if(window.AMR_MICELIO){
   syncCards = function(){ _scMI2(); MPICKS2.forEach(function(mp,k){ var c=document.getElementById('card-mi'+k), ch=document.getElementById('chip-mi'+k); if(c){var on=(cur===mp.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'▸ PLAY';} }); };
 }
 
+/* ---- RESACA: single de Brazilian bass, sintetizado con numpy ---- */
+var cardsRS = [];
+if(window.AMR_RESACA){
+  var RS = window.AMR_RESACA;
+  RS.gi = T.length;
+  T.push({ title:'RESACA', file:RS.file, dur:RS.dur, kicker:'SINGLE \u00b7 BRAZILIAN BASS', bpm:126, cut:true, edition:1 });
+  var rsb = document.createElement('button');
+  rsb.className = 'card resacacard'; rsb.id = 'card-rs0';
+  rsb.innerHTML =
+    '<span class="num"><span>AMR SINGLE \u2014 RESACA</span><b>CORAL 7\u2033</b></span>'+
+    '<div class="sleeve"><div class="vinyl"><span class="lbl">RESACA</span></div>'+
+    '<div class="cover"><img src="'+RS.art+'" alt="RESACA artwork \u2014 a wave pulling back, and what it leaves on the sand"></div>'+
+    '<span class="pchip" id="chip-rs0">\u25b8 PLAY</span></div>'+
+    '<h3>RESACA</h3><p class="desc">Coral 7\u2033 \u2014 Brazilian bass, synthesised from nothing but numbers. The bite in that bass is not saturation: it is an 11 ms pitch drop at the head of every note, which the ear reads as a finger snapping a string. Drive stays at 1.35 \u2014 the grit lives in the envelope, never in the distortion. The bass falls BETWEEN the kicks, the sub is locked to mono under 120 Hz, and no reverb goes anywhere near the low end. Original progression in A minor.</p>'+
+    '<div class="row"><b>126 BPM</b><span>THE SINGLE \u00b7 A MIN</span><b>'+fmt(RS.dur)+'</b></div>';
+  rsb.addEventListener('click', function(){ (cur===RS.gi && !audio.paused) ? pause() : playTrack(RS.gi); });
+  cardsRS.push(rsb);
+  var _scRS = syncCards;
+  syncCards = function(){ _scRS(); var c=document.getElementById('card-rs0'), ch=document.getElementById('chip-rs0'); if(c){var on=(cur===RS.gi&&!audio.paused); c.classList.toggle('playing',on); ch.innerHTML=on?'&#9646;&#9646; PLAYING':'\u25b8 PLAY';} };
+}
+
 /* ---- ECO: single suelto (no es un set de ocho, es una rola) ---- */
 var cardsEC = [];
 if(window.AMR_ECO){
@@ -1480,6 +1509,7 @@ if(window.AMR_SESION003_PARTES){
 
 cardsSE.forEach(function(c){ grid.appendChild(c); });
 cardsPU.forEach(function(c){ grid.appendChild(c); });
+cardsRS.forEach(function(c){ grid.appendChild(c); });
 cardsEC.forEach(function(c){ grid.appendChild(c); });
 
 /* ---- los dos vinilos (después de la mixer) ---- */

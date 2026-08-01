@@ -1,0 +1,37 @@
+rango de energía real del pool: 5.9 – 8.8 (el arco se reescala a esto)
+3 de 15 piezas exceden 3200 Hz de centroide y se les corrige el brillo al preparar:
+    amr-tulum-cut-pianoviejo.m4a            6433 Hz
+    amr-tulum-cut-sincronia.m4a             6423 Hz
+    amr-002-monolith.m4a                    3972 Hz
+pool: 15 piezas propias · 54 min disponibles
+meta: 60 min → se repetirá material 1.1×
+
+  #     min  pieza                                      BPM    E  meta
+  1     0.0  amr-micelio-cut-micelio.m4a             120.00  5.9  6.0
+  2     2.4  amr-tulum-cut-sincronia.m4a             121.02  6.2  6.2
+  3     9.6  amr-micelio-cut-raudal.m4a              120.05  6.8  6.7
+  4    12.0  amr-guer-cut-serpiente.m4a              123.05  7.2  6.9
+  5    16.6  amr-subsuelo-cut-ducto.m4a              124.19  7.5  7.2
+  6    19.0  amr-guer-cut-cactus.m4a                 123.03  7.6  7.4
+  7    23.5  amr-purpurina-cut-salon.m4a             125.11  8.5  7.9
+  8    25.9  amr-jacaranda-cut-letania.m4a           119.98  7.7  8.3
+  9    28.2  amr-002-monolith.m4a                    124.46  7.0  8.4
+ 10    30.9  amr-eco.m4a                             122.48  7.3  7.6
+ 11    33.4  amr-jacaranda-cut-fulgor.m4a            120.01  8.2  7.1
+ 12    35.8  amr-subsuelo-cut-basalto.m4a            124.98  8.8  7.4
+ 13    38.3  amr-purpurina-cut-vestidor.m4a          124.84  6.6  7.8
+ 14    40.8  amr-005-ghost.m4a                       122.54  6.5  8.1
+ 15    43.8  amr-tulum-cut-pianoviejo.m4a            121.02  6.6  8.5
+
+preparando 15 entradas (15 archivos únicos)...
+      brillo 6423 → 3598 Hz (repisa -9.0 dB @ 2500)
+      brillo 3972 → 2986 Hz (repisa -4.5 dB @ 2500)
+  10/15  (arco +0.5 dB)
+      brillo 6433 → 3684 Hz (repisa -9.0 dB @ 2500)
+
+set: 50.6 min (0.84 h) · 1531 compases
+  target -13.0 → LUFS -13.1 · TP -2.6 · crest 1s 7.6
+  target -13.5 → LUFS -13.6 · TP -2.9 · crest 1s 8.0
+  target -14.0 → LUFS -14.0 · TP -3.0 · crest 1s 8.2
+  target -14.5 → LUFS -14.5 · TP -3.0 · crest 1s 8.4
+ningún target pasa el crest — revisar la mezcla

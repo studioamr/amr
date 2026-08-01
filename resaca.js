@@ -1,0 +1,1 @@
+window.AMR_RESACA={"id": "amr-resaca", "title": "RESACA", "kicker": "SINGLE · BRAZILIAN BASS", "dur": 122.9, "file": "audio/amr-resaca.m4a", "art": "art/resaca.svg", "edition": 1, "bpm": 126, "key": "A MIN"};

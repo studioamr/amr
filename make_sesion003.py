@@ -40,6 +40,39 @@ BPM = 121.000
 BAR = 240.0 / BPM
 BAR_N = int(round(BAR * SR))
 CRUCE = 8
+# LA SELECCIÓN — 2 por álbum, no todo el catálogo.
+#
+# La primera versión metió 29 piezas y las repitió 1.4×: eso no es curar, es
+# rellenar. Con 2 por álbum son 15 piezas y ~52 min de material ÚNICO, así que
+# el set dura una hora y NO SE REPITE NADA. Estirar 15 piezas a tres horas
+# habría exigido repetirlas 3.3 veces — peor, no mejor.
+#
+# De dónde sale cada elección:
+#   · PURPURINA  — André pidió VESTIDOR y SALÓN por nombre. Su decisión.
+#   · MICELIO, JACARANDA, SUBSUELO — ya tenían exactamente 2 cortes cada uno,
+#     elegidos con él en sesiones pasadas. Se respetan.
+#   · GUERRERO, TULUM, SINGLES — aquí NO hay una preferencia suya registrada,
+#     así que se elige con criterio medible y se dice cuál: el menos brillante
+#     del grupo (mejor calidad) y el de energía más distinta (contraste). No se
+#     le inventa un gusto que nunca expresó.
+SELECCION = [
+    'amr-eco.m4a',                       # el único single de dub
+    'amr-micelio-cut-micelio.m4a',       # ya elegidos
+    'amr-micelio-cut-raudal.m4a',
+    'amr-jacaranda-cut-fulgor.m4a',
+    'amr-jacaranda-cut-letania.m4a',
+    'amr-subsuelo-cut-basalto.m4a',
+    'amr-subsuelo-cut-ducto.m4a',
+    'amr-purpurina-cut-vestidor.m4a',    # los pidió André
+    'amr-purpurina-cut-salon.m4a',
+    'amr-guer-cut-serpiente.m4a',        # el menos brillante de GUERRERO (1990)
+    'amr-guer-cut-cactus.m4a',           # el más energético (E7.6) — contraste
+    'amr-tulum-cut-sincronia.m4a',       # los 2 menos brillantes de TULUM
+    'amr-tulum-cut-pianoviejo.m4a',      # (6423 y 6433; los 8 están fuera)
+    'amr-005-ghost.m4a',                 # el ÚNICO single en norma (500 Hz)
+    'amr-002-monolith.m4a',              # el menos fuera de los otros (3972)
+]
+
 NIVEL_MEZCLA = -18.0
 # Techo -3.0. Medido: vuelta 1 con -1.5 dejó el m4a en +0.5 dBTP, vuelta 2 con
 # -3.0 lo dejó en -0.1. El AAC suma ~2.9 dB en material tan denso. Bajarlo a
@@ -47,7 +80,8 @@ NIVEL_MEZCLA = -18.0
 # el techo. La solución del true peak no es el techo, es el TRIM MEDIDO sobre
 # el m4a ya codificado, en un lazo — igual que en ECO y en la repisa.
 TECHO = -3.0
-META_MIN = 180.0
+# Una hora, que es lo que dan las 15 piezas seleccionadas SIN repetir ninguna.
+META_MIN = 60.0
 
 # EQ de los cruces. La primera versión usaba el mismo barrido que los discos,
 # con la saliente filtrada pasa-altos HASTA 1000 Hz — o sea, el último tramo de
@@ -110,10 +144,11 @@ def objetivo(t):
 
 def curar():
     lib = json.load(open(os.path.join(HERE, 'biblioteca.json')))
-    pool = [x for x in lib
-            if (x['corte'] or x['file'].startswith('amr-00')
-                or x['file'] == 'amr-eco.m4a')
-            and 'sesion' not in x['file']]     # el set no se come a sí mismo
+    idx = {x['file']: x for x in lib}
+    faltan = [f for f in SELECCION if f not in idx]
+    if faltan:
+        raise SystemExit(f'no están en la biblioteca: {faltan}')
+    pool = [idx[f] for f in SELECCION]
     _RANGO_REAL[0] = min(x['energia'] for x in pool)
     _RANGO_REAL[1] = max(x['energia'] for x in pool)
     print(f'rango de energía real del pool: {_RANGO_REAL[0]:.1f} – '
@@ -128,15 +163,13 @@ def curar():
     print(f'pool: {len(pool)} piezas propias · {disp:.0f} min disponibles')
     print(f'meta: {META_MIN:.0f} min → se repetirá material {META_MIN/disp:.1f}×\n')
 
-    elegidas, usadas, acum = [], set(), 0.0
-    meta_s = META_MIN * 60.0
-    while acum < meta_s:
-        obj = objetivo(min(1.0, acum / meta_s))
-        libres = [x for x in pool if x['file'] not in usadas]
-        if not libres:                       # se agotó la vuelta: se reinicia
-            usadas = set()
-            libres = [x for x in pool
-                      if not elegidas or x['file'] != elegidas[-1]['file']]
+    # ORDENAR, no seleccionar: la selección ya la hace SELECCION a mano. Aquí
+    # sólo se decide en qué ORDEN suenan para que su energía siga el arco.
+    # Cada pieza se usa EXACTAMENTE UNA VEZ — nada se repite.
+    elegidas, libres, acum = [], list(pool), 0.0
+    dur_total = sum(x['dur'] for x in pool) - CRUCE * BAR * (len(pool) - 1)
+    while libres:
+        obj = objetivo(min(1.0, acum / dur_total))
         prev = elegidas[-1] if elegidas else None
 
         def costo(x):
@@ -147,7 +180,7 @@ def curar():
 
         mejor = min(libres, key=costo)
         elegidas.append(mejor)
-        usadas.add(mejor['file'])
+        libres.remove(mejor)
         acum += mejor['dur'] - CRUCE * BAR
     return elegidas
 
@@ -218,6 +251,34 @@ def prepara(pieza, idx):
     if o > 0:
         x = x[:, o:]
     x = x[:, :(x.shape[1] // BAR_N) * BAR_N]
+
+    # ENTRAR DONDE YA HAY GROOVE, no en la intro.
+    #
+    # Esto lo destapó André oyendo el set: 5 de 45 transiciones hacían un hueco
+    # de hasta 10.6 dB. Medido, el nivel caía de -11.6 a -28.3 dB en pleno
+    # cruce. La causa no era el crossfade: era QUE SE CRUZABA HACIA LA INTRO.
+    # Estas piezas son cortes de sets que ya traían su propio arco, así que su
+    # primer compás suele estar casi vacío — y justo cuando la saliente se está
+    # yendo, la entrante todavía no tiene con qué sostener.
+    #
+    # Un DJ nunca mezcla hacia la intro: mezcla hacia donde ya hay groove. Aquí
+    # se busca el primer compás cuyo nivel llega al 60 % del nivel medio de la
+    # pieza, y se arranca ahí. Se limita a 8 compases para no comerse rolas que
+    # de por sí abren suave a propósito (VESTIDOR, por ejemplo).
+    nb = x.shape[1] // BAR_N
+    if nb > 12:
+        m = np.abs(x).mean(axis=0)
+        niv = np.array([np.sqrt((m[i*BAR_N:(i+1)*BAR_N] ** 2).mean())
+                        for i in range(nb)])
+        umbral = 0.60 * np.median(niv[niv > 0]) if (niv > 0).any() else 0.0
+        arranque = 0
+        for i in range(min(8, nb - 4)):
+            if niv[i] >= umbral:
+                arranque = i
+                break
+            arranque = i + 1
+        if arranque > 0:
+            x = x[:, arranque * BAR_N:]
 
     # CORRECCIÓN DE BRILLO, sólo si la pieza lo excede, y medida en un lazo.
     # La repisa se aplica con dB NEGATIVO (baja agudos en vez de subirlos) y se
