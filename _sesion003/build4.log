@@ -1,0 +1,65 @@
+pool: 29 piezas propias · 129 min disponibles
+meta: 180 min → se repetirá material 1.4×
+
+  #     min  pieza                                      BPM    E  meta
+  1     0.0  amr-001-plinth.m4a                      118.01  4.1  4.2
+  2     2.7  amr-004-strata.m4a                      120.83  4.4  4.3
+  3     5.5  amr-003-vessel.m4a                      122.01  4.6  4.4
+  4     8.2  amr-tulum-cut-llegada.m4a               121.00  4.8  4.4
+  5    14.5  amr-002-monolith.m4a                    124.46  4.8  4.6
+  6    17.2  amr-guer-cut-mezcal.m4a                 123.02  5.1  4.7
+  7    21.7  amr-tulum-cut-atlas.m4a                 121.02  5.1  4.8
+  8    28.5  amr-micelio-cut-micelio.m4a             120.00  5.2  5.0
+  9    30.9  amr-tulum-cut-tarde.m4a                 121.02  5.3  5.1
+ 10    37.6  amr-tulum-cut-sincronia.m4a             121.02  5.4  5.2
+ 11    44.9  amr-tulum-cut-adorar.m4a                121.02  5.5  5.4
+ 12    51.6  amr-tulum-cut-pianoviejo.m4a            121.02  5.6  5.6
+ 13    58.4  amr-tulum-cut-metronomo.m4a             121.02  5.9  5.8
+ 14    65.1  amr-micelio-cut-raudal.m4a              120.05  5.9  6.0
+ 15    67.5  amr-tulum-cut-perdidos.m4a              121.02  6.3  6.1
+ 16    74.2  amr-005-ghost.m4a                       122.54  6.5  6.5
+ 17    77.2  amr-eco.m4a                             122.48  6.3  6.7
+ 18    79.7  amr-jacaranda-cut-fulgor.m4a            120.01  7.1  6.8
+ 19    82.1  amr-jacaranda-cut-letania.m4a           119.98  6.4  7.0
+ 20    84.3  amr-subsuelo-cut-basalto.m4a            124.98  7.3  6.8
+ 21    86.8  amr-purpurina-cut-salon.m4a             125.11  7.3  6.6
+ 22    89.2  amr-purpurina-cut-vestidor.m4a          124.84  5.7  6.3
+ 23    91.7  amr-guer-cut-voltaje.m4a                123.10  5.7  6.1
+ 24    96.3  amr-guer-cut-serpiente.m4a              123.05  5.5  5.6
+ 25   100.8  amr-guer-cut-cactus.m4a                 123.03  5.4  5.4
+ 26   105.4  amr-guer-cut-coyote.m4a                 123.03  5.7  5.7
+ 27   109.9  amr-guer-cut-neon.m4a                   123.00  5.4  5.9
+ 28   114.5  amr-subsuelo-cut-ducto.m4a              124.19  5.3  6.2
+ 29   116.9  amr-guer-cut-fuego.m4a                  118.08  5.3  6.3
+ 30   121.7  amr-jacaranda-cut-letania.m4a           119.98  6.4  6.5
+ 31   123.9  amr-005-ghost.m4a                       122.54  6.5  6.6
+ 32   126.9  amr-eco.m4a                             122.48  6.3  6.8
+ 33   129.4  amr-jacaranda-cut-fulgor.m4a            120.01  7.1  6.9
+ 34   131.8  amr-subsuelo-cut-basalto.m4a            124.98  7.3  7.0
+ 35   134.3  amr-purpurina-cut-salon.m4a             125.11  7.3  7.2
+ 36   136.7  amr-tulum-cut-perdidos.m4a              121.02  6.3  7.3
+ 37   143.4  amr-tulum-cut-metronomo.m4a             121.02  5.9  6.7
+ 38   150.2  amr-micelio-cut-raudal.m4a              120.05  5.9  6.2
+ 39   152.5  amr-tulum-cut-pianoviejo.m4a            121.02  5.6  5.9
+ 40   159.3  amr-tulum-cut-sincronia.m4a             121.02  5.4  5.4
+ 41   166.6  amr-tulum-cut-atlas.m4a                 121.02  5.1  5.0
+ 42   173.3  amr-004-strata.m4a                      120.83  4.4  4.5
+ 43   176.1  amr-003-vessel.m4a                      122.01  4.6  4.4
+ 44   178.8  amr-001-plinth.m4a                      118.01  4.1  4.2
+
+preparando 44 entradas (29 archivos únicos)...
+  10/44  (arco -3.9 dB)
+  20/44  (arco -0.9 dB)
+  30/44  (arco -1.4 dB)
+  40/44  (arco -3.5 dB)
+
+set: 182.1 min (3.04 h) · 5509 compases
+  target -13.0 → LUFS -13.3 · TP -0.7 · crest 1s 8.2
+  target -13.5 → LUFS -13.7 · TP -0.7 · crest 1s 8.7
+  target -14.0 → LUFS -14.1 · TP -0.7 · crest 1s 9.1
+  target -14.5 → LUFS -14.6 · TP -1.0 · crest 1s 9.5
+→ elegido -14.0 LUFS (crest 9.1, el más fuerte que pasa 8.8)
+  trim +0.00 dB → m4a TP -1.00 dBTP
+  trim -0.50 dB → m4a TP -1.50 dBTP
+M4A 210 MB · medido (-14.7, 6.3, -1.5)
+sesion003.js escrito · 44 piezas

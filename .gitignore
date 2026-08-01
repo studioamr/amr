@@ -39,3 +39,6 @@ _micelio/_tmp/
 _eco/_tmp/
 _purpurina/_tmp/
 _purpurina/_fix/
+_sesion003/_tmp/
+# el set de 3 h pesa 211 MB y GitHub rechaza archivos >100 MB
+audio/amr-sesion003.m4a
